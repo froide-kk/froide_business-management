@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f822e2cd-8ffc-4428-8941-d198c2f5dfb8" name="変更" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/career-show/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/career-show/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/career-show/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/career-show/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/build/resources/test/spark/template/freemarker/test.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/build/resources/test/spark/template/freemarker/test.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/src/test/resources/spark/template/freemarker/test.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/src/test/resources/spark/template/freemarker/test.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test.java" beforeDir="false" />
-    </list>
+    <list default="true" id="f822e2cd-8ffc-4428-8941-d198c2f5dfb8" name="変更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
