@@ -11,7 +11,7 @@ public class HelloWorld {
         staticFileLocation("/css");
 
 
-        get("/list",(req,res) -> {
+        get("/career",(req,res) -> {
             Map<String, Object> attribute = new HashMap<>();
             String list = req.queryParams("list");
             attribute.put("list", "Hello");
