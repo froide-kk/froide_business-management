@@ -5,9 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f822e2cd-8ffc-4428-8941-d198c2f5dfb8" name="変更" comment="">
+      <change afterPath="$PROJECT_DIR$/HelloWorld/src/main/resources/spark/template/freemarker/admin.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloWorld/src/main/resources/spark/template/freemarker/admin_authorize.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloWorld/src/main/resources/spark/template/freemarker/career_update.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloWorld/src/main/resources/spark/template/freemarker/check_login.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloWorld/src/main/resources/spark/template/freemarker/emp_update.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloWorld/src/main/resources/spark/template/freemarker/login.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloWorld/src/main/resources/spark/template/freemarker/project_term.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloWorld/src/main/resources/spark/template/freemarker/project_update.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloWorld/src/main/resources/spark/template/freemarker/skill_check.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/classes/java/main/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/build/classes/java/main/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/classes/java/test/HelloWorld.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/HelloWorld/build/generated/sources/annotationProcessor/java/main/_employees.java" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/build/generated/sources/annotationProcessor/java/main/_employees.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HelloWorld/build/generated/sources/annotationProcessor/java/main/employees_.java" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/build/generated/sources/annotationProcessor/java/main/employees_.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/resources/main/spark/template/freemarker/test.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/resources/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/resources/test/css/style_1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/resources/test/spark/template/freemarker/career_show.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/resources/test/spark/template/freemarker/list.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/resources/test/spark/template/freemarker/test.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/src/main/java/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/src/main/java/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/src/main/resources/spark/template/freemarker/test.ftl" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +59,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -53,19 +75,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/t-nakashima/Documents/froide_business-management&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;モジュール&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/Users/t-nakashima/Documents/froide_business-management",
+    "project.structure.last.edited": "モジュール",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RunManager" selected="アプリケーション.main">
     <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HelloWorld" />
       <module name="HelloWorld.test" />
@@ -73,8 +96,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
+      <module name="HelloWorld.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="アプリケーション.main" />
         <item itemvalue="アプリケーション.HelloWorld" />
       </list>
     </recent_temporary>
