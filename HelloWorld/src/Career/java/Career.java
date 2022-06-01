@@ -1,12 +1,14 @@
+import org.seasar.doma.jdbc.tx.TransactionManager;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
 
-public class main {
+public class Career {
     public static void main(String[] args){
         staticFileLocation("/css");
 
@@ -20,9 +22,15 @@ public class main {
 
         //一覧画面
         get("/career",(req,res) -> {
+            CareerDao bookDao = new CareerDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-            String list = req.queryParams("list");
-            attribute.put("list", "Hello");
+
+            tm.required(() -> {
+                List<Career> books = careerDao.selectAll();
+                attribute.put("books", books);
+            });
+
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "list.ftl"));
         });
 
