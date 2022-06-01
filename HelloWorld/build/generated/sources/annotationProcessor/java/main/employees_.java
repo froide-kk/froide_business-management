@@ -1,5 +1,5 @@
 /** */
-@javax.annotation.processing.Generated(value = { "Doma", "2.51.0" }, date = "2022-06-01T11:43:51.904+0900")
+@javax.annotation.processing.Generated(value = { "Doma", "2.51.0" }, date = "2022-06-01T14:26:14.917+0900")
 public final class employees_ implements org.seasar.doma.jdbc.criteria.metamodel.EntityMetamodel<employees> {
 
     static {
