@@ -67,6 +67,11 @@ header {
     margin: 0 0.2rem;
 }
 
+.skillButton:checked ~ .skillList{
+height: 54px;
+opacity: 1;
+ }
+
 .list_wrapper_label {
     width:100%;
     display:flex;
