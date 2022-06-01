@@ -6,7 +6,7 @@ import java.util.Map;
 
 import static spark.Spark.*;
 
-public class HelloWorld {
+public class main {
     public static void main(String[] args){
         staticFileLocation("/css");
 
