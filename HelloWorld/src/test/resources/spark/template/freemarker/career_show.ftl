@@ -1,32 +1,74 @@
-<head>
+<html>
 
+<head>
+    <link rel="stylesheet" href="../style_1.css">
 </head>
+
 <body>
     <header>
-        <h2 class="header_title">業務管理サイト</h2>
+            <h2 class="header_title">業務管理サイト</h2>
         <div class="header_right">
             <a><p>My Page</p></a>
             <a><p>管理者</p></a>
-        </div>
-        <div class="header_logout">
             <button>ログアウト</button>
         </div>
     </header>
 
-    <p>戻る</p>
-    <p>編集</p>
-    <p>PDF化</p>
-    <h1>業務経歴書</h1>
-    <p>氏名</p>
-    <p>生年月日</p>
-    <p>住所</p>
-    <p>年齢</p>
-    <p>最終学歴</p>
-    <p>資格</p>
+    </h2>
+
+        <p>戻る</p>
+        <p>編集</p>
+        <p>PDF化</p>
+
+    <h1 align="center">業務経歴書</h1>
+    <table border="1" >
+       <tr>
+         <th width=200>氏名</th>
+         <th width=200></th>
+         <th width=200>生年月日</th>
+         <th width=200></th>
+         <th width=200>資格</th>
+       </tr>
+       <tr>
+         <th>住所</th>
+         <td></td>
+         <th>年齢</th>
+         <td></td>
+         <td rowspan ="2"></td>
+       </tr>
+       <tr>
+         <th>最終学歴</th>
+         <td></td>
+
+       </tr>
+     </table>
+
     <p>○　業務で使用経験あり　　　△　個人レベルで対応可能</p>
-    <p>OS</p>
-    <p>対応可能スクリプト・ツール</p>
-    <p>データベース</p>
+    <div class="example" align="center">OS</div>
+    <div class="example" align="center">対応可能スクリプト・ツール</div>
+    <div class="example" align="center">データベース</div>
+
+    <table border="1" >
+        <tr>
+            <th width=200>氏名</th>
+            <th width=200></th>
+            <th width=200>生年月日</th>
+            <th width=200></th>
+            <th width=200>資格</th>
+        </tr>
+        <tr>
+            <th>住所</th>
+            <td></td>
+            <th>年齢</th>
+            <td></td>
+            <td rowspan ="2"></td>
+        </tr>
+        <tr>
+            <th>最終学歴</th>
+            <td></td>
+
+        </tr>
+    </table>
     <p>業種</p>
     <p>企業名</p>
     <p>プロジェクト</p>
