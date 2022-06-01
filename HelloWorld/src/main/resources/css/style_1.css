@@ -6,7 +6,7 @@
 
 body {
     width:100%;
-    margin: 1.5rem auto;
+    background-color: #e6e6e6;
 }
 
 li{
@@ -15,18 +15,25 @@ li{
 
 a {
     text-decoration:none;
+    color:#000000;
+}
+
+button {
+width: 150px;
 }
 
 header {
     margin-bottom:1.5rem;
+    background-color:#33FFCC;
+    padding: 10px;
 }
 
 .header_title {
     display:flex;
     padding:1rem;
     font-size: 2.5rem;
-     background-color:#33FFCC;
-     margin-bottom:0.5rem;
+    height: 10px;
+    color:#000000;
 }
 
 .header_right {
@@ -35,11 +42,92 @@ header {
     margin-right:0.5rem;
 }
 
-.header_right p {
-    padding:0.8rem;
+.header_right li {
+    flex: 0.03 0 auto;
+    font-size: 1.2rem;
 }
 
-.list_wrapper_title {
+.logout{
+    background-color:#33FFCC;
+}
+
+.back {
+    margin-left:0.5rem;
+}
+
+.browseBack{
+    background-color:#e6e6e6;
+}
+
+.edit{
+    background-color:#e6e6e6;
+
+}
+
+.pdf {
+    background-color:#ff6347;
+}
+
+.option {
+    display:flex;
+    justify-content:flex-end;
+    margin-right:0.5rem;
+}
+
+.option li {
+    flex: 0.01 0 auto;
+}
+
+.careerSheet {
+    margin : 30px;
+    padding : 20px;
+    background-color: #ffffff;
+}
+
+.sheetHead {
+    font-size: 2rem;
+    text-align:center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width:100%
+}
+
+th{
+    width:100px;
+}
+
+td{
+    width:200px;
+}
+
+.level{
+    text-align:center;
+}
+
+.os{
+    padding: 10px;
+    border: 1px solid #333;
+    float:left;
+}
+
+.tool{
+
+    padding: 10px;
+    border: 1px solid #333;
+    float:left;
+}
+
+.database{
+
+    padding: 10px;
+    border: 1px solid #333;
+    float:left;
+}
+
+/* .list_wrapper_title {
     width:80%;
     font-size: 1.7rem;
     margin: 1rem auto;
@@ -108,11 +196,5 @@ header {
 .right_button{
     padding:0.5rem;
 }
+*/
 
-
-.example{
-
-    padding: 10px;
-    border: 1px solid #333;
-    float:left;
-}
