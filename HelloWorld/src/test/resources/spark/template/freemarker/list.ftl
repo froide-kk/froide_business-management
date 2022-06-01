@@ -18,9 +18,11 @@
         一覧画面
     </h2>
 
-    <div class="list_wrapper">
 
+
+    <div class="list_wrapper">
         <div class="list_wrapper_search">
+            <div class="list_wrapper_empty"></div>
             <div class="list_wrapper_header">
                 <div class="list_header_items">
                     <input type="textbox" placeholder="社員名で検索">
