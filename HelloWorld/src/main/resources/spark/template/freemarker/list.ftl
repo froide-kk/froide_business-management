@@ -24,30 +24,35 @@
         <div class="list_wrapper_search">
             <div class="list_wrapper_empty"></div>
             <div class="list_wrapper_header">
+<!--                社員名の検索-->
                 <div class="list_header_items">
                     <input type="textbox" placeholder="社員名で検索">
                     <img src="" alt="虫">
                 </div>
+<!--                所属部署の検索-->
                 <div class="list_header_items">
                     <select name="departments"　class="department_list">
                         <option value selected>所属部署</option>
                     </select>
                 </div>
+<!--                入社年月の検索-->
                 <div class="list_header_items">
                     <select name="join_date" class="join_list">
                         <option value="">入社年月</option>
                     </select>
                 </div>
+<!--                技術チェックのチェックボックス-->
                 <div class="list_header_items">
-
-                    <div class="subBody">
-                        <input type="checkbox">Java
+                    <div>
+                        <input type="button" class="skillButton" value="技術"/>
+                        <ul class="skillList">
+                        <li><input type="checkbox">Java</li>
+                        </ul>
                     </div>
-
+<!--                    生年月日の検索-->
                 </div>
                 <div class="list_header_items">
-                    <input type="textbox" placeholder="社員名で検索">
-                    <img src="" alt="虫">
+                    <input type="textbox" placeholder="生年月日で検索">
                 </div>
             </div>
 
@@ -63,11 +68,11 @@
 
             <div class="list_wrapper_band">
                 <ul class="list_wrapper_items">
-                    <li>DB番号</li>
-                    <li>DB名前</li>
-                    <li>DB所属部署</li>
-                    <li>DB入社年月</li>
-                    <li>DB技術</li>
+                    <li>番号</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ul>
             </div>
 
