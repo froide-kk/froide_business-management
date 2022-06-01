@@ -29,16 +29,21 @@
                     <img src="" alt="虫">
                 </div>
                 <div class="list_header_items">
-                    <input type="textbox" placeholder="社員名で検索">
-                    <img src="" alt="虫">
+                    <select name="departments"　class="department_list">
+                        <option value selected>所属部署</option>
+                    </select>
                 </div>
                 <div class="list_header_items">
-                    <input type="textbox" placeholder="社員名で検索">
-                    <img src="" alt="虫">
+                    <select name="join_date" class="join_list">
+                        <option value="">入社年月</option>
+                    </select>
                 </div>
                 <div class="list_header_items">
-                    <input type="textbox" placeholder="社員名で検索">
-                    <img src="" alt="虫">
+
+                    <div class="subBody">
+                        <input type="checkbox">Java
+                    </div>
+
                 </div>
                 <div class="list_header_items">
                     <input type="textbox" placeholder="社員名で検索">
