@@ -49,11 +49,11 @@
                         <label class="skillLabel" for="skillCheckLabel">技術</label><!--技術ボタンの設定-->
                         <input type="checkbox" class="skillCheckbox" id="skillCheckLabel">
                         <ul class="skillList">
-<!--                            <li><input type="checkbox">Java</li>-->
-<!--                            <li><input type="checkbox">Spark</li>-->
-<!--                            <li><input type="checkbox">JavaScript</li>-->
-<!--                            <li><input type="checkbox">MySQL</li>-->
-<!--                            <li><input type="checkbox">macOS</li>-->
+                            <li><input type="checkbox">Java</li>
+                            <li><input type="checkbox">Spark</li>
+                            <li><input type="checkbox">JavaScript</li>
+                            <li><input type="checkbox">MySQL</li>
+                            <li><input type="checkbox">macOS</li>
                         </ul>
                     </div>
                     <!--                    生年月日の検索-->
@@ -87,27 +87,6 @@
                 </ul>
             </#list>
             </div>
-
-
-        <div class="list_wrapper_band">
-            <ul class="list_wrapper_label">
-                <li>番号</li>
-                <li>名前</li>
-                <li>所属部署</li>
-                <li>入社年月</li>
-                <li>技術</li>
-            </ul>
-        </div>
-
-        <div class="list_wrapper_band">
-            <ul class="list_wrapper_items">
-                <li>番号</li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
 
     </div>
 

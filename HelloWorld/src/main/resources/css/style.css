@@ -73,6 +73,7 @@ display: inline-block;
     width: 15em;
     padding: 1.5em;
     margin: 0.5em 0;
+    height:1rem;
 }
 
 .department_list{
@@ -89,12 +90,6 @@ padding: 0.5em;
     margin: 0.5em 0.5em;
 }
 
-.skillButton {
-width: 10em;
-height: 2.5em;
- margin: 0.5em 0.5em;
-}
-
 .birthday_search{
 width: 100%;
 height: 2.5em;
@@ -106,6 +101,7 @@ padding: 0.5em;
 width: 5em;
 height: 2.5em;
  margin: 0.5em 0em;
+ }
 
 .skillList {
     position: absolute;
@@ -115,28 +111,27 @@ height: 2.5em;
 .skillList li {
     display: none;
     width:10rem;
-    height:50%;
+    height:2.2rem;
     border-bottom: 1px solid white;
 }
 
 .skillCheckbox {
     opacity: 0;
     position: relative;
+    display:none;
 }
 
 .skillLabel{
     display: block;
     background-color: #098;
+    margin-top:11.5px;
+    padding: 0.6rem 4rem;
+    border: 1px solid black;
 }
 
 #skillCheckLabel:checked + .skillList li {
     display: block;
-
 }
-
-
-
-
 
 .list_wrapper_label {
     width:100%;
