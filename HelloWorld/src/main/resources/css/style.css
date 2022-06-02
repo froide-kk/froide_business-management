@@ -60,31 +60,52 @@ header {
 .list_wrapper_header{
     display:flex;
     margin-bottom: 3.5rem;
+    max-width: 100%
 }
 
 .list_header_items {
     display:flex;
-    margin: 0 0.2rem;
+    width: 100%;
 }
 
-.skillList input {
-    display: none;
+.emp_name_search{
+display: inline-block;
+    width: 15em;
+    padding: 1.5em;
+    margin: 0.5em 0;
 }
 
-.skillList ul {
-    background :#f4f4f4;
-    list-style: none;
+.department_list{
+width: 100%;
+height: 2.5em;
+padding: 0.5em;
+    margin: 0.5em 0.5em;
 }
 
-.skillList li {
-    height: 0;
-    overflow: hidden;
+.join_list{
+width: 100%;
+height: 2.5em;
+padding: 0.5em;
+    margin: 0.5em 0.5em;
 }
 
-/* アコーディオンメニューの作成 */
-.skillButton:checked ~ .skillList{
-    height: 54px;
-    opacity: 1;
+.skillButton {
+width: 10em;
+height: 2.5em;
+ margin: 0.5em 0.5em;
+}
+
+.birthday_search{
+width: 100%;
+height: 2.5em;
+padding: 0.5em;
+    margin: 0.5em 0.5em;
+}
+
+.searchButton {
+width: 5em;
+height: 2.5em;
+ margin: 0.5em 0em;
 }
 
 .list_wrapper_label {
