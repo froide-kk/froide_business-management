@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 </head>
 
 <body>
@@ -23,33 +24,47 @@
     <div class="list_wrapper">
         <div class="list_wrapper_search">
             <div class="list_wrapper_empty"></div>
+            <form>
             <div class="list_wrapper_header">
+<!--                社員名の検索-->
                 <div class="list_header_items">
                     <input type="textbox" placeholder="社員名で検索">
-                    <img src="" alt="虫">
                 </div>
-                <div class="list_header_items">
-                    <select name="departments"　class="department_list">
-                        <option value selected>所属部署</option>
+<!--                所属部署の検索-->
+                <div class="list_header_items" class="department_list">
+                    <select name="departments">
+                        <option value="">所属部署</option>
                     </select>
                 </div>
+<!--                入社年月の検索-->
                 <div class="list_header_items">
                     <select name="join_date" class="join_list">
                         <option value="">入社年月</option>
+                        <option value="">降順</option>
+                        <option value="">昇順</option>
                     </select>
                 </div>
+<!--                技術チェックのチェックボックス-->
                 <div class="list_header_items">
-
-                    <div class="subBody">
-                        <input type="checkbox">Java
+                    <div class="skillCheck">
+                        <label class="skillLabel" for="skillCheckLabel">技術</label><!--技術ボタンの設定-->
+                        <input type="checkbox" class="skillCheckbox" id="skillCheckLabel">
+                        <ul class="skillList">
+                            <li><input type="checkbox">Java</li>
+                            <li><input type="checkbox">Spark</li>
+                            <li><input type="checkbox">JavaScript</li>
+                            <li><input type="checkbox">MySQL</li>
+                            <li><input type="checkbox">macOS</li>
+                        </ul>
                     </div>
-
+<!--                    生年月日の検索-->
                 </div>
                 <div class="list_header_items">
-                    <input type="textbox" placeholder="社員名で検索">
-                    <img src="" alt="虫">
+                    <input type="textbox" placeholder="生年月日で検索">
+                    <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
+            </form>
 
             <div class="list_wrapper_band">
                 <ul class="list_wrapper_label">
@@ -62,7 +77,6 @@
             </div>
 
             <div class="list_wrapper_band">
-
                 <#list Emplists as Emplist>
                 <ul class="list_wrapper_items">
                     <li>${Emplist_index+1}</li>
@@ -71,7 +85,7 @@
                     <li>${Emplist.join_date}</li>
                     <li>DB技術</li>
                 </ul>
-                </#list>
+            </#list>
             </div>
 
         </div>

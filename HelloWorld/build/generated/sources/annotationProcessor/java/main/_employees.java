@@ -1,5 +1,5 @@
 /** */
-@javax.annotation.processing.Generated(value = { "Doma", "2.51.0" }, date = "2022-06-02T11:33:18.199+0900")
+@javax.annotation.processing.Generated(value = { "Doma", "2.51.0" }, date = "2022-06-02T13:36:09.329+0900")
 @org.seasar.doma.EntityTypeImplementation
 public final class _Employees extends org.seasar.doma.jdbc.entity.AbstractEntityType<Employees> {
 
