@@ -39,12 +39,15 @@
                 <div class="list_header_items">
                     <select name="join_date" class="join_list">
                         <option value="">入社年月</option>
+                        <option value="">降順</option>
+                        <option value="">昇順</option>
                     </select>
                 </div>
                 <!--                技術チェックのチェックボックス-->
                 <div class="list_header_items">
                     <div class="skillCheck">
-                        <button class="skillButton">技術</button><!--技術ボタンの設定-->
+                        <label class="skillLabel" for="skillCheckLabel">技術</label><!--技術ボタンの設定-->
+                        <input type="checkbox" class="skillCheckbox" id="skillCheckLabel">
                         <ul class="skillList">
 <!--                            <li><input type="checkbox">Java</li>-->
 <!--                            <li><input type="checkbox">Spark</li>-->
@@ -60,7 +63,31 @@
                 </div>
                 <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
-        </form>
+
+            </form>
+
+            <div class="list_wrapper_band">
+                <ul class="list_wrapper_label">
+                    <li>番号</li>
+                    <li>名前</li>
+                    <li>所属部署</li>
+                    <li>入社年月</li>
+                    <li>技術</li>
+                </ul>
+            </div>
+
+            <div class="list_wrapper_band">
+                <#list Emplists as Emplist>
+                <ul class="list_wrapper_items">
+                    <li>${Emplist_index+1}</li>
+                    <li>${Emplist.name}</li>
+                    <li>${Emplist.department_id}</li>
+                    <li>${Emplist.join_date}</li>
+                    <li>DB技術</li>
+                </ul>
+            </#list>
+            </div>
+
 
         <div class="list_wrapper_band">
             <ul class="list_wrapper_label">
