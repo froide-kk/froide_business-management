@@ -1,5 +1,5 @@
 /** */
-@javax.annotation.processing.Generated(value = { "Doma", "2.51.0" }, date = "2022-06-02T11:33:18.317+0900")
+@javax.annotation.processing.Generated(value = { "Doma", "2.51.0" }, date = "2022-06-02T13:36:09.753+0900")
 @org.seasar.doma.DaoImplementation
 public class EmployeesDaoImpl implements EmployeesDao, org.seasar.doma.jdbc.ConfigProvider {
 

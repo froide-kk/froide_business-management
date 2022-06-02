@@ -67,6 +67,36 @@ header {
     margin: 0 0.2rem;
 }
 
+.skillList {
+position: absolute;
+background-color: #098;
+}
+
+.skillList li {
+display: none;
+width:10rem;
+height:50%;
+border-bottom: 1px solid white;
+}
+
+.skillCheckbox {
+opacity: 0;
+position: relative;
+}
+
+.skillLabel{
+display: block;
+background-color: #098;
+}
+
+#skillCheckLabel:checked + .skillList li {
+display: block;
+}
+
+
+
+
+
 .list_wrapper_label {
     width:100%;
     display:flex;
