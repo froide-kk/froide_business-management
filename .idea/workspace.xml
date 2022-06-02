@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f822e2cd-8ffc-4428-8941-d198c2f5dfb8" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/build/resources/main/css/style_1.css" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/build/resources/main/css/style_1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/build/resources/main/spark/template/freemarker/career_show.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/build/resources/main/spark/template/freemarker/career_show.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/src/main/resources/css/style_1.css" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/src/main/resources/css/style_1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld/src/main/resources/spark/template/freemarker/career_show.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/src/main/resources/spark/template/freemarker/career_show.ftl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
