@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f822e2cd-8ffc-4428-8941-d198c2f5dfb8" name="変更" comment="">
+    <list default="true" id="f822e2cd-8ffc-4428-8941-d198c2f5dfb8" name="変更" comment="Merge branch 'main' into t-nakashima&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;HelloWorld/.gradle/7.4/checksums/checksums.lock&#10;#&#9;HelloWorld/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock&#10;#&#9;HelloWorld/.gradle/7.4/executionHistory/executionHistory.lock&#10;#&#9;HelloWorld/.gradle/7.4/fileHashes/fileHashes.lock&#10;#&#9;HelloWorld/.gradle/buildOutputCleanup/buildOutputCleanup.lock">
       <change afterPath="$PROJECT_DIR$/HelloWorld/build/classes/java/main/EmployeesDao.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/HelloWorld/build/classes/java/main/EmployeesDaoImpl.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/HelloWorld/build/classes/java/main/META-INF/EmployeesDao/selectAll.sql" afterDir="false" />
