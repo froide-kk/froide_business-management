@@ -1,0 +1,99 @@
+/* ヘッダー部分 */
+* {
+    font-size: 1.2rem;
+    padding:0;
+    margin:0;
+}
+body {
+    width:100%;
+    background-color: #e6e6e6;
+}
+li{
+    list-style:none;
+}
+a {
+    text-decoration:none;
+    color:#000000;
+}
+button {
+    width: 150px;
+}
+header {
+    margin-bottom:1.5rem;
+    background-color:#33FFCC;
+    padding: 10px;
+}
+.header_title {
+    display:flex;
+    padding:1rem;
+    font-size: 2.5rem;
+    height: 10px;
+    color:#000000;
+}
+.header_right {
+    display:flex;
+    justify-content:flex-end;
+    margin-right:0.5rem;
+}
+.header_right li {
+    flex: 0.03 0 auto;
+    font-size: 1.2rem;
+}
+.logout{
+    background-color:#33FFCC;
+    color:#e60000;
+}
+/* ここまでヘッダー */
+
+/* 戻るボタン */
+.back {
+    margin-left:2rem;
+}
+.browseBack{
+    background-color:#e6e6e6;
+}
+/* 編集ボタンとPDF化ボタンの部分 */
+.keep {
+    margin-left : 1550px;
+    background-color:#6495ed;
+    width: 150px;
+}
+.option li {
+    flex: 0.01 0 auto;
+}
+.edit{
+    background-color:#e6e6e6;
+}
+.pdf {
+    background-color:#ff6347;
+}
+/* 業務経歴書の部分 */
+.careerSheet {
+    margin : 30px;
+    padding : 20px;
+    background-color: #ffffff;
+}
+.sheetHead {
+    font-size: 2rem;
+    text-align:center;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width:80%
+}
+th{
+    width:100px;
+    text-align:center;
+}
+td{
+    width:200px;
+    text-align:center;
+}
+
+.level{
+    text-align:center;
+}
+
+.project{
+}
