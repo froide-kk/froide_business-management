@@ -19,8 +19,31 @@ dependencies {
     implementation 'org.seasar.doma:doma-core:2.51.0'
     implementation 'org.seasar.doma:doma-slf4j:2.51.0'
     implementation 'mysql:mysql-connector-java:8.0.28'
+    processResources.destinationDir = compileJava.destinationDir
+    compileJava.dependsOn processResources
 }
 
 test {
     useJUnitPlatform()
+}
+
+task copyDomaResources(type: Sync) {
+    // SQLコピー
+    from sourceSets.main.resources.srcDirs
+    println 'SQLファイルのコピー元'
+    println sourceSets.main.resources.srcDirs
+    into compileJava.destinationDir
+    println 'SQLファイルのコピー先'
+    println compileJava.destinationDir
+
+    include 'doma.compile.config'
+    include 'META-INF/**/*.sql'
+    include 'META-INF/**/*.script'
+}
+
+sourceSets {
+    main {
+        // output.resourcesDir = file("$buildDir/classes/java/main") 下の方がいい
+        output.resourcesDir = compileJava.destinationDir
+    }
 }
