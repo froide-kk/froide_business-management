@@ -1,7 +1,6 @@
 <html>
 <head>
-<!--    なぜかこのファイルのhrefだけ../をつけるとcssと反応しない。なぜだ-->
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <header>
@@ -12,6 +11,6 @@
         <button>ログアウト</button>
     </div>
 </header>
-プロジェクトメンバー確認管理グラフですよー　ここのjavaはわからん
+プロジェクト編集画面ですよーーー　
 </body>
 </html>
