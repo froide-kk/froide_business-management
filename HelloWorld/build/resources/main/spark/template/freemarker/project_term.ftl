@@ -1,5 +1,6 @@
 <html>
 <head>
+<!--    なぜかこのファイルのhrefだけ../をつけるとcssと反応しない。なぜだ-->
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>

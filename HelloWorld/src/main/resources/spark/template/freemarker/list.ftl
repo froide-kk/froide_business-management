@@ -31,9 +31,9 @@
                     <input type="textbox" placeholder="社員名で検索">
                 </div>
 <!--                所属部署の検索-->
-                <div class="list_header_items">
-                    <select name="departments"　class="department_list">
-                        <option value selected>所属部署</option>
+                <div class="list_header_items" class="department_list">
+                    <select name="departments">
+                        <option value="">所属部署</option>
                     </select>
                 </div>
 <!--                入社年月の検索-->
@@ -45,7 +45,7 @@
 <!--                技術チェックのチェックボックス-->
                 <div class="list_header_items">
                     <div class="skillCheck">
-                        <input type="button" class="skillButton" value="技術"/><!--技術ボタンの設定-->
+                        <button class="skillButton">技術</button><!--技術ボタンの設定-->
                         <ul class="skillList">
                             <li><input type="checkbox">Java</li>
                             <li><input type="checkbox">Spark</li>
