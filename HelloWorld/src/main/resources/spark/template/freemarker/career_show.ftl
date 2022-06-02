@@ -1,28 +1,21 @@
 <html>
-
 <head>
     <link rel="stylesheet" href="../style_1.css">
     <title>業務経歴書</title>
 </head>
-
 <body>
-    <!---------- ヘッダー部分　---------->
-    <header class="career">
-        <h2><a class ="header_title" href="">業務経歴管理サイト</a></h2>
-        <nav>
-            <ul class="header_right">
-                <li><a href="">My Page</a></li>
-                <li><a href="">管理者</a></li>
-                <li><button class="logout">ログアウト</button></li>
-            </ul>
-        </nav>
-    </header>
-    <!---------- 戻るボタン ---------->
-    <nav class="disp">
-        <ul class="back">
-            <button class="browseBack"><a href="">戻る</a></button>
+<!---------- ヘッダー部分　---------->
+<header class="career">
+    <h2><a class ="header_title" href="">業務経歴管理サイト</a></h2>
+    <nav>
+        <ul class="header_right">
+            <li><a href="">My Page</a></li>
+            <li><a href="#">My Page</a></li>
+            <li><a href="">管理者</a></li>
+            <li><button class="logout">ログアウト</button></li>
         </ul>
     </nav>
+
     <!---------- 編集ボタンとPDF化ボタン ---------->
     <nav class="disp">
         <ul class="option">
@@ -158,26 +151,119 @@
                 <td>要件分析 DB設計</td>
             </tr>
         </table>
-    </div>
-    <script>
-    const display = (flag) => {
-    const target =  document.querySelectorAll(".disp,.career")
-    if(flag === true){
-     target.forEach((element) =>{
-    element.style.display = "block"
-    })
-    }else{
-     target.forEach((element) =>{
-    element.style.display = "none"
-    })
-    }
-  }
-    document.querySelector(".pdf").addEventListener("click",() => {
-    display(false)
-    window.print();
-    display(true)
-    })
-    </script>
 
+    </div>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>OS</th>
+            <th>対応可能スクリプト・ツール</th>
+            <th>DB</th>
+        </tr>
+        <tr>
+            <td>IBM 5100</td>
+            <td>HTML/CSS,JavaScript,Java,Python</td>
+            <td>MySQL</td>
+        </tr>
+    </table>
+    <br>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>【業種】</th>
+            <th>【プロジェクト】</th>
+            <th colspan="2" >【期間】</th>
+        </tr>
+        <tr>
+            <td>IT企業</td>
+            <td>例のアレ</td>
+            <td>2022.4 〜 2022.6</td>
+            <td>3ヶ月</td>
+        </tr>
+    </table>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>【システムの概要】</th>
+            <th>【役割】</th>
+        </tr>
+        <tr>
+            <td>社内業務履歴管理システム</td>
+            <td>PG</td>
+        </tr>
+    </table>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>【開発規模】</th>
+            <th>【開発担当フェーズ】</th>
+        </tr>
+        <tr>
+            <td>5人以下</td>
+            <td>要件分析 DB設計</td>
+        </tr>
+    </table>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>【システムの詳細】</th>
+        </tr>
+        <tr>
+            <td>社内の業務を管理するシステムです</td>
+        </tr>
+    </table>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>【使用言語・環境・ツール】</th>
+        </tr>
+        <tr>
+            <td>Java　MySQL HTML/CSS</td>
+        </tr>
+    </table>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>【業種】</th>
+            <th>【プロジェクト】</th>
+            <th colspan="2" >【期間】</th>
+        </tr>
+        <tr>
+            <td>IT企業</td>
+            <td>例のアレ</td>
+            <td>2022.4 〜 2022.6</td>
+            <td>3ヶ月</td>
+        </tr>
+    </table>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>【システムの概要】</th>
+            <th>【役割】</th>
+        </tr>
+        <tr>
+            <td>社内業務履歴管理システム</td>
+            <td>PG</td>
+        </tr>
+    </table>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>【開発規模】</th>
+            <th>【開発担当フェーズ】</th>
+        </tr>
+        <tr>
+            <td>5人以下</td>
+            <td>要件分析 DB設計</td>
+        </tr>
+    </table>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>【システムの詳細】</th>
+        </tr>
+        <tr>
+            <td>社内の業務を管理するシステムです</td>
+        </tr>
+    </table>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>【使用言語・環境・ツール】</th>
+        </tr>
+        <tr>
+            <td>Java　MySQL HTML/CSS</td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
