@@ -47,7 +47,7 @@
                 <th>最終学歴</th>
                 <th>資格</th>
             </tr>
-            <#list Emplists as emplists>
+
             <tr>
                 <td></td>
                 <td>1999-11-06</td>
