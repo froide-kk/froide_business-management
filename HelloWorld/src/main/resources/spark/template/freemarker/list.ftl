@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 </head>
 
 <body>
@@ -23,28 +24,44 @@
     <div class="list_wrapper">
         <div class="list_wrapper_search">
             <div class="list_wrapper_empty"></div>
+            <form>
             <div class="list_wrapper_header">
+<!--                社員名の検索-->
                 <div class="list_header_items">
                     <input type="textbox" placeholder="社員名で検索">
-                    <img src="" alt="虫">
+                </div>
+<!--                所属部署の検索-->
+                <div class="list_header_items" class="department_list">
+                    <select name="departments">
+                        <option value="">所属部署</option>
+                    </select>
+                </div>
+<!--                入社年月の検索-->
+                <div class="list_header_items">
+                    <select name="join_date" class="join_list">
+                        <option value="">入社年月</option>
+                    </select>
+                </div>
+<!--                技術チェックのチェックボックス-->
+                <div class="list_header_items">
+                    <div class="skillCheck">
+                        <button class="skillButton">技術</button><!--技術ボタンの設定-->
+                        <ul class="skillList">
+                            <li><input type="checkbox">Java</li>
+                            <li><input type="checkbox">Spark</li>
+                            <li><input type="checkbox">JavaScript</li>
+                            <li><input type="checkbox">MySQL</li>
+                            <li><input type="checkbox">macOS</li>
+                        </ul>
+                    </div>
+<!--                    生年月日の検索-->
                 </div>
                 <div class="list_header_items">
-                    <input type="textbox" placeholder="社員名で検索">
-                    <img src="" alt="虫">
-                </div>
-                <div class="list_header_items">
-                    <input type="textbox" placeholder="社員名で検索">
-                    <img src="" alt="虫">
-                </div>
-                <div class="list_header_items">
-                    <input type="textbox" placeholder="社員名で検索">
-                    <img src="" alt="虫">
-                </div>
-                <div class="list_header_items">
-                    <input type="textbox" placeholder="社員名で検索">
-                    <img src="" alt="虫">
+                    <input type="textbox" placeholder="生年月日で検索">
+                    <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
+            </form>
 
             <div class="list_wrapper_band">
                 <ul class="list_wrapper_label">
@@ -58,11 +75,11 @@
 
             <div class="list_wrapper_band">
                 <ul class="list_wrapper_items">
-                    <li>DB番号</li>
-                    <li>DB名前</li>
-                    <li>DB所属部署</li>
-                    <li>DB入社年月</li>
-                    <li>DB技術</li>
+                    <li>番号</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ul>
             </div>
 

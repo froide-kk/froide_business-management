@@ -1,6 +1,6 @@
 /** */
-@javax.annotation.processing.Generated(value = { "Doma", "2.51.0" }, date = "2022-06-01T16:57:16.795+0900")
-public final class employees_ implements org.seasar.doma.jdbc.criteria.metamodel.EntityMetamodel<employees> {
+@javax.annotation.processing.Generated(value = { "Doma", "2.51.0" }, date = "2022-06-02T11:33:18.230+0900")
+public final class Employees_ implements org.seasar.doma.jdbc.criteria.metamodel.EntityMetamodel<Employees> {
 
     static {
         org.seasar.doma.internal.Artifact.validateVersion("2.51.0");
@@ -8,7 +8,7 @@ public final class employees_ implements org.seasar.doma.jdbc.criteria.metamodel
 
     private final String __qualifiedTableName;
 
-    private final _employees __entityType = _employees.getSingletonInternal();
+    private final _Employees __entityType = _Employees.getSingletonInternal();
 
     private final java.util.List<org.seasar.doma.jdbc.criteria.metamodel.PropertyMetamodel<?>> __allPropertyMetamodels;
 
@@ -30,13 +30,13 @@ public final class employees_ implements org.seasar.doma.jdbc.criteria.metamodel
 
     public final org.seasar.doma.jdbc.criteria.metamodel.PropertyMetamodel<java.lang.Integer> management_flag = new org.seasar.doma.jdbc.criteria.metamodel.DefaultPropertyMetamodel<java.lang.Integer>(java.lang.Integer.class, __entityType, "management_flag");
 
-    public final org.seasar.doma.jdbc.criteria.metamodel.PropertyMetamodel<java.lang.String> password = new org.seasar.doma.jdbc.criteria.metamodel.DefaultPropertyMetamodel<java.lang.String>(java.lang.String.class, __entityType, "password");
+    public final org.seasar.doma.jdbc.criteria.metamodel.PropertyMetamodel<java.lang.Integer> department_id = new org.seasar.doma.jdbc.criteria.metamodel.DefaultPropertyMetamodel<java.lang.Integer>(java.lang.Integer.class, __entityType, "department_id");
 
-    public employees_() {
+    public Employees_() {
         this("");
     }
 
-    public employees_(String qualifiedTableName) {
+    public Employees_(String qualifiedTableName) {
         this.__qualifiedTableName = java.util.Objects.requireNonNull(qualifiedTableName);
         java.util.ArrayList<org.seasar.doma.jdbc.criteria.metamodel.PropertyMetamodel<?>> __list = new java.util.ArrayList<>(10);
         __list.add(id);
@@ -48,12 +48,12 @@ public final class employees_ implements org.seasar.doma.jdbc.criteria.metamodel
         __list.add(birthday);
         __list.add(join_date);
         __list.add(management_flag);
-        __list.add(password);
+        __list.add(department_id);
         __allPropertyMetamodels = java.util.Collections.unmodifiableList(__list);
     }
 
     @Override
-    public org.seasar.doma.jdbc.entity.EntityType<employees> asType() {
+    public org.seasar.doma.jdbc.entity.EntityType<Employees> asType() {
         return __qualifiedTableName.isEmpty() ? __entityType : new org.seasar.doma.jdbc.criteria.metamodel.EntityTypeProxy<>(__entityType, __qualifiedTableName);
     }
 
