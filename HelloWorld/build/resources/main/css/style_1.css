@@ -1,118 +1,102 @@
+/* ヘッダー部分 */
 * {
     font-size: 1.2rem;
     padding:0;
     margin:0;
 }
-
 body {
     width:100%;
-    margin: 1.5rem auto;
+    background-color: #e6e6e6;
 }
-
 li{
     list-style:none;
 }
-
 a {
     text-decoration:none;
+    color:#000000;
 }
-
+button {
+    width: 150px;
+}
 header {
     margin-bottom:1.5rem;
+    background-color:#33FFCC;
+    padding: 10px;
 }
-
 .header_title {
     display:flex;
     padding:1rem;
     font-size: 2.5rem;
-     background-color:#33FFCC;
-     margin-bottom:0.5rem;
+    height: 10px;
+    color:#000000;
 }
-
 .header_right {
     display:flex;
     justify-content:flex-end;
     margin-right:0.5rem;
 }
-
-.header_right p {
-    padding:0.8rem;
+.header_right li {
+    flex: 0.03 0 auto;
+    font-size: 1.2rem;
 }
-
-.list_wrapper_title {
-    width:80%;
-    font-size: 1.7rem;
-    margin: 1rem auto;
-}
-
-.list_wrapper{
-    width: 80%;
-    margin: 0 auto;
-}
-
-.list_wrapper_empty {
-    width:100%;
-    height:3rem;
+.logout{
     background-color:#33FFCC;
-    margin-bottom:2rem;
+    color:#e60000;
 }
-
-.list_wrapper_header{
+/* ここまでヘッダー */
+/* 戻るボタン */
+.back {
+    margin-left:0.5rem;
+}
+.browseBack{
+    background-color:#e6e6e6;
+}
+/* 編集ボタンとPDF化ボタンの部分 */
+.option {
     display:flex;
-    margin-bottom: 3.5rem;
+    justify-content:flex-end;
+    margin-right:0.5rem;
+}
+.option li {
+    flex: 0.01 0 auto;
+}
+.edit{
+    background-color:#e6e6e6;
+}
+.pdf {
+    background-color:#ff6347;
+}
+/* 業務経歴書の部分 */
+.careerSheet {
+    margin : 30px;
+    padding : 20px;
+    background-color: #ffffff;
+}
+.sheetHead {
+    font-size: 2rem;
+    text-align:center;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width:100%
+}
+th{
+    width:100px;
+    text-align:center;
+    font-size:1.5rem;
+}
+td{
+    width:200px;
+    text-align:center;
+    font-size:1.1rem;
 }
 
-.list_header_items {
-    display:flex;
-    margin: 0 0.2rem;
-}
-
-.list_wrapper_label {
-    width:100%;
-    display:flex;
-    justify-content: space-between;
-    background-color:#33FFCC;
-    margin-bottom:1rem;
-}
-
-.list_wrapper_label li{
-
-    padding:0 1.5rem;
-}
-
-.list_wrapper_items {
-    width: 100%;
-    display:flex;
-    justify-content: space-between;
-    margin-bottom:1rem;
-}
-
-.list_wrapper_items {
-    padding:0 1.5rem;
-}
-
-.list_wrapper_numbers {
+.level{
     text-align:center;
 }
 
-.page-nation_button {
-    width:100%;
-    display:flex;
-    justify-content:center;
-}
-
-.left_button{
-    padding:0.5rem;
-}
-
-.right_button{
-    padding:0.5rem;
-}
-
-
-.example{
-
-    padding: 10px;
-    border: 1px solid #333;
-    float:left;
+.project{
+    width:100px;
+    font-size:1.5rem;
 }
