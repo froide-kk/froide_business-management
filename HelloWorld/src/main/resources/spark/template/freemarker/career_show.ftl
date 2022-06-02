@@ -15,7 +15,7 @@
             <li><button class="logout">ログアウト</button></li>
         </ul>
     </nav>
-
+</header>
     <!---------- 編集ボタンとPDF化ボタン ---------->
     <nav class="disp">
         <ul class="option">
@@ -265,5 +265,24 @@
         </tr>
     </table>
 </div>
+<script>
+    const display = (flag) => {
+    const target =  document.querySelectorAll(".disp,.career")
+    if(flag === true){
+     target.forEach((element) =>{
+    element.style.display = "block"
+    })
+    }else{
+     target.forEach((element) =>{
+    element.style.display = "none"
+    })
+    }
+  }
+    document.querySelector(".pdf").addEventListener("click",() => {
+    display(false)
+    window.print();
+    display(true)
+    })
+    </script>
 </body>
 </html>
