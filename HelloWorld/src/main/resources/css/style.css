@@ -60,12 +60,52 @@ header {
 .list_wrapper_header{
     display:flex;
     margin-bottom: 3.5rem;
+    max-width: 100%
 }
 
 .list_header_items {
     display:flex;
-    margin: 0 0.2rem;
+    width: 100%;
 }
+
+.emp_name_search{
+display: inline-block;
+    width: 15em;
+    padding: 1.5em;
+    margin: 0.5em 0;
+}
+
+.department_list{
+width: 100%;
+height: 2.5em;
+padding: 0.5em;
+    margin: 0.5em 0.5em;
+}
+
+.join_list{
+width: 100%;
+height: 2.5em;
+padding: 0.5em;
+    margin: 0.5em 0.5em;
+}
+
+.skillButton {
+width: 10em;
+height: 2.5em;
+ margin: 0.5em 0.5em;
+}
+
+.birthday_search{
+width: 100%;
+height: 2.5em;
+padding: 0.5em;
+    margin: 0.5em 0.5em;
+}
+
+.searchButton {
+width: 5em;
+height: 2.5em;
+ margin: 0.5em 0em;
 
 .skillList {
     position: absolute;
@@ -91,6 +131,7 @@ header {
 
 #skillCheckLabel:checked + .skillList li {
     display: block;
+
 }
 
 
