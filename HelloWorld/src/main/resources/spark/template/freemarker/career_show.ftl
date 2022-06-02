@@ -11,7 +11,7 @@
         <h2><a class ="header_title" href="">業務経歴管理サイト</a></h2>
         <nav>
             <ul class="header_right">
-                <li><a href="">My Page</a></li>
+                <li><a href="#">My Page</a></li>
                 <li><a href="">管理者</a></li>
                 <li><button class="logout">ログアウト</button></li>
             </ul>
