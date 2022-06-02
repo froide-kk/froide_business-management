@@ -46,8 +46,30 @@
 
             <tr>
                 <td>あああああ</td>
-                <td>0000/00/00</td>
-                <td>0歳</td>
+                <td>1999-11-06</td>
+                <td>
+                    <script>
+                    let Birtday = "1999-11-6"
+                    let birtdayAry = Birtday.split('-')
+                    const birthday = {
+                         year: birtdayAry[0],
+                         month: birtdayAry[1],
+                         date: birtdayAry[2]
+                         };
+                    function getAge(birthday){
+                       var today = new Date();
+                        var thisYearsBirthday = new Date(today.getFullYear(), birthday.month-1, birthday.date);
+                         var age = today.getFullYear() - birthday.year;
+                        if(today < thisYearsBirthday){
+                          age--;
+                               }
+                            return age;
+                            }
+                        document.write(getAge(birthday+"歳"));
+                </script>
+
+                </td>
+
                 <td>福岡県</td>
                 <td>北海道情報大学 卒業</td>
                 <td>基本情報技術者試験</td>
@@ -86,10 +108,31 @@
 
             <tr>
                 <td>IT企業</td>
-                <td>例のアレ</td>
-                <td>2022.4 〜 2022.6</td>
-                <td>3ヶ月</td>
-            </tr>
+                <td class="disp">例のアレ</td>
+                <td>2022-04-01 〜 2022-06-01</td>
+                <td>
+                    <script>
+                    var startday = new Date("2022-04-01");
+                    var endday = new Date("2022-6-01");
+                    //差日を求める（86,400,000ミリ秒＝１日）
+                    var termDay = (endday - startday) / 86400000;
+                    if(termDay>365){
+                    termMouths=termDay%365
+                    termMouth=termMouths/30
+                    termYear=termDay/365
+                    document.write(Math.floor(termYear)+"年"+Math.floor(termMouth)+"ヶ月");
+                    }else if(termDay>30){
+                    termMouth=termDay/30
+                     document.write(Math.floor(termMouth)+"ヶ月");
+                    }else{
+                     document.write(Math.floor(termDay)+"日");
+                    }
+
+
+
+                 </script>
+                </td>
+
         </table>
         <table border=1 style="border-collapse: collapse">
             <tr>
