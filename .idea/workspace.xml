@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4beed629-4e6d-4f86-b768-da8817b1ba9d" name="変更" comment="Merge branch 'main' into t-nakashima&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;HelloWorld/.gradle/7.4/checksums/checksums.lock&#10;#&#9;HelloWorld/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock&#10;#&#9;HelloWorld/.gradle/7.4/executionHistory/executionHistory.lock&#10;#&#9;HelloWorld/.gradle/7.4/fileHashes/fileHashes.lock&#10;#&#9;HelloWorld/.gradle/buildOutputCleanup/buildOutputCleanup.lock">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/classes/java/main/spark/template/freemarker/career_show.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/build/classes/java/main/spark/template/freemarker/career_show.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/generated/sources/annotationProcessor/java/main/EmployeesDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/build/generated/sources/annotationProcessor/java/main/EmployeesDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/generated/sources/annotationProcessor/java/main/_employees.java" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/build/generated/sources/annotationProcessor/java/main/_employees.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloWorld/build/generated/sources/annotationProcessor/java/main/employees_.java" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld/build/generated/sources/annotationProcessor/java/main/employees_.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="RunManager">
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
+      <module name="HelloWorld.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="アプリケーション.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>

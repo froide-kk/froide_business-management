@@ -18,20 +18,16 @@
         </nav>
     </header>
     <!---------- 戻るボタン ---------->
-    <nav class="disp">
+    <nav>
         <ul class="back">
             <button class="browseBack"><a href="">戻る</a></button>
         </ul>
     </nav>
     <!---------- 編集ボタンとPDF化ボタン ---------->
-    <nav class="disp">
+    <nav>
         <ul class="option">
             <li><button class="edit"><a href="">編集</a></button></li>
-            <li>
-            <form class="disp">
-                <input class="pdf" type="button" value="PDF化">
-            </form>
-            </li>
+            <li><button class="pdf">PDF化</button></li>
         </ul>
     </nav>
     <!---------- 業務経歴書の部分 ---------->
@@ -50,29 +46,8 @@
 
             <tr>
                 <td>あああああ</td>
-                <td>1999-11-06</td>
-                <td>
-                    <script>
-                    let Birtday = "1999-11-6"
-                    let birtdayAry = Birtday.split('-')
-                    const birthday = {
-                         year: birtdayAry[0],
-                         month: birtdayAry[1],
-                         date: birtdayAry[2]
-                         };
-                    function getAge(birthday){
-                       var today = new Date();
-                        var thisYearsBirthday = new Date(today.getFullYear(), birthday.month-1, birthday.date);
-                         var age = today.getFullYear() - birthday.year;
-                        if(today < thisYearsBirthday){
-                          age--;
-                               }
-                            return age;
-                            }
-                        document.write(getAge(birthday));
-                </script>
-                    歳
-                </td>
+                <td>0000/00/00</td>
+                <td>0歳</td>
                 <td>福岡県</td>
                 <td>北海道情報大学 卒業</td>
                 <td>基本情報技術者試験</td>
@@ -105,13 +80,13 @@
         <table border=1 style="border-collapse: collapse">
             <tr>
                 <th>業種</th>
-                <th class="disp">プロジェクト</th>
+                <th>プロジェクト</th>
                 <th colspan="2" >期間</th>
             </tr>
 
             <tr>
                 <td>IT企業</td>
-                <td class="disp">例のアレ</td>
+                <td>例のアレ</td>
                 <td>2022.4 〜 2022.6</td>
                 <td>3ヶ月</td>
             </tr>
@@ -137,25 +112,5 @@
             </tr>
         </table>
     </div>
-    <script>
-    const display = (flag) => {
-    const target =  document.querySelectorAll(".disp,.career")
-    if(flag === true){
-     target.forEach((element) =>{
-    element.style.display = "block"
-    })
-    }else{
-     target.forEach((element) =>{
-    element.style.display = "none"
-    })
-    }
-  }
-    document.querySelector(".pdf").addEventListener("click",() => {
-    display(false)
-    window.print();
-    display(true)
-    })
-    </script>
-
 </body>
 </html>
