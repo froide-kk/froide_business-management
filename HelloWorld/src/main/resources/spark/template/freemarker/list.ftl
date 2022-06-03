@@ -66,29 +66,32 @@
 
             </form>
 
-            <div class="list_wrapper_band">
-                <ul class="list_wrapper_label">
-                    <li>番号</li>
-                    <li>名前</li>
-                    <li>所属部署</li>
-                    <li>入社年月</li>
-                    <li>技術</li>
-                </ul>
-            </div>
+        <table>
+        <div class="list_wrapper_band">
+<!--            ラベルの白線消したい-->
+                <tr class="list_wrapper_label">
+                    <th>番号</th>
+                    <th>名前</th>
+                    <th>所属部署</th>
+                    <th>入社年月</th>
+                    <th>技術</th>
+                </tr>
+        </div>
 
-            <div class="list_wrapper_band">
-                <#list Emplists as Emplist>
-                <ul class="list_wrapper_items">
-                    <li>${Emplist_index+1}</li>
-                    <li>${Emplist.name}</li>
-                    <li>${Emplist.department_id}</li>
-                    <li>${Emplist.join_date}</li>
-                    <li>DB技術</li>
-                </ul>
-            </#list>
-            </div>
-
+        <div class="list_wrapper_band">
+            <#list Emplists as Emplist>
+            <tr class="list_wrapper_items">
+                <td>${Emplist_index+1}</td>
+                <td>${Emplist.name}</td>
+                <td>${Emplist.department_id}</td>
+                <td>${Emplist.join_date}</td>
+                <td>DB技術</td>
+            </tr>
+        </#list>
     </div>
+    </table>
+
+</div>
 
     <div class="list_wrapper_numbers">
         <p>1 2 3 4 5 6</p>
