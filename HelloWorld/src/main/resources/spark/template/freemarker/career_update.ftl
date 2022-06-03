@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="../style_2.css">
     <title>経歴書編集画面</title>
+
 </head>
 
 <body>
@@ -26,7 +27,7 @@
 </nav>
 <!---------- 保存ボタン ---------->
 <form>
-    <input type="submit" class="keep" value="保存">
+    <input type="submit" class="keep" value="保存"　onclick=>
 </form>
 <!---------- 業務経歴書の部分 ---------->
 <div class="careerSheet">
@@ -43,12 +44,32 @@
         </tr>
 
         <tr>
-            <td>あああああ</td>
-            <td>0000/00/00</td>
-            <td>0歳</td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td><input type="text" value="adachi"></td>
+            <td><input type="text" value="1999/11/06"></td>
+
+            <td> <script>
+                    let Birtday = "1999-6-02"
+                    let birtdayAry = Birtday.split('-')
+                    const birthday = {
+                         year: birtdayAry[0],
+                         month: birtdayAry[1],
+                         date: birtdayAry[2]
+                         };
+                    function getAge(birthday){
+                       var today = new Date();
+                        var thisYearsBirthday = new Date(today.getFullYear(), birthday.month-1, birthday.date);
+                         var age = today.getFullYear() - birthday.year;
+                        if(today < thisYearsBirthday){
+                          age--;
+                               }
+                            return age;
+                            }
+
+                        document.write(getAge(birthday));
+                     </script></td>
+            <td><input type="text" value="福岡"></td>
+            <td><input type="text" value="情報系大学卒"></td>
+            <td><input type="text" value="基本情報"></td>
         </tr>
     </table>
 
