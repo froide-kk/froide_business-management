@@ -21,35 +21,35 @@
         <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
     </ul>
 </nav>
-    <!---------- 編集ボタンとPDF化ボタン ---------->
-    <nav class="disp">
-        <ul class="option">
-            <li><button class="edit"><a href="http://localhost:4567/career/update(id)">編集</a></button></li>
-            <li>
+<!---------- 編集ボタンとPDF化ボタン ---------->
+<nav class="disp">
+    <ul class="option">
+        <li><button class="edit" onclick="location.href='http://localhost:4567/career/update(id)'"><a>編集</a></button></li>
+        <li>
             <form class="disp">
                 <input class="pdf" type="button" value="PDF化">
             </form>
-            </li>
-        </ul>
-    </nav>
-    <!---------- 業務経歴書の部分 ---------->
-    <div class="careerSheet">
-        <h1 class="sheetHead">業務経歴書</h1>
+        </li>
+    </ul>
+</nav>
+<!---------- 業務経歴書の部分 ---------->
+<div class="careerSheet">
+    <h1 class="sheetHead">業務経歴書</h1>
 
-        <table border="1" style="border-collapse: collapse">
-            <tr>
-                <th>氏名</th>
-                <th>生年月日</th>
-                <th>年齢</th>
-                <th>住所</th>
-                <th>最終学歴</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td>1999-11-06</td>
-                <!---------- 年齢表示 ---------->
-                <td>
-                    <script>
+    <table border="1" style="border-collapse: collapse">
+        <tr>
+            <th>氏名</th>
+            <th>生年月日</th>
+            <th>年齢</th>
+            <th>住所</th>
+            <th>最終学歴</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>1999-11-06</td>
+            <!---------- 年齢表示 ---------->
+            <td>
+                <script>
                     let Birtday = "1999-6-02"
                     let birtdayAry = Birtday.split('-')
                     const birthday = {
@@ -69,45 +69,45 @@
 
                         document.write(getAge(birthday));
                      </script>
-                </td>
-                <td>福岡県</td>
-                <td>北海道情報大学</td>
-            </tr>
-            <tr>
-                <th colspan="5">資格</th>
-            </tr>
-            <tr>
-                <td colspan="5">基本情報技術者試験</td>
-            </tr>
-        </table>
+            </td>
+            <td>福岡県</td>
+            <td>北海道情報大学</td>
+        </tr>
+        <tr>
+            <th colspan="5">資格</th>
+        </tr>
+        <tr>
+            <td colspan="5">基本情報技術者試験</td>
+        </tr>
+    </table>
 
-        <br>
+    <br>
 
-        <div class ="Level">
-            <p>○　業務で使用経験あり  △　個人レベルで対応可能</p>
-        </div>
+    <div class ="Level">
+        <p>○　業務で使用経験あり  △　個人レベルで対応可能</p>
+    </div>
 
-        <table border=1 style="border-collapse: collapse">
-            <tr>
-                <th>OS</th>
-                <th>対応可能スクリプト・ツール</th>
-                <th>データベース</th>
-            </tr>
-            <tr>
-                <td>あ</td>
-                <td>あ</td>
-                <td>あ</td>
-            </tr>
-        </table>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>OS</th>
+            <th>対応可能スクリプト・ツール</th>
+            <th>データベース</th>
+        </tr>
+        <tr>
+            <td>あ</td>
+            <td>あ</td>
+            <td>あ</td>
+        </tr>
+    </table>
 
-        <br>
+    <br>
 
-        <table border=1 style="border-collapse: collapse">
-            <tr>
-                <th>業種</th>
-                <th class="disp">プロジェクト</th>
-                <th colspan="2" >期間</th>
-            </tr>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>業種</th>
+            <th class="disp">プロジェクト</th>
+            <th colspan="2" >期間</th>
+        </tr>
 
             <tr>
                 <td>業種表示</td>
@@ -115,6 +115,7 @@
                 <td>2022-04-01 〜 2022-04-21</td>
                 <td>
                     <script>
+
                     var startday = new Date("2022-04-01");
                     var endday = new Date("2022-4-21");
                     //差日を求める（86,400,000ミリ秒＝１日）
@@ -131,25 +132,25 @@
                      document.write(Math.floor(termDay)+"日");
                     }
                  </script>
-                </td>
-            </tr>
-            <tr>
-                <th colspan="2">【システムの概要】</th>
-                <th colspan="3">【役割】</th>
-            </tr>
-            <tr>
-                <td rowspan="3" colspan="2">概要をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
-                <td colspan="3">役割表示</td>
-            </tr>
-            <tr>
-                <th colspan="3">開発規模</th>
-            </tr>
-            <tr>
-                <td colspan="3">開発規模表示</td>
-            </tr>
-        </table>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">【システムの概要】</th>
+            <th colspan="3">【役割】</th>
+        </tr>
+        <tr>
+            <td rowspan="3" colspan="2">概要をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
+            <td colspan="3">役割表示</td>
+        </tr>
+        <tr>
+            <th colspan="3">開発規模</th>
+        </tr>
+        <tr>
+            <td colspan="3">開発規模表示</td>
+        </tr>
+    </table>
 
-        <br>
+    <br>
 
         <table border=1 style="border-collapse: collapse">
             <tr>
@@ -180,24 +181,24 @@
                      document.write(Math.floor(termDay)+"日");
                     }
                  </script>
-                </td>
-            </tr>
-            <tr>
-                <th colspan="2">【システムの概要】</th>
-                <th colspan="3">【役割】</th>
-            </tr>
-            <tr>
-                <td rowspan="3" colspan="2">概要をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
-                <td colspan="3">役割表示</td>
-            </tr>
-            <tr>
-                <th colspan="3">開発規模</th>
-            </tr>
-            <tr>
-                <td colspan="3">開発規模表示</td>
-            </tr>
-        </table>
-    </div>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">【システムの概要】</th>
+            <th colspan="3">【役割】</th>
+        </tr>
+        <tr>
+            <td rowspan="3" colspan="2">概要をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
+            <td colspan="3">役割表示</td>
+        </tr>
+        <tr>
+            <th colspan="3">開発規模</th>
+        </tr>
+        <tr>
+            <td colspan="3">開発規模表示</td>
+        </tr>
+    </table>
+</div>
 <script>
     const display = (flag) => {
     const target =  document.querySelectorAll(".disp,.career,.back")
@@ -221,3 +222,4 @@
 
 </body>
 </html>
+
