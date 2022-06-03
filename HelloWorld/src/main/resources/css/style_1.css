@@ -47,7 +47,7 @@ header {
 
 /* 戻るボタン */
 .back {
-    margin-left:0.5rem;
+    margin-left:2rem;
 }
 .browseBack{
     background-color:#e6e6e6;
@@ -56,7 +56,7 @@ header {
 .option {
     display:flex;
     justify-content:flex-end;
-    margin-right:0.5rem;
+    margin-right:0.8rem;
 }
 .option li {
     flex: 0.01 0 auto;
@@ -80,17 +80,14 @@ header {
 table {
     margin-left: auto;
     margin-right: auto;
-    width:100%
+    width:80%
 }
 th{
     width:100px;
     text-align:center;
-    font-size:1.5rem;
 }
 td{
     width:200px;
-    text-align:center;
-    font-size:1.1rem;
 }
 
 .level{
