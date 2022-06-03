@@ -33,6 +33,9 @@
                 <div  class="list_header_items">
                     <select name="departments" class="department_list">
                         <option value="">所属部署</option>
+                        <#list DepLists as DepList>
+                        <option value="${DepList.name}"></option>
+                        </#list>
                     </select>
                 </div>
                 <!--                入社年月の検索-->
