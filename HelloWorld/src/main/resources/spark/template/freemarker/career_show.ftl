@@ -111,12 +111,12 @@
 
             <tr>
                 <td>業種表示</td>
-                <td class="disp">プロジェクト表示</td>
-                <td>2022-04-01 〜 2022-06-01</td>
+                <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
+                <td>2022-04-01 〜 2022-04-21</td>
                 <td>
                     <script>
                     var startday = new Date("2022-04-01");
-                    var endday = new Date("2022-6-01");
+                    var endday = new Date("2022-4-21");
                     //差日を求める（86,400,000ミリ秒＝１日）
                     var termDay = (endday - startday) / 86400000;
                     if(termDay>365){
@@ -154,13 +154,13 @@
         <table border=1 style="border-collapse: collapse">
             <tr>
                 <th>業種</th>
-                <th class="disp">プロジェクト</th>
+                <th class="disp" >プロジェクト</th>
                 <th colspan="2" >期間</th>
             </tr>
 
             <tr>
                 <td>業種表示</td>
-                <td class="disp">プロジェクト表示</td>
+                <td class="disp" ><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
                 <td>2022-04-01 〜 2022-06-01</td>
                 <td>
                     <script>
