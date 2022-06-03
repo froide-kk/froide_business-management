@@ -46,7 +46,7 @@
                 <td>1999-11-06</td>
                 <td>
                     <script>
-                    let Birtday = "1999-11-6"
+                    let Birtday = "1999-6-02"
                     let birtdayAry = Birtday.split('-')
                     const birthday = {
                          year: birtdayAry[0],
@@ -62,9 +62,8 @@
                                }
                             return age;
                             }
-                        document.write(getAge(birthday+"歳"));
-                </script>
-
+                        document.write(getAge(birthday));
+                     </script>
                 </td>
                 <td>福岡県</td>
                 <td>北海道情報大学 卒業</td>
