@@ -6,12 +6,11 @@
 <body>
 <!---------- ヘッダー部分　---------->
 <header class="career">
-    <h2><a class ="header_title" href="">業務経歴管理サイト</a></h2>
+    <h2><a class ="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
     <nav>
         <ul class="header_right">
-            <li><a href="">My Page</a></li>
-            <li><a href="#">My Page</a></li>
-            <li><a href="">管理者</a></li>
+            <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>
+            <li><a href="http://localhost:4567/career/admin">管理者</a></li>
             <li><button class="logout">ログアウト</button></li>
         </ul>
     </nav>
@@ -19,13 +18,13 @@
 <!---------- 戻るボタン ---------->
 <nav>
     <ul class="back">
-        <button class="browseBack"><a href="#" onclick="history.back(-1);return false;">戻る</a></button>
+        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
     </ul>
 </nav>
     <!---------- 編集ボタンとPDF化ボタン ---------->
     <nav class="disp">
         <ul class="option">
-            <li><button class="edit"><a href="">編集</a></button></li>
+            <li><button class="edit"><a href="http://localhost:4567/career/update(id)">編集</a></button></li>
             <li>
             <form class="disp">
                 <input class="pdf" type="button" value="PDF化">
@@ -44,7 +43,6 @@
                 <th>年齢</th>
                 <th>住所</th>
                 <th>最終学歴</th>
-                <th>資格</th>
             </tr>
             <tr>
                 <td></td>
@@ -72,10 +70,14 @@
                         document.write(getAge(birthday));
                      </script>
                 </td>
-                <td></td>
-                <td></td>
-                <td>資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格資格</td>
-
+                <td>福岡県</td>
+                <td>北海道情報大学</td>
+            </tr>
+            <tr>
+                <th colspan="5">資格</th>
+            </tr>
+            <tr>
+                <td colspan="5">基本情報技術者試験</td>
             </tr>
         </table>
 
@@ -91,7 +93,6 @@
                 <th>対応可能スクリプト・ツール</th>
                 <th>データベース</th>
             </tr>
-
             <tr>
                 <td>あ</td>
                 <td>あ</td>
@@ -132,29 +133,23 @@
                  </script>
                 </td>
             </tr>
-        </table>
-        <table border=1 style="border-collapse: collapse">
             <tr>
-                <th>【システムの概要】</th>
-                <th>【役割】</th>
+                <th colspan="2">【システムの概要】</th>
+                <th colspan="3">【役割】</th>
             </tr>
             <tr>
-                <td>概要表示概要表示概要表示概要表示概要表示概要表示概要表示概要表示概要表示概要表示概要表示概要表示
-                    概要表示概要表示概要表示概要表示概要表示概要表示概要表示概要表示概要表示概要表示概要表示概要表示<br>
-                </td>
-                <td>役割表示</td>
-            </tr>
-        </table>
-        <table border=1 style="border-collapse: collapse">
-            <tr>
-                <th>開発規模</th>
-                <th>開発担当フェーズ</th>
+                <td rowspan="3" colspan="2">概要をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
+                <td colspan="3">役割表示</td>
             </tr>
             <tr>
-                <td>規模表示</td>
-                <td>担当表示</td>
+                <th colspan="3">開発規模</th>
+            </tr>
+            <tr>
+                <td colspan="3">開発規模表示</td>
             </tr>
         </table>
+
+        <br>
 
         <table border=1 style="border-collapse: collapse">
             <tr>
@@ -187,12 +182,25 @@
                  </script>
                 </td>
             </tr>
+            <tr>
+                <th colspan="2">【システムの概要】</th>
+                <th colspan="3">【役割】</th>
+            </tr>
+            <tr>
+                <td rowspan="3" colspan="2">概要をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
+                <td colspan="3">役割表示</td>
+            </tr>
+            <tr>
+                <th colspan="3">開発規模</th>
+            </tr>
+            <tr>
+                <td colspan="3">開発規模表示</td>
+            </tr>
         </table>
-
     </div>
 <script>
     const display = (flag) => {
-    const target =  document.querySelectorAll(".disp,.career")
+    const target =  document.querySelectorAll(".disp,.career,.back")
     if(flag === true){
      target.forEach((element) =>{
     element.style.display = "block"
