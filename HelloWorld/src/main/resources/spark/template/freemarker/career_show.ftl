@@ -270,6 +270,7 @@
     if(flag === true){
      target.forEach((element) =>{
     element.style.display = "block"
+    document.location.reload()
     })
     }else{
      target.forEach((element) =>{
