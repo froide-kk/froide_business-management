@@ -2,17 +2,18 @@
 
 <head>
     <link rel="stylesheet" href="../style_2.css">
-    <title>業務経歴書</title>
+    <title>経歴書編集画面</title>
 </head>
 
 <body>
+
 <!---------- ヘッダー部分　---------->
 <header class="career">
-    <h2><a class ="header_title" href="">業務経歴管理サイト</a></h2>
+    <h2><a class ="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
     <nav>
         <ul class="header_right">
-            <li><a href="#">My Page</a></li>
-            <li><a href="">管理者</a></li>
+            <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>
+            <li><a href="http://localhost:4567/career/admin">管理者</a></li>
             <li><button class="logout">ログアウト</button></li>
         </ul>
     </nav>
@@ -20,7 +21,7 @@
 <!---------- 戻るボタン ---------->
 <nav>
     <ul class="back">
-        <button class="browseBack"><a href="#" onclick="history.back(-1);return false;">戻る</a></button>
+        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
     </ul>
 </nav>
 <!---------- 保存ボタン ---------->
@@ -29,7 +30,7 @@
 </form>
 <!---------- 業務経歴書の部分 ---------->
 <div class="careerSheet">
-    <h1 class="sheetHead">業務経歴書</h1>
+    <h1 class="sheetHead">業務経歴書 編集画面</h1>
 
     <table border="1" style="border-collapse: collapse">
         <tr>
