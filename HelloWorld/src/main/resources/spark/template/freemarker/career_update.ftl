@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../style_2.css">
+    <link rel="stylesheet" href="../style.css">
     <title>経歴書編集画面</title>
 
 </head>

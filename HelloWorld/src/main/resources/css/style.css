@@ -1,3 +1,4 @@
+/* ここから全ページ共通 */
 /* ヘッダー部分 */
 * {
     font-size: 1.2rem;
@@ -52,27 +53,26 @@ header {
 .browseBack{
     background-color:#e6e6e6;
 }
+/* ここまで全ページ共通 */
 
-.header_right p {
-    padding:0.8rem;
-}
-
+/* ここから一覧ページ */
+/* 一覧画面見出し */
 .list_wrapper_title {
     width:80%;
     font-size: 1.7rem;
     margin: 1rem auto;
 }
-
+/* 一覧画面部分 */
 .list_wrapper{
     width: 80%;
     margin: 0 auto;
     background-color: white;
 }
-
 .list_wrapper_search {
 width: 100%;
 }
 
+/* 一覧画面って見出しの下にある緑色の長方形部分 */
 .list_wrapper_empty {
     width:100%;
     height:3rem;
@@ -80,17 +80,18 @@ width: 100%;
     margin-bottom:2rem;
 }
 
+/* 検索の部分 */
 .list_wrapper_header{
     display:flex;
     margin-bottom: 3.5rem;
     max-width: 100%
 }
-
+/* 検索部分の選択項目など */
 .list_header_items {
     display:flex;
     width: 100%;
 }
-
+/* 社員名検索フォーム */
 .emp_name_search{
 display: inline-block;
     width: 15em;
@@ -98,14 +99,14 @@ display: inline-block;
     margin: 0.5em 0;
     height:1rem;
 }
-
+/* 所属部署 */
 .department_list{
 width: 100%;
 height: 2.5em;
 padding: 0.5em;
     margin: 0.5em 0.5em 0em 0.5em;
 }
-
+/* 入社年月 */
 .join_list{
 width: 100%;
 height: 2.5em;
@@ -113,6 +114,7 @@ padding: 0.5em;
     margin: 0.5em 0.5em 0.5em 0em;
 }
 
+/* 誕生日検索 */
 .birthday_search{
 width: 100%;
 height: 2.5em;
@@ -120,17 +122,18 @@ padding: 0.5em;
     margin: 0.5em 0.5em 0em 0em;
 }
 
+/* 検索ボタン */
 .searchButton {
 width: 5em;
 height: 2.5em;
  margin: 0.5em 0em;
  }
 
+/* 技術リスト */
 .skillList {
     position: absolute;
     background-color: #098;
 }
-
 .skillList li {
     display: none;
     width:10rem;
@@ -138,65 +141,73 @@ height: 2.5em;
     padding:0 6rem
     border-bottom: 1px solid white;
 }
-
 .skillCheckbox {
     opacity: 0;
     position: relative;
     display:none;
 }
-
 .skillLabel{
     display: block;
     background-color: #098;
     margin-top:11.5px;
-    padding: 0.6rem 6rem;
+    padding: 0.5rem 5rem;
     border: 1px solid black;
 }
-
 #skillCheckLabel:checked + .skillList li {
     display: block;
 }
+/* ここまで技術リスト関連 */
 
+/*　一覧テーブル */
 table {
 width: 100%;
 text-align: center;
 }
-
+/* テーブルのラベル部分 */
 .list_wrapper_label {
     margin-bottom:1rem;
 }
-
-th {
+/* テーブルヘッダー部分 */
+.list_row{
 background: #33FFCC;
-}
 
+}
+/* テーブル要素格納セル部分 */
+.list_col{
+    text-align:center;
+}
+/* DBから持ってくる項目たち */
 .list_wrapper_items {
     justify-content: space-between;
     margin-bottom:1rem;
 }
-
 .list_wrapper_items {
     padding:0 1.5rem;
 }
+/* ここまで一覧テーブル */
 
+/* 一覧ページの番号 */
 .list_wrapper_numbers {
     text-align:center;
 }
 
+/* ページネーションボタン */
 .page-nation_button {
     width:100%;
     display:flex;
     justify-content:center;
 }
-
+/* 前へボタン */
 .left_button{
     padding:0.5rem;
 }
-
+/* 次へボタン */
 .right_button{
     padding:0.5rem;
 }
+/* ここまでページネーションボタン */
 
+/* プロジェクト名?なにこれ */
 .project_name_add{
 display: inline-block;
     width: 25em;
@@ -205,7 +216,7 @@ display: inline-block;
    height:1rem;
    float:left;
 }
-
+/* なにかのボタン？なにこれ */
 .add_button{
     background-color: #33FFCC;
     margin-top: 11.5px;
@@ -214,3 +225,110 @@ display: inline-block;
     width: 13em;
     height:4rem;
 }
+
+/* ここまで一覧ページ */
+
+/* ここから業務経歴書閲覧画面ページ　*/
+/* 編集ボタンとPDF化ボタンの部分 */
+.option {
+    display:flex;
+    justify-content:flex-end;
+    margin-right:0.8rem;
+}
+.option li {
+    flex: 0.01 0 auto;
+}
+.edit{
+    background-color:#e6e6e6;
+}
+.pdf {
+    background-color:#ff6347;
+}
+/* 業務経歴書の部分 */
+.careerSheet {
+    margin : 30px;
+    padding : 30px;
+    background-color: #ffffff;
+}
+.sheetHead {
+    font-size: 2rem;
+    text-align:center;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width:80%
+}
+th{
+    width:100px;
+    text-align:center;
+    font-size:1.1rem;
+    white-space:nowrap
+}
+td{
+    text-align:left;
+    width:100px;
+    font-size:1rem;
+}
+
+.level{
+    text-align:center;
+}
+
+.project{
+    width:100px;
+    font-size:1.5rem;
+}
+/* ここまで業務経歴書閲覧画面ページ */
+
+/* ここから業務経歴書編集画面ページ */
+/* 保存ボタン */
+.keep {
+    margin-left : 90%;
+    justify-content:flex-end;
+    background-color:#6495ed;
+    width: 150px;
+}
+/* 業務経歴書の部分 */
+.careerSheet {
+    margin : 30px;
+    padding : 30px;
+    background-color: #ffffff;
+}
+.sheetHead {
+    font-size: 2rem;
+    text-align:center;
+}
+
+/* システム詳細入力フォームの横幅設定 */
+.system {
+    width:1285px;
+    overflow-wrap: anywhere
+}
+/* ここまで業務経歴書編集画面ページ */
+
+/* ここから管理画面ページ */
+/* 管理者画面の部分 */
+.admin_wrapper {
+width: 50%;
+margin:  1rem auto;
+font-size: 1.7rem;
+background-color: white;
+}
+
+.admin_title{
+padding: 0.5em 1em;
+background-color: #33FFCC;
+font-size: 1.5rem
+}
+
+/*管理画面項目ボタン*/
+.admin_item{
+width: 60%;
+display: inline-block;
+background-color: #33FFCC;
+margin: 0.8em 20%;
+padding: 0.5em;
+font-size: 1.5em;
+}
+/* ここまで管理画面ページ */

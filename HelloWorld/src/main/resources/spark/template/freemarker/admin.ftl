@@ -1,6 +1,7 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <link rel="stylesheet" href="../admin.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>管理者画面</title>
 </head>
 <body>
 <!---------- ヘッダー部分　---------->
