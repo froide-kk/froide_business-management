@@ -1,0 +1,78 @@
+/* ヘッダー部分 */
+* {
+    font-size: 1.2rem;
+    padding:0;
+    margin:0;
+}
+body {
+    width:100%;
+    background-color: #e6e6e6;
+}
+li{
+    list-style:none;
+}
+a {
+    text-decoration:none;
+    color:#000000;
+}
+button {
+    width: 150px;
+}
+header {
+    margin-bottom:1.5rem;
+    background-color:#33FFCC;
+    padding: 10px;
+}
+.header_title {
+    display:flex;
+    padding:1rem;
+    font-size: 2.5rem;
+    height: 10px;
+    color:#000000;
+}
+.header_right {
+    display:flex;
+    justify-content:flex-end;
+    margin-right:0.5rem;
+}
+.header_right li {
+    flex: 0.03 0 auto;
+    font-size: 1.2rem;
+}
+.logout{
+    background-color:#33FFCC;
+    color:#e60000;
+}
+/* ここまでヘッダー */
+
+/* 戻るボタン */
+.back {
+    margin-left:2rem;
+}
+.browseBack{
+    background-color:#e6e6e6;
+}
+
+/* 管理者画面の部分 */
+.admin_wrapper {
+width: 50%;
+margin:  1rem auto;
+font-size: 1.7rem;
+background-color: white;
+}
+
+.admin_title{
+padding: 0.5em 1em;
+background-color: #33FFCC;
+font-size: 1.5rem
+}
+
+/*管理画面項目ボタン*/
+.admin_item{
+width: 60%;
+display: inline-block;
+background-color: #33FFCC;
+margin: 0.8em 20%;
+padding: 0.5em;
+font-size: 1.5em;
+}

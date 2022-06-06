@@ -1,16 +1,37 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../admin.css">
 </head>
 <body>
-<header>
-    <h2 class="header_title">業務管理サイト</h2>
-    <div class="header_right">
-        <a><p>My Page</p></a>
-        <a><p>管理者</p></a>
-        <button>ログアウト</button>
-    </div>
+<!---------- ヘッダー部分　---------->
+<header class="career">
+    <h2><a class ="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
+    <nav>
+        <ul class="header_right">
+            <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>
+            <li><a href="http://localhost:4567/career/management">管理者</a></li>
+            <li><button class="logout">ログアウト</button></li>
+        </ul>
+    </nav>
 </header>
-管理者画面だよ　頑張れー
+<!---------- 戻るボタン ---------->
+<nav>
+    <ul class="back">
+        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#">戻る</a></button>
+    </ul>
+</nav>
+
+<div class="admin_wrapper">
+    <h2 class="admin_title">
+         管理者画面
+    </h2>
+
+    <div class="admin_button">
+        <a href="http://localhost:4567/career/skillCheck"><button class="admin_item">技術チェック項目の編集</button></a>
+        <a href="http://localhost:4567/career/empUpdate"><button class="admin_item">従業員の追加・削除</button></a>
+        <a href="http://localhost:4567/career/managementUpdate"><button class="admin_item">管理者の権限設定</button></a>
+        <a href="http://localhost:4567/career/projectsUpdate"><button class="admin_item">プロジェクトの管理</button></a>
+    </div>
+</div>
 </body>
 </html>

@@ -13,24 +13,34 @@ public class main {
         staticFileLocation("/css");
 
         //業務経歴閲覧画面
-        get("/career/show(id)",(req,res) -> {
-            Map<String, Object> attribute = new HashMap<>();
-            String list = req.queryParams("list");
-            attribute.put("list", "Hello");
+        get("/career/show",(req,res) -> {
+                EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+                TransactionManager tm = DbConfig.singleton().getTransactionManager();
+                Map<String, Object> attribute = new HashMap<>();
+
+            attribute.put("id",Integer.valueOf(req.queryParams("id")));
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "career_show.ftl"));
         });
 
         //一覧画面
         get("/career",(req,res) -> {
+            //一覧画面を表示
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
-
             Map<String, Object> attribute = new HashMap<>();
 
             tm.required(() -> {
                 List<Employees> Emplists = empDao.selectAll();
                 attribute.put("Emplists",Emplists);
+
+                String searchName = req.queryParams("searchName");
+                if(searchName != null){
+                   List<Employees> EmpNames = empDao.selectByName(searchName);
+                    System.out.println("検索よう");
+                    attribute.put("Emplists",EmpNames);
+                }
             });
+
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "list.ftl"));
         });
 

@@ -1,16 +1,19 @@
 <html>
 <head>
-    <link rel="stylesheet" href="../style_1.css">
+    <link rel="stylesheet" href="../style_2.css">
     <title>業務経歴書</title>
 </head>
 <body>
+${id}
 <!---------- ヘッダー部分　---------->
 <header class="career">
     <h2><a class ="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
     <nav>
         <ul class="header_right">
-            <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>
+            
+            <li><a href="http://localhost:4567/career/show">My Page</a></li>
             <li><a href="http://localhost:4567/career/admin">管理者</a></li>
+
             <li><button class="logout">ログアウト</button></li>
         </ul>
     </nav>
@@ -111,7 +114,7 @@
 
         <tr>
             <td>業種表示</td>
-            <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
+            <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
             <td>2022-04-01 〜 2022-04-21</td>
             <td>
                 <script>
@@ -174,7 +177,7 @@
 
         <tr>
             <td>業種表示</td>
-            <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
+            <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
             <td>2022-04-01 〜 2022-04-21</td>
             <td>
                 <script>
