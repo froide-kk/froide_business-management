@@ -1,3 +1,4 @@
+show
 <html>
 <head>
     <link rel="stylesheet" href="../style.css">
@@ -91,7 +92,7 @@
         <tr>
             <th>OS</th>
             <th>対応可能スクリプト・ツール</th>
-            <th>データベース</th>
+            <th>DB</th>
         </tr>
         <tr>
             <td>あ</td>
@@ -106,15 +107,15 @@
         <tr>
             <th>業種</th>
             <th class="disp">プロジェクト</th>
-            <th colspan="2" >期間</th>
+            <th colspan="2">期間</th>
         </tr>
 
-            <tr>
-                <td>業種表示</td>
-                <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
-                <td>2022-04-01 〜 2022-04-21</td>
-                <td>
-                    <script>
+        <tr>
+            <td>業種表示</td>
+            <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
+            <td>2022-04-01 〜 2022-04-21</td>
+            <td>
+                <script>
 
                     var startday = new Date("2022-04-01");
                     var endday = new Date("2022-4-21");
@@ -134,39 +135,53 @@
                  </script>
             </td>
         </tr>
+
         <tr>
-            <th colspan="2">【システムの概要】</th>
-            <th colspan="3">【役割】</th>
+            <th colspan="2">システムの概要</th>
+            <th>開発規模</th>
+            <th>役割</th>
         </tr>
         <tr>
-            <td rowspan="3" colspan="2">概要をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
-            <td colspan="3">役割表示</td>
+            <td colspan="2">社内業務管理システム</td>
+            <td>開発規模表示</td>
+            <td>役割表示</td>
+
         </tr>
         <tr>
-            <th colspan="3">開発規模</th>
+            <th colspan="2">開発担当フェーズ</th>
+            <th colspan="2">使用言語</th>
         </tr>
         <tr>
-            <td colspan="3">開発規模表示</td>
+            <td colspan="2">要件分析、DB設計</td>
+            <td colspan="2">Java,HTML/CSS,JavaScript</td>
+        </tr>
+
+        <tr>
+            <th colspan="4">システムの詳細</th>
+        </tr>
+        <tr>
+            <td colspan="4">詳細をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
         </tr>
     </table>
 
     <br>
 
-        <table border=1 style="border-collapse: collapse">
-            <tr>
-                <th>業種</th>
-                <th class="disp" >プロジェクト</th>
-                <th colspan="2" >期間</th>
-            </tr>
+    <table border=1 style="border-collapse: collapse">
+        <tr>
+            <th>業種</th>
+            <th class="disp">プロジェクト</th>
+            <th colspan="2">期間</th>
+        </tr>
 
-            <tr>
-                <td>業種表示</td>
-                <td class="disp" ><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
-                <td>2022-04-01 〜 2022-06-01</td>
-                <td>
-                    <script>
+        <tr>
+            <td>業種表示</td>
+            <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
+            <td>2022-04-01 〜 2022-04-21</td>
+            <td>
+                <script>
+
                     var startday = new Date("2022-04-01");
-                    var endday = new Date("2022-6-01");
+                    var endday = new Date("2022-4-21");
                     //差日を求める（86,400,000ミリ秒＝１日）
                     var termDay = (endday - startday) / 86400000;
                     if(termDay>365){
@@ -183,21 +198,38 @@
                  </script>
             </td>
         </tr>
+
         <tr>
-            <th colspan="2">【システムの概要】</th>
-            <th colspan="3">【役割】</th>
+            <th colspan="2">システムの概要</th>
+            <th>開発規模</th>
+            <th>役割</th>
         </tr>
         <tr>
-            <td rowspan="3" colspan="2">概要をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
-            <td colspan="3">役割表示</td>
+            <td colspan="2">社内業務管理システム</td>
+            <td>開発規模表示</td>
+            <td>役割表示</td>
+
         </tr>
         <tr>
-            <th colspan="3">開発規模</th>
+            <th colspan="2">開発担当フェーズ</th>
+            <th colspan="2">使用言語</th>
         </tr>
         <tr>
-            <td colspan="3">開発規模表示</td>
+            <td colspan="2">要件分析、DB設計</td>
+            <td colspan="2">Java,HTML/CSS,JavaScript</td>
+        </tr>
+
+        <tr>
+            <th colspan="4">システムの詳細</th>
+        </tr>
+        <tr>
+            <td colspan="4">詳細をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
         </tr>
     </table>
+
+    <br>
+
+
 </div>
 <script>
     const display = (flag) => {
@@ -222,4 +254,6 @@
 
 </body>
 </html>
+
+
 
