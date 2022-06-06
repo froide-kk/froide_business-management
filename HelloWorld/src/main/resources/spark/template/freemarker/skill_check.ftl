@@ -1,7 +1,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="../style.css">
-    <title>業務経歴書</title>
+    <title>技術チェック編集</title>
 </head>
 <body>
 <!---------- ヘッダー部分　---------->
@@ -21,6 +21,33 @@
         <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
     </ul>
 </nav>
-技術をチェックする画面ですよ　gg
+<div class="skillCheck_wrapper">
+    <h2 class="skillCheck_title">技術チェック項目 編集ページ</h2>
+    <table border="1" style="border-collapse: collapse">
+        <tr>
+            <th>OS</th>
+            <th>スクリプト・ツール</th>
+            <th>データベース</th>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>Java</td>
+            <td>MySQL</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>JavaScript</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>Python</td>
+            <td></td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
