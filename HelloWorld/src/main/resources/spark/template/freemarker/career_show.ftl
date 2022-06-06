@@ -114,7 +114,7 @@ ${id}
 
         <tr>
             <td>業種表示</td>
-            <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
+            <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
             <td>2022-04-01 〜 2022-04-21</td>
             <td>
                 <script>
@@ -177,7 +177,7 @@ ${id}
 
         <tr>
             <td>業種表示</td>
-            <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
+            <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
             <td>2022-04-01 〜 2022-04-21</td>
             <td>
                 <script>
