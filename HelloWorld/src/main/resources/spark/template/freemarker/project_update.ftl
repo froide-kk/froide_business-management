@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../style_2.css">
+    <link rel="stylesheet" href="../style.css">
     <title>経歴書編集画面</title>
 
 </head>
@@ -25,10 +25,35 @@
         <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
     </ul>
 </nav>
-<!---------- 保存ボタン ---------->
-<form>
-    <input type="submit" class="keep" value="保存"　onclick=>
-</form>
-プロジェクト編集画面ですよーーー　
+
+
+<div class="list_wrapper">
+
+    <div class="list_wrapper_search">
+        <div class="list_wrapper_empty">
+        <h2 class="list_wrapper_title">
+         プロジェクト(追加・編集・削除)　ページ
+        </h2></div>
+
+        <form>
+            <div class="list_wrapper_header">
+                <!--企業名の記入-->
+                <div   class="list_header_items">
+                    <input type="text" placeholder="企業名を入力してください" class="project_name_add">
+                </div>
+                <div   class="list_header_items">
+                    <input type="text" placeholder="プロジェクト名を入力してください" class="project_name_add">
+                </div>
+                <div   class="list_header_items">
+                    <button class="add_button" onclick="">追加</button>
+                </div>
+
+
+
+            </div>
+
+            </form>
+
+        <table>
 </body>
 </html>

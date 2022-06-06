@@ -196,3 +196,20 @@ background: #33FFCC;
     padding:0.5rem;
 }
 
+.project_name_add{
+display: inline-block;
+    width: 25em;
+   padding: 1.5em;
+   margin: 0.5em 0;
+   height:1rem;
+   float:left;
+}
+
+.add_button{
+    background-color: #33FFCC;
+    margin-top: 11.5px;
+    padding: 0.6rem 6rem;
+    border: 1px solid black;
+    width: 13em;
+    height:4rem;
+}
