@@ -95,7 +95,13 @@
             <#list Emplists as Emplist>
             <tr class="list_wrapper_items">
                 <td>${Emplist_index+1}</td>
-                <td>${Emplist.name}</td>
+                <form method="get" action="/career/show">
+                    <td>
+                        <input type="hidden" value=${Emplist.id} name="id">
+                        ${Emplist.id} <!--作業終わったら削除して                        -->
+                        <input type="submit" value="${Emplist.name}">
+                    </td>
+                </form>
                 <td>${Emplist.department_id}</td>
                 <td>${Emplist.join_date}</td>
                 <td>DB技術</td>

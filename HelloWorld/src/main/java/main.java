@@ -13,10 +13,12 @@ public class main {
         staticFileLocation("/css");
 
         //業務経歴閲覧画面
-        get("/career/show(id)",(req,res) -> {
-            Map<String, Object> attribute = new HashMap<>();
-            String list = req.queryParams("list");
-            attribute.put("list", "Hello");
+        get("/career/show",(req,res) -> {
+                EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+                TransactionManager tm = DbConfig.singleton().getTransactionManager();
+                Map<String, Object> attribute = new HashMap<>();
+
+            attribute.put("id",Integer.valueOf(req.queryParams("id")));
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "career_show.ftl"));
         });
 
