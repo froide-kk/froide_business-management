@@ -22,15 +22,23 @@ public class main {
 
         //一覧画面
         get("/career",(req,res) -> {
+            //一覧画面を表示
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
-
             Map<String, Object> attribute = new HashMap<>();
 
             tm.required(() -> {
                 List<Employees> Emplists = empDao.selectAll();
                 attribute.put("Emplists",Emplists);
+
+                String searchName = req.queryParams("searchName");
+                if(searchName != null){
+                   List<Employees> EmpNames = empDao.selectByName(searchName);
+                    System.out.println("検索よう");
+                    attribute.put("Emplists",EmpNames);
+                }
             });
+
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "list.ftl"));
         });
 
