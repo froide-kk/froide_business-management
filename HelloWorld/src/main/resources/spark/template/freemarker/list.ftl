@@ -28,8 +28,6 @@
 <h2 class="list_wrapper_title">
     一覧画面
 </h2>
-
-
 <div class="list_wrapper">
     <div class="list_wrapper_search">
         <div class="list_wrapper_empty"></div>

@@ -7,27 +7,31 @@
 ${id}
 <!---------- ヘッダー部分　---------->
 <header class="career">
-    <h2><a class ="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
+    <h2><a class="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
     <nav>
         <ul class="header_right">
-            
+
             <li><a href="http://localhost:4567/career/show">My Page</a></li>
             <li><a href="http://localhost:4567/career/management">管理者</a></li>
 
-            <li><button class="logout">ログアウト</button></li>
+            <li>
+                <button class="logout">ログアウト</button>
+            </li>
         </ul>
     </nav>
 </header>
 <!---------- 戻るボタン ---------->
 <nav>
     <ul class="back">
-        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
+        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#">戻る</a></button>
     </ul>
 </nav>
 <!---------- 編集ボタンとPDF化ボタン ---------->
 <nav class="disp">
     <ul class="option">
-        <li><button class="edit" onclick="location.href='http://localhost:4567/career/update(id)'"><a>編集</a></button></li>
+        <li>
+            <button class="edit" onclick="location.href='http://localhost:4567/career/update(id)'"><a>編集</a></button>
+        </li>
         <li>
             <form class="disp">
                 <input class="pdf" type="button" value="PDF化">
@@ -71,7 +75,8 @@ ${id}
                             }
 
                         document.write(getAge(birthday));
-                     </script>
+
+                </script>
             </td>
             <td>福岡県</td>
             <td>北海道情報大学</td>
@@ -86,8 +91,8 @@ ${id}
 
     <br>
 
-    <div class ="Level">
-        <p>○　業務で使用経験あり  △　個人レベルで対応可能</p>
+    <div class="Level">
+        <p>○　業務で使用経験あり △　個人レベルで対応可能</p>
     </div>
 
     <table border=1 style="border-collapse: collapse">
@@ -134,7 +139,8 @@ ${id}
                     }else{
                      document.write(Math.floor(termDay)+"日");
                     }
-                 </script>
+
+                </script>
             </td>
         </tr>
 
@@ -162,7 +168,13 @@ ${id}
             <th colspan="4">システムの詳細</th>
         </tr>
         <tr>
-            <td colspan="4">詳細をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
+            <td colspan="4">詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+            </td>
         </tr>
     </table>
 
@@ -197,7 +209,8 @@ ${id}
                     }else{
                      document.write(Math.floor(termDay)+"日");
                     }
-                 </script>
+
+                </script>
             </td>
         </tr>
 
@@ -225,7 +238,13 @@ ${id}
             <th colspan="4">システムの詳細</th>
         </tr>
         <tr>
-            <td colspan="4">詳細をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
+            <td colspan="4">詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+            </td>
         </tr>
     </table>
 
@@ -252,6 +271,7 @@ ${id}
     window.print();
     display(true)
     })
+
 </script>
 
 </body>

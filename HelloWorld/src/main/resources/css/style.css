@@ -66,6 +66,7 @@ header {
 .list_wrapper{
     width: 80%;
     margin: 0 auto;
+    background-color: #ffffff;
 }
 .list_wrapper_search {
 width: 100%;
@@ -324,10 +325,24 @@ font-size: 1.5rem
 .admin_item{
 width: 60%;
 display: inline-block;
-background-color: #33FFCC;
+background-color: #white;
 margin: 0.8em 20%;
 padding: 0.5em;
 font-size: 1.5em;
 }
 /* ここまで管理画面ページ */
 
+/* 技術チェック編集画面 */
+.skillCheck_wrapper {
+width: 80%;
+margin:  1rem auto;
+font-size: 1.7rem;
+background-color: white;
+}
+
+.skillCheck_title{
+padding: 0.5em 1em;
+background-color: #33FFCC;
+font-size: 1.5rem
+}
+/* 技術チェック編集画面 */
