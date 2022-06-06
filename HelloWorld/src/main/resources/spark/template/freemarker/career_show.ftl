@@ -1,7 +1,7 @@
 <html>
 <head>
-    <link rel="stylesheet" href="../style_2.css">
-    <title>業務経歴書</title>
+    <link rel="stylesheet" href="../style.css">
+    <title>経歴書閲覧画面</title>
 </head>
 <body>
 ${id}

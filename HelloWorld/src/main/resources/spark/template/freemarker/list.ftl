@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+    <title>一覧画面</title>
 </head>
 
 <body>
@@ -84,28 +85,27 @@
         <div class="list_wrapper_band">
 <!--            ラベルの白線消したい-->
                 <tr class="list_wrapper_label">
-                    <th>番号</th>
-                    <th>名前</th>
-                    <th>所属部署</th>
-                    <th>入社年月</th>
-                    <th>技術</th>
+                    <th class="list_row">番号</th>
+                    <th class="list_row">名前</th>
+                    <th class="list_row">所属部署</th>
+                    <th class="list_row">入社年月</th>
+                    <th class="list_row">技術</th>
                 </tr>
         </div>
 
         <div class="list_wrapper_band">
             <#list Emplists as Emplist>
             <tr class="list_wrapper_items">
-                <td>${Emplist_index+1}</td>
+                <td class="list_col">${Emplist_index+1}</td>
                 <form method="get" action="/career/show">
-                    <td>
+                    <td class="list_col">
                         <input type="hidden" value=${Emplist.id} name="id">
                         ${Emplist.id} <!--作業終わったら削除して                        -->
                         <input type="submit" value="${Emplist.name}">
-                    </td>
                 </form>
-                <td>${Emplist.department_id}</td>
-                <td>${Emplist.join_date}</td>
-                <td>DB技術</td>
+                <td class="list_col">${Emplist.department_id}</td>
+                <td class="list_col">${Emplist.join_date}</td>
+                <td class="list_col">DB技術</td>
             </tr>
         </#list>
     </div>
