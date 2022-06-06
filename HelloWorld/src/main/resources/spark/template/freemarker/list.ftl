@@ -13,7 +13,7 @@
     <nav>
         <ul class="header_right">
             <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>
-            <li><a href="http://localhost:4567/career/admin">管理者</a></li>
+            <li><a href="http://localhost:4567/career/management">管理者</a></li>
             <li><button class="logout">ログアウト</button></li>
         </ul>
     </nav>
@@ -36,6 +36,7 @@
         <form method="get" action="/career">
             <div class="list_wrapper_header">
                 <!--                社員名の検索-->
+
                     <div   class="list_header_items">
                         <input type="text" placeholder="社員名で検索" class="emp_name_search" name="searchName">
                     </div>
