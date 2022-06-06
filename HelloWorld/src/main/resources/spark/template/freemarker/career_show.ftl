@@ -1,7 +1,7 @@
 <html>
 <head>
-    <link rel="stylesheet" href="../style_2.css">
-    <title>業務経歴書</title>
+    <link rel="stylesheet" href="../style.css">
+    <title>経歴書閲覧画面</title>
 </head>
 <body>
 ${id}
@@ -12,7 +12,7 @@ ${id}
         <ul class="header_right">
             
             <li><a href="http://localhost:4567/career/show">My Page</a></li>
-            <li><a href="http://localhost:4567/career/admin">管理者</a></li>
+            <li><a href="http://localhost:4567/career/management">管理者</a></li>
 
             <li><button class="logout">ログアウト</button></li>
         </ul>
