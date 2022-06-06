@@ -22,4 +22,7 @@ public interface EmployeesDao {
     @Select
     Employees selectById(Integer id);
 
+    @Select
+    List<Employees> selectByDepartment(Integer department_id);
+
 }

@@ -29,16 +29,24 @@ public class main {
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
+            //名前検索
             tm.required(() -> {
                 List<Employees> Emplists = empDao.selectAll();
                 attribute.put("Emplists",Emplists);
 
+                //URLに値が渡されるのでそれをsearchNameに渡す
                 String searchName = req.queryParams("searchName");
+                String searchDepartment = req.queryParams("searchDepartment");
+
+                //もし、searchNameの値がnullじゃないなら、名前で検索
                 if(searchName != null){
                    List<Employees> EmpNames = empDao.selectByName(searchName);
-                    System.out.println("検索よう");
                     attribute.put("Emplists",EmpNames);
-                }
+                    //もし、searchDepartmentの値がnullでないなら、所属部署で検索
+                }else if(searchDepartment != null){
+                List<Employees> EmpDepartments = empDao.selectByDepartment(Integer.valueOf(searchDepartment));
+                attribute.put("Emplists",EmpDepartments);
+            }
             });
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "list.ftl"));

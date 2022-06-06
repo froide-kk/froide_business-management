@@ -43,10 +43,17 @@
         </tr>
 
         <tr>
-            <td><input type="text" value="adachi"></td>
-            <td><input type="text" value="1999/11/06"></td>
+            <td>
+                <input type="text" size="42"  value="Adachi.K">
+            </td>
+            <td>
+                <form id="form_test">
+                    <div id="input_value_box"></div>
+                <input type="text" value="1999/11/06">
+            </td>
             <td> <script>
-                    let Birtday = "1999-6-02"
+                    //inputされた値をリアルタイムbirthdayに代入したい
+                    let Birtday = "1999-11-06"
                     let birtdayAry = Birtday.split('-')
                     const birthday = {
                          year: birtdayAry[0],
@@ -73,7 +80,7 @@
             <th colspan="5">資格</th>
         </tr>
         <tr>
-            <td colspan="5"><input type="text" value="基本情報技術者試験"></td>
+            <td colspan="5"><input type="text" size="120" value="基本情報技術者試験"></td>
         </tr>
     </table>
 
@@ -110,10 +117,10 @@
         <tr>
             <td>業種表示</td>
             <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
-            <td>2022-04-01 〜 2022-04-21</td>
+            <td><input type="text" size="60"　 value="2022-04-01 〜 2022-04-21"></td>
+
             <td>
                 <script>
-
                     var startday = new Date("2022-04-01");
                     var endday = new Date("2022-4-21");
                     //差日を求める（86,400,000ミリ秒＝１日）
@@ -140,8 +147,8 @@
         </tr>
         <tr>
             <td colspan="2"><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td></td>
+            <td><input type="text" size="20"></td>
 
         </tr>
         <tr>
@@ -149,15 +156,25 @@
             <th colspan="2">使用言語</th>
         </tr>
         <tr>
-            <td colspan="2">要件分析、DB設計</td>
-            <td colspan="2">Java,HTML/CSS,JavaScript</td>
+            <td colspan="2">
+                <select id="phase"  multiple size="3">
+                    <option value="1">要件定義</option>
+                    <option value="2">DB設計</option>
+                    <option value="3">基本設計</option>
+                    <option value="4">詳細設計</option>
+                    <option value="5">作成</option>
+                    <option value="6">テスト</option>
+                    <option value="7">詳細設計</option>
+                </select>
+            </td>
+            <td colspan="2"><input type="text" size="80" value="Java,HTML/CSS,JavaScript"></td>
         </tr>
 
         <tr>
             <th colspan="4">システムの詳細</th>
         </tr>
         <tr>
-            <td colspan="4">詳細をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
+            <td colspan="4"><textarea type="text" cols="120" value="詳細をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす"></textarea></td>
         </tr>
     </table>
 
@@ -171,7 +188,7 @@
         <tr>
             <td>業種表示</td>
             <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
-            <td><input type="text"></td>
+            <td><input type="text" size="60" value="2022-04-01 〜 2022-04-21"></td>
             <td>
                 <script>
 
@@ -194,8 +211,6 @@
             </td>
         </tr>
 
-        <br>
-
         <tr>
             <th colspan="2">システムの概要</th>
             <th>開発規模</th>
@@ -203,8 +218,8 @@
         </tr>
         <tr>
             <td colspan="2"><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td></td>
+            <td><input type="text" size="20"></td>
 
         </tr>
         <tr>
@@ -213,14 +228,15 @@
         </tr>
         <tr>
             <td colspan="2">要件分析、DB設計</td>
-            <td colspan="2">Java,HTML/CSS,JavaScript</td>
+            <td colspan="2"><input type="text" size="80" value="Java,HTML/CSS,JavaScript"></td>
         </tr>
 
         <tr>
             <th colspan="4">システムの詳細</th>
         </tr>
         <tr>
-            <td colspan="4"><input type="text" class="system"></td>
+            <td colspan="4"><textarea type="text" cols="120" value="詳細をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす"></textarea></td>
+        </tr>
         </tr>
     </table>
 </div>
