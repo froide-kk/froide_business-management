@@ -1,3 +1,4 @@
+show
 <html>
 <head>
     <link rel="stylesheet" href="../style_1.css">
@@ -229,8 +230,6 @@
     <br>
 
 
-
-
 </div>
 <script>
     const display = (flag) => {
@@ -255,5 +254,6 @@
 
 </body>
 </html>
+
 
 
