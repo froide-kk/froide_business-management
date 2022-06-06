@@ -1,7 +1,6 @@
-show
 <html>
 <head>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style_2.css">
     <title>業務経歴書</title>
 </head>
 <body>
