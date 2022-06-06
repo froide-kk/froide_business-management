@@ -66,6 +66,7 @@ header {
 .list_wrapper{
     width: 80%;
     margin: 0 auto;
+    background-color: white;
 }
 .list_wrapper_search {
 width: 100%;
@@ -224,6 +225,7 @@ display: inline-block;
     width: 13em;
     height:4rem;
 }
+
 /* ここまで一覧ページ */
 
 /* ここから業務経歴書閲覧画面ページ　*/
@@ -330,4 +332,3 @@ padding: 0.5em;
 font-size: 1.5em;
 }
 /* ここまで管理画面ページ */
-
