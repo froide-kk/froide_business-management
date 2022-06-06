@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="../style_2.css">
     <title>経歴書編集画面</title>
+
 </head>
 
 <body>
@@ -26,7 +27,7 @@
 </nav>
 <!---------- 保存ボタン ---------->
 <form>
-    <input type="submit" class="keep" value="保存">
+    <input type="submit" class="keep" value="保存"　onclick=>
 </form>
 <!---------- 業務経歴書の部分 ---------->
 <div class="careerSheet">
@@ -39,16 +40,40 @@
             <th>年齢</th>
             <th>住所</th>
             <th>最終学歴</th>
-            <th>資格</th>
         </tr>
 
         <tr>
-            <td>あああああ</td>
-            <td>0000/00/00</td>
-            <td>0歳</td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
+            <td><input type="text" value="adachi"></td>
+            <td><input type="text" value="1999/11/06"></td>
+            <td> <script>
+                    let Birtday = "1999-6-02"
+                    let birtdayAry = Birtday.split('-')
+                    const birthday = {
+                         year: birtdayAry[0],
+                         month: birtdayAry[1],
+                         date: birtdayAry[2]
+                         };
+                    function getAge(birthday){
+                       var today = new Date();
+                        var thisYearsBirthday = new Date(today.getFullYear(), birthday.month-1, birthday.date);
+                         var age = today.getFullYear() - birthday.year;
+                        if(today < thisYearsBirthday){
+                          age--;
+                               }
+                            return age;
+                            }
+
+                        document.write(getAge(birthday));
+                     </script></td>
+            <td><input type="text" value="福岡"></td>
+            <td><input type="text" value="情報系大学卒"></td>
+        </tr>
+
+        <tr>
+            <th colspan="5">資格</th>
+        </tr>
+        <tr>
+            <td colspan="5"><input type="text" value="基本情報技術者試験"></td>
         </tr>
     </table>
 
@@ -77,108 +102,127 @@
 
     <table border=1 style="border-collapse: collapse">
         <tr>
-            <th>【業種】</th>
-            <th>【企業名】</th>
-            <th>【プロジェクト】</th>
-            <th colspan="2" >【期間】</th>
+            <th>業種</th>
+            <th class="disp">プロジェクト</th>
+            <th colspan="2">期間</th>
         </tr>
 
         <tr>
+            <td>業種表示</td>
+            <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
+            <td>2022-04-01 〜 2022-04-21</td>
+            <td>
+                <script>
+
+                    var startday = new Date("2022-04-01");
+                    var endday = new Date("2022-4-21");
+                    //差日を求める（86,400,000ミリ秒＝１日）
+                    var termDay = (endday - startday) / 86400000;
+                    if(termDay>365){
+                    termMouths=termDay%365
+                    termMouth=termMouths/30
+                    termYear=termDay/365
+                    document.write(Math.floor(termYear)+"年"+Math.floor(termMouth)+"ヶ月");
+                    }else if(termDay>30){
+                    termMouth=termDay/30
+                     document.write(Math.floor(termMouth)+"ヶ月");
+                    }else{
+                     document.write(Math.floor(termDay)+"日");
+                    }
+                 </script>
+            </td>
+        </tr>
+
+        <tr>
+            <th colspan="2">システムの概要</th>
+            <th>開発規模</th>
+            <th>役割</th>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text"></td>
             <td><input type="text"></td>
-            <td></td>
             <td><input type="text"></td>
-            <td>2022.4 〜 2022.6</td>
-            <td>3ヶ月</td>
-        </tr>
-    </table>
-    <table border=1 style="border-collapse: collapse">
-        <tr>
-            <th>【システムの概要】</th>
-            <th>【役割】</th>
+
         </tr>
         <tr>
-            <td>社内業務履歴管理システム</td>
-            <td>PG</td>
-        </tr>
-    </table>
-    <table border=1 style="border-collapse: collapse">
-        <tr>
-            <th>【開発規模】</th>
-            <th>【開発担当フェーズ】</th>
+            <th colspan="2">開発担当フェーズ</th>
+            <th colspan="2">使用言語</th>
         </tr>
         <tr>
-            <td>5人以下</td>
-            <td>要件分析 DB設計</td>
+            <td colspan="2">要件分析、DB設計</td>
+            <td colspan="2">Java,HTML/CSS,JavaScript</td>
         </tr>
-    </table>
-    <table border=1 style="border-collapse: collapse">
+
         <tr>
-            <th>【システムの詳細】</th>
-        </tr>
-        <tr>
-            <td>社内の業務を管理するシステムです</td>
-        </tr>
-    </table>
-    <table border=1 style="border-collapse: collapse">
-        <tr>
-            <th>【使用言語・環境・ツール】</th>
+            <th colspan="4">システムの詳細</th>
         </tr>
         <tr>
-            <td>Java　MySQL HTML/CSS</td>
+            <td colspan="4">詳細をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす</td>
         </tr>
     </table>
 
     <table border=1 style="border-collapse: collapse">
         <tr>
-            <th>【業種】</th>
-            <th>【プロジェクト】</th>
-            <th colspan="2" >【期間】</th>
+            <th>業種</th>
+            <th class="disp">プロジェクト</th>
+            <th colspan="2">期間</th>
         </tr>
 
         <tr>
-            <td>IT企業</td>
-            <td>例のアレ</td>
-            <td>2022.4 〜 2022.6</td>
-            <td>3ヶ月</td>
+            <td>業種表示</td>
+            <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
+            <td><input type="text"></td>
+            <td>
+                <script>
+
+                    var startday = new Date("2022-04-01");
+                    var endday = new Date("2022-4-21");
+                    //差日を求める（86,400,000ミリ秒＝１日）
+                    var termDay = (endday - startday) / 86400000;
+                    if(termDay>365){
+                    termMouths=termDay%365
+                    termMouth=termMouths/30
+                    termYear=termDay/365
+                    document.write(Math.floor(termYear)+"年"+Math.floor(termMouth)+"ヶ月");
+                    }else if(termDay>30){
+                    termMouth=termDay/30
+                     document.write(Math.floor(termMouth)+"ヶ月");
+                    }else{
+                     document.write(Math.floor(termDay)+"日");
+                    }
+                 </script>
+            </td>
         </tr>
-    </table>
-    <table border=1 style="border-collapse: collapse">
+
+        <br>
+
         <tr>
-            <th>【システムの概要】</th>
-            <th>【役割】</th>
-        </tr>
-        <tr>
-            <td>社内業務履歴管理システム</td>
-            <td>PG</td>
-        </tr>
-    </table>
-    <table border=1 style="border-collapse: collapse">
-        <tr>
-            <th>【開発規模】</th>
-            <th>【開発担当フェーズ】</th>
-        </tr>
-        <tr>
-            <td>5人以下</td>
-            <td>要件分析 DB設計</td>
-        </tr>
-    </table>
-    <table border=1 style="border-collapse: collapse">
-        <tr>
-            <th>【システムの詳細】</th>
-        </tr>
-        <tr>
-            <td>社内の業務を管理するシステムです</td>
-        </tr>
-    </table>
-    <table border=1 style="border-collapse: collapse">
-        <tr>
-            <th>【使用言語・環境・ツール】</th>
+            <th colspan="2">システムの概要</th>
+            <th>開発規模</th>
+            <th>役割</th>
         </tr>
         <tr>
-            <td>Java　MySQL HTML/CSS</td>
+            <td colspan="2"><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+
+        </tr>
+        <tr>
+            <th colspan="2">開発担当フェーズ</th>
+            <th colspan="2">使用言語</th>
+        </tr>
+        <tr>
+            <td colspan="2">要件分析、DB設計</td>
+            <td colspan="2">Java,HTML/CSS,JavaScript</td>
+        </tr>
+
+        <tr>
+            <th colspan="4">システムの詳細</th>
+        </tr>
+        <tr>
+            <td colspan="4"><input type="text" class="system"></td>
         </tr>
     </table>
 </div>
 </body>
-</html>
 </html>

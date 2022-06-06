@@ -59,19 +59,10 @@ header {
     background-color:#6495ed;
     width: 150px;
 }
-.option li {
-    flex: 0.01 0 auto;
-}
-.edit{
-    background-color:#e6e6e6;
-}
-.pdf {
-    background-color:#ff6347;
-}
 /* 業務経歴書の部分 */
 .careerSheet {
     margin : 30px;
-    padding : 20px;
+    padding : 30px;
     background-color: #ffffff;
 }
 .sheetHead {
@@ -86,10 +77,12 @@ table {
 th{
     width:100px;
     text-align:center;
+    font-size:1.1rem;
+    white-space:nowrap
 }
 td{
-    width:200px;
-    text-align:center;
+    width:100px;
+    font-size:1rem;
 }
 
 .level{
@@ -97,4 +90,12 @@ td{
 }
 
 .project{
+    width:100px;
+    font-size:1.5rem;
+}
+
+/* システム詳細入力フォームの横幅設定 */
+.system {
+    width:1285px;
+    overflow-wrap: anywhere
 }
