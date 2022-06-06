@@ -13,7 +13,7 @@
     <nav>
         <ul class="header_right">
             <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>
-            <li><a href="http://localhost:4567/career/admin">管理者</a></li>
+            <li><a href="http://localhost:4567/career/management">管理者</a></li>
             <li><button class="logout">ログアウト</button></li>
         </ul>
     </nav>
@@ -40,12 +40,7 @@
                 </div>
                 <!--                所属部署の検索-->
                 <div  class="list_header_items">
-                    <select name="departments" class="department_list">
-                        <option value="">所属部署</option>
-                        <#list DepLists as DepList>
-                        <option value="${DepList.name}"></option>
-                        </#list>
-                    </select>
+
                 </div>
                 <!--                入社年月の検索-->
                 <div class="list_header_items">
