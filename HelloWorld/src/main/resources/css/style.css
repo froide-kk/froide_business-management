@@ -340,10 +340,68 @@ margin:  1rem auto;
 font-size: 1.7rem;
 background-color: white;
 }
-
 .skillCheck_title{
 padding: 0.5em 1em;
 background-color: #33FFCC;
 font-size: 1.5rem
 }
-/* 技術チェック編集画面 */
+.skill_wrapper_empty {
+    height:2rem;
+}
+/* テーブル関連 */
+.skill_table{
+width:800px;
+table-layout:fixed;
+}
+.skill_name{
+background-color:#99ffdd;
+}
+/* 技術項目追加 */
+.skill_add{
+display:flex;
+margin: 0 auto 0 auto;
+width: 780px;
+padding: 10px;
+
+}
+/* 技術項目追加の項目 */
+.skill_add_item{
+margin:5px;
+}
+.skill_add_name{
+padding:15px;
+}
+/* 技術項目選択プルダウンメニュー部分 */
+.skill_select{
+padding:15px;
+}
+/* 追加ボタン */
+.skill_add_button {
+width: 100px;
+padding:10px;
+background-color:#99ffdd;
+}
+
+/* プロジェクト追加・編集・削除画面CSS */
+.project_update_wrapper {
+width: 80%;
+margin:  1rem auto;
+font-size: 1.7rem;
+background-color: white;
+}
+.project_update_title{
+padding: 0.5em 1em;
+background-color: #33FFCC;
+font-size: 1.5rem
+}
+.project_update_empty {
+    height:2rem;
+}
+.company_project_table{
+width:400px;
+table-layout:fixed;
+}
+.company_project_name{
+background-color:#99ffdd;
+}
+/* ここまでプロジェクト編集画面 */
