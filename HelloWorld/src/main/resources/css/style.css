@@ -160,9 +160,11 @@ height: 2.5em;
 
 /*　一覧テーブル */
 table {
+border-collapse: collapse;
 width: 100%;
 text-align: center;
 }
+
 /* テーブルのラベル部分 */
 .list_wrapper_label {
     margin-bottom:1rem;
@@ -347,3 +349,108 @@ background-color: #33FFCC;
 font-size: 1.5rem
 }
 /* 技術チェック編集画面 */
+
+/*管理者権限画面*/
+.admin_authorize_wrapper {
+width: 70%;
+margin:  1rem auto;
+font-size: 1.7rem;
+background-color: white;
+}
+
+.admin_authorize_title{
+padding: 0.5em 1em;
+background-color: #33FFCC;
+font-size: 1.5rem
+}
+
+.admin_authorize_wrapper th{
+background-color: #33FFCC;
+}
+
+.admin_authorize_wrapper table{
+width: 50%;
+}
+
+.admin_authorize_wrapper table,.admin_authorize_wrapper th,.admin_authorize_wrapper td{
+border-collapse: collapse;
+    border:1px solid;
+margin: 1em 25%;
+text-align: center;
+}
+
+.admin_authorize_delete_button{
+border: 0.3px solid #333;
+background-color: red;
+
+}
+
+.admin_authorize_search_form {
+text-align: center;
+}
+
+.admin_authorize_search{
+text-align: center;
+height: 2.5em;
+width: 30%;
+}
+.admin_authorize_search_button {
+height: 2.5em;
+width: 10%;
+background: #33FFCC;
+border: 0.3px solid #333;
+}
+/*管理者権限画面ここまで*/
+
+/*従業員画面*/
+.emp_update_wrapper{
+width: 80%;
+margin:  1rem auto;
+height: 70vh;
+font-size: 1.7rem;
+background-color: white;
+}
+
+.emp_update_title{
+padding: 0.5em 1em;
+background-color: #33FFCC;
+font-size: 1.5rem
+}
+
+.emp_update_wrapper th{
+background-color: #33FFCC;
+}
+
+.emp_add_item{
+font-size: 3px;
+color: #876;
+}
+
+.emp_delete_table{
+margin: 1rem 20%;
+}
+
+.emp_update_wrapper table,.emp_update_wrapper th,.emp_update_wrapper td{
+border-collapse: collapse;
+    border:1px solid;
+margin: 1em auto;
+}
+
+.emp_delete_form {
+text-align: center;
+}
+
+.emp_delete_search{
+text-align: center;
+height: 2.5em;
+width: 30%;
+}
+.emp_delete_search_button {
+height: 2.5em;
+width: 10%;
+background: #33FFCC;
+border: 0.3px solid #333;
+}
+/*従業員画面ここまで*/
+
+

@@ -11,7 +11,7 @@ public class Employees {
     Integer password_hash;
     String birthday;
     String join_date;
-    Integer management_flag;
+    byte management_flag;
 
     Integer department_id;
 
@@ -79,11 +79,11 @@ public class Employees {
         this.join_date = join_date;
     }
 
-    public Integer getManagement_flag() {
+    public byte getManagement_flag() {
         return management_flag;
     }
 
-    public void setManagement_flag(Integer management_flag) {
+    public void setManagement_flag(byte management_flag) {
         this.management_flag = management_flag;
     }
 

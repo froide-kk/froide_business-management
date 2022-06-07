@@ -102,11 +102,29 @@ public class main {
 
         //管理者権限編集画面
         get("/career/managementUpdate",(req,res) -> {
+            EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-            String list = req.queryParams("list");
-            attribute.put("list", "Hello");
+
+            tm.required(() -> {
+                List<Employees> AdminLists = empDao.selectByAdmin();
+                attribute.put("Emplists", AdminLists);
+            });
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "admin_authorize.ftl"));
         });
+
+        post("/career/managementUpdate",(req,res) ->{
+            EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+            Map<String, Object> attribute = new HashMap<>();
+
+            tm.required(() -> {
+                Employees employees = empDao.selectById(Integer.valueOf("id"));
+                empDao.update(employees);
+            });
+            return new FreeMarkerEngine().render(new ModelAndView(attribute, "admin_authorize.ftl"));
+        });
+
 
         //従業員編集画面
         get("/career/empUpdate",(req,res) -> {

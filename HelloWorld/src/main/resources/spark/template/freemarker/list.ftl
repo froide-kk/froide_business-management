@@ -84,7 +84,6 @@
 
         <table>
         <div class="list_wrapper_band">
-<!--            ラベルの白線消したい-->
                 <tr class="list_wrapper_label">
                     <th class="list_row">番号</th>
                     <th class="list_row">名前</th>

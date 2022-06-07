@@ -25,4 +25,9 @@ public interface EmployeesDao {
     @Select
     List<Employees> selectByDepartment(Integer department_id);
 
+    @Select
+    List<Employees> selectByAdmin();
+
+    @Update
+    int updateAdmin(Employees employees);
 }
