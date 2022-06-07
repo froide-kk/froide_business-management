@@ -15,7 +15,7 @@
         <ul class="header_right">
             <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>
             <li><a href="http://localhost:4567/career/management">管理者</a></li>
-            <li><button class="logout">ログアウト</button></li>
+            <li><input type="button" class="logout" onclick="location.href='/career/login'" value="ログアウト"></li>
         </ul>
     </nav>
 </header>
@@ -47,9 +47,8 @@
                 <input type="text" size="42"  value="Adachi.K">
             </td>
             <td>
-                <form id="form_test">
-                    <div id="input_value_box"></div>
                 <input type="text" value="1999/11/06">
+
             </td>
             <td> <script>
                     //inputされた値をリアルタイムbirthdayに代入したい
@@ -117,7 +116,7 @@
         <tr>
             <td>業種表示</td>
             <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
-            <td><input type="text" size="60"　 value="2022-04-01 〜 2022-04-21"></td>
+            <td><input type="text" size="10" value="2022-04-01">〜<input type="text" size="10"　 value="2022-04-21"></td>
 
             <td>
                 <script>

@@ -1,4 +1,7 @@
 import org.seasar.doma.*;
+
+import java.sql.Date;
+
 @Entity(metamodel = @Metamodel)
 public class Employees {
     @Id
@@ -10,9 +13,11 @@ public class Employees {
     String email;
     Integer password_hash;
     String birthday;
-    String join_date;
-    byte management_flag;
 
+    String join_date;
+  
+    byte management_flag;
+  
     Integer department_id;
 
     public Integer getId() {
@@ -71,11 +76,9 @@ public class Employees {
         this.birthday = birthday;
     }
 
-    public String getJoin_date() {
-        return join_date;
-    }
+    public Date getJoin_date() {return join_date;}
 
-    public void setJoin_date(String join_date) {
+    public void setJoin_date(Date join_date) {
         this.join_date = join_date;
     }
 

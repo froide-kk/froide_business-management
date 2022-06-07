@@ -1,8 +1,9 @@
 select
-    /*%expand*/*
+    id,
+    name
 
 from
     `Employees`
 
 where
-    `Employees` = /* id */0
+    `Employees`.id = /* id */0
