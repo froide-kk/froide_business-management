@@ -15,7 +15,7 @@ ${id}
             <li><a href="http://localhost:4567/career/management">管理者</a></li>
 
             <li>
-                <button class="logout">ログアウト</button>
+                <input type="button" class="logout" onclick="location.href='/career/login'" value="ログアウト">
             </li>
         </ul>
     </nav>
