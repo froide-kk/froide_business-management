@@ -19,6 +19,7 @@ public class main {
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
+            //IDで一人一人の画面を取得し、表示
             tm.required(() ->{
                 String id = req.queryParams("id");
                 System.out.print(id);
@@ -26,8 +27,6 @@ public class main {
                 attribute.put("name",employees.name);
                 attribute.put("id",Integer.valueOf(id));
             });
-
-
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "career_show.ftl"));
         });
@@ -48,23 +47,32 @@ public class main {
                 String searchName = req.queryParams("searchName");
                 String searchDepartment = req.queryParams("searchDepartment");
                 String join_date = req.queryParams("join_date");
-                System.out.print(searchName + searchDepartment + join_date);
+                String searchSkillList = req.queryParams("searchSkillList");
+                System.out.print(searchName + searchDepartment + join_date + searchSkillList);
 
                     //もし、searchNameの値がnullじゃないなら、名前で検索
                     if (searchName != null) {
                         List<Employees> EmpNames = empDao.selectByName(searchName);
                         attribute.put("Emplists", EmpNames);
                         //もし、searchDepartmentの値がnullでないなら、所属部署で検索
+                    //部署検索
                     }else if(searchDepartment != null){
                         System.out.print(searchDepartment);
                         List<Employees> EmpDepartments = empDao.selectByDepartment(Integer.valueOf(searchDepartment));
                         attribute.put("Emplists", EmpDepartments);
                     }
+                    //入社年月ソート
                     else if(join_date != null){
                         System.out.print(join_date);
                         List<Employees> EmpDes = empDao.selectAllDes();
                         attribute.put("Emplists", EmpDes);
-                    } else {
+                    }
+                    //技術チェックリスト検索
+                    else if(true){
+
+                    }
+                    //生年月日検索
+                    else if(true){
 
                     }
             });

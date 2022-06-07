@@ -64,11 +64,11 @@
                             <label class="skillLabel" for="skillCheckLabel">技術</label><!--技術ボタンの設定-->
                             <input type="checkbox" class="skillCheckbox" id="skillCheckLabel">
                             <ul class="skillList">
-                                <li><input type="checkbox">Java</li>
-                                <li><input type="checkbox">Spark</li>
-                                <li><input type="checkbox">JavaScript</li>
-                                <li><input type="checkbox">MySQL</li>
-                                <li><input type="checkbox">macOS</li>
+                                <li><input type="checkbox" name="searchSkillList" value="Java">Java</li>
+                                <li><input type="checkbox" name="searchSkillList" value="Spark">Spark</li>
+                                <li><input type="checkbox" name="searchSkillList" value="JS">JavaScript</li>
+                                <li><input type="checkbox" name="searchSkillList" value="MySQL">MySQL</li>
+                                <li><input type="checkbox" name="searchSkillList" value="macOS">macOS</li>
                             </ul>
                         </div>
                         <!--                    生年月日の検索-->
