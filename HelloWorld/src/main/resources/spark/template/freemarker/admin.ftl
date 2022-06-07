@@ -21,7 +21,7 @@
         <button class="browseBack" onclick="history.back(-1);return false;"><a href="#">戻る</a></button>
     </ul>
 </nav>
-
+<!---------- 戻るボタン ここまで ---------->
 <div class="admin_wrapper">
     <h2 class="admin_title">
          管理者画面

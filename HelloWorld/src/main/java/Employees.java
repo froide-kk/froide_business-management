@@ -14,9 +14,10 @@ public class Employees {
     Integer password_hash;
     String birthday;
 
-    java.sql.Date join_date;
-    Integer management_flag;
-
+    String join_date;
+  
+    byte management_flag;
+  
     Integer department_id;
 
     public Integer getId() {
@@ -81,11 +82,11 @@ public class Employees {
         this.join_date = join_date;
     }
 
-    public Integer getManagement_flag() {
+    public byte getManagement_flag() {
         return management_flag;
     }
 
-    public void setManagement_flag(Integer management_flag) {
+    public void setManagement_flag(byte management_flag) {
         this.management_flag = management_flag;
     }
 
