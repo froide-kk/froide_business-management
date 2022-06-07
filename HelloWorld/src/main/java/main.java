@@ -25,6 +25,8 @@ public class main {
                 System.out.print(id);
                 Employees employees = empDao.selectById(Integer.valueOf(id));
                 attribute.put("name",employees.name);
+                attribute.put("birthday",employees.birthday);
+                attribute.put("license",employees.license);
                 attribute.put("id",Integer.valueOf(id));
             });
 

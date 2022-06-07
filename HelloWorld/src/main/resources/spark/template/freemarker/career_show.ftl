@@ -53,11 +53,11 @@ ${id}
         </tr>
         <tr>
             <td>${name}</td>
-            <td>1999-11-06</td>
+            <td>${birthday}</td>
             <!---------- 年齢表示 ---------->
             <td>
                 <script>
-                    let Birtday = "1999-6-02"
+                    let Birtday = "${birthday}"
                     let birtdayAry = Birtday.split('-')
                     const birthday = {
                          year: birtdayAry[0],
@@ -85,7 +85,7 @@ ${id}
             <th colspan="5">資格</th>
         </tr>
         <tr>
-            <td colspan="5">基本情報技術者試験</td>
+            <td colspan="5">${license}</td>
         </tr>
     </table>
 
