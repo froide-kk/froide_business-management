@@ -1,7 +1,5 @@
 select
-    id,
-    name
-
+    /*%expand*/*
 from
     `Employees`
 

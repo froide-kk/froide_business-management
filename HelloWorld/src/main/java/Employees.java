@@ -14,11 +14,20 @@ public class Employees {
     Integer password_hash;
     String birthday;
 
-    String join_date;
-  
-    byte management_flag;
-  
+    java.sql.Date join_date;
+    Integer management_flag;
+
     Integer department_id;
+
+    public String getLicense() {
+        return license;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
+    }
+
+    String license;
 
     public Integer getId() {
         return id;
@@ -82,11 +91,11 @@ public class Employees {
         this.join_date = join_date;
     }
 
-    public byte getManagement_flag() {
+    public Integer getManagement_flag() {
         return management_flag;
     }
 
-    public void setManagement_flag(byte management_flag) {
+    public void setManagement_flag(Integer management_flag) {
         this.management_flag = management_flag;
     }
 
