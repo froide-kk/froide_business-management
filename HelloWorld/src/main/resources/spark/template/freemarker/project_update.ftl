@@ -59,11 +59,37 @@
             </tr>
         </table>
 
-        <div class="edit_and_delete">
-            <button>編集</button>
-            <button>削除</button>
-        </div>
+        <table class="edit_and_delete_table">
+            <tr>
+                <th class="stealth">文字</th>
+                <th class="stealth">文字</th>
+            </tr>
+            <tr>
+                <td class="company_project_edit"><button class="company_project_edit_button">編集</button></td>
+                <td class="company_project_edit"><button class="company_project_delete_button">削除</button></td>
+            </tr>
+            <tr>
+                <td class="company_project_edit"><button class="company_project_edit_button">編集</button></td>
+                <td class="company_project_edit"><button class="company_project_delete_button">削除</button></td>
+            </tr>
+            <tr>
+                <td class="company_project_edit"><button class="company_project_edit_button">編集</button></td>
+                <td class="company_project_edit"><button class="company_project_delete_button">削除</button></td>
+            </tr>
+            <tr>
+                <td class="company_project_edit"><button class="company_project_edit_button">編集</button></td>
+                <td class="company_project_edit"><button class="company_project_delete_button">削除</button></td>
+            </tr>
+            <tr>
+                <td class="company_project_edit"><button class="company_project_edit_button">編集</button></td>
+                <td class="company_project_edit"><button class="company_project_delete_button">削除</button></td>
+            </tr>
+            <tr>
+                <td class="company_project_edit"><button class="company_project_edit_button">編集</button></td>
+                <td class="company_project_edit"><button class="company_project_delete_button">削除</button></td>
+            </tr>
 
+        </table>
     </div>
     <div class="project_update_empty"></div>
     <div class="">

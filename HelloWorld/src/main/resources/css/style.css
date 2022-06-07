@@ -453,12 +453,33 @@ font-size: 1.5rem
 .project_update_empty {
     height:2rem;
 }
+.table_and_button{
+display:flex;
+}
 .company_project_table{
 width:400px;
 table-layout:fixed;
 }
 .company_project_name{
 background-color:#99ffdd;
+}
+.company_project_edit{
+}
+.edit_and_delete_table{
+width:400px;
+table-layout:fixed;
+}
+.company_project_edit{
+justify-content:flex-end;
+width: 90px;
+}
+.company_project_delete{
+justify-content:flex-end;
+width: 90px;
+}
+.stealth{
+width: 90px;
+color:white;
 }
 /* ここまでプロジェクト編集画面 */
 
