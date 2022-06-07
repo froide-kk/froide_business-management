@@ -44,18 +44,18 @@
                     <div  class="list_header_items">
                         <select class="department_list" name="searchDepartment">
                             <option>所属部署</option>
-                            <option name="searchDepartment" value="1">ソリューション1部</option>
-                            <option name="searchDepartment" value="2">ソリューション2部</option>
-                            <option name="searchDepartment" value="3">ソリューション3部</option>
-                            <option name="searchDepartment" value="4">管理本部</option>
+                            <option  value="1">ソリューション1部</option>
+                            <option  value="2">ソリューション2部</option>
+                            <option  value="3">ソリューション3部</option>
+                            <option  value="4">管理本部</option>
                         </select>
                     </div>
                     <!--                入社年月の検索-->
                     <div class="list_header_items">
                         <select name="join_date" class="join_list">
                             <option value="">入社年月</option>
-                            <option value="">降順</option>
-                            <option value="">昇順</option>
+                            <option value="desOrder">降順</option>
+                            <option value="ascOrder">昇順</option>
                         </select>
                     </div>
                     <!--                技術チェックのチェックボックス-->
@@ -103,6 +103,7 @@
                         <input type="hidden" value=${Emplist.id} name="id">
                         ${Emplist.id} <!--作業終わったら削除して                        -->
                         <input type="submit" value="${Emplist.name}">
+                    </td>
                 </form>
                 <td class="list_col">${Emplist.department_id}</td>
                 <td class="list_col">${Emplist.join_date}</td>
