@@ -24,31 +24,48 @@
 <div class="skillCheck_wrapper">
     <h2 class="skillCheck_title">技術チェック項目 編集ページ</h2>
     <div class="skill_wrapper_empty"></div>
-    <table border="1" style="border-collapse: collapse" class="skill_table">
-        <tr>
-            <th class="skill_name">OS</th>
-            <th class="skill_name">スクリプト・ツール</th>
-            <th class="skill_name">データベース</th>
-        </tr>
+    <div class="os_script_db">
+        <table border="1" style="border-collapse: collapse" class="skill_table">
+            <tr>
+                <th class="skill_name" colspan="3">OS</th>
+            </tr>
 
-        <tr>
-            <td class="skill_data"></td>
-            <td class="skill_data">Java</td>
-            <td class="skill_data">MySQL</td>
-        </tr>
+            <#list os_lists as os>
+            <tr>
+                <td class="skill_data">${os.name}</td>
+                <td class="skill_edit_delete"><button class="skill_edit_button">編集</button></td>
+                <td class="skill_edit_delete"><button class="skill_delete_button">削除</button></td>
+            </tr>
+        </#list>
+        </table>
 
-        <tr>
-            <td class="skill_data"></td>
-            <td class="skill_data">JavaScript</td>
-            <td class="skill_data"></td>
-        </tr>
+        <table border="1" style="border-collapse: collapse" class="skill_table">
+            <tr>
+                <th class="skill_name" colspan="3">スクリプト・ツール</th>
+            </tr>
 
-        <tr>
-            <td class="skill_data"></td>
-            <td class="skill_data">Python</td>
-            <td class="skill_data"></td>
-        </tr>
-    </table>
+            <#list script_lists as script>
+            <tr>
+                <td class="skill_data">${script.name}</td>
+                <td class="skill_edit_delete"><button class="skill_edit_button">編集</button></td>
+                <td class="skill_edit_delete"><button class="skill_delete_button">削除</button></td>
+            </tr>
+        </#list>
+        </table>
+
+        <table border="1" style="border-collapse: collapse" class="skill_table">
+            <tr>
+                <th class="skill_name" colspan="3">データベース</th>
+            </tr>
+        <#list db_lists as db>
+            <tr>
+                <td class="skill_data">${db.name}</td>
+                <td class="skill_edit_delete"><button class="skill_edit_button">編集</button></td>
+                <td class="skill_edit_delete"><button class="skill_delete_button">削除</button></td>
+            </tr>
+        </#list>
+        </table>
+    </div>
 
     <div class="skill_wrapper_empty"></div>
 

@@ -124,9 +124,19 @@ public class main {
 
         //技術チェック編集画面
         get("/career/skillCheck", (req, res) -> {
+            SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-            String list = req.queryParams("list");
-            attribute.put("list", "Hello");
+
+            //名前検索
+            tm.required(() -> {
+                List<Skills> OSlists = skillDao.select_os_All();
+                List<Skills> Scriptlists = skillDao.select_script_All();
+                List<Skills> DBlists = skillDao.select_db_All();
+                attribute.put("os_lists",OSlists);
+                attribute.put("script_lists", Scriptlists);
+                attribute.put("db_lists", DBlists);
+            });
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "skill_check.ftl"));
         });
 
