@@ -2,7 +2,8 @@ select
     id,
     name,
     department_id,
-    join_date
+    join_date,
+    email
 
 from
     `Employees`

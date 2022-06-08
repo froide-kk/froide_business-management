@@ -134,32 +134,57 @@ public class main {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-
+            //権限所持者の表示
             tm.required(() -> {
                 List<Employees> AdminLists = empDao.selectByAdmin();
-                attribute.put("Emplists", AdminLists);
+                attribute.put("AdminLists", AdminLists);
             });
-            return new FreeMarkerEngine().render(new ModelAndView(attribute, "admin_authorize.ftl"));
+            //権限なしの表示
+            tm.required(() -> {
+                List<Employees> OrdinaryLists = empDao.selectByOrdinary();
+                attribute.put("OrdinaryLists", OrdinaryLists);
+
+                String searchName = req.queryParams("searchName");
+                //権限なしの人の検索
+                if (searchName != null) {
+                    OrdinaryLists = empDao.selectByName(searchName);
+                    attribute.put("OrdinaryLists", OrdinaryLists);
+                }
+            });
+                return new FreeMarkerEngine().render(new ModelAndView(attribute, "admin_authorize.ftl"));
         });
 
         post("/career/managementUpdate",(req,res) ->{
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
-            Map<String, Object> attribute = new HashMap<>();
 
             tm.required(() -> {
-                Employees employees = empDao.selectById(Integer.valueOf("id"));
-                empDao.update(employees);
+                Employees employees = empDao.selectById(Integer.valueOf(req.queryParams("id")));
+                empDao.updateAdmin(Integer.valueOf(req.queryParams("id")));
             });
-            return new FreeMarkerEngine().render(new ModelAndView(attribute, "admin_authorize.ftl"));
+
+            res.redirect("/career/managementUpdate");
+            return res;
         });
 
 
         //従業員編集画面
         get("/career/empUpdate", (req, res) -> {
+            EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-            String list = req.queryParams("list");
-            attribute.put("list", "Hello");
+            //現在いる従業員の表示
+            tm.required(() -> {
+                String searchName = req.queryParams("searchName");
+                List<Employees> Emplists = empDao.selectAll();
+                attribute.put("Emplists", Emplists);
+
+                if (searchName != null) {
+                    List<Employees> EmpSearchName = empDao.selectByName(searchName);
+                    attribute.put("Emplists", EmpSearchName);
+                }
+            });
+
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "emp_update.ftl"));
         });
 

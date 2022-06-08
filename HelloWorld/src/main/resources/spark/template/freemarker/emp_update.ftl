@@ -47,12 +47,15 @@
             </td>
             <td class="emp_add_item"><input type="text" value="yyyy-mm-dd"></td>
             <td class="emp_add_item"><input type="text" value="tarou-yamada@xxxxxx@co.jp"></td>
+            <td class="emp_add_item"><input type="submit" class="emp_add_button" value="追加"></td>
         </tr>
     </table>
 
+    <form method="get" action="/career/empUpdate">
     <div class="emp_delete_form">
-        <input type="text" placeholder="従業員名を入力してください" class="emp_delete_search"><button class="emp_delete_search_button">検索</button>
+        <input type="text" placeholder="従業員名を入力してください" class="emp_delete_search" name="searchName"><button class="emp_delete_search_button">検索</button>
     </div>
+    </form>
 
     <table class="emp_delete_table">
         <tr class="emp_delete_list">
@@ -64,12 +67,17 @@
         </tr>
 
         <tr class="emp_delete_item">
-            <td class="emp_delete_col"></td>
-            <td class="emp_delete_col"></td>
-            <td class="emp_delete_col"></td>
-            <td class="emp_delete_col"></td>
-            <td class="emp_delete_col"></td>
+            <#list Emplists as Emplist>
+            <td class="emp_delete_col">${Emplist.id}</td>
+            <td class="emp_delete_col">${Emplist.name}</td>
+            <td class="emp_delete_col">${Emplist.department_id}</td>
+            <td class="emp_delete_col">${Emplist.join_date}</td>
+            <td class="emp_delete_col">${Emplist.email}</td>
+            <td class="emp_delete_col">
+                <input type="submit" class="emp_delete_button" value="削除">
+            </td>
         </tr>
+    </#list>
     </table>
 
 </div>
