@@ -270,7 +270,6 @@ td{
     width:100px;
     font-size:1rem;
 }
-
 .level{
     text-align:center;
 }
@@ -349,12 +348,30 @@ font-size: 1.5rem
     height:2rem;
 }
 /* テーブル関連 */
+.os_script_db{
+display: flex;
+justify-content: space-around;
+}
 .skill_table{
-width:800px;
+width:400px;
 table-layout:fixed;
 }
 .skill_name{
 background-color:#99ffdd;
+}
+.skill_data{
+text-align:center;
+}
+/* 編集ボタン */
+.skill_edit_button{
+width: 70px;
+background-color:#a9a9a9;
+
+}
+/* 削除ボタン */
+.skill_delete_button{
+width: 70px;
+background-color:#e61739;
 }
 /* 技術項目追加 */
 .skill_add{
@@ -395,34 +412,75 @@ background-color: #33FFCC;
 font-size: 1.5rem
 }
 .project_update_empty {
-    height:2rem;
+height:2rem;
 }
-.table_and_button{
-display:flex;
-}
-.company_project_table{
-width:400px;
+/* 企業名とプロジェクト名と編集ボタンと削除ボタンが格納されたテーブル */
+.company_project_name_and_edit_and_delete_button_table{
+width:600px;
 table-layout:fixed;
+border-collapse: collapse;
 }
-.company_project_name{
+/* <th>タグ */
+.company_name{
 background-color:#99ffdd;
+width:10px;
+border: solid 1px;
 }
-.company_project_edit{
+.project_name{
+background-color:#99ffdd;
+width:10px;
+border: solid 1px;
 }
-.edit_and_delete_table{
-width:400px;
-table-layout:fixed;
-}
-.company_project_edit{
-justify-content:flex-end;
-width: 90px;
-}
-.company_project_delete{
-justify-content:flex-end;
-width: 90px;
-}
+/* 見えない<th>タグ(ボタン用thタグ) */
 .stealth{
-width: 90px;
 color:white;
+width:3px;
+}
+/* <td>タグ */
+.company_and_project_name{
+text-align:center;
+border: solid 1px;
+}
+.company_project_edit_delete{
+text-align:center;
+}
+/* 編集ボタン */
+.company_project_edit_button{
+width: 70px;
+background-color:#a9a9a9;
+
+}
+/* 削除ボタン */
+.company_project_delete_button{
+width: 70px;
+background-color:#e61739;
+}
+/* 企業名入力とプロジェクト名入力と追加ボタン */
+.input_name_and_addButton{
+display:flex;
+margin: 0 auto 0 auto;
+width: 650px;
+padding: 10px;
+/*border: solid 1px;*/
+}
+.company_project_addButton_margin{
+margin:5px;
+}
+/* 企業名を入力 */
+.input_company_name{
+width: 300px;
+padding: 10px;
+}
+/* プロジェクト名を入力 */
+.input_project_name{
+width: 300px;
+padding: 10px;
+}
+/* 入力情報をテーブルに追加 */
+.company_and_project_addButton{
+background-color:#99ffdd;
+width: 100px;
+padding: 6px;
+
 }
 /* ここまでプロジェクト編集画面 */

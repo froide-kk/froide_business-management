@@ -14,4 +14,13 @@ public interface SkillsDao {
 
     @Select
     List<Skills> selectAll();
+
+    @Select
+    List<Skills> select_os_All();
+
+    @Select
+    List<Skills> select_script_All();
+
+    @Select
+    List<Skills> select_db_All();
 }
