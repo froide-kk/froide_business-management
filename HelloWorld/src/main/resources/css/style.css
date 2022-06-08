@@ -382,7 +382,11 @@ text-align: center;
 .admin_authorize_delete_button{
 border: 0.3px solid #333;
 background-color: red;
+}
 
+.admin_authorize_add_button{
+border: 0.3px solid #333;
+background-color: #33FFCC;
 }
 
 .admin_authorize_search_form {
@@ -545,7 +549,6 @@ padding: 6px;
 .emp_update_wrapper{
 width: 80%;
 margin:  1rem auto;
-height: 70vh;
 font-size: 1.7rem;
 background-color: white;
 }
@@ -565,6 +568,10 @@ font-size: 3px;
 color: #876;
 }
 
+.emp_add_button {
+background-color: #33FFCC;
+}
+
 .emp_delete_table{
 margin: 1rem 20%;
 }
@@ -573,6 +580,7 @@ margin: 1rem 20%;
 border-collapse: collapse;
     border:1px solid;
 margin: 1em auto;
+text-align: center;
 }
 
 .emp_delete_form {
@@ -590,6 +598,11 @@ height: 2.5em;
 width: 10%;
 background: #33FFCC;
 border: 0.3px solid #333;
+}
+
+.emp_delete_button{
+border: 0.3px solid #333;
+background-color: red;
 }
 /*従業員画面ここまで*/
 

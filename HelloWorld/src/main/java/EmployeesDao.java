@@ -32,6 +32,19 @@ public interface EmployeesDao {
     @Select
     List<Employees> selectByAdmin();
 
-    @Update
-    int updateAdmin(Employees employees);
+    @Select
+    List<Employees> selectByOrdinary();
+
+    @Update(sqlFile = true)
+    int updateAdmin(Integer id);
+
+
+    @Update(sqlFile = true)
+    int updateAdminOrd(Integer id);
+
+    @Update(sqlFile = true)
+    int updateEmpDelete(Integer id);
+
+    @Select
+    List<Employees> selectOrdinaryByName(String name);
 }

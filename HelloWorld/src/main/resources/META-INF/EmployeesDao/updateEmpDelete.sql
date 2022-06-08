@@ -1,7 +1,7 @@
 UPDATE
 `Employees`
 SET
-management_flag = 0
+delete_flag = 1
 
 WHERE
 `Employees`.id = /* id */0

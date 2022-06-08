@@ -2,7 +2,8 @@ SELECT
 id,
 name,
 department_id,
-join_date
+join_date,
+management_flag
 
 FROM
 `Employees`

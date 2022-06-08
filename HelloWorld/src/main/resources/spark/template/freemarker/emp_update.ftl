@@ -6,7 +6,7 @@
 <body>
 <!---------- ヘッダー部分　---------->
 <header class="career">
-    <h2><a class ="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
+    <h2><a class="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
     <nav>
         <ul class="header_right">
             <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>
@@ -18,7 +18,7 @@
 <!---------- 戻るボタン ---------->
 <nav>
     <ul class="back">
-        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
+        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#">戻る</a></button>
     </ul>
 </nav>
 <!---------- 戻るボタン ここまで---------->
@@ -47,12 +47,16 @@
             </td>
             <td class="emp_add_item"><input type="text" value="yyyy-mm-dd"></td>
             <td class="emp_add_item"><input type="text" value="tarou-yamada@xxxxxx@co.jp"></td>
+            <td class="emp_add_item"><input type="submit" class="emp_add_button" value="追加"></td>
         </tr>
     </table>
 
-    <div class="emp_delete_form">
-        <input type="text" placeholder="従業員名を入力してください" class="emp_delete_search"><button class="emp_delete_search_button">検索</button>
-    </div>
+    <form method="get" action="/career/empUpdate">
+        <div class="emp_delete_form">
+            <input type="text" placeholder="従業員名を入力してください" class="emp_delete_search" name="searchName">
+            <button class="emp_delete_search_button">検索</button>
+        </div>
+    </form>
 
     <table class="emp_delete_table">
         <tr class="emp_delete_list">
@@ -64,12 +68,20 @@
         </tr>
 
         <tr class="emp_delete_item">
-            <td class="emp_delete_col"></td>
-            <td class="emp_delete_col"></td>
-            <td class="emp_delete_col"></td>
-            <td class="emp_delete_col"></td>
-            <td class="emp_delete_col"></td>
+            <#list Emplists as Emplist>
+            <td class="emp_delete_col">${Emplist.id}</td>
+            <td class="emp_delete_col">${Emplist.name}</td>
+            <td class="emp_delete_col">${Emplist.department_id}</td>
+            <td class="emp_delete_col">${Emplist.join_date}</td>
+            <td class="emp_delete_col">${Emplist.email}</td>
+            <form method="post" action="/career/empUpdate">
+                <td class="emp_delete_col">
+                    <input type="hidden" value="${Emplist.id}" name="id">
+                    <input type="submit" class="emp_delete_button" value="削除">
+                </td>
+            </form>
         </tr>
+    </#list>
     </table>
 
 </div>

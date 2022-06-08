@@ -24,11 +24,12 @@
 <!--------------ここまで----------------->
 
 <!--  管理画面部分  -->
+<!-- タイトルラベル　-->
 <div class="admin_authorize_wrapper">
     <h2 class="admin_authorize_title">
         管理者権限（付与・削除）　ページ
     </h2>
-
+    <!-- 権限所持の表示　-->
     <table class="admin_authorize_delete_table">
         <tr class="admin_authorize_delete_list">
             <th class="admin_authorize_delete_row">ID</th>
@@ -38,23 +39,29 @@
         </tr>
 
         <tr class="admin_authorize_delete_item">
-            <#list Emplists as Emplist>
-            <td class="admin_authorize_delete_col">${Emplist.id}</td>
-            <td class="admin_authorize_delete_col">${Emplist.name}</td>
-            <td class="admin_authorize_delete_col">${Emplist.department_id}</td>
-            <td class="admin_authorize_delete_col">${Emplist.join_date}</td>
+            <#list AdminLists as AdminList>
+            <td class="admin_authorize_delete_col">${AdminList.id}</td>
+            <td class="admin_authorize_delete_col">${AdminList.name}</td>
+            <td class="admin_authorize_delete_col">${AdminList.department_id}</td>
+            <td class="admin_authorize_delete_col">${AdminList.join_date}</td>
             <form method="post" action="/career/managementUpdate">
-            <td class="admin_authorize_delete_col"><button class="admin_authorize_delete_button">削除</button></td>
+                <td class="admin_authorize_delete_col">
+                    <input type="hidden" value="${AdminList.id}" name="id">
+                    <button type="submit" class="admin_authorize_delete_button">削除</button>
+                </td>
             </form>
         </tr>
-        </#list>
+    </#list>
     </table>
-
-    <div class="admin_authorize_search_form">
-        <input type="text" placeholder="従業員名を入力してください" class="admin_authorize_search"><button class="admin_authorize_search_button">検索</button>
-    </div>
-
-    <table class="admin_authorize_search_table" >
+    <!-- 権限なしの検索フォーム　-->
+    <form method="get" action="/career/managementUpdate">
+        <div class="admin_authorize_search_form">
+            <input type="text" placeholder="従業員名を入力してください" class="admin_authorize_search" name="searchName">
+            <button class="admin_authorize_search_button">検索</button>
+        </div>
+    </form>
+    <!-- 権限なしの表示　-->
+    <table class="admin_authorize_search_table">
         <tr class="admin_authorize_search_list">
             <th class="admin_authorize_search_row">ID</th>
             <th class="admin_authorize_search_row">名前</th>
@@ -63,11 +70,19 @@
         </tr>
 
         <tr class="admin_authorize_search_item">
-            <td class="admin_authorize_search_col"></td>
-            <td class="admin_authorize_search_col"></td>
-            <td class="admin_authorize_search_col"></td>
-            <td class="admin_authorize_search_col"></td>
+            <#list OrdinaryLists as Ordlist>
+            <td class="admin_authorize_search_col">${Ordlist.id}</td>
+            <td class="admin_authorize_search_col">${Ordlist.name}</td>
+            <td class="admin_authorize_search_col">${Ordlist.department_id}</td>
+            <td class="admin_authorize_search_col">${Ordlist.join_date}</td>
+            <form method="post" action="/career/managementUpdate">
+                <td class="admin_authorize_search_col">
+                    <input type="hidden" value="${Ordlist.id}" name="id">
+                    <button type="submit" class="admin_authorize_add_button">付与</button>
+                </td>
+            </form>
         </tr>
+    </#list>
     </table>
 
 </div>
