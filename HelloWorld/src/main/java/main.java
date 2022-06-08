@@ -147,8 +147,8 @@ public class main {
                 String searchName = req.queryParams("searchName");
                 //権限なしの人の検索
                 if (searchName != null) {
-                    OrdinaryLists = empDao.selectByName(searchName);
-                    attribute.put("OrdinaryLists", OrdinaryLists);
+                    List<Employees> OrdSearchLists = empDao.selectOrdinaryByName(searchName);
+                    attribute.put("OrdinaryLists", OrdSearchLists);
                 }
             });
                 return new FreeMarkerEngine().render(new ModelAndView(attribute, "admin_authorize.ftl"));
@@ -161,6 +161,10 @@ public class main {
             tm.required(() -> {
                 Employees employees = empDao.selectById(Integer.valueOf(req.queryParams("id")));
                 empDao.updateAdmin(Integer.valueOf(req.queryParams("id")));
+            });
+
+            tm.required(() -> {
+                empDao.updateAdminOrd(Integer.valueOf(req.queryParams("id")));
             });
 
             res.redirect("/career/managementUpdate");
@@ -186,6 +190,18 @@ public class main {
             });
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "emp_update.ftl"));
+        });
+
+        post("/career/empUpdate",(req,res) -> {
+            EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+
+            tm.required(() -> {
+                empDao.updateEmpDelete(Integer.valueOf(req.queryParams("id")));
+            });
+
+            res.redirect("/career/empUpdate");
+            return res;
         });
 
         //プロジェクト編集画面

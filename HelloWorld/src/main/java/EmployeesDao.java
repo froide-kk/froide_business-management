@@ -37,4 +37,14 @@ public interface EmployeesDao {
 
     @Update(sqlFile = true)
     int updateAdmin(Integer id);
+
+
+    @Update(sqlFile = true)
+    int updateAdminOrd(Integer id);
+
+    @Update(sqlFile = true)
+    int updateEmpDelete(Integer id);
+
+    @Select
+    List<Employees> selectOrdinaryByName(String name);
 }

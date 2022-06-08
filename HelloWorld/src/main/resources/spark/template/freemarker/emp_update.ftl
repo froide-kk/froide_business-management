@@ -6,7 +6,7 @@
 <body>
 <!---------- ヘッダー部分　---------->
 <header class="career">
-    <h2><a class ="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
+    <h2><a class="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
     <nav>
         <ul class="header_right">
             <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>
@@ -18,7 +18,7 @@
 <!---------- 戻るボタン ---------->
 <nav>
     <ul class="back">
-        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
+        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#">戻る</a></button>
     </ul>
 </nav>
 <!---------- 戻るボタン ここまで---------->
@@ -52,9 +52,10 @@
     </table>
 
     <form method="get" action="/career/empUpdate">
-    <div class="emp_delete_form">
-        <input type="text" placeholder="従業員名を入力してください" class="emp_delete_search" name="searchName"><button class="emp_delete_search_button">検索</button>
-    </div>
+        <div class="emp_delete_form">
+            <input type="text" placeholder="従業員名を入力してください" class="emp_delete_search" name="searchName">
+            <button class="emp_delete_search_button">検索</button>
+        </div>
     </form>
 
     <table class="emp_delete_table">
@@ -73,9 +74,12 @@
             <td class="emp_delete_col">${Emplist.department_id}</td>
             <td class="emp_delete_col">${Emplist.join_date}</td>
             <td class="emp_delete_col">${Emplist.email}</td>
-            <td class="emp_delete_col">
-                <input type="submit" class="emp_delete_button" value="削除">
-            </td>
+            <form method="post" action="/career/empUpdate">
+                <td class="emp_delete_col">
+                    <input type="hidden" value="${Emplist.id}" name="id">
+                    <input type="submit" class="emp_delete_button" value="削除">
+                </td>
+            </form>
         </tr>
     </#list>
     </table>
