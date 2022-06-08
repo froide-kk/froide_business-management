@@ -75,7 +75,7 @@
             <td class="admin_authorize_search_col">${Ordlist.name}</td>
             <td class="admin_authorize_search_col">${Ordlist.department_id}</td>
             <td class="admin_authorize_search_col">${Ordlist.join_date}</td>
-            <form method="post" action="/career/managementUpdate">
+            <form method="post" action="/career/managementUpdate/ord">
                 <td class="admin_authorize_search_col">
                     <input type="hidden" value="${Ordlist.id}" name="id">
                     <button type="submit" class="admin_authorize_add_button">付与</button>

@@ -47,4 +47,16 @@ public interface EmployeesDao {
 
     @Select
     List<Employees> selectOrdinaryByName(String name);
+
+    @Select
+    List<Employees> selectByNotDelete();
+
+    @Select
+    List<Employees> selectDeleteEmpByName(String name);
+
+    @Select
+    List<Employees> selectByDeleteEmp();
+
+    @Update(sqlFile = true)
+    int updateEmpReAdd(Integer id);
 }
