@@ -14,6 +14,15 @@ public class Employees {
     Integer password_hash;
     String birthday;
 
+    public String getWork_start() {
+        return work_start;
+    }
+
+    public void setWork_start(String work_start) {
+        this.work_start = work_start;
+    }
+
+    String work_start;
     java.sql.Date join_date;
     Integer management_flag;
 

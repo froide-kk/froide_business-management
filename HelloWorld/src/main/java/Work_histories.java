@@ -8,7 +8,12 @@ public class Work_histories {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     Integer project_id;
-    Date work_start;
+
+    public void setWork_start(String work_start) {
+        this.work_start = work_start;
+    }
+
+    String work_start;
     Date work_end;
     Integer employee_id;
     Integer delete_flag;
@@ -29,13 +34,6 @@ public class Work_histories {
         this.project_id = project_id;
     }
 
-    public Date getWork_start() {
-        return work_start;
-    }
-
-    public void setWork_start(Date work_start) {
-        this.work_start = work_start;
-    }
 
     public Date getWork_end() {
         return work_end;
