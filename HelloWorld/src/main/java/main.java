@@ -28,7 +28,7 @@ public class main {
                 attribute.put("birthday",employees.birthday);
                 attribute.put("license",employees.license);
                 attribute.put("id",Integer.valueOf(id));
-                attribute.put("work_start",employees.work_start);
+
             });
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "career_show.ftl"));

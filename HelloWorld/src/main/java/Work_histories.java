@@ -9,10 +9,6 @@ public class Work_histories {
     Integer id;
     Integer project_id;
 
-    public void setWork_start(String work_start) {
-        this.work_start = work_start;
-    }
-
     String work_start;
     Date work_end;
     Integer employee_id;
@@ -57,6 +53,14 @@ public class Work_histories {
 
     public void setDelete_flag(Integer delete_flag) {
         this.delete_flag = delete_flag;
+    }
+
+    public String getWork_start() {
+        return work_start;
+    }
+
+    public void setWork_start(String work_start) {
+        this.work_start = work_start;
     }
 
 }
