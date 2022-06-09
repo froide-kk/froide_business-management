@@ -66,21 +66,21 @@
                     <button>降順、昇順ソート</button>
                 </form>
                     <!--                技術チェックのチェックボックス-->
-                <form method="get" action="/career">
-                    <div class="list_header_items">
-                        <div class="skillCheck">
-                            <label class="skillLabel" for="skillCheckLabel">技術</label><!--技術ボタンの設定-->
-                            <input type="checkbox" class="skillCheckbox" id="skillCheckLabel">
-                            <ul class="skillList">
-                                <li><input type="checkbox" name="searchSkillList" value="Java">Java</li>
-                                <li><input type="checkbox" name="searchSkillList" value="Spark">Spark</li>
-                                <li><input type="checkbox" name="searchSkillList" value="JS">JavaScript</li>
-                                <li><input type="checkbox" name="searchSkillList" value="MySQL">MySQL</li>
-                                <li><input type="checkbox" name="searchSkillList" value="macOS">macOS</li>
-                            </ul>
-                        </div>
-                        <button>技術検索</button>
-                </form>
+<!--                <form method="get" action="/career">-->
+<!--                    <div class="list_header_items">-->
+<!--                        <div class="skillCheck">-->
+<!--                            <label class="skillLabel" for="skillCheckLabel">技術</label>&lt;!&ndash;技術ボタンの設定&ndash;&gt;-->
+<!--                            <input type="checkbox" class="skillCheckbox" id="skillCheckLabel">-->
+<!--                            <ul class="skillList">-->
+<!--                                <li><input type="checkbox" name="searchSkillList" value="Java">Java</li>-->
+<!--                                <li><input type="checkbox" name="searchSkillList" value="Spark">Spark</li>-->
+<!--                                <li><input type="checkbox" name="searchSkillList" value="JS">JavaScript</li>-->
+<!--                                <li><input type="checkbox" name="searchSkillList" value="MySQL">MySQL</li>-->
+<!--                                <li><input type="checkbox" name="searchSkillList" value="macOS">macOS</li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                        <button>技術検索</button>-->
+<!--                </form>-->
                         <!--                    生年月日の検索-->
                 <form method="get" action="/career">
                     </div>
@@ -101,7 +101,6 @@
                     <th class="list_row">名前</th>
                     <th class="list_row">所属部署</th>
                     <th class="list_row">入社年月</th>
-                    <th class="list_row">技術</th>
                 </tr>
         </div>
 
@@ -112,13 +111,12 @@
                 <form method="get" action="/career/show">
                     <td class="list_col">
                         <input type="hidden" value=${Emplist.id} name="id">
-                        ${Emplist.id} <!--作業終わったら削除して                        -->
-                        <input type="submit" value="${Emplist.name}">
+                       <!--作業終わったら削除して                        -->
+                        <input type="submit" value="${Emplist.emp_name}">
                     </td>
                 </form>
-                <td class="list_col">${Emplist.department_id}</td>
+                <td class="list_col">${Emplist.dep_name}</td>
                 <td class="list_col">${Emplist.join_date}</td>
-                <td class="list_col">DB技術</td>
             </tr>
         </#list>
     </div>
