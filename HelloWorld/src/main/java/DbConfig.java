@@ -21,7 +21,7 @@ public class DbConfig implements Config {
             e.printStackTrace();
         }
         dialect = new MysqlDialect();
-        dataSource = new LocalTransactionDataSource("jdbc:mysql://localhost:13306/Business", "root", "secret");
+        dataSource = new LocalTransactionDataSource("jdbc:mysql://localhost:13306/career", "root", "secret");
         transactionManager = new LocalTransactionManager(dataSource.getLocalTransaction(getJdbcLogger()));
     }
 
