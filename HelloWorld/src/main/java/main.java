@@ -44,39 +44,45 @@ public class main {
 
             //名前検索
             tm.required(() -> {
-                List<Employees> Emplists = empDao.selectAll();
-                attribute.put("Emplists", Emplists);
+
 
                 //URLに値が渡されるのでそれをsearchNameに渡す
                 String searchName = req.queryParams("searchName");
                 String searchDepartment = req.queryParams("searchDepartment");
                 String join_date = req.queryParams("join_date");
                 String searchSkillList = req.queryParams("searchSkillList");
-                System.out.print(searchName + searchDepartment + join_date + searchSkillList);
+                String searchBirthDay = req.queryParams("searchBirthDay");
+                String search = req.queryParams("search");
+                System.out.println(searchName + searchDepartment + join_date + searchSkillList + searchBirthDay + search);
 
                     //もし、searchNameの値がnullじゃないなら、名前で検索
+                    if(search == null){
+                        List<Employees> Emplists = empDao.selectAll();
+                        attribute.put("Emplists", Emplists);
+                    }
                     if (searchName != null) {
                         List<Employees> EmpNames = empDao.selectByName(searchName);
                         attribute.put("Emplists", EmpNames);
                         //もし、searchDepartmentの値がnullでないなら、所属部署で検索
                     //部署検索
-                    }else if(searchDepartment != null){
+                    }
+                   if(searchDepartment != null){
                         System.out.print(searchDepartment);
                         List<Employees> EmpDepartments = empDao.selectByDepartment(Integer.valueOf(searchDepartment));
                         attribute.put("Emplists", EmpDepartments);
                     }
                     //入社年月ソート
-                    else if(join_date != null){
+                    if(join_date != null){
                         System.out.print(join_date);
                         List<Employees> EmpDes = empDao.selectAllDes();
                         attribute.put("Emplists", EmpDes);
                     }
                     //技術チェックリスト検索
-                    else if(true){
+                   if(searchSkillList != null){
 
                     }
                     //生年月日検索
-                    else if(true){
+                    if(true){
 
                     }
             });

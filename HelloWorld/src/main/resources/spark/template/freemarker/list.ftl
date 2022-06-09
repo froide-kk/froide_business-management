@@ -32,25 +32,30 @@
     <div class="list_wrapper_search">
         <div class="list_wrapper_empty"></div>
 
-        <form method="get" action="/career">
             <div class="list_wrapper_header">
+                <input type="hidden" name="search" value="search">
                 <!--                社員名の検索-->
-
+                <form method="get" action="/career">
                     <div   class="list_header_items">
                         <input type="text" placeholder="社員名で検索" class="emp_name_search" name="searchName">
                     </div>
-
+                    <button>名前検索</button>
+                </form>
                     <!--                所属部署の検索-->
+                <form method="get" action="/career">
                     <div  class="list_header_items">
                         <select class="department_list" name="searchDepartment">
-                            <option>所属部署</option>
+                            <option value="0">所属部署</option>
                             <option  value="1">ソリューション1部</option>
                             <option  value="2">ソリューション2部</option>
                             <option  value="3">ソリューション3部</option>
                             <option  value="4">管理本部</option>
                         </select>
                     </div>
+                    <button>所属部署検索</button>
+                </form>
                     <!--                入社年月の検索-->
+                <form method="get" action="/career">
                     <div class="list_header_items">
                         <select name="join_date" class="join_list">
                             <option value="">入社年月</option>
@@ -58,7 +63,10 @@
                             <option value="ascOrder">昇順</option>
                         </select>
                     </div>
+                    <button>降順、昇順ソート</button>
+                </form>
                     <!--                技術チェックのチェックボックス-->
+                <form method="get" action="/career">
                     <div class="list_header_items">
                         <div class="skillCheck">
                             <label class="skillLabel" for="skillCheckLabel">技術</label><!--技術ボタンの設定-->
@@ -71,13 +79,17 @@
                                 <li><input type="checkbox" name="searchSkillList" value="macOS">macOS</li>
                             </ul>
                         </div>
+                        <button>技術検索</button>
+                </form>
                         <!--                    生年月日の検索-->
+                <form method="get" action="/career">
                     </div>
                     <div class="list_header_items">
-                        <input type="text" placeholder="生年月日で検索" class="birthday_search">
+                        <input type="text" placeholder="生年月日で検索" class="birthday_search" name="searchBirthDay">
                     </div>
                 <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
-
+                  <button>生年月日検索</button>
+                </form>
             </div>
         </form>
 
