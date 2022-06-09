@@ -59,4 +59,7 @@ public interface EmployeesDao {
 
     @Update(sqlFile = true)
     int updateEmpReAdd(Integer id);
+
+    @Insert(include = {"name","department_id","join_date","email"})
+    int insertEmp(Employees employees);
 }

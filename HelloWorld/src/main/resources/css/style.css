@@ -372,9 +372,20 @@ background-color: #33FFCC;
 width: 50%;
 }
 
-.admin_authorize_wrapper table,.admin_authorize_wrapper th,.admin_authorize_wrapper td{
+.admin_authorize_wrapper table{
+margin: 1em 25%;
+text-align: center;
 border-collapse: collapse;
-    border:1px solid;
+}
+
+.admin_authorize_search_col, .admin_authorize_delete_col{
+border:1px solid;
+margin: 1em 25%;
+text-align: center;
+}
+
+.admin_authorize_search_row, .admin_authorize_delete_row{
+border:1px solid;
 margin: 1em 25%;
 text-align: center;
 }
@@ -569,6 +580,7 @@ color: #876;
 }
 
 .emp_add_button {
+border: 0.3px solid #333;
 background-color: #33FFCC;
 }
 
@@ -576,9 +588,20 @@ background-color: #33FFCC;
 margin: 1rem 20%;
 }
 
-.emp_update_wrapper table,.emp_update_wrapper th,.emp_update_wrapper td{
+.emp_delete_row,.emp_add_row{
+border:1px solid;
+margin: 1em auto;
+text-align: center;
+}
+
+.emp_delete_col, .emp_add_item{
+border:1px solid;
+margin: 1em auto;
+text-align: center;
+}
+
+.emp_update_wrapper table{
 border-collapse: collapse;
-    border:1px solid;
 margin: 1em auto;
 text-align: center;
 }
