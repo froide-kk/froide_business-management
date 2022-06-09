@@ -45,7 +45,7 @@
             <td class="admin_authorize_delete_col">${AdminList.department_id}</td>
             <td class="admin_authorize_delete_col">${AdminList.join_date}</td>
             <form method="post" action="/career/managementUpdate">
-                <td class="admin_authorize_delete_col">
+                <td class="admin_authorize_delete_col2">
                     <input type="hidden" value="${AdminList.id}" name="id">
                     <button type="submit" class="admin_authorize_delete_button">削除</button>
                 </td>
@@ -76,7 +76,7 @@
             <td class="admin_authorize_search_col">${Ordlist.department_id}</td>
             <td class="admin_authorize_search_col">${Ordlist.join_date}</td>
             <form method="post" action="/career/managementUpdate/ord">
-                <td class="admin_authorize_search_col">
+                <td class="admin_authorize_search_col2">
                     <input type="hidden" value="${Ordlist.id}" name="id">
                     <button type="submit" class="admin_authorize_add_button">付与</button>
                 </td>

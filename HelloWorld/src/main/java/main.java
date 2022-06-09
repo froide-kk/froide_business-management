@@ -195,6 +195,7 @@ public class main {
                     List<Employees> EmpSearchName = empDao.selectDeleteEmpByName(searchName);
                     attribute.put("EmpDeleteLists", EmpSearchName);
                 }
+
             });
 
             tm.required(() -> {
@@ -202,10 +203,59 @@ public class main {
                 attribute.put("DeleteEmpLists",DeleteEmpLists);
             });
 
+            attribute.put("id","");
+            attribute.put("name","");
+            attribute.put("department_id","");
+            attribute.put("join_date","");
+            attribute.put("email","");
+            attribute.put("error","");
+
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "emp_update.ftl"));
         });
 
-        post("/career/empUpdate",(req,res) -> {
+        post("/career/empUpdate/add",(req,res) -> {
+            //画面から受け取る
+            String name = req.queryParams("name");
+            String department_id = req.queryParams("department_id");
+            String join_date = req.queryParams("join_date");
+            String email = req.queryParams("email");
+
+            //画面に表示する
+            Map<String, Object> attribute = new HashMap<>();
+            attribute.put("name",name);
+            attribute.put("department_id",department_id);
+            attribute.put("join_date",join_date);
+            attribute.put("email",email);
+            if(name == null){
+                attribute.put("error", "全て入力してください");
+            }else if(department_id != "1" && department_id != "2" && department_id != "3" && department_id != "4" && department_id != "5"){
+                attribute.put("error", "全て入力してください");
+            } else if (join_date == "") {
+                attribute.put("error", "全て入力してください");
+            } else if (email == null) {
+                attribute.put("error", "全て入力してください");
+            }else{
+                attribute.put("error","");
+            }
+
+            //データベースに登録する
+            EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+            tm.required(() -> {
+                Employees employee = new Employees();
+                employee.setName(name);
+                employee.setDepartment_id(Integer.valueOf(department_id));
+                employee.setJoin_date(Date.valueOf(join_date));
+                employee.setEmail(email);
+                empDao.insertEmp(employee);
+            });
+
+            //戻る
+            res.redirect("/career/empUpdate");
+            return res;
+        });
+
+        post("/career/empUpdate/delete",(req,res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
 

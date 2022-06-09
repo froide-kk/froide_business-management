@@ -27,7 +27,7 @@
     <h2 class="emp_update_title">
         従業員(追加・削除)　ページ
     </h2>
-
+<!--従業員追加のテーブル-->
     <table class="emp_add_table">
         <tr class="emp_add_list">
             <th class="emp_add_row">ID</th>
@@ -37,20 +37,29 @@
             <th class="emp_add_row">メールアドレス</th>
         </tr>
 
+        <form method="post" action="/career/empUpdate/add">
         <tr>
-            <td class="emp_add_item"><input type="text" value="ID"></td>
-            <td class="emp_add_item"><input type="text" value="Yamada.T"></td>
+            <td class="emp_add_item">*</td>
+            <td class="emp_add_item"><input type="text" placeholder="Yamada.T" name="name"></td>
             <td class="emp_add_item">
-                <select name="departments">
+                <select name="department_id">
                     <option value="">所属部署</option>
+                    <option value="1">sol1</option>
+                    <option value="2">sol2</option>
+                    <option value="3">sol3</option>
+                    <option value="4">管理部</option>
+                    <option value="5">新人</option>
                 </select>
             </td>
-            <td class="emp_add_item"><input type="text" value="yyyy-mm-dd"></td>
-            <td class="emp_add_item"><input type="text" value="tarou-yamada@xxxxxx@co.jp"></td>
-            <td class="emp_add_item"><input type="submit" class="emp_add_button" value="追加"></td>
+            <td class="emp_add_item"><input type="text" placeholder="yyyy-mm-dd" name="join_date"></td>
+            <td class="emp_add_item"><input type="text" placeholder="tarou-yamada@xxxxxx@co.jp" name="email"></td>
+            <td class="emp_add_item2"><input type="submit" class="emp_add_button" value="追加"></td>
         </tr>
+        </form>
     </table>
+    <p>${error}</p>
 
+<!-- 従業員削除の検索フォーム-->
     <form method="get" action="/career/empUpdate">
         <div class="emp_delete_form">
             <input type="text" placeholder="従業員名を入力してください" class="emp_delete_search" name="searchName">
@@ -58,6 +67,7 @@
         </div>
     </form>
 
+<!--    従業員削除のテーブル-->
     <table class="emp_delete_table">
         <tr class="emp_delete_list">
             <th class="emp_delete_row">ID</th>
@@ -74,8 +84,8 @@
             <td class="emp_delete_col">${EmpList.department_id}</td>
             <td class="emp_delete_col">${EmpList.join_date}</td>
             <td class="emp_delete_col">${EmpList.email}</td>
-            <form method="post" action="/career/empUpdate">
-                <td class="emp_delete_col">
+            <form method="post" action="/career/empUpdate/delete">
+                <td class="emp_delete_col2">
                     <input type="hidden" value="${EmpList.id}" name="id">
                     <input type="submit" class="emp_delete_button" value="削除">
                 </td>
@@ -83,7 +93,9 @@
         </tr>
     </#list>
     </table>
+    <p>${error}</p>
 
+<!--従業員再追加のテーブル-->
     <table class="emp_delete_table">
         <tr class="emp_delete_list">
             <th class="emp_delete_row">ID</th>
@@ -101,7 +113,7 @@
             <td class="emp_delete_col">${DeleteList.join_date}</td>
             <td class="emp_delete_col">${DeleteList.email}</td>
             <form method="post" action="/career/empUpdate/reAdd">
-                <td class="emp_delete_col">
+                <td class="emp_delete_col2">
                     <input type="hidden" value="${DeleteList.id}" name="id">
                     <input type="submit" class="emp_delete_button" value="再追加">
                 </td>
