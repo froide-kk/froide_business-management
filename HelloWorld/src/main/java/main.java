@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static spark.Spark.*;
 
@@ -148,7 +149,25 @@ public class main {
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "skill_check.ftl"));
         });
 
-        post("/career/skillCheck", (req, res) -> {
+        //技術の削除
+        post("/career/skillCheck/delete", (req, res) -> {
+            String name = req.queryParams("name");
+            String id = req.queryParams("id");
+            Map<String, Object> attribute = new HashMap<>();
+            attribute.put("id",id);
+
+            SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+
+            tm.required(() -> {
+                skillDao.update_delete_skill(Integer.valueOf(req.queryParams("id")));
+            });
+            res.redirect("/career/skillCheck");
+            return res;
+        });
+
+// 技術の追加
+        post("/career/skillCheck/add", (req, res) -> {
             String name = req.queryParams("name");
             String id = req.queryParams("id");
             Map<String, Object> attribute = new HashMap<>();
@@ -158,18 +177,18 @@ public class main {
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
 
-            tm.required(() -> {
-                skillDao.update_delete_skill(Integer.valueOf(req.queryParams("id")));
-            });
-            tm.required(() -> {
-                Skills skills = new Skills();
-                skills.setName(name);
-                skills.setSkill_attribute_id(Integer.valueOf(id));
-                skillDao.insertSkill(skills);
-            });
+            if(Objects.equals(id, "1") || Objects.equals(id, "2") || Objects.equals(id, "3")) {
+                tm.required(() -> {
+                    Skills skills = new Skills();
+                    skills.setName(name);
+                    skills.setSkill_attribute_id(Integer.valueOf(id));
+                    skillDao.insertSkill(skills);
+                });
+            }
             res.redirect("/career/skillCheck");
             return res;
         });
+
 
         //管理者権限編集画面
         get("/career/managementUpdate",(req,res) -> {

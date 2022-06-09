@@ -34,11 +34,11 @@
             <tr>
                 <td class="skill_data">${os.name}</td>
                 <td class="skill_edit_delete"><button class="skill_edit_button">編集</button></td>
-                <form method="post" action="/career/skillCheck">
+                <form method="post" action="/career/skillCheck/delete">
                     <input type="hidden" value="${os.id}" name="id">
-                <td class="skill_edit_delete">
-                    <button type="submit" class="skill_delete_button">削除</button>
-                </td>
+                    <td class="skill_edit_delete">
+                        <button type="submit" class="skill_delete_button">削除</button>
+                    </td>
                 </form>
             </tr>
         </#list>
@@ -53,7 +53,7 @@
             <tr>
                 <td class="skill_data">${script.name}</td>
                 <td class="skill_edit_delete"><button class="skill_edit_button">編集</button></td>
-                <form method="post" action="/career/skillCheck">
+                <form method="post" action="/career/skillCheck/delete">
                     <input type="hidden" value="${script.id}" name="id">
                     <td class="skill_edit_delete">
                         <button type="submit" class="skill_delete_button">削除</button>
@@ -67,11 +67,11 @@
             <tr>
                 <th class="skill_name" colspan="3">データベース</th>
             </tr>
-        <#list db_lists as db>
+            <#list db_lists as db>
             <tr>
                 <td class="skill_data">${db.name}</td>
                 <td class="skill_edit_delete"><button class="skill_edit_button">編集</button></td>
-                <form method="post" action="/career/skillCheck">
+                <form method="post" action="/career/skillCheck/delete">
                     <input type="hidden" value="${db.id}" name="id">
                     <td class="skill_edit_delete">
                         <button type="submit" class="skill_delete_button">削除</button>
@@ -83,28 +83,29 @@
     </div>
 
     <div class="skill_wrapper_empty"></div>
-        <form method="post" action="/career/skillCheck">
-            <div class="skill_add">
-                <div class="skill_add_item">
-                    <input type="text" id="name" class="skill_add_name" name="name">
-                </div>
-
-                <div class="skill_add_item">
-                    <select name="id" class="skill_select">
-                        <option>技術を選択</option>
-                        <option value="1">OS</option>
-                        <option value="2">スクリプト・ツール</option>
-                        <option value="3">DB</option>
-                    </select>
-                </div>
-
-                <div class="skill_add_item">
-                    <input type="submit" name="add_button" class="skill_add_button" value="追加">
-                </div>
+    <form method="post" action="/career/skillCheck/add">
+        <div class="skill_add">
+            <div class="skill_add_item">
+                <input type="text" id="name" class="skill_add_name" name="name">
             </div>
-        </form>
+
+            <div class="skill_add_item">
+                <select name="id" class="skill_select">
+                    <option>技術を選択</option>
+                    <option value="1">OS</option>
+                    <option value="2">スクリプト・ツール</option>
+                    <option value="3">DB</option>
+                </select>
+            </div>
+
+            <div class="skill_add_item">
+                <input type="submit" name="add_button" class="skill_add_button" value="追加">
+            </div>
+        </div>
+    </form>
     <div class="skill_wrapper_empty"></div>
 </div>
 </body>
 </html>
+
 
