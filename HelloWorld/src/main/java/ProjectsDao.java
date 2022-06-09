@@ -14,4 +14,10 @@ public interface ProjectsDao {
 
     @Select
     List<Projects> selectAll();
+
+    @Select
+    List<Projects> selectProjectAll();
+
+    @Update(sqlFile = true)
+    int update_delete_project(Integer id);
 }

@@ -23,4 +23,10 @@ public interface SkillsDao {
 
     @Select
     List<Skills> select_db_All();
+
+    @Update(sqlFile = true)
+    int update_delete_skill(Integer id);
+
+    @Insert(include = {"name","skill_attribute_id"})
+    int insertSkill(Skills skills);
 }
