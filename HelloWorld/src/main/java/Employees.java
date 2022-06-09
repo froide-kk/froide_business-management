@@ -85,7 +85,9 @@ public class Employees {
         this.birthday = birthday;
     }
 
-    public Date getJoin_date() {return join_date;}
+    public Date getJoin_date() {
+        return join_date;
+    }
 
     public void setJoin_date(Date join_date) {
         this.join_date = join_date;
@@ -106,9 +108,6 @@ public class Employees {
     public void setDepartment_id(Integer department_id) {
         this.department_id = department_id;
     }
-
-
-
 
 
 }
