@@ -117,7 +117,6 @@ public class main {
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
-            //名前検索
             tm.required(() -> {
                 List<Skills> OSlists = skillDao.select_os_All();
                 List<Skills> Scriptlists = skillDao.select_script_All();
@@ -125,8 +124,33 @@ public class main {
                 attribute.put("os_lists",OSlists);
                 attribute.put("script_lists", Scriptlists);
                 attribute.put("db_lists", DBlists);
+                attribute.put("name","");
+                attribute.put("id","");
             });
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "skill_check.ftl"));
+        });
+
+        post("/career/skillCheck", (req, res) -> {
+            String name = req.queryParams("name");
+            String id = req.queryParams("id");
+            Map<String, Object> attribute = new HashMap<>();
+            attribute.put("name",name);
+            attribute.put("id",id);
+
+            SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+
+            tm.required(() -> {
+                skillDao.update_delete_skill(Integer.valueOf(req.queryParams("id")));
+            });
+            tm.required(() -> {
+                Skills skills = new Skills();
+                skills.setName(name);
+                skills.setSkill_attribute_id(Integer.valueOf(id));
+                skillDao.insertSkill(skills);
+            });
+            res.redirect("/career/skillCheck");
+            return res;
         });
 
         //管理者権限編集画面
@@ -147,12 +171,26 @@ public class main {
 
         //プロジェクト編集画面
         get("/career/projectsUpdate", (req, res) -> {
+            ProjectsDao projectDao = new ProjectsDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-            String list = req.queryParams("list");
-            attribute.put("list", "Hello");
+
+            tm.required(() -> {
+                List<Projects> PJlists = projectDao.selectProjectAll();
+                attribute.put("pj_lists",PJlists);
+            });
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "project_update.ftl"));
         });
 
+        post("/career/projectsUpdate", (req, res) -> {
+            ProjectsDao projectDao = new ProjectsDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
 
+            tm.required(() -> {
+                projectDao.update_delete_project(Integer.valueOf(req.queryParams("id")));
+            });
+            res.redirect("/career/projectsUpdate");
+            return res;
+        });
     }
 }

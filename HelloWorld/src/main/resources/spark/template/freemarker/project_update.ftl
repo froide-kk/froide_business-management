@@ -34,14 +34,19 @@
             <th class="stealth">文字</th>
             <th class="stealth">文字</th>
         </tr>
-
+        <#list pj_lists as pj>
         <tr>
-            <td class="company_and_project_name">フロイデ株式会社</td>
-            <td class="company_and_project_name">かまぼこかまぼこ</td>
+            <td class="company_and_project_name">${pj.companyName}</td>
+            <td class="company_and_project_name">${pj.name}</td>
             <td class="company_project_edit_delete"><button class="company_project_edit_button">編集</button></td>
-            <td class="company_project_edit_delete"><button class="company_project_delete_button">削除</button></td>
+            <form method="post" action="/career/projectsUpdate">
+                <input type="hidden" value="${pj.id}" name="id">
+                <td class="company_project_edit_delete">
+                    <button type="submit" class="company_project_delete_button">削除</button>
+                </td>
+            </form>
         </tr>
-
+        </#list>
         </table>
     <div class="project_update_empty"></div>
 

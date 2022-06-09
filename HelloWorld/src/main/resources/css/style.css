@@ -349,24 +349,27 @@ font-size: 1.5rem
 }
 /* テーブル関連 */
 .os_script_db{
-display: flex;
+display:flex;
+flex-wrap: wrap;
 justify-content: space-around;
 }
 .skill_table{
 width:400px;
-table-layout:fixed;
 }
 .skill_name{
+width:400px;
 background-color:#99ffdd;
 }
 .skill_data{
 text-align:center;
 }
+.skill_edit_delete{
+width:1%;
+}
 /* 編集ボタン */
 .skill_edit_button{
 width: 70px;
 background-color:#a9a9a9;
-
 }
 /* 削除ボタン */
 .skill_delete_button{
@@ -434,7 +437,7 @@ border: solid 1px;
 /* 見えない<th>タグ(ボタン用thタグ) */
 .stealth{
 color:white;
-width:3px;
+width:11%;
 }
 /* <td>タグ */
 .company_and_project_name{
@@ -443,6 +446,7 @@ border: solid 1px;
 }
 .company_project_edit_delete{
 text-align:center;
+width:1%;
 }
 /* 編集ボタン */
 .company_project_edit_button{

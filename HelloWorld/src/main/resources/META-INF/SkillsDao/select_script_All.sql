@@ -1,8 +1,10 @@
-select
+SELECT
     /*%expand*/*
-from
+FROM
     `Skills`
-where
+WHERE
     `Skills`.skill_attribute_id = 2
-order by
+AND
+    `Skills`.delete_flag = 0
+ORDER BY
     `Skills`.id
