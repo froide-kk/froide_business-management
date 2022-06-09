@@ -1,12 +1,18 @@
 SELECT
-id,
-name,
-department_id,
-join_date,
-email
+Employees.id,
+Employees.name AS emp_name,
+Departments.name AS dep_name,
+Employees.email,
+Employees.join_date
 
 FROM
 `Employees`
 
+LEFT JOIN
+`Departments`
+
+ON
+`Employees`.department_id = `Departments`.id
+
 WHERE
- `Employees`.delete_flag = 0
+`Employees`.delete_flag = 0

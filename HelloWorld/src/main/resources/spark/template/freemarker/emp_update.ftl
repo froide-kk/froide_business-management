@@ -80,8 +80,8 @@
         <tr class="emp_delete_item">
             <#list EmpDeleteLists as EmpList>
             <td class="emp_delete_col">${EmpList.id}</td>
-            <td class="emp_delete_col">${EmpList.name}</td>
-            <td class="emp_delete_col">${EmpList.department_id}</td>
+            <td class="emp_delete_col">${EmpList.emp_name}</td>
+            <td class="emp_delete_col">${EmpList.dep_name}</td>
             <td class="emp_delete_col">${EmpList.join_date}</td>
             <td class="emp_delete_col">${EmpList.email}</td>
             <form method="post" action="/career/empUpdate/delete">
@@ -108,8 +108,8 @@
         <tr class="emp_delete_item">
             <#list DeleteEmpLists as DeleteList>
             <td class="emp_delete_col">${DeleteList.id}</td>
-            <td class="emp_delete_col">${DeleteList.name}</td>
-            <td class="emp_delete_col">${DeleteList.department_id}</td>
+            <td class="emp_delete_col">${DeleteList.emp_name}</td>
+            <td class="emp_delete_col">${DeleteList.dep_name}</td>
             <td class="emp_delete_col">${DeleteList.join_date}</td>
             <td class="emp_delete_col">${DeleteList.email}</td>
             <form method="post" action="/career/empUpdate/reAdd">

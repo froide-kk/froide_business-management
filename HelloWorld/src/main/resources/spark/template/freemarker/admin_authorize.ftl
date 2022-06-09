@@ -41,8 +41,8 @@
         <tr class="admin_authorize_delete_item">
             <#list AdminLists as AdminList>
             <td class="admin_authorize_delete_col">${AdminList.id}</td>
-            <td class="admin_authorize_delete_col">${AdminList.name}</td>
-            <td class="admin_authorize_delete_col">${AdminList.department_id}</td>
+            <td class="admin_authorize_delete_col">${AdminList.emp_name}</td>
+            <td class="admin_authorize_delete_col">${AdminList.dep_name}</td>
             <td class="admin_authorize_delete_col">${AdminList.join_date}</td>
             <form method="post" action="/career/managementUpdate">
                 <td class="admin_authorize_delete_col2">
@@ -72,8 +72,8 @@
         <tr class="admin_authorize_search_item">
             <#list OrdinaryLists as Ordlist>
             <td class="admin_authorize_search_col">${Ordlist.id}</td>
-            <td class="admin_authorize_search_col">${Ordlist.name}</td>
-            <td class="admin_authorize_search_col">${Ordlist.department_id}</td>
+            <td class="admin_authorize_search_col">${Ordlist.emp_name}</td>
+            <td class="admin_authorize_search_col">${Ordlist.dep_name}</td>
             <td class="admin_authorize_search_col">${Ordlist.join_date}</td>
             <form method="post" action="/career/managementUpdate/ord">
                 <td class="admin_authorize_search_col2">

@@ -1,12 +1,14 @@
 SELECT
-id,
-name,
-department_id,
-join_date
-
+Employees.management_flag,
+Employees.id,
+Employees.name AS emp_name,
+Departments.name AS dep_name,
+Employees.join_date
 FROM
 `Employees`
-
- WHERE
- `Employees`.management_flag = 0
-
+LEFT JOIN
+ `Departments`
+  ON
+  `Employees`.department_id = `Departments`.id
+WHERE
+`Employees`.management_flag = 0
