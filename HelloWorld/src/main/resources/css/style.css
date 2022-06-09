@@ -41,6 +41,11 @@ header {
     flex: 0.03 0 auto;
     font-size: 1.2rem;
 }
+.header_right li:hover {
+    cursor:pointer;
+    opacity: 0.5;
+}
+
 .logout{
     background-color:#33FFCC;
     color:#e60000;
@@ -53,6 +58,10 @@ header {
 }
 .browseBack{
     background-color:#e6e6e6;
+}
+.browseBack:hover{
+    opacity: 0.5;
+    pointer:cursor;
 }
 /* ここまで全ページ共通 */
 
@@ -95,6 +104,13 @@ width: 100%;
 .list_col input[type="submit"] {
   border: none;
   background: transparent;
+}
+
+.list_col input[type="submit"]:hover{
+  border: none;
+  background: transparent;
+  opacity: 0.5;
+  cursor:pointer;
 }
 
 /* 検索部分の選択項目など */
