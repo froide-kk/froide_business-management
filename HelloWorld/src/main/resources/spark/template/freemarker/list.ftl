@@ -38,8 +38,8 @@
                 <form method="get" action="/career">
                     <div   class="list_header_items">
                         <input type="text" placeholder="社員名で検索" class="emp_name_search" name="searchName">
+                        <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
-                    <button>名前検索</button>
                 </form>
                     <!--                所属部署の検索-->
                 <form method="get" action="/career">
@@ -51,8 +51,8 @@
                             <option  value="3">ソリューション3部</option>
                             <option  value="4">管理本部</option>
                         </select>
+                        <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
-                    <button>所属部署検索</button>
                 </form>
                     <!--                入社年月の検索-->
                 <form method="get" action="/career">
@@ -62,8 +62,8 @@
                             <option value="desOrder">降順</option>
                             <option value="ascOrder">昇順</option>
                         </select>
+                        <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
-                    <button>降順、昇順ソート</button>
                 </form>
                     <!--                技術チェックのチェックボックス-->
 <!--                <form method="get" action="/career">-->
@@ -83,16 +83,12 @@
 <!--                </form>-->
                         <!--                    生年月日の検索-->
                 <form method="get" action="/career">
-                    </div>
                     <div class="list_header_items">
                         <input type="text" placeholder="生年月日で検索" class="birthday_search" name="searchBirthDay">
+                        <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
-                <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
-                  <button>生年月日検索</button>
                 </form>
             </div>
-        </form>
-
 
         <table>
         <div class="list_wrapper_band">
@@ -123,19 +119,6 @@
     </table>
 
 </div>
-
-    <div class="list_wrapper_numbers">
-        <p>1 2 3 4 5 6</p>
-    </div>
-
-    <div class="page-nation_button">
-        <div class="left_button">
-            ⇦ 前へ
-        </div>
-        <div class="right_button">
-            次へ　⇨
-        </div>
-    </div>
 
 </div>
 </body>

@@ -7,7 +7,8 @@
 }
 body {
     width:100%;
-    background-color: #e6e6e6;
+    background-color: #f9f9f9;
+
 }
 li{
     list-style:none;
@@ -17,7 +18,7 @@ a {
     color:#000000;
 }
 button {
-    width: 150px;
+    width: 100px;
 }
 header {
     margin-bottom:1.5rem;
@@ -67,7 +68,10 @@ header {
     width: 80%;
     margin: 0 auto;
     background-color: #ffffff;
+    padding-bottom:5rem;
+    margin-bottom: 5rem;
 }
+
 .list_wrapper_search {
 width: 100%;
 }
@@ -84,50 +88,44 @@ width: 100%;
 .list_wrapper_header{
     display:flex;
     margin-bottom: 3.5rem;
-    max-width: 100%
+    max-width: 100%;
+    justify-content:center;
 }
+
+.list_col input[type="submit"] {
+  border: none;
+  background: transparent;
+}
+
 /* 検索部分の選択項目など */
 .list_header_items {
     display:flex;
     width: 100%;
+    height: 3rem;
+    margin-right:2rem;
 }
+
 /* 社員名検索フォーム */
 .emp_name_search{
-display: inline-block;
-    width: 15em;
-    padding: 1.5em;
-    margin: 0.5em 0;
-    height:1rem;
+
 }
 /* 所属部署 */
 .department_list{
-width: 100%;
-height: 2.5em;
-padding: 0.5em;
-    margin: 0.5em 0.5em 0em 0.5em;
+
 }
 /* 入社年月 */
 .join_list{
-width: 100%;
-height: 2.5em;
-padding: 0.5em;
-    margin: 0.5em 0.5em 0.5em 0em;
+
 }
 
 /* 誕生日検索 */
 .birthday_search{
-width: 100%;
-height: 2.5em;
-padding: 0.5em;
-    margin: 0.5em 0.5em 0em 0em;
+
 }
 
-/* 検索ボタン */
-.searchButton {
-width: 5em;
-height: 2.5em;
- margin: 0.5em 0em;
- }
+.searchButton{
+    width:2.3rem;
+}
 
 /* 技術リスト */
 .skillList {
