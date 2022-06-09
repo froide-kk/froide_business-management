@@ -27,10 +27,10 @@
     <h2 class="emp_update_title">
         従業員(追加・削除)　ページ
     </h2>
+    <p color="red">${error}</p>
 <!--従業員追加のテーブル-->
     <table class="emp_add_table">
         <tr class="emp_add_list">
-            <th class="emp_add_row">ID</th>
             <th class="emp_add_row">名前</th>
             <th class="emp_add_row">所属部署</th>
             <th class="emp_add_row">入社年月</th>
@@ -39,7 +39,6 @@
 
         <form method="post" action="/career/empUpdate/add">
         <tr>
-            <td class="emp_add_item">*</td>
             <td class="emp_add_item"><input type="text" placeholder="Yamada.T" name="name"></td>
             <td class="emp_add_item">
                 <select name="department_id">
@@ -53,11 +52,10 @@
             </td>
             <td class="emp_add_item"><input type="text" placeholder="yyyy-mm-dd" name="join_date"></td>
             <td class="emp_add_item"><input type="text" placeholder="tarou-yamada@xxxxxx@co.jp" name="email"></td>
-            <td class="emp_add_item2"><input type="submit" class="emp_add_button" value="追加"></td>
+            <td class="emp_add_item2"><input type="submit" class="emp_add_button" value="追加" onclick="errorSentence"></td>
         </tr>
         </form>
     </table>
-    <p>${error}</p>
 
 <!-- 従業員削除の検索フォーム-->
     <form method="get" action="/career/empUpdate">

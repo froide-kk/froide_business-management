@@ -274,41 +274,44 @@ public class main {
         });
 
         post("/career/empUpdate/add",(req,res) -> {
+            Map<String, Object> attribute = new HashMap<>();
             //画面から受け取る
             String name = req.queryParams("name");
             String department_id = req.queryParams("department_id");
             String join_date = req.queryParams("join_date");
             String email = req.queryParams("email");
 
+            System.out.println(name);
+            if(name.isEmpty()) {
+                attribute.put("error", "全て入力してください");
+            }else if(department_id == "") {
+                attribute.put("error", "全て入力してください");
+            }else if(join_date == "") {
+                attribute.put("error", "全て入力してください");
+            }else if(email == ""){
+                attribute.put("error", "全て入力してください");
+            }else{
+                //データベースに登録する
+                EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+                TransactionManager tm = DbConfig.singleton().getTransactionManager();
+                tm.required(() -> {
+                    Employees employee = new Employees();
+                    employee.setName(name);
+                    employee.setDepartment_id(Integer.valueOf(department_id));
+                    employee.setJoin_date(Date.valueOf(join_date));
+                    employee.setEmail(email);
+                    empDao.insertEmp(employee);
+                });
+            }
+
             //画面に表示する
-            Map<String, Object> attribute = new HashMap<>();
             attribute.put("name",name);
             attribute.put("department_id",department_id);
             attribute.put("join_date",join_date);
             attribute.put("email",email);
-            if(name == null){
-                attribute.put("error", "全て入力してください");
-            }else if(department_id != "1" && department_id != "2" && department_id != "3" && department_id != "4" && department_id != "5"){
-                attribute.put("error", "全て入力してください");
-            } else if (join_date == "") {
-                attribute.put("error", "全て入力してください");
-            } else if (email == null) {
-                attribute.put("error", "全て入力してください");
-            }else{
-                attribute.put("error","");
-            }
 
-            //データベースに登録する
-            EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
-            TransactionManager tm = DbConfig.singleton().getTransactionManager();
-            tm.required(() -> {
-                Employees employee = new Employees();
-                employee.setName(name);
-                employee.setDepartment_id(Integer.valueOf(department_id));
-                employee.setJoin_date(Date.valueOf(join_date));
-                employee.setEmail(email);
-                empDao.insertEmp(employee);
-            });
+
+
 
             //戻る
             res.redirect("/career/empUpdate");
