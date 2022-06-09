@@ -1,3 +1,4 @@
+import org.eclipse.jetty.util.thread.strategy.EatWhatYouKill;
 import org.seasar.doma.jdbc.tx.TransactionManager;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
@@ -174,6 +175,14 @@ public class main {
                 empDao.updateAdmin(Integer.valueOf(req.queryParams("id")));
             });
 
+            res.redirect("/career/managementUpdate");
+            return res;
+        });
+
+        post("/career/managementUpdate/ord",(req,res) ->{
+            EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+
             tm.required(() -> {
                 empDao.updateAdminOrd(Integer.valueOf(req.queryParams("id")));
             });
@@ -181,7 +190,6 @@ public class main {
             res.redirect("/career/managementUpdate");
             return res;
         });
-
 
         //従業員編集画面
         get("/career/empUpdate", (req, res) -> {
@@ -191,13 +199,18 @@ public class main {
             //現在いる従業員の表示
             tm.required(() -> {
                 String searchName = req.queryParams("searchName");
-                List<Employees> Emplists = empDao.selectAll();
-                attribute.put("Emplists", Emplists);
-
+                List<Employees> EmpLists = empDao.selectByNotDelete();
+                attribute.put("EmpDeleteLists", EmpLists);
+                //従業員の検索
                 if (searchName != null) {
-                    List<Employees> EmpSearchName = empDao.selectByName(searchName);
-                    attribute.put("Emplists", EmpSearchName);
+                    List<Employees> EmpSearchName = empDao.selectDeleteEmpByName(searchName);
+                    attribute.put("EmpDeleteLists", EmpSearchName);
                 }
+            });
+
+            tm.required(() -> {
+                List<Employees> DeleteEmpLists = empDao.selectByDeleteEmp();
+                attribute.put("DeleteEmpLists",DeleteEmpLists);
             });
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "emp_update.ftl"));
@@ -209,6 +222,18 @@ public class main {
 
             tm.required(() -> {
                 empDao.updateEmpDelete(Integer.valueOf(req.queryParams("id")));
+            });
+
+            res.redirect("/career/empUpdate");
+            return res;
+        });
+
+        post("/career/empUpdate/reAdd",(req,res) -> {
+            EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+
+            tm.required(() -> {
+                empDao.updateEmpReAdd(Integer.valueOf(req.queryParams("id")));
             });
 
             res.redirect("/career/empUpdate");

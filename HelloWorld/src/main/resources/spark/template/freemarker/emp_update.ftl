@@ -68,16 +68,42 @@
         </tr>
 
         <tr class="emp_delete_item">
-            <#list Emplists as Emplist>
-            <td class="emp_delete_col">${Emplist.id}</td>
-            <td class="emp_delete_col">${Emplist.name}</td>
-            <td class="emp_delete_col">${Emplist.department_id}</td>
-            <td class="emp_delete_col">${Emplist.join_date}</td>
-            <td class="emp_delete_col">${Emplist.email}</td>
+            <#list EmpDeleteLists as EmpList>
+            <td class="emp_delete_col">${EmpList.id}</td>
+            <td class="emp_delete_col">${EmpList.name}</td>
+            <td class="emp_delete_col">${EmpList.department_id}</td>
+            <td class="emp_delete_col">${EmpList.join_date}</td>
+            <td class="emp_delete_col">${EmpList.email}</td>
             <form method="post" action="/career/empUpdate">
                 <td class="emp_delete_col">
-                    <input type="hidden" value="${Emplist.id}" name="id">
+                    <input type="hidden" value="${EmpList.id}" name="id">
                     <input type="submit" class="emp_delete_button" value="削除">
+                </td>
+            </form>
+        </tr>
+    </#list>
+    </table>
+
+    <table class="emp_delete_table">
+        <tr class="emp_delete_list">
+            <th class="emp_delete_row">ID</th>
+            <th class="emp_delete_row">名前</th>
+            <th class="emp_delete_row">所属部署</th>
+            <th class="emp_delete_row">入社年月</th>
+            <th class="emp_delete_row">メールアドレス</th>
+        </tr>
+
+        <tr class="emp_delete_item">
+            <#list DeleteEmpLists as DeleteList>
+            <td class="emp_delete_col">${DeleteList.id}</td>
+            <td class="emp_delete_col">${DeleteList.name}</td>
+            <td class="emp_delete_col">${DeleteList.department_id}</td>
+            <td class="emp_delete_col">${DeleteList.join_date}</td>
+            <td class="emp_delete_col">${DeleteList.email}</td>
+            <form method="post" action="/career/empUpdate/reAdd">
+                <td class="emp_delete_col">
+                    <input type="hidden" value="${DeleteList.id}" name="id">
+                    <input type="submit" class="emp_delete_button" value="再追加">
                 </td>
             </form>
         </tr>
