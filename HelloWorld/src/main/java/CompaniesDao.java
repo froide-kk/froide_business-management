@@ -14,8 +14,7 @@ import java.util.List;
         @Delete
         int delete(Companies companies);
 
-        @Select
-        List<Companies> selectAll();
+
 
     }
 

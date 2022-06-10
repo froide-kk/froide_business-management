@@ -14,7 +14,5 @@ public interface Employee_skillsDao {
     @Delete
     int delete(Employee_skills employee_skills);
 
-    @Select
-    List<Employee_skills> selectAll();
 
 }

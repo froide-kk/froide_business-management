@@ -17,7 +17,6 @@ public interface DepartmentsDao {
         @Select
         List<Departments> selectAll();
 
-        @Select
-        List<Employees> selectById(Integer id);
+
 
 }
