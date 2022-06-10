@@ -188,15 +188,16 @@ public class main {
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
 
-            if(name.length() <= 256 && !Objects.equals(name, "") && Objects.equals(skill_attribute_id, "1") ||
-                    !Objects.equals(name, "") && Objects.equals(skill_attribute_id, "2") ||
-                    !Objects.equals(name, "") && Objects.equals(skill_attribute_id, "3")) {
-                tm.required(() -> {
-                    Skills skills = new Skills();
-                    skills.setName(name);
-                    skills.setSkill_attribute_id(Integer.valueOf(skill_attribute_id));
-                    skillDao.insertSkill(skills);
-                });
+            if(name.length() <= 256){
+                if(!Objects.equals(name, "") && Objects.equals(skill_attribute_id, "1") ||
+                        Objects.equals(skill_attribute_id, "2") || Objects.equals(skill_attribute_id, "3")) {
+                    tm.required(() -> {
+                        Skills skills = new Skills();
+                        skills.setName(name);
+                        skills.setSkill_attribute_id(Integer.valueOf(skill_attribute_id));
+                        skillDao.insertSkill(skills);
+                    });
+                }
             }
             res.redirect("/career/skillCheck");
             return res;
