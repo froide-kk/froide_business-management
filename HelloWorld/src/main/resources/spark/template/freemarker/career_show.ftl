@@ -4,7 +4,6 @@
     <title>経歴書閲覧画面</title>
 </head>
 <body>
-${id}
 <!---------- ヘッダー部分　---------->
 <header class="career">
     <h2><a class="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
@@ -96,6 +95,7 @@ ${id}
     </div>
 
     <table border=1 style="border-collapse: collapse">
+<!--        テーブルを入れていく。-->
         <tr>
             <th>OS</th>
             <th>対応可能スクリプト・ツール</th>
@@ -107,6 +107,7 @@ ${id}
             <td>あ</td>
         </tr>
     </table>
+<!--    ここまで！-->
 
     <br>
 
@@ -120,7 +121,7 @@ ${id}
         <tr>
             <td>業種表示</td>
             <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
-            <td> 〜 2022-04-21</td>
+            <td>${work_start} 〜 ${work_end}</td>
             <td>
                 <script>
 

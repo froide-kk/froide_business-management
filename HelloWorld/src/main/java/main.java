@@ -17,7 +17,7 @@ public class main {
 
         //業務経歴閲覧画面
         get("/career/show", (req, res) -> {
-            EmployeesDao empDao = new EmployeesDaoImpl(DbConfig.singleton());
+            EmployeesWork_historiesDao empWork_histories = new EmployeesWork_historiesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
@@ -25,14 +25,17 @@ public class main {
             tm.required(() ->{
                 String id = req.queryParams("id");
                 System.out.print(id);
-                Employees employees = empDao.selectById(Integer.valueOf(id));
-                attribute.put("name",employees.name);
-                attribute.put("birthday",employees.birthday);
-                attribute.put("license",employees.license);
+                EmployeesWork_histories employeesWork_histories = empWork_histories.selectById(Integer.valueOf(id));
+                attribute.put("name",employeesWork_histories.name);
+                attribute.put("birthday",employeesWork_histories.birthday);
+                attribute.put("license",employeesWork_histories.license);
                 attribute.put("id",Integer.valueOf(id));
-                attribute.put("address",employees.address);
-                attribute.put("final_education",employees.final_education);
+                attribute.put("address",employeesWork_histories.address);
+                attribute.put("final_education",employeesWork_histories.final_education);
+                attribute.put("work_start",employeesWork_histories.work_start);
+                attribute.put("work_end",employeesWork_histories.work_end);
             });
+
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "career_show.ftl"));
         });
