@@ -102,6 +102,7 @@ width: 100%;
 }
 
 .list_col input[type="submit"] {
+  color: #35caa4;
   border: none;
   background: transparent;
 }
@@ -294,6 +295,13 @@ td{
     width:100px;
     font-size:1.5rem;
 }
+
+.os_script_db_show{
+width:100%;
+display:flex;
+justify-content: center;
+}
+
 /* ここまで業務経歴書閲覧画面ページ */
 
 /* ここから業務経歴書編集画面ページ */
