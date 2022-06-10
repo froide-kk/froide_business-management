@@ -43,11 +43,9 @@
             <td class="emp_add_item">
                 <select name="department_id">
                     <option value="">所属部署</option>
-                    <option value="1">sol1</option>
-                    <option value="2">sol2</option>
-                    <option value="3">sol3</option>
-                    <option value="4">管理部</option>
-                    <option value="5">新人</option>
+                    <#list departmentLists as depList>
+                    <option value="${depList.id}">${depList.name}</option>
+                </#list>
                 </select>
             </td>
             <td class="emp_add_item"><input type="text" placeholder="yyyy-mm-dd" name="join_date"></td>

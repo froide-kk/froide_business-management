@@ -40,6 +40,7 @@ public class main {
         get("/career", (req, res) -> {
             //一覧画面を表示
             EmployeesDao empDao = new EmployeesDaoImpl(DbConfig.singleton());
+            DepartmentsDao depDao = new DepartmentsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
@@ -87,6 +88,13 @@ public class main {
 
                     }
             });
+
+            //プルダウンメニューの表示
+            tm.required(() -> {
+                List<Departments> departmentsList = depDao.selectAll();
+                attribute.put("departmentLists",departmentsList);
+            });
+
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "list.ftl"));
         });
 
@@ -146,6 +154,7 @@ public class main {
                 attribute.put("name","");
                 attribute.put("id","");
             });
+
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "skill_check.ftl"));
         });
 
@@ -215,6 +224,7 @@ public class main {
                 return new FreeMarkerEngine().render(new ModelAndView(attribute, "admin_authorize.ftl"));
         });
 
+//        権限管理者の権限を削除するところ
         post("/career/managementUpdate",(req,res) ->{
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
@@ -228,6 +238,7 @@ public class main {
             return res;
         });
 
+//        権限一般の人に権限を付与するところ
         post("/career/managementUpdate/ord",(req,res) ->{
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
@@ -239,13 +250,15 @@ public class main {
             res.redirect("/career/managementUpdate");
             return res;
         });
+        //管理者権限画面ここまで
 
         //従業員編集画面
         get("/career/empUpdate", (req, res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            DepartmentsDao depDao = new DepartmentsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-            //現在いる従業員の表示
+            //現在いる従業員の一覧表示
             tm.required(() -> {
                 String searchName = req.queryParams("searchName");
                 List<Employees> EmpLists = empDao.selectByNotDelete();
@@ -258,6 +271,7 @@ public class main {
 
             });
 
+            //削除された従業員の一覧表示
             tm.required(() -> {
                 List<Employees> DeleteEmpLists = empDao.selectByDeleteEmp();
                 attribute.put("DeleteEmpLists",DeleteEmpLists);
@@ -270,9 +284,16 @@ public class main {
             attribute.put("email","");
             attribute.put("error","");
 
+            //プルダウンメニューの表示
+            tm.required(() -> {
+                List<Departments> departmentsList = depDao.selectAll();
+                attribute.put("departmentLists",departmentsList);
+            });
+
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "emp_update.ftl"));
         });
 
+//        従業員追加のためのデータが送られてくるところ
         post("/career/empUpdate/add",(req,res) -> {
             Map<String, Object> attribute = new HashMap<>();
             //画面から受け取る
@@ -280,8 +301,6 @@ public class main {
             String department_id = req.queryParams("department_id");
             String join_date = req.queryParams("join_date");
             String email = req.queryParams("email");
-
-            System.out.println(name);
             if(name.isEmpty()) {
                 attribute.put("error", "全て入力してください");
             }else if(department_id == "") {
@@ -303,21 +322,18 @@ public class main {
                     empDao.insertEmp(employee);
                 });
             }
-
             //画面に表示する
             attribute.put("name",name);
             attribute.put("department_id",department_id);
             attribute.put("join_date",join_date);
             attribute.put("email",email);
 
-
-
-
             //戻る
             res.redirect("/career/empUpdate");
             return res;
         });
 
+//        従業員削除のデータが送られてくるところ
         post("/career/empUpdate/delete",(req,res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
@@ -330,6 +346,7 @@ public class main {
             return res;
         });
 
+//        従業員再追加のためのデータが送られてくるところ
         post("/career/empUpdate/reAdd",(req,res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
@@ -341,6 +358,7 @@ public class main {
             res.redirect("/career/empUpdate");
             return res;
         });
+//        従業員画面ここまで
 
         //プロジェクト編集画面
         get("/career/projectsUpdate", (req, res) -> {

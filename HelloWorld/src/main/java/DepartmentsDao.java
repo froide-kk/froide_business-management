@@ -15,6 +15,9 @@ public interface DepartmentsDao {
         int delete(Employees employees);
 
         @Select
-        List<Employees> selectAll();
+        List<Departments> selectAll();
+
+        @Select
+        List<Employees> selectById(Integer id);
 
 }

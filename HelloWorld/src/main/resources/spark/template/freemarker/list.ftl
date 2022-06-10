@@ -46,10 +46,9 @@
                     <div  class="list_header_items">
                         <select class="department_list" name="searchDepartment">
                             <option value="0">所属部署</option>
-                            <option  value="1">ソリューション1部</option>
-                            <option  value="2">ソリューション2部</option>
-                            <option  value="3">ソリューション3部</option>
-                            <option  value="4">管理本部</option>
+                            <#list departmentLists as depList>
+                            <option value="${depList.id}">${depList.name}</option>
+                        </#list>
                         </select>
                         <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
