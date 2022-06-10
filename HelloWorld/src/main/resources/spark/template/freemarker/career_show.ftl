@@ -30,7 +30,9 @@ ${id}
 <nav class="disp">
     <ul class="option">
         <li>
-            <button class="edit" onclick="location.href='http://localhost:4567/career/update(id)'"><a>編集</a></button>
+            <form method="get" action="/career/update">
+            <button type="submit" value="${id}" name="id" class="edit" onclick="location.href='http://localhost:4567/career/update'"><a>編集</a></button>
+            </form>
         </li>
         <li>
             <form class="disp">

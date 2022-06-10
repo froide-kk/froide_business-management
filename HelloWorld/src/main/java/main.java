@@ -99,11 +99,24 @@ public class main {
         });
 
         //業務経歴編集画面
-        get("/career/update(id)", (req, res) -> {
+        get("/career/update", (req, res) -> {
+            EmployeesDao empDao = new EmployeesDaoImpl(DbConfig.singleton());
             Dev_period_phasesDao dev_period_phasesDao = new Dev_period_phasesDaoImpl(DbConfig.singleton());
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
+
+            //career/showからidを受け取って、/career/updateに渡す処理
+            String id = req.queryParams("id");
+            attribute.put("id", id);
+
+            tm.required(() ->{
+                Employees empUp = empDao.selectById(Integer.valueOf(id));
+                attribute.put("name",empUp.name);
+                attribute.put("birthday",empUp.birthday);
+                attribute.put("license",empUp.license);
+            });
+
 
             //スキルチェックの○・△を選ぶところ
             tm.required(() -> {
