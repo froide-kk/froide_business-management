@@ -18,7 +18,7 @@
 <!---------- 戻るボタン ---------->
 <nav>
     <ul class="back">
-        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
+        <button class="browseBack" onclick="location.href='/career/management'"><a href="#" >戻る</a></button>
     </ul>
 </nav>
 <div class="skillCheck_wrapper">
@@ -86,7 +86,7 @@
     <form method="post" action="/career/skillCheck/add">
         <div class="skill_add">
             <div class="skill_add_item">
-                <input type="text" id="name" class="skill_add_name" name="name">
+                <input type="text" id="name" class="skill_add_name" name="name"/>
             </div>
 
             <div class="skill_add_item">
