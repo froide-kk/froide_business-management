@@ -37,7 +37,7 @@
         <#list pj_lists as pj>
         <tr>
             <td class="company_and_project_name">${pj.companyName}</td>
-            <td class="company_and_project_name">${pj.name}</td>
+            <td class="company_and_project_name">${pj.projectName}</td>
             <td class="company_project_edit_delete"><button class="company_project_edit_button">編集</button></td>
             <form method="post" action="/career/projectsDelete">
                 <input type="hidden" value="${pj.id}" name="id">
@@ -54,15 +54,16 @@
         <div class="input_name_and_addButton">
             <!--企業名の記入-->
             <div class="company_project_addButton_margin">
-                <input type="text" placeholder="企業名を入力" class="input_company_name">
+                <input type="text"  placeholder="企業名を入力" class="input_company_name">
             </div>
 
             <div class="company_project_addButton_margin">
-                <input type="text" placeholder="プロジェクト名を入力" class="input_project_name">
+                <input type="text" id="projectName" placeholder="プロジェクト名を入力" class="input_project_name">
             </div>
 
             <div class="company_project_addButton_margin">
-                <button class="company_and_project_addButton" onclick="">追加</button>
+                <button  onclick="">追加</button>
+                <input type="submit" name="add_button" class="company_and_project_addButton" value="追加">
             </div>
         </div>
     </form>

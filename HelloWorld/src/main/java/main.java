@@ -383,21 +383,7 @@ public class main {
 
         //プロジェクトの追加
         post("/career/projectsAdd", (req, res) -> {
-            String Company = req.queryParams("company_name");
-            String Project = req.queryParams("project_name");
-            Map<String, Object> attribute = new HashMap<>();
-            attribute.put("company_name",Company);
-            attribute.put("project_name",Project);
-
-            ProjectsDao proDao = new ProjectsDaoImpl(DbConfig.singleton());
-            TransactionManager tm = DbConfig.singleton().getTransactionManager();
-
-            tm.required(() -> {
-                Projects projects = new Projects();
-                projects.setName(Project);
-                proDao.insertProject(projects);
-            });
-            res.redirect("/career/skillCheck");
+            res.redirect("/career/projectsUpdate");
             return res;
         });
 

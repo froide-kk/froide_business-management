@@ -4,9 +4,10 @@ public class Projects {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String name;
     @Column(name = "company_name")
     String companyName;
+    @Column(name = "project_name")
+    String projectName;
     Integer company_id;
     Integer delete_flag;
 
@@ -16,14 +17,6 @@ public class Projects {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Integer getCompany_id() {
@@ -40,6 +33,14 @@ public class Projects {
 
     public void setCompanyName(String company_name){
         this.companyName = companyName;
+    }
+
+    public String getProjectName(){
+        return projectName;
+    }
+
+    public void setProjectName(String project_name){
+        this.projectName = projectName;
     }
 
     public Integer getDelete_flag() {
