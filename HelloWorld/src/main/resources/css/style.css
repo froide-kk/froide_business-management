@@ -18,7 +18,7 @@ a {
     color:#000000;
 }
 button {
-    width: 100px;
+    width: 120px;
 }
 header {
     margin-bottom:1.5rem;
@@ -38,7 +38,7 @@ header {
     margin-right:0.5rem;
 }
 .header_right li {
-    flex: 0.03 0 auto;
+    flex: 0.04 0 auto;
     font-size: 1.2rem;
 }
 .header_right li:hover {

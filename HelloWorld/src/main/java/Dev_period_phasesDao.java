@@ -14,7 +14,5 @@ public interface Dev_period_phasesDao {
     @Delete
     int delete(Dev_period_phases dev_period_phases);
 
-    @Select
-    List<Dev_period_phases> selectAll();
 
 }

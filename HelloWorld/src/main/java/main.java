@@ -174,7 +174,6 @@ public class main {
         //技術チェック編集画面
         get("/career/skillCheck", (req, res) -> {
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
-
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
@@ -187,6 +186,7 @@ public class main {
                 attribute.put("db_lists", DBlists);
                 attribute.put("name","");
                 attribute.put("id","");
+                attribute.put("skill_attribute_id","");
             });
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "skill_check.ftl"));
@@ -208,24 +208,27 @@ public class main {
             return res;
         });
 
-// 技術の追加
+        // 技術の追加
         post("/career/skillCheck/add", (req, res) -> {
             String name = req.queryParams("name");
-            String id = req.queryParams("id");
+            String skill_attribute_id = req.queryParams("skill_attribute_id");
             Map<String, Object> attribute = new HashMap<>();
             attribute.put("name",name);
-            attribute.put("id",id);
+            attribute.put("skill_attribute_id",skill_attribute_id);
 
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
 
-            if(Objects.equals(id, "1") || Objects.equals(id, "2") || Objects.equals(id, "3")) {
-                tm.required(() -> {
-                    Skills skills = new Skills();
-                    skills.setName(name);
-                    skills.setSkill_attribute_id(Integer.valueOf(id));
-                    skillDao.insertSkill(skills);
-                });
+            if(name.length() <= 256){
+                if(!Objects.equals(name, "") && Objects.equals(skill_attribute_id, "1") ||
+                        Objects.equals(skill_attribute_id, "2") || Objects.equals(skill_attribute_id, "3")) {
+                    tm.required(() -> {
+                        Skills skills = new Skills();
+                        skills.setName(name);
+                        skills.setSkill_attribute_id(Integer.valueOf(skill_attribute_id));
+                        skillDao.insertSkill(skills);
+                    });
+                }
             }
             res.redirect("/career/skillCheck");
             return res;
@@ -402,11 +405,35 @@ public class main {
             tm.required(() -> {
                 List<Projects> PJlists = projectDao.selectProjectAll();
                 attribute.put("pj_lists",PJlists);
+                attribute.put("company_name","");
+                attribute.put("project_name","");
             });
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "project_update.ftl"));
         });
 
-        post("/career/projectsUpdate", (req, res) -> {
+
+        //プロジェクトの追加
+        post("/career/projectsAdd", (req, res) -> {
+            String Company = req.queryParams("company_name");
+            String Project = req.queryParams("project_name");
+            Map<String, Object> attribute = new HashMap<>();
+            attribute.put("company_name",Company);
+            attribute.put("project_name",Project);
+
+            ProjectsDao proDao = new ProjectsDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+
+            tm.required(() -> {
+                Projects projects = new Projects();
+                projects.setName(Project);
+                proDao.insertProject(projects);
+            });
+            res.redirect("/career/skillCheck");
+            return res;
+        });
+
+        //プロジェクトの削除
+        post("/career/projectsDelete", (req, res) -> {
             ProjectsDao projectDao = new ProjectsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
 

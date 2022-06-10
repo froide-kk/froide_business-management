@@ -1,8 +1,6 @@
 select
     /*%expand*/*
-
 from
     `Departments`
-
-where
-    `Departments` = /* id */0
+order by
+    `Departments`.id

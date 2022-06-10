@@ -18,7 +18,7 @@
 <!---------- 戻るボタン ---------->
 <nav>
     <ul class="back">
-        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#">戻る</a></button>
+        <button class="browseBack" onclick="location.href='/career/management'"><a href="#" >戻る</a></button>
     </ul>
 </nav>
 <!--------------ここまで----------------->
