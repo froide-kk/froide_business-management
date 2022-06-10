@@ -189,8 +189,7 @@ public class main {
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
 
             if(name.length() <= 256 && !Objects.equals(name, "") && Objects.equals(skill_attribute_id, "1") ||
-                    !Objects.equals(name, "") && Objects.equals(skill_attribute_id, "2") ||
-                    !Objects.equals(name, "") && Objects.equals(skill_attribute_id, "3")) {
+                    Objects.equals(skill_attribute_id, "2") || Objects.equals(skill_attribute_id, "3")) {
                 tm.required(() -> {
                     Skills skills = new Skills();
                     skills.setName(name);
