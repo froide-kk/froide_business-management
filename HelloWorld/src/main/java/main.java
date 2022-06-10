@@ -393,7 +393,7 @@ public class main {
             tm.required(() -> {
                 Projects projects = new Projects();
                 projects.setName(Project);
-                proDao.insertProject(projects);
+//                proDao.insertProject(projects);
             });
             res.redirect("/career/skillCheck");
             return res;

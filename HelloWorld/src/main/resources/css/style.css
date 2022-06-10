@@ -102,6 +102,7 @@ width: 100%;
 }
 
 .list_col input[type="submit"] {
+  color: #35caa4;
   border: none;
   background: transparent;
 }
