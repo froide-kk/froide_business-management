@@ -44,6 +44,12 @@ public class Employees {
 
     String license;
 
+    String address;
+
+
+
+    String final_education;
+
     public String getLicense() {
         return license;
     }
@@ -134,5 +140,20 @@ public class Employees {
         this.department_id = department_id;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getFinal_education() {
+        return final_education;
+    }
+
+    public void setFinal_education(String final_education) {
+        this.final_education = final_education;
+    }
 
 }

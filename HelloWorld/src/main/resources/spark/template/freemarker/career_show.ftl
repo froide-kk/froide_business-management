@@ -78,8 +78,8 @@ ${id}
 
                 </script>
             </td>
-            <td>福岡県</td>
-            <td>北海道情報大学</td>
+            <td>${address}</td>
+            <td>${final_education}</td>
         </tr>
         <tr>
             <th colspan="5">資格</th>
