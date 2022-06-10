@@ -100,9 +100,15 @@ public class main {
 
         //業務経歴編集画面
         get("/career/update(id)", (req, res) -> {
+            Dev_period_phasesDao dev_period_phasesDao = new Dev_period_phasesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-            String list = req.queryParams("list");
-            attribute.put("list", "Hello");
+
+            tm.required(() -> {
+                List<Dev_period_phases> dev_period_phases = dev_period_phasesDao.selectAll();
+                attribute.put("dev_period_phasesLists",dev_period_phases);
+            });
+
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "career_update.ftl"));
         });
 
@@ -141,6 +147,7 @@ public class main {
         //技術チェック編集画面
         get("/career/skillCheck", (req, res) -> {
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
+
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
@@ -164,7 +171,6 @@ public class main {
             String id = req.queryParams("id");
             Map<String, Object> attribute = new HashMap<>();
             attribute.put("id",id);
-
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
 

@@ -156,15 +156,11 @@
         </tr>
         <tr>
             <td colspan="2">
-                <select id="phase"  multiple size="3">
-                    <option value="1">要件定義</option>
-                    <option value="2">DB設計</option>
-                    <option value="3">基本設計</option>
-                    <option value="4">詳細設計</option>
-                    <option value="5">作成</option>
-                    <option value="6">テスト</option>
-                    <option value="7">詳細設計</option>
-                </select>
+                <ui id="phase"  multiple size="3">
+                    <#list dev_period_phasesLists as dppList>
+                    <li><input type="checkbox" value="${dppList.id}">${dppList.name}</li>
+                    </#list>
+                </ui>
             </td>
             <td colspan="2"><input type="text" size="80" value="Java,HTML/CSS,JavaScript"></td>
         </tr>
