@@ -101,9 +101,23 @@ public class main {
         //業務経歴編集画面
         get("/career/update(id)", (req, res) -> {
             Dev_period_phasesDao dev_period_phasesDao = new Dev_period_phasesDaoImpl(DbConfig.singleton());
+            SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
+            //スキルチェックの○・△を選ぶところ
+            tm.required(() -> {
+            List<Skills> OSList = skillDao.select_os_All();
+            attribute.put("OSLists",OSList);
+
+            List<Skills> scriptList = skillDao.select_script_All();
+            attribute.put("ScriptLists",scriptList);
+
+            List<Skills> DBList = skillDao.select_db_All();
+            attribute.put("DBLists",DBList);
+            });
+
+            //開発担当フェーズのチェックボックス。
             tm.required(() -> {
                 List<Dev_period_phases> dev_period_phases = dev_period_phasesDao.selectAll();
                 attribute.put("dev_period_phasesLists",dev_period_phases);

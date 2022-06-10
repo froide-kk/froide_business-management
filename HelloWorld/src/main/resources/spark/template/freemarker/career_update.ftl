@@ -98,9 +98,44 @@
         </tr>
 
         <tr>
-            <td>IBM 5100</td>
-            <td>HTML/CSS,JavaScript,Java,Python</td>
-            <td>MySQL</td>
+            <td>
+                <ul>
+                    <#list OSLists as osList>
+                    <li>${osList.name}
+                        <select>
+                            <option>-</option>
+                            <option value="${osList.id}">◯</option>
+                            <option value="${osList.id}">△</option>
+                        </select>
+                    </li>
+                    </#list>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <#list ScriptLists as sList>
+                      <li>${sList.name}
+                          <select>
+                              <option>-</option>
+                              <option value="${sList.id}">◯</option>
+                              <option value="${sList.id}">△</option>
+                          </select></li>
+                    </#list>
+                </ul>
+
+            </td>
+            <td>
+                <ul>
+                    <#list DBLists as dbList>
+                      <li>${dbList.name}
+                          <select>
+                              <option>-</option>
+                              <option value="${dbList.id}">◯</option>
+                              <option value="${dbList.id}">△</option>
+                          </select></li>
+                    </#list>
+                </ul>
+            </td>
         </tr>
     </table>
 
