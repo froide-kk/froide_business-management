@@ -90,7 +90,7 @@
             </div>
 
             <div class="skill_add_item">
-                <select name="id" class="skill_select">
+                <select name="skill_attribute_id" class="skill_select">
                     <option>技術を選択</option>
                     <option value="1">OS</option>
                     <option value="2">スクリプト・ツール</option>
