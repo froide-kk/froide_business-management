@@ -141,6 +141,7 @@ public class main {
         //技術チェック編集画面
         get("/career/skillCheck", (req, res) -> {
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
+            Skill_attributesDao skill_attriDao = new Skill_attributesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
@@ -187,7 +188,7 @@ public class main {
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
 
-            if(!Objects.equals(name, "") && Objects.equals(skill_attribute_id, "1") ||
+            if(name.length() <= 256 && !Objects.equals(name, "") && Objects.equals(skill_attribute_id, "1") ||
                     !Objects.equals(name, "") && Objects.equals(skill_attribute_id, "2") ||
                     !Objects.equals(name, "") && Objects.equals(skill_attribute_id, "3")) {
                 tm.required(() -> {

@@ -20,4 +20,7 @@ public interface ProjectsDao {
 
     @Update(sqlFile = true)
     int update_delete_project(Integer id);
+
+    @Insert(include = {"name"})
+    int insertProject(Projects projects);
 }
