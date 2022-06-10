@@ -17,7 +17,7 @@ public class main {
 
         //業務経歴閲覧画面
         get("/career/show", (req, res) -> {
-            EmployeesDao empDao = new EmployeesDaoImpl(DbConfig.singleton());
+            EmployeesWork_historiesDao empWork_histories = new EmployeesWork_historiesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
@@ -25,13 +25,17 @@ public class main {
             tm.required(() ->{
                 String id = req.queryParams("id");
                 System.out.print(id);
-                Employees employees = empDao.selectById(Integer.valueOf(id));
-                attribute.put("name",employees.name);
-                attribute.put("birthday",employees.birthday);
-                attribute.put("license",employees.license);
+                EmployeesWork_histories employeesWork_histories = empWork_histories.selectById(Integer.valueOf(id));
+                attribute.put("name",employeesWork_histories.name);
+                attribute.put("birthday",employeesWork_histories.birthday);
+                attribute.put("license",employeesWork_histories.license);
                 attribute.put("id",Integer.valueOf(id));
-
+                attribute.put("address",employeesWork_histories.address);
+                attribute.put("final_education",employeesWork_histories.final_education);
+                attribute.put("work_start",employeesWork_histories.work_start);
+                attribute.put("work_end",employeesWork_histories.work_end);
             });
+
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "career_show.ftl"));
         });
@@ -99,10 +103,43 @@ public class main {
         });
 
         //業務経歴編集画面
-        get("/career/update(id)", (req, res) -> {
+        get("/career/update", (req, res) -> {
+            EmployeesDao empDao = new EmployeesDaoImpl(DbConfig.singleton());
+            Dev_period_phasesDao dev_period_phasesDao = new Dev_period_phasesDaoImpl(DbConfig.singleton());
+            SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-            String list = req.queryParams("list");
-            attribute.put("list", "Hello");
+
+            //career/showからidを受け取って、/career/updateに渡す処理
+            String id = req.queryParams("id");
+            attribute.put("id", id);
+
+            tm.required(() ->{
+                Employees empUp = empDao.selectById(Integer.valueOf(id));
+                attribute.put("name",empUp.name);
+                attribute.put("birthday",empUp.birthday);
+                attribute.put("license",empUp.license);
+            });
+
+
+            //スキルチェックの○・△を選ぶところ
+            tm.required(() -> {
+            List<Skills> OSList = skillDao.select_os_All();
+            attribute.put("OSLists",OSList);
+
+            List<Skills> scriptList = skillDao.select_script_All();
+            attribute.put("ScriptLists",scriptList);
+
+            List<Skills> DBList = skillDao.select_db_All();
+            attribute.put("DBLists",DBList);
+            });
+
+            //開発担当フェーズのチェックボックス。
+            tm.required(() -> {
+                List<Dev_period_phases> dev_period_phases = dev_period_phasesDao.selectAll();
+                attribute.put("dev_period_phasesLists",dev_period_phases);
+            });
+
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "career_update.ftl"));
         });
 
@@ -141,7 +178,6 @@ public class main {
         //技術チェック編集画面
         get("/career/skillCheck", (req, res) -> {
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
-            Skill_attributesDao skill_attriDao = new Skill_attributesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
@@ -166,7 +202,6 @@ public class main {
             String id = req.queryParams("id");
             Map<String, Object> attribute = new HashMap<>();
             attribute.put("id",id);
-
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
 
@@ -383,7 +418,6 @@ public class main {
 
         //プロジェクトの追加
         post("/career/projectsAdd", (req, res) -> {
-            res.redirect("/career/projectsUpdate");
             return res;
         });
 

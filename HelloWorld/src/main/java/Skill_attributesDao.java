@@ -12,4 +12,5 @@ public interface Skill_attributesDao {
     @Delete
     int delete(Skill_attributes skillAttributes);
 
+
 }

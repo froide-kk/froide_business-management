@@ -44,15 +44,15 @@
 
         <tr>
             <td>
-                <input type="text" size="42"  value="Adachi.K">
+                <input type="text" size="42"  value="${name}">
             </td>
             <td>
-                <input type="text" value="1999/11/06">
+                <input type="text" value="${birthday}">
 
             </td>
             <td> <script>
                     //inputされた値をリアルタイムbirthdayに代入したい
-                    let Birtday = "1999-11-06"
+                    let Birtday = "${birthday}"
                     let birtdayAry = Birtday.split('-')
                     const birthday = {
                          year: birtdayAry[0],
@@ -71,15 +71,15 @@
 
                         document.write(getAge(birthday));
                      </script></td>
-            <td><input type="text" value="福岡"></td>
-            <td><input type="text" value="情報系大学卒"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value=""></td>
         </tr>
 
         <tr>
             <th colspan="5">資格</th>
         </tr>
         <tr>
-            <td colspan="5"><input type="text" size="120" value="基本情報技術者試験"></td>
+            <td colspan="5"><input type="text" size="120" value="${license}"></td>
         </tr>
     </table>
 
@@ -98,9 +98,44 @@
         </tr>
 
         <tr>
-            <td>IBM 5100</td>
-            <td>HTML/CSS,JavaScript,Java,Python</td>
-            <td>MySQL</td>
+            <td>
+                <ul>
+                    <#list OSLists as osList>
+                    <li>${osList.name}
+                        <select>
+                            <option>-</option>
+                            <option value="${osList.id}">◯</option>
+                            <option value="${osList.id}">△</option>
+                        </select>
+                    </li>
+                    </#list>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <#list ScriptLists as sList>
+                      <li>${sList.name}
+                          <select>
+                              <option>-</option>
+                              <option value="${sList.id}">◯</option>
+                              <option value="${sList.id}">△</option>
+                          </select></li>
+                    </#list>
+                </ul>
+
+            </td>
+            <td>
+                <ul>
+                    <#list DBLists as dbList>
+                      <li>${dbList.name}
+                          <select>
+                              <option>-</option>
+                              <option value="${dbList.id}">◯</option>
+                              <option value="${dbList.id}">△</option>
+                          </select></li>
+                    </#list>
+                </ul>
+            </td>
         </tr>
     </table>
 
@@ -146,7 +181,19 @@
         </tr>
         <tr>
             <td colspan="2"><input type="text"></td>
-            <td></td>
+            <td>
+                <select>
+                    <option>-</option>
+                    <option value="5人以下">5人以下</option>
+                    <option value="10人以下">10人以下</option>
+                    <option value="15人以下">15人以下</option>
+                    <option value="20人以下">20人以下</option>
+                    <option value="30人以下">30人以下</option>
+                    <option value="40人以下">40人以下</option>
+                    <option value="50人以下">50人以下</option>
+                    <option value="50人以上">50以上</option>
+                </select>
+            </td>
             <td><input type="text" size="20"></td>
 
         </tr>
@@ -156,15 +203,11 @@
         </tr>
         <tr>
             <td colspan="2">
-                <select id="phase"  multiple size="3">
-                    <option value="1">要件定義</option>
-                    <option value="2">DB設計</option>
-                    <option value="3">基本設計</option>
-                    <option value="4">詳細設計</option>
-                    <option value="5">作成</option>
-                    <option value="6">テスト</option>
-                    <option value="7">詳細設計</option>
-                </select>
+                <ui id="phase"  multiple size="3">
+                    <#list dev_period_phasesLists as dppList>
+                    <li><input type="checkbox" value="${dppList.id}">${dppList.name}</li>
+                    </#list>
+                </ui>
             </td>
             <td colspan="2"><input type="text" size="80" value="Java,HTML/CSS,JavaScript"></td>
         </tr>

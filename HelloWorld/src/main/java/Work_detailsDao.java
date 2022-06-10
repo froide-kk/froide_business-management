@@ -12,5 +12,8 @@ public interface Work_detailsDao {
     @Delete
     int delete(Work_details work_details);
 
-
+    @Select
+    List<Work_details> selectAll();
+    @Select
+    Employees selectById(Integer id);
 }
