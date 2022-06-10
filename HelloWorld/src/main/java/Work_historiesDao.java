@@ -12,6 +12,4 @@ public interface Work_historiesDao {
     @Delete
     int delete(Work_histories work_histories);
 
-    @Select
-    List<Work_histories> selectAll();
 }
