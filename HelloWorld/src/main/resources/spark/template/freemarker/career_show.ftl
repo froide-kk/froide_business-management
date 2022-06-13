@@ -113,14 +113,14 @@
 
     <br>
 
-    <table class="table-bottom" border=1 style="border-collapse: collapse">
+    <table  border=1 style="border-collapse: collapse">
         <tr>
             <th>業種</th>
             <th class="disp">プロジェクト</th>
             <th colspan="2">期間</th>
         </tr>
 
-        <tr>
+        <tr class="tr-bottom">
             <td>業種表示</td>
             <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
             <td colspan="1">${work_start} 〜 ${work_end}</td>
