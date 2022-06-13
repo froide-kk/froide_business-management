@@ -119,6 +119,8 @@ public class main {
                 attribute.put("name",empUp.name);
                 attribute.put("birthday",empUp.birthday);
                 attribute.put("license",empUp.license);
+                attribute.put("address",empUp.address);
+                attribute.put("final_education",empUp.final_education);
             });
 
 
@@ -141,6 +143,45 @@ public class main {
             });
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "career_update.ftl"));
+        });
+
+        post("/career/update",(req,res) -> {
+            EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            Map<String, Object> attribute = new HashMap<>();
+//            画面から受け取る
+            //career/updateからidを受け取って、ftlに渡す
+            String id = req.queryParams("id");
+            attribute.put("id",id);
+            String name = req.queryParams("name");
+            String birthday = req.queryParams("birthday");
+            String address = req.queryParams("address");
+            String final_education = req.queryParams("final_education");
+            String license = req.queryParams("license");
+
+
+            //データベースに登録する
+
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+            tm.required(() -> {
+                Employees employee = new Employees();
+                employee.setName(name);
+                employee.setBirthday(birthday);
+                employee.setAddress(address);
+                employee.setFinal_education(final_education);
+                employee.setLicense(license);
+
+            });
+
+            //画面に表示する
+            attribute.put("name",name);
+            attribute.put("birthday",birthday);
+            attribute.put("address",address);
+            attribute.put("final_education",final_education);
+            attribute.put("license",license);
+
+            res.redirect("/career/show");
+            return res;
+
         });
 
         //ログイン画面
@@ -341,15 +382,7 @@ public class main {
             String department_id = req.queryParams("department_id");
             String join_date = req.queryParams("join_date");
             String email = req.queryParams("email");
-            if(name.isEmpty()) {
-                attribute.put("error", "全て入力してください");
-            }else if(department_id == "") {
-                attribute.put("error", "全て入力してください");
-            }else if(join_date == "") {
-                attribute.put("error", "全て入力してください");
-            }else if(email == ""){
-                attribute.put("error", "全て入力してください");
-            }else{
+
                 //データベースに登録する
                 EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
                 TransactionManager tm = DbConfig.singleton().getTransactionManager();
@@ -361,7 +394,7 @@ public class main {
                     employee.setEmail(email);
                     empDao.insertEmp(employee);
                 });
-            }
+
             //画面に表示する
             attribute.put("name",name);
             attribute.put("department_id",department_id);

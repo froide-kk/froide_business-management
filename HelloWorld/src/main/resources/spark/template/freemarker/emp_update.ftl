@@ -37,23 +37,47 @@
             <th class="emp_add_row">メールアドレス</th>
         </tr>
 
-        <form method="post" action="/career/empUpdate/add">
-        <tr>
-            <td class="emp_add_item"><input type="text" placeholder="Yamada.T" name="name"></td>
-            <td class="emp_add_item">
-                <select name="department_id">
-                    <option value="">所属部署</option>
-                    <#list departmentLists as depList>
-                    <option value="${depList.id}">${depList.name}</option>
-                </#list>
-                </select>
-            </td>
-            <td class="emp_add_item"><input type="text" placeholder="yyyy-mm-dd" name="join_date"></td>
-            <td class="emp_add_item"><input type="text" placeholder="tarou-yamada@xxxxxx@co.jp" name="email"></td>
-            <td class="emp_add_item2"><input type="submit" class="emp_add_button" value="追加" onclick="errorSentence"></td>
-        </tr>
-        </form>
+        <div class="emp_add_form">
+            <form method="post" action="/career/empUpdate/add">
+                <tr>
+                    <td class="emp_add_item"><input type="text" placeholder="Yamada.T" name="name" class="add_name"></td>
+                    <td class="emp_add_item">
+                        <select name="department_id">
+                            <option value="">所属部署</option>
+                            <#list departmentLists as depList>
+                            <option value="${depList.id}" class="add_department_id">${depList.name}</option>
+                        </#list>
+                        </select>
+                    </td>
+                    <td class="emp_add_item"><input type="text" placeholder="yyyy-mm-dd" name="join_date" class="add_join_date"></td>
+                    <td class="emp_add_item"><input type="text" placeholder="tarou-yamada@xxxxxx@co.jp" name="email" class="add_email">
+                    </td>
+                    <td class="emp_add_item2"><input type="submit" class="emp_add_button" value="追加" onClick="errorSentence()"></td>
+                </tr>
+            </form>
+            <script>
+    console.log("errorSentence()まで来ました")
+    function errorSentence() {
+    const name = document.getElementsByClassName("add_name")
+    const department_id = document.getElementsByClassName("add_department_id")
+    const join_date = document.getElementsByClassName("add_join_date")
+    const email  = document.getElementsByClassName("add_email")
+    if(name == "") {
+    alert("全て入力してください")
+    }else if(department_id == null) {
+    alert("全て入力してください")
+    }else if(join_date == "") {
+    alert("全て入力してください")
+    }else if(email == ""){
+    alert("全て入力してください")
+    }else{
+    }
+    }
+    </script>
+        </div>
     </table>
+
+
 
 <!-- 従業員削除の検索フォーム-->
     <form method="get" action="/career/empUpdate">
@@ -83,13 +107,20 @@
             <form method="post" action="/career/empUpdate/delete">
                 <td class="emp_delete_col2">
                     <input type="hidden" value="${EmpList.id}" name="id">
-                    <input type="submit" class="emp_delete_button" value="削除">
+                    <input type="submit" class="emp_delete_button" value="削除" onClick="confirmationDelete()">
                 </td>
             </form>
         </tr>
     </#list>
     </table>
-    <p>${error}</p>
+
+    <script>
+        console.log("スクリプトまで成功です！")
+        function confirmationDelete() {
+        console.log("confirmationDelete()まで来ました")
+        alert("削除しますか？")
+        }
+    </script>
 
 <!--従業員再追加のテーブル-->
     <table class="emp_delete_table">
@@ -111,12 +142,20 @@
             <form method="post" action="/career/empUpdate/reAdd">
                 <td class="emp_delete_col2">
                     <input type="hidden" value="${DeleteList.id}" name="id">
-                    <input type="submit" class="emp_delete_button" value="再追加">
+                    <input type="submit" class="emp_delete_button" value="再追加" onClick="confirmationReAdd()">
                 </td>
             </form>
         </tr>
     </#list>
     </table>
+
+    <script>
+         console.log("スクリプトまで成功です！")
+        function confirmationReAdd() {
+        console.log("confirmationReAdd()まで来ました")
+        alert("再追加しますか？")
+        }
+    </script>
 
 </div>
 </body>

@@ -37,7 +37,7 @@
                 <form method="post" action="/career/skillCheck/delete">
                     <input type="hidden" value="${os.id}" name="id">
                     <td class="skill_edit_delete">
-                        <button type="submit" class="skill_delete_button">削除</button>
+                        <button type="submit" class="skill_delete_button" onclick="skill_delete()">削除</button>
                     </td>
                 </form>
             </tr>
@@ -56,7 +56,7 @@
                 <form method="post" action="/career/skillCheck/delete">
                     <input type="hidden" value="${script.id}" name="id">
                     <td class="skill_edit_delete">
-                        <button type="submit" class="skill_delete_button">削除</button>
+                        <button type="submit" class="skill_delete_button" onclick="skill_delete()">削除</button>
                     </td>
                 </form>
             </tr>
@@ -74,12 +74,28 @@
                 <form method="post" action="/career/skillCheck/delete">
                     <input type="hidden" value="${db.id}" name="id">
                     <td class="skill_edit_delete">
-                        <button type="submit" class="skill_delete_button">削除</button>
+                        <button type="submit" class="skill_delete_button" onclick="skill_delete()">削除</button>
                     </td>
                 </form>
             </tr>
         </#list>
         </table>
+
+        <script>
+            function skill_delete(){
+                console.log("skill_delete()です")
+                const result = window.confirm("削除しますか？");
+                console.log("キャンセルしたい");
+                if(result == true){
+                    console.log("消えるよ")
+                    return result;
+                }else if(result == false){
+                    return alert("キャンセルしました")
+                    console.log("キャンセルできない")
+                }
+            }
+
+        </script>
     </div>
 
     <div class="skill_wrapper_empty"></div>
@@ -99,13 +115,18 @@
             </div>
 
             <div class="skill_add_item">
-                <input type="submit" name="add_button" class="skill_add_button" value="追加">
+                <input type="submit" name="add_button" class="skill_add_button" value="追加" onclick="skill_add()">
             </div>
         </div>
+        <script>
+        function skill_add(){
+        console.log("skill_add()です")
+        confirm("追加しますか？")
+        }
+    </script>
     </form>
     <div class="skill_wrapper_empty"></div>
 </div>
 </body>
 </html>
-
 

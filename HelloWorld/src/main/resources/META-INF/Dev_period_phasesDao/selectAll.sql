@@ -1,6 +1,4 @@
 select
-      /*%expand*/*
+/*%expand*/*
 from
-    `Dev_period_phases`
-where
-    `Dev_period_phases`.id = /* id */0
+`Dev_period_phases`
