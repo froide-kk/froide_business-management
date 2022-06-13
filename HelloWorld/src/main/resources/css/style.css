@@ -302,6 +302,9 @@ display:flex;
 justify-content: center;
 }
 
+.table-bottom{
+    border-bottom:none;
+}
 /* ここまで業務経歴書閲覧画面ページ */
 
 /* ここから業務経歴書編集画面ページ */
