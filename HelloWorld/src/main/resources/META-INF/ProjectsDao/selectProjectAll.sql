@@ -1,7 +1,8 @@
 SELECT
     `Projects`.id,
     `Companies`.name as company_name,
-    `Projects`.name as project_name
+    `Projects`.name as project_name,
+    `Companies`.id as company_id
 FROM
     `Projects`,`Companies`
 WHERE

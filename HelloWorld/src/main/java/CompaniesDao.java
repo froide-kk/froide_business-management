@@ -15,7 +15,11 @@ import java.util.List;
         int delete(Companies companies);
 
 
+        @Insert(include = {"name"})
+        int insertCoｍpanyName(Companies companies);
 
+        @Select
+        List<Companies> selectAll();
     }
 
 

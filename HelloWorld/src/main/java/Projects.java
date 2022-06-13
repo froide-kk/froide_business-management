@@ -4,6 +4,7 @@ public class Projects {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    String name;
     @Column(name = "company_name")
     String companyName;
     @Column(name = "project_name")
@@ -23,6 +24,14 @@ public class Projects {
         return company_id;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName(){
+        return name;
+    }
+
     public void setCompany_id(Integer company_id) {
         this.company_id = company_id;
     }
@@ -31,7 +40,7 @@ public class Projects {
         return companyName;
     }
 
-    public void setCompanyName(String company_name){
+    public void setCompanyName(String companyName){
         this.companyName = companyName;
     }
 

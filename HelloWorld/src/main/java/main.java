@@ -135,10 +135,10 @@ public class main {
             });
 
             //開発担当フェーズのチェックボックス。
-            tm.required(() -> {
+            /*tm.required(() -> {
                 List<Dev_period_phases> dev_period_phases = dev_period_phasesDao.selectAll();
                 attribute.put("dev_period_phasesLists",dev_period_phases);
-            });
+            });*/
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "career_update.ftl"));
         });
@@ -178,6 +178,7 @@ public class main {
         //技術チェック編集画面
         get("/career/skillCheck", (req, res) -> {
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
+            Skill_attributesDao skill_attributeDao = new Skill_attributesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
@@ -191,6 +192,11 @@ public class main {
                 attribute.put("name","");
                 attribute.put("id","");
                 attribute.put("skill_attribute_id","");
+            });
+
+            tm.required(() -> {
+                List<Skill_attributes> skill_attributesList = skill_attributeDao.selectAll();
+                attribute.put("skill_attributesList",skill_attributesList);
             });
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "skill_check.ftl"));
@@ -237,7 +243,6 @@ public class main {
             res.redirect("/career/skillCheck");
             return res;
         });
-
 
         //管理者権限編集画面
         get("/career/managementUpdate",(req,res) -> {
@@ -402,6 +407,7 @@ public class main {
 
         //プロジェクト編集画面
         get("/career/projectsUpdate", (req, res) -> {
+            CompaniesDao companiesDao = new CompaniesDaoImpl(DbConfig.singleton());
             ProjectsDao projectDao = new ProjectsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
@@ -411,13 +417,62 @@ public class main {
                 attribute.put("pj_lists",PJlists);
                 attribute.put("company_name","");
                 attribute.put("project_name","");
+                attribute.put("company_id","");
+                attribute.put("id","");
+            });
+
+            //プルダウンメニューの表示
+            tm.required(() -> {
+                List<Companies> companiesList = companiesDao.selectAll();
+                attribute.put("companiesList",companiesList);
             });
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "project_update.ftl"));
         });
 
+        //企業名を追加
+        post("/career/CompaniesAdd", (req, res) -> {
+            String company_name = req.queryParams("company_name");
+            Map<String, Object> attribute = new HashMap<>();
+            attribute.put("company_name",company_name);
 
-        //プロジェクトの追加
-        post("/career/projectsAdd", (req, res) -> {
+            CompaniesDao companyDao = new CompaniesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+
+            if(company_name.length() <= 256) {
+                if (!Objects.equals(company_name, "")) {
+                    tm.required(() -> {
+                        Companies companies = new Companies();
+                        companies.setName(company_name);
+                        companyDao.insertCoｍpanyName(companies);
+                    });
+                }
+            }
+            res.redirect("/career/projectsUpdate");
+            return res;
+        });
+
+        // プロジェクトの追加
+        post("/career/projectAdd", (req, res) -> {
+            String projectName = req.queryParams("project_name");
+            String Company_id = req.queryParams("company_id");
+            Map<String, Object> attribute = new HashMap<>();
+            attribute.put("project_name",projectName);
+            attribute.put("company_id",Company_id);
+
+            ProjectsDao projectDao = new ProjectsDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+
+            if(projectName.length() <= 256) {
+                if (!Objects.equals(projectName, "") && !Objects.equals(Company_id, "0")) {
+                    tm.required(() -> {
+                        Projects projects = new Projects();
+                        projects.setName(projectName);
+                        projects.setCompany_id(Integer.valueOf(Company_id));
+                        projectDao.insertProject(projects);
+                    });
+                }
+            }
+            res.redirect("/career/projectsUpdate");
             return res;
         });
 

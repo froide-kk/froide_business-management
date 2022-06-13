@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" href="../style.css">
     <title>技術チェック編集</title>
@@ -92,9 +92,9 @@
             <div class="skill_add_item">
                 <select name="skill_attribute_id" class="skill_select">
                     <option>技術を選択</option>
-                    <option value="1">OS</option>
-                    <option value="2">スクリプト・ツール</option>
-                    <option value="3">DB</option>
+                    <#list skill_attributesList as attList>
+                    <option value="${attList.id}">${attList.name}</option>
+                </#list>
                 </select>
             </div>
 
