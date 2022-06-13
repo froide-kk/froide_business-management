@@ -35,7 +35,13 @@ public class Employees {
     String last_name;
     String email;
     Integer password_hash;
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
     String birthday;
+
 
     java.sql.Date join_date;
     byte management_flag;
@@ -108,13 +114,6 @@ public class Employees {
         this.password_hash = password_hash;
     }
 
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
 
     public Date getJoin_date() {
         return join_date;

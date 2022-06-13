@@ -1,9 +1,13 @@
+import org.eclipse.jetty.util.SearchPattern;
 import org.eclipse.jetty.util.thread.strategy.EatWhatYouKill;
 import org.seasar.doma.jdbc.tx.TransactionManager;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
 
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Month;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,7 +54,8 @@ public class main {
 
             //名前検索
             tm.required(() -> {
-
+                List<Employees> Emplists = empDao.selectAll();
+                attribute.put("Emplists", Emplists);
 
                 //URLに値が渡されるのでそれをsearchNameに渡す
                 String searchName = req.queryParams("searchName");
@@ -59,36 +64,40 @@ public class main {
                 String searchSkillList = req.queryParams("searchSkillList");
                 String searchBirthDay = req.queryParams("searchBirthDay");
                 String search = req.queryParams("search");
-                System.out.println(searchName + searchDepartment + join_date + searchSkillList + searchBirthDay + search);
-
+                System.out.println(searchName + searchDepartment + join_date + searchSkillList + searchBirthDay);
                     //もし、searchNameの値がnullじゃないなら、名前で検索
-                    if(search == null){
-                        List<Employees> Emplists = empDao.selectAll();
-                        attribute.put("Emplists", Emplists);
-                    }
                     if (searchName != null) {
                         List<Employees> EmpNames = empDao.selectByName(searchName);
                         attribute.put("Emplists", EmpNames);
                         //もし、searchDepartmentの値がnullでないなら、所属部署で検索
                     //部署検索
-                    }
-                   if(searchDepartment != null){
+                    }else if(searchDepartment != null){
                         System.out.print(searchDepartment);
                         List<Employees> EmpDepartments = empDao.selectByDepartment(Integer.valueOf(searchDepartment));
                         attribute.put("Emplists", EmpDepartments);
-                    }
-                    //入社年月ソート
-                    if(join_date != null){
+                    }else if(join_date != null){
                         System.out.print(join_date);
                         List<Employees> EmpDes = empDao.selectAllDes();
                         attribute.put("Emplists", EmpDes);
-                    }
-                    //技術チェックリスト検索
-                   if(searchSkillList != null){
 
-                    }
-                    //生年月日検索
-                    if(true){
+                        //誕生月検索
+                    }else if(searchBirthDay != null){
+                        //searchBirthDayがnullではない時、
+                        try {
+                            System.out.println("String" + searchBirthDay);
+                            //フォーマットする。
+                            SimpleDateFormat format = new SimpleDateFormat("MM");
+                            //月だけフォーマット化したので、誕生月を検索すると、dateに入る。
+                            java.util.Date date = format.parse(searchBirthDay);
+                            System.out.println("format:"+date);
+
+                            List<Employees> EmpBir = empDao.selectByBirthDay(date);
+                            attribute.put("Emplists",EmpBir);
+
+
+                        } catch (ParseException e) {
+                            throw new RuntimeException(e);
+                        }
 
                     }
             });
