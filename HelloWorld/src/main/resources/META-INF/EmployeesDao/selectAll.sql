@@ -9,6 +9,7 @@ FROM
     `Departments`
   ON
     `Employees`.department_id = `Departments`.id
+    where `Employees`.delete_flag = 0;
 ORDER BY
   `Employees`.id
 ;
