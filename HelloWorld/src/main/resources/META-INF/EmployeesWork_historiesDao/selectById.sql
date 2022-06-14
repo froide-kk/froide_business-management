@@ -9,7 +9,7 @@ select
    Work_histories.work_end,
    Work_details.industry,
    Work_details.system_sum,
-   projects.name AS projects_name,
+   Projects.name AS projects_name,
    Work_details.role,
    Work_details.dev_scale,
    Work_details.system_details,
@@ -27,8 +27,8 @@ left outer join
 on
      `Work_details`.work_history_id = `Work_histories`.id
 left outer join
-     `projects`
+     `Projects`
 on
-     `projects`.id = `Work_histories`.project_id
+     `Projects`.id = `Work_histories`.project_id
 where
     `Employees`.id = /* id */0
