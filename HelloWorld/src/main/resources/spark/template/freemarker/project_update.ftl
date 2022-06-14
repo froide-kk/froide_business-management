@@ -13,7 +13,7 @@
         <ul class="header_right">
             <!------<li><a href="http://localhost:4567/career/show(id)">My Page</a></li>----->
             <li><a href="http://localhost:4567/career/management">管理者</a></li>
-            <li><button class="logout">ログアウト</button></li>
+<!--            <li><button class="logout">ログアウト</button></li>-->
         </ul>
     </nav>
 </header>

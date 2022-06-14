@@ -13,18 +13,18 @@
     <h2><a class ="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
     <nav>
         <ul class="header_right">
-            <li><a href="http://localhost:4567/career/show">My Page</a></li>
+<!--            <li><a href="http://localhost:4567/career/show">My Page</a></li>-->
             <li><a href="http://localhost:4567/career/management">管理者</a></li>
-            <li><input type="button" class="logout" onclick="location.href='/career/login'" value="ログアウト"></li>
+<!--            <li><input type="button" class="logout" onclick="location.href='/career/login'" value="ログアウト"></li>-->
         </ul>
     </nav>
 </header>
 <!---------- 戻るボタン ---------->
-<nav>
-    <ul class="back">
-        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
-    </ul>
-</nav>
+<!--<nav>-->
+<!--    <ul class="back">-->
+<!--        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>-->
+<!--    </ul>-->
+<!--</nav>-->
 <h2 class="list_wrapper_title">
     一覧画面
 </h2>
@@ -57,8 +57,9 @@
                 <form method="get" action="/career">
                     <div class="list_header_items">
                         <select name="join_date" class="join_list">
-                            <option value=null>入社年月：昇順</option>
-                            <option value="desOrder">入社年月：降順</option>
+                            <option>入社年月</option>
+                            <option value="0">昇順</option>
+                            <option value="1">降順</option>
                         </select>
                         <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
