@@ -147,39 +147,36 @@ public class main {
 
         post("/career/update",(req,res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 //            画面から受け取る
             //career/updateからidを受け取って、ftlに渡す
             String id = req.queryParams("id");
-            attribute.put("id",id);
             String name = req.queryParams("name");
             String birthday = req.queryParams("birthday");
             String address = req.queryParams("address");
             String final_education = req.queryParams("final_education");
             String license = req.queryParams("license");
-
-
-            //データベースに登録する
-
-            TransactionManager tm = DbConfig.singleton().getTransactionManager();
-            tm.required(() -> {
-                Employees employee = new Employees();
-                employee.setName(name);
-                employee.setBirthday(birthday);
-                employee.setAddress(address);
-                employee.setFinal_education(final_education);
-                employee.setLicense(license);
-
-            });
-
-            //画面に表示する
+//          画面に表示する
+            attribute.put("id",id);
             attribute.put("name",name);
             attribute.put("birthday",birthday);
             attribute.put("address",address);
             attribute.put("final_education",final_education);
             attribute.put("license",license);
 
-            res.redirect("/career/show");
+            //データベースに登録する
+            tm.required(() -> {
+                Employees employee = empDao.selectById(Integer.valueOf(req.queryParams("id")));
+                employee.setName(name);
+                employee.setBirthday(birthday);
+                employee.setAddress(address);
+                employee.setFinal_education(final_education);
+                employee.setLicense(license);
+                empDao.update_workHistry(employee);
+            });
+
+            res.redirect("/career");
             return res;
 
         });

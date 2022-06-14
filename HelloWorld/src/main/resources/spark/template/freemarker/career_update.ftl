@@ -28,7 +28,7 @@
 <!---------- 保存ボタン ---------->
 <form method="post" action="/career/update">
     <button type="submit" value="${id}" name="id" class="keep" onclick="location.href='http://localhost:4567/career/show'">保存</button>
-</form>
+
 <!---------- 業務経歴書の部分 ---------->
 <div class="careerSheet">
     <h1 class="sheetHead">業務経歴書 編集画面</h1>
@@ -82,7 +82,7 @@
             <td colspan="5"><input type="text" size="120" value="${license}" name="license"></td>
         </tr>
     </table>
-
+</form>
     <br>
 
 

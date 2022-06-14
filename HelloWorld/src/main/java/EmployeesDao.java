@@ -64,5 +64,7 @@ public interface EmployeesDao {
     @Insert(include = {"name", "department_id", "join_date", "email"})
     int insertEmp(Employees employees);
 
+    @Update(include = {"name","birthday","address","final_education","license"})
+    int update_workHistry(Employees employees);
 }
 
