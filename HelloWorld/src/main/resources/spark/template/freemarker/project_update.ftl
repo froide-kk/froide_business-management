@@ -38,11 +38,14 @@
         <tr>
             <td class="company_and_project_name">${pj.companyName}</td>
             <td class="company_and_project_name">${pj.projectName}</td>
-            <td class="company_project_edit_delete"><button class="company_project_edit_button">編集</button></td>
-            <form method="post" action="/career/projectsDelete">
+            <td class="company_project_edit_delete">
+                <button class="company_project_edit_button">編集</button>
+            </td>
+            <form method="post" action="/career/projectsDelete" onSubmit="return confirmDelete()">
                 <input type="hidden" value="${pj.id}" name="id">
                 <td class="company_project_edit_delete">
-                    <button type="submit" class="company_project_delete_button">削除</button>
+                    <button type="submit" class="company_project_delete_button"
+                            onclick="confirmDelete()">削除</button>
                 </td>
             </form>
         </tr>
@@ -85,5 +88,16 @@
     </form>
     <div class="project_update_empty"></div>
 </div>
+
+<script>
+function confirmDelete() {
+    let result = confirm('本当に削除しますか?');
+    if(result){
+        return true;
+    }else{
+        return false;
+    }
+}
+</script>
 </body>
 </html>
