@@ -103,7 +103,7 @@
                     <#list OSLists as osList>
                     <li>${osList.name}
                         <select>
-                            <option>-</option>
+                            <option>"${skill_level}</option>
                             <option value="${osList.id}">◯</option>
                             <option value="${osList.id}">△</option>
                         </select>
@@ -149,7 +149,7 @@
         </tr>
 
         <tr>
-            <td>業種表示</td>
+            <td>${}</td>
             <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
             <td><input type="text" size="10" value="2022-04-01">〜<input type="text" size="10"　 value="2022-04-21"></td>
 

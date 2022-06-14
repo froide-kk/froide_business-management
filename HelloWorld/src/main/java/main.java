@@ -18,20 +18,23 @@ public class main {
         //業務経歴閲覧画面
         get("/career/show", (req, res) -> {
             EmployeesWork_historiesDao empWork_histories = new EmployeesWork_historiesDaoImpl(DbConfig.singleton());
+            EmployeesDao empDao = new EmployeesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
             //IDで一人一人の画面を取得し、表示
             tm.required(() ->{
                 String id = req.queryParams("id");
+                Employees emp = empDao.selectById(Integer.valueOf(id));
                 System.out.print(id);
-                EmployeesWork_histories employeesWork_histories = empWork_histories.selectById(Integer.valueOf(id));
-                attribute.put("name",employeesWork_histories.name);
-                attribute.put("birthday",employeesWork_histories.birthday);
-                attribute.put("license",employeesWork_histories.license);
+                attribute.put("name",emp.name);
+                attribute.put("birthday",emp.birthday);
+                attribute.put("license",emp.license);
                 attribute.put("id",Integer.valueOf(id));
-                attribute.put("address",employeesWork_histories.address);
-                attribute.put("final_education",employeesWork_histories.final_education);
+                attribute.put("address",emp.address);
+                attribute.put("final_education",emp.final_education);
+
+                EmployeesWork_histories employeesWork_histories = empWork_histories.selectById(Integer.valueOf(id));
                 attribute.put("work_start",employeesWork_histories.work_start);
                 attribute.put("work_end",employeesWork_histories.work_end);
             });
@@ -115,12 +118,16 @@ public class main {
             attribute.put("id", id);
 
             tm.required(() ->{
+                //従業員情報の表示
                 Employees empUp = empDao.selectById(Integer.valueOf(id));
                 attribute.put("name",empUp.name);
                 attribute.put("birthday",empUp.birthday);
                 attribute.put("license",empUp.license);
                 attribute.put("address",empUp.address);
                 attribute.put("final_education",empUp.final_education);
+
+                //経歴詳細の表示
+
             });
 
 

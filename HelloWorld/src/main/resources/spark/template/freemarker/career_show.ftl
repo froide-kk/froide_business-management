@@ -123,7 +123,7 @@
         <tr>
             <td>業種表示</td>
             <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
-            <td>${work_start} 〜 ${work_end}</td>
+            <td>${work_start!""} 〜 ${work_end!""}</td>
             <td>
                 <script>
 

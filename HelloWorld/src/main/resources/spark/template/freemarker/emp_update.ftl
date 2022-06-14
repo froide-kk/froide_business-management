@@ -43,7 +43,7 @@
                     <td class="emp_add_item"><input type="text" placeholder="Yamada.T" name="name" class="add_name"></td>
                     <td class="emp_add_item">
                         <select name="department_id">
-                            <option value="">所属部署</option>
+                            <option>所属部署</option>
                             <#list departmentLists as depList>
                             <option value="${depList.id}" class="add_department_id">${depList.name}</option>
                         </#list>

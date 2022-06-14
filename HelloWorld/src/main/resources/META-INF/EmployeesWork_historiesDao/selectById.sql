@@ -9,7 +9,7 @@ select
    Work_histories.work_end
 from
     `Employees`
-    right outer join
+    left outer join
     `Work_histories`
     on
     `Employees`.id = `Work_histories`.employee_id
