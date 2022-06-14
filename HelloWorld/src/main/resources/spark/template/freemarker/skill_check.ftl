@@ -82,19 +82,15 @@
         </table>
 
         <script>
-            function skill_delete(){
-                console.log("skill_delete()です")
-                const result = window.confirm("削除しますか？");
-                console.log("キャンセルしたい");
-                if(result == true){
-                    console.log("消えるよ")
-                    return result;
-                }else if(result == false){
-                    return alert("キャンセルしました")
-                    console.log("キャンセルできない")
+            function confirmDelete() {
+                let result = confirm('本当に削除しますか?');
+                if(result){
+                    alert('削除しました');
+                    return true;
+                }else{
+                    return false;
                 }
             }
-
         </script>
     </div>
 
@@ -118,27 +114,21 @@
                 <input type="submit" name="add_button" class="skill_add_button" value="追加" onclick="skill_add()">
             </div>
         </div>
+
         <script>
-        function skill_add(){
-        console.log("skill_add()です")
-        confirm("追加しますか？")
-        }
-    </script>
+            function skill_add(){
+                let result = confirm('追加しますか?');
+                if(result){
+                    alert('追加しました');
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        </script>
     </form>
     <div class="skill_wrapper_empty"></div>
 </div>
-
-<script>
-function confirmDelete() {
-    let result = confirm('本当に削除しますか?');
-    if(result){
-        return true;
-    }else{
-        return false;
-    }
-}
-</script>
-
 </body>
 </html>
 
