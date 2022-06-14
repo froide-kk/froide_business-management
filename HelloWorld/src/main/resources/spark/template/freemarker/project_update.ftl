@@ -50,22 +50,11 @@
         </tr>
     </#list>
     </table>
+
     <div class="project_update_empty"></div>
+    <p class="statement">※[企業選択]から企業を選択し、プロジェクト名を入力して追加ボタンを押すとプロジェクトが追加されます。</p>
 
-    <form method="post" action="/career/CompaniesAdd" onSubmit="return confirmCompanyAdd()">
-        <div class="input_companyName_and_addButton">
-            <!--企業名の記入-->
-            <div class="company_project_addButton_margin">
-                <input type="text"  placeholder="企業名を入力" class="input_company_name" name="company_name">
-            </div>
-
-            <div class="company_project_addButton_margin">
-                <input type="submit" name="add_button" class="company_addButton" value="追加">
-            </div>
-        </div>
-    </form>
-
-    <form method="post" action="/career/projectAdd" onSubmit="return confirmProjectAdd()">
+    <form method="post" id ="addPro" action="/career/projectAdd" onSubmit="return projectAdd()">
         <div class="selectCompanyName_and_inputProjectName_and_addButton">
 
             <div class="company_project_addButton_margin">
@@ -78,7 +67,7 @@
             </div>
 
             <div class="company_project_addButton_margin">
-                <input type="text" name="project_name" placeholder="プロジェクト名を入力" class="input_project_name">
+                <input type="text" id="project" name="project_name" placeholder="プロジェクト名を入力" class="input_project_name">
             </div>
 
             <div class="company_project_addButton_margin">
@@ -86,26 +75,30 @@
             </div>
         </div>
     </form>
+
+    <div class="project_update_empty"></div>
+    <p class="statement">※[企業選択]に対象の企業がない場合は下記のテキストボックスに企業名を入力して追加ボタンを押すと、企業が追加されます。</p>
+
+    <form method="post" id="addCom" action="/career/CompaniesAdd" onSubmit="return companyAdd()">
+        <div class="input_companyName_and_addButton">
+            <!--企業名の記入-->
+            <div class="company_project_addButton_margin">
+                <input type="text" id="company" name="company_name" placeholder="企業名を入力" class="input_company_name" name="company_name">
+            </div>
+
+            <div class="company_project_addButton_margin">
+                <input type="submit" name="add_button" class="company_addButton" value="追加">
+            </div>
+        </div>
+    </form>
     <div class="project_update_empty"></div>
 </div>
 
 <script>
-function confirmDelete() {
-    let result = confirm('本当に削除しますか?');
-    if(result){
-        alert('削除しました');
-        return true;
-    }else{
-        return false;
-    }
-}
-</script>
-
-<script>
-    function confirmCompanyAdd() {
-        let result = confirm('追加しますか?');
+    function confirmDelete() {
+        let result = confirm('本当に削除しますか?');
         if(result){
-            alert('追加しました');
+            alert('削除しました');
             return true;
         }else{
             return false;
@@ -114,15 +107,16 @@ function confirmDelete() {
 </script>
 
 <script>
-    function confirmProjectAdd() {
-        let result = confirm('追加しますか?');
-        if(result){
-            alert('追加しました');
-            return true;
-        }else{
-            return false;
-        }
+    function companyAdd() {
+        alert('[企業選択]に追加しました');
     }
 </script>
+
+<script>
+    function projectAdd() {
+        alert('追加しました');
+    }
+</script>
+
 </body>
 </html>

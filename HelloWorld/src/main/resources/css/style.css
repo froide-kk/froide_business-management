@@ -606,6 +606,11 @@ background-color:#99ffdd;
 width: 100px;
 padding: 6px;
 }
+/* 企業追加の注意書き */
+.statement{
+font-size: 1rem;
+text-align:center;
+}
 /* ここまでプロジェクト編集画面 */
 
 /*従業員画面*/
