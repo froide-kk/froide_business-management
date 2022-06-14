@@ -126,9 +126,39 @@
         <tr class="tr-bottom">
             <td>${industry!""}</td>
             <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">${projects_name!""}</a></td>
-            <td>${work_start!""} 〜 ${work_end!""}</td>
+            <td>${work_start!""} 〜 ${work_end!""}
                 <script>
-
+                    let sday = "${work_start!""}";
+                    let eday = "${work_end!""}";
+                    console.log(sday);
+                    console.log(eday);
+                    if(sday === "null" || eday === "null"){
+                    document.write("NULL表示成功");
+                    };
+                    let sdayAry = sday.split('/');
+                    let edayAry = eday.split('/');
+                    const Syear = sdayAry[0];
+                    const Smonth = sdayAry[1];
+                    const Sday = sdayAry[2];
+                    const Eyear = edayAry[0];
+                    const Emonth = edayAry[1];
+                    const Eday = edayAry[2];
+                    var startday = new Date(Syear,Smonth,Sday);
+                    var endday = new Date(Eyear,Emonth,Eday);
+                    //差日を求める（86,400,000ミリ秒＝１日）
+                    let termDay = (endday - startday) / 86400000;
+                    console.log(termDay)
+                    if(termDay>365){
+                    termMouths=termDay%365
+                    termMouth=termMouths/30
+                    termYear=termDay/365
+                    document.write(Math.floor(termYear)+"年"+Math.floor(termMouth)+"ヶ月");
+                    }else if(termDay>30){
+                    termMouth=termDay/30
+                     document.write(Math.floor(termMouth)+"ヶ月");
+                    }else{
+                     document.write(Math.floor(termDay)+"日");
+                    };
 
                 </script>
             </td>
