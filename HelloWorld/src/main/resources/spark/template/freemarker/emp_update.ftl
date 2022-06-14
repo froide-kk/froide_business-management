@@ -38,41 +38,39 @@
         </tr>
 
         <div class="emp_add_form">
-            <form method="post" action="/career/empUpdate/add">
+            <form method="post" action="/career/empUpdate/add" class="empAddForm">
                 <tr>
                     <td class="emp_add_item"><input type="text" placeholder="Yamada.T" name="name" class="add_name"></td>
                     <td class="emp_add_item">
-                        <select name="department_id">
+                        <select name="department_id" class="add_department_id">
                             <option>所属部署</option>
                             <#list departmentLists as depList>
-                            <option value="${depList.id}" class="add_department_id">${depList.name}</option>
+                            <option value="${depList.id}" >${depList.name}</option>
                         </#list>
                         </select>
                     </td>
                     <td class="emp_add_item"><input type="text" placeholder="yyyy-mm-dd" name="join_date" class="add_join_date"></td>
                     <td class="emp_add_item"><input type="text" placeholder="tarou-yamada@xxxxxx@co.jp" name="email" class="add_email">
                     </td>
-                    <td class="emp_add_item2"><input type="submit" class="emp_add_button" value="追加" onClick="errorSentence()"></td>
+                    <td class="emp_add_item2"><input type="submit" class="emp_add_button" value="追加"></td>
                 </tr>
             </form>
             <script>
-    console.log("errorSentence()まで来ました")
-    function errorSentence() {
-    const name = document.getElementsByClassName("add_name")
-    const department_id = document.getElementsByClassName("add_department_id")
-    const join_date = document.getElementsByClassName("add_join_date")
-    const email  = document.getElementsByClassName("add_email")
-    if(name == "") {
-    alert("全て入力してください")
-    }else if(department_id == null) {
-    alert("全て入力してください")
-    }else if(join_date == "") {
-    alert("全て入力してください")
-    }else if(email == ""){
-    alert("全て入力してください")
-    }else{
-    }
-    }
+
+                const empAddForm = document.querySelector(".empAddForm")
+                empAddForm.addEventListener("submit",(event) => {
+                    event.preventDefault()
+                    const name = document.querySelector(".add_name").value
+                    const department_id = document.querySelector(".add_department_id").value
+                    const join_date = document.querySelector(".add_join_date").value
+                    const email = document.querySelector(".add_email").value
+                    if(name === "" || department_id === "" || join_date === "" || email === ""){
+                        alert("全て入力してください")
+                    }else{
+                        empAddForm.submit()
+                    }
+                })
+
     </script>
         </div>
     </table>
@@ -104,10 +102,10 @@
             <td class="emp_delete_col">${EmpList.dep_name}</td>
             <td class="emp_delete_col">${EmpList.join_date}</td>
             <td class="emp_delete_col">${EmpList.email}</td>
-            <form method="post" action="/career/empUpdate/delete">
+            <form method="post" action="/career/empUpdate/delete" class="emp_delete">
                 <td class="emp_delete_col2">
                     <input type="hidden" value="${EmpList.id}" name="id">
-                    <input type="submit" class="emp_delete_button" value="削除" onClick="confirmationDelete()">
+                    <input type="submit" class="emp_delete_button" value="削除">
                 </td>
             </form>
         </tr>
@@ -115,10 +113,14 @@
     </table>
 
     <script>
-        console.log("スクリプトまで成功です！")
-        function confirmationDelete() {
-        console.log("confirmationDelete()まで来ました")
-        alert("削除しますか？")
+        function emp_Delete() {
+            let result = confirm("削除しますか？")
+            if(result){
+                alert("削除しました")
+                return true
+            }else{
+                return false
+            }
         }
     </script>
 

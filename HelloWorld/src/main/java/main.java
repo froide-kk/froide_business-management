@@ -135,10 +135,10 @@ public class main {
             });
 
             //開発担当フェーズのチェックボックス。
-            /*tm.required(() -> {
+            tm.required(() -> {
                 List<Dev_period_phases> dev_period_phases = dev_period_phasesDao.selectAll();
                 attribute.put("dev_period_phasesLists",dev_period_phases);
-            });*/
+            });
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "career_update.ftl"));
         });
