@@ -474,6 +474,11 @@ public class main {
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "project_update.ftl"));
         });
 
+        post("/career/projectsKeep",(req,res) -> {
+            res.redirect("/career/projectsUpdate");
+            return res;
+        });
+
         //企業名を追加
         post("/career/CompaniesAdd", (req, res) -> {
             String company_name = req.queryParams("company_name");
