@@ -25,6 +25,7 @@ public interface EmployeesDao {
 
     @Select
     List<Employees> selectByBirthDay(String birthday);
+
     @Select
     Employees selectById(Integer id);
 
@@ -62,6 +63,10 @@ public interface EmployeesDao {
     @Update(sqlFile = true)
     int updateEmpReAdd(Integer id);
 
-    @Insert(include = {"name","department_id","join_date","email"})
+    @Insert(include = {"name", "department_id", "join_date", "email"})
     int insertEmp(Employees employees);
+
+    @Update(include = {"name","birthday","address","final_education","license"})
+    int update_workHistry(Employees employees);
 }
+

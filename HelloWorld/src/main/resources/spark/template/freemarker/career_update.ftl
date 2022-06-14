@@ -26,9 +26,9 @@
     </ul>
 </nav>
 <!---------- 保存ボタン ---------->
-<form>
-    <input type="submit" class="keep" value="保存"　onclick=>
-</form>
+<form method="post" action="/career/update">
+    <button type="submit" value="${id}" name="id" class="keep" onclick="location.href='http://localhost:4567/career/show'">保存</button>
+
 <!---------- 業務経歴書の部分 ---------->
 <div class="careerSheet">
     <h1 class="sheetHead">業務経歴書 編集画面</h1>
@@ -44,10 +44,10 @@
 
         <tr>
             <td>
-                <input type="text" size="42"  value="${name}">
+                <input type="text" size="42"  value="${name}" name="name">
             </td>
             <td>
-                <input type="text" value="${birthday}">
+                <input type="text" value="${birthday}" name="birthday">
 
             </td>
             <td> <script>
@@ -71,18 +71,18 @@
 
                         document.write(getAge(birthday));
                      </script></td>
-            <td><input type="text" value=""></td>
-            <td><input type="text" value=""></td>
+            <td><input type="text" value="${address}" name="address"></td>
+            <td><input type="text" value="${final_education}" name="final_education"></td>
         </tr>
 
         <tr>
             <th colspan="5">資格</th>
         </tr>
         <tr>
-            <td colspan="5"><input type="text" size="120" value="${license}"></td>
+            <td colspan="5"><input type="text" size="120" value="${license}" name="license"></td>
         </tr>
     </table>
-
+</form>
     <br>
 
 
