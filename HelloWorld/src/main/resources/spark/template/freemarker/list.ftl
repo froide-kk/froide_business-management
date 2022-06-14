@@ -57,9 +57,8 @@
                 <form method="get" action="/career">
                     <div class="list_header_items">
                         <select name="join_date" class="join_list">
-                            <option value="">入社年月</option>
-                            <option value="desOrder">降順</option>
-                            <option value="ascOrder">昇順</option>
+                            <option value=null>入社年月：昇順</option>
+                            <option value="desOrder">入社年月：降順</option>
                         </select>
                         <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
@@ -83,7 +82,7 @@
                         <!--                    生年月日の検索-->
                 <form method="get" action="/career">
                     <div class="list_header_items">
-                        <input type="text" placeholder="月で検索" class="birthday_search" name="searchBirthDay">
+                        <input type="text" placeholder="誕生月で検索" class="birthday_search" name="searchBirthDay">
                         <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </form>
