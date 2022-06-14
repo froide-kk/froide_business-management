@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" href="../style.css">
     <title>技術チェック編集</title>
@@ -34,7 +34,7 @@
             <tr>
                 <td class="skill_data">${os.name}</td>
                 <td class="skill_edit_delete"><button class="skill_edit_button">編集</button></td>
-                <form method="post" action="/career/skillCheck/delete">
+                <form method="post" action="/career/skillCheck/delete" onSubmit="return confirmDelete()">
                     <input type="hidden" value="${os.id}" name="id">
                     <td class="skill_edit_delete">
                         <button type="submit" class="skill_delete_button">削除</button>
@@ -53,7 +53,7 @@
             <tr>
                 <td class="skill_data">${script.name}</td>
                 <td class="skill_edit_delete"><button class="skill_edit_button">編集</button></td>
-                <form method="post" action="/career/skillCheck/delete">
+                <form method="post" action="/career/skillCheck/delete" onSubmit="return confirmDelete()">
                     <input type="hidden" value="${script.id}" name="id">
                     <td class="skill_edit_delete">
                         <button type="submit" class="skill_delete_button">削除</button>
@@ -71,7 +71,7 @@
             <tr>
                 <td class="skill_data">${db.name}</td>
                 <td class="skill_edit_delete"><button class="skill_edit_button">編集</button></td>
-                <form method="post" action="/career/skillCheck/delete">
+                <form method="post" action="/career/skillCheck/delete" onSubmit="return confirmDelete()">
                     <input type="hidden" value="${db.id}" name="id">
                     <td class="skill_edit_delete">
                         <button type="submit" class="skill_delete_button">削除</button>
@@ -92,9 +92,9 @@
             <div class="skill_add_item">
                 <select name="skill_attribute_id" class="skill_select">
                     <option>技術を選択</option>
-                    <option value="1">OS</option>
-                    <option value="2">スクリプト・ツール</option>
-                    <option value="3">DB</option>
+                    <#list skill_attributesList as attList>
+                    <option value="${attList.id}">${attList.name}</option>
+                </#list>
                 </select>
             </div>
 
@@ -105,6 +105,18 @@
     </form>
     <div class="skill_wrapper_empty"></div>
 </div>
+
+<script>
+function confirmDelete() {
+    let result = confirm('本当に削除しますか?');
+    if(result){
+        return true;
+    }else{
+        return false;
+    }
+}
+</script>
+
 </body>
 </html>
 
