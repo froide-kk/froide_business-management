@@ -1,6 +1,8 @@
-<html>
+<html lang="ja">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <title>経歴書編集画面</title>
 
@@ -13,9 +15,9 @@
     <h2><a class ="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
     <nav>
         <ul class="header_right">
-            <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>
+<!--            <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>-->
             <li><a href="http://localhost:4567/career/management">管理者</a></li>
-            <li><input type="button" class="logout" onclick="location.href='/career/login'" value="ログアウト"></li>
+<!--            <li><input type="button" class="logout" onclick="location.href='/career/login'" value="ログアウト"></li>-->
         </ul>
     </nav>
 </header>
@@ -44,15 +46,15 @@
 
         <tr>
             <td>
-                <input type="text" size="42"  value="${name}" name="name">
+                <input type="text" size="42"  value="${name!""}" name="name">
             </td>
             <td>
-                <input type="text" value="${birthday}" name="birthday">
+                <input type="text" value="${birthday!""}" name="birthday">
 
             </td>
             <td> <script>
                     //inputされた値をリアルタイムbirthdayに代入したい
-                    let Birtday = "${birthday}"
+                    let Birtday = "${birthday!""}"
                     let birtdayAry = Birtday.split('-')
                     const birthday = {
                          year: birtdayAry[0],
@@ -71,15 +73,15 @@
 
                         document.write(getAge(birthday));
                      </script></td>
-            <td><input type="text" value="${address}" name="address"></td>
-            <td><input type="text" value="${final_education}" name="final_education"></td>
+            <td><input type="text" value="${address!""}" name="address"></td>
+            <td><input type="text" value="${final_education!""}" name="final_education"></td>
         </tr>
 
         <tr>
             <th colspan="5">資格</th>
         </tr>
         <tr>
-            <td colspan="5"><input type="text" size="120" value="${license}" name="license"></td>
+            <td colspan="5"><input type="text" size="120" value="${license!""}" name="license"></td>
         </tr>
     </table>
 </form>
@@ -101,11 +103,11 @@
             <td>
                 <ul>
                     <#list OSLists as osList>
-                    <li>${osList.name}
+                    <li>${osList.name!""}
                         <select>
                             <option>-</option>
-                            <option value="${osList.id}">◯</option>
-                            <option value="${osList.id}">△</option>
+                            <option value="${osList.id!""}">◯</option>
+                            <option value="${osList.id!""}">△</option>
                         </select>
                     </li>
                     </#list>
@@ -114,11 +116,11 @@
             <td>
                 <ul>
                     <#list ScriptLists as sList>
-                      <li>${sList.name}
+                      <li>${sList.name!""}
                           <select>
                               <option>-</option>
-                              <option value="${sList.id}">◯</option>
-                              <option value="${sList.id}">△</option>
+                              <option value="${sList.id!""}">◯</option>
+                              <option value="${sList.id!""}">△</option>
                           </select></li>
                     </#list>
                 </ul>
@@ -127,11 +129,11 @@
             <td>
                 <ul>
                     <#list DBLists as dbList>
-                      <li>${dbList.name}
+                      <li>${dbList.name!""}
                           <select>
                               <option>-</option>
-                              <option value="${dbList.id}">◯</option>
-                              <option value="${dbList.id}">△</option>
+                              <option value="${dbList.id!""}">◯</option>
+                              <option value="${dbList.id!""}">△</option>
                           </select></li>
                     </#list>
                 </ul>
@@ -205,7 +207,7 @@
             <td colspan="2">
                 <ui id="phase"  multiple size="3">
                     <#list dev_period_phasesLists as dppList>
-                    <li><input type="checkbox" value="${dppList.id}">${dppList.name}</li>
+                    <li><input type="checkbox" value="${dppList.id}">${dppList.name!""}</li>
                     </#list>
                 </ui>
             </td>

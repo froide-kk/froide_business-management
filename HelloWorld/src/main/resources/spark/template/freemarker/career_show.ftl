@@ -1,5 +1,8 @@
-<html>
+<html lang="ja">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <title>経歴書閲覧画面</title>
 </head>
@@ -53,12 +56,12 @@
             <th>最終学歴</th>
         </tr>
         <tr>
-            <td>${name}</td>
-            <td>${birthday}</td>
+            <td>${name!""}</td>
+            <td>${birthday!""}</td>
             <!---------- 年齢表示 ---------->
             <td>
                 <script>
-                    let Birtday = "${birthday}"
+                    let Birtday = "${birthday!""}"
                     let birtdayAry = Birtday.split('-')
                     const birthday = {
                          year: birtdayAry[0],
@@ -79,14 +82,14 @@
 
                 </script>
             </td>
-            <td>${address}</td>
-            <td>${final_education}</td>
+            <td>${address!""}</td>
+            <td>${final_education!""}</td>
         </tr>
         <tr>
             <th colspan="5">資格</th>
         </tr>
         <tr>
-            <td colspan="5">${license}</td>
+            <td colspan="5">${license!""}</td>
         </tr>
     </table>
 

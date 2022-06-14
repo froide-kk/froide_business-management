@@ -1,6 +1,8 @@
-<html>
+<html lang="ja">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
     <title>一覧画面</title>
@@ -33,11 +35,11 @@
         <div class="list_wrapper_empty"></div>
 
             <div class="list_wrapper_header">
-                <input type="hidden" name="search" value="search">
+                <input type="hidden" name="search" value="search" id="name">
                 <!--                社員名の検索-->
                 <form method="get" action="/career">
                     <div   class="list_header_items">
-                        <input type="text" placeholder="社員名で検索" class="emp_name_search" name="searchName">
+                        <input type="text" placeholder="社員名で検索" class="emp_name_search" name="searchName" maxlength="256">
                         <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </form>
