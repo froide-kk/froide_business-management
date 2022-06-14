@@ -1,4 +1,4 @@
 select
 /*%expand*/*
 from
-`Dev_period_phases`
+    `Dev_period_phases`

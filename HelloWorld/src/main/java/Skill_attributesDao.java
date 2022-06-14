@@ -12,5 +12,8 @@ public interface Skill_attributesDao {
     @Delete
     int delete(Skill_attributes skillAttributes);
 
+    @Select
+    List<Skill_attributes> selectAll();
+
 
 }

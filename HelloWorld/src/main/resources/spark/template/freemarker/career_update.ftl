@@ -145,7 +145,7 @@
         <tr>
             <th>業種</th>
             <th class="disp">プロジェクト</th>
-            <th colspan="2">期間</th>
+            <th class="period_change" colspan="2">期間</th>
         </tr>
 
         <tr>

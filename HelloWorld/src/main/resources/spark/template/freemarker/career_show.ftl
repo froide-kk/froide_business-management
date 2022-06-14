@@ -113,18 +113,23 @@
 
     <br>
 
-    <table border=1 style="border-collapse: collapse">
+    <table  border=1 style="border-collapse: collapse">
         <tr>
             <th>業種</th>
             <th class="disp">プロジェクト</th>
             <th colspan="2">期間</th>
         </tr>
 
-        <tr>
+        <tr class="tr-bottom">
             <td>業種表示</td>
             <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
+<<<<<<< HEAD
             <td>${work_start!""} 〜 ${work_end!""}</td>
             <td>
+=======
+            <td colspan="1">${work_start} 〜 ${work_end}</td>
+            <td colspan="1">
+>>>>>>> main
                 <script>
 
                     var startday = new Date("2022-04-01");
@@ -146,7 +151,9 @@
                 </script>
             </td>
         </tr>
+        </table>
 
+        <table border=1 style="border-collapse: collapse">
         <tr>
             <th colspan="2">システムの概要</th>
             <th>開発規模</th>
