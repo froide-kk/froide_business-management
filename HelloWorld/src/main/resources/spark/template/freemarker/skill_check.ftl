@@ -37,8 +37,7 @@
                 <form method="post" action="/career/skillCheck/delete" onSubmit="return confirmDelete()">
                     <input type="hidden" value="${os.id}" name="id">
                     <td class="skill_edit_delete">
-                        <button type="submit" class="skill_delete_button"
-                                onclick="confirmDelete()">削除</button>
+                        <button type="submit" class="skill_delete_button">削除</button>
                     </td>
                 </form>
             </tr>
@@ -57,8 +56,7 @@
                 <form method="post" action="/career/skillCheck/delete" onSubmit="return confirmDelete()">
                     <input type="hidden" value="${script.id}" name="id">
                     <td class="skill_edit_delete">
-                        <button type="submit" class="skill_delete_button"
-                                onclick="confirmDelete()">削除</button>
+                        <button type="submit" class="skill_delete_button">削除</button>
                     </td>
                 </form>
             </tr>
@@ -76,8 +74,7 @@
                 <form method="post" action="/career/skillCheck/delete" onSubmit="return confirmDelete()">
                     <input type="hidden" value="${db.id}" name="id">
                     <td class="skill_edit_delete">
-                        <button type="submit" class="skill_delete_button"
-                                onclick="confirmDelete()">削除</button>
+                        <button type="submit" class="skill_delete_button">削除</button>
                     </td>
                 </form>
             </tr>
