@@ -52,7 +52,7 @@
     </table>
     <div class="project_update_empty"></div>
 
-    <form method="post" action="/career/CompaniesAdd">
+    <form method="post" action="/career/CompaniesAdd" onSubmit="return confirmCompanyAdd()">
         <div class="input_companyName_and_addButton">
             <!--企業名の記入-->
             <div class="company_project_addButton_margin">
@@ -64,7 +64,8 @@
             </div>
         </div>
     </form>
-    <form method="post" action="/career/projectAdd">
+
+    <form method="post" action="/career/projectAdd" onSubmit="return confirmProjectAdd()">
         <div class="selectCompanyName_and_inputProjectName_and_addButton">
 
             <div class="company_project_addButton_margin">
@@ -92,11 +93,36 @@
 function confirmDelete() {
     let result = confirm('本当に削除しますか?');
     if(result){
+        alert('削除しました');
         return true;
     }else{
         return false;
     }
 }
+</script>
+
+<script>
+    function confirmCompanyAdd() {
+        let result = confirm('追加しますか?');
+        if(result){
+            alert('追加しました');
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+
+<script>
+    function confirmProjectAdd() {
+        let result = confirm('追加しますか?');
+        if(result){
+            alert('追加しました');
+            return true;
+        }else{
+            return false;
+        }
+    }
 </script>
 </body>
 </html>

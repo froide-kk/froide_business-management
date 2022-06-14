@@ -63,11 +63,8 @@ public class main {
                 //URLに値が渡されるのでそれをsearchNameに渡す
                 String searchName = req.queryParams("searchName");
                 String searchDepartment = req.queryParams("searchDepartment");
-                String join_date = req.queryParams("join_date");
-                String searchSkillList = req.queryParams("searchSkillList");
                 String searchBirthDay = req.queryParams("searchBirthDay");
-                String search = req.queryParams("search");
-                System.out.println(searchName + searchDepartment + join_date + searchSkillList + searchBirthDay);
+                System.out.println(searchName + searchDepartment + searchBirthDay);
                     //もし、searchNameの値がnullじゃないなら、名前で検索
                     if (searchName != null) {
                         List<Employees> EmpNames = empDao.selectByName(searchName);
@@ -78,11 +75,9 @@ public class main {
                         System.out.print(searchDepartment);
                         List<Employees> EmpDepartments = empDao.selectByDepartment(Integer.valueOf(searchDepartment));
                         attribute.put("Emplists", EmpDepartments);
-                    }else if(join_date != null){
-                        System.out.print(join_date);
-                        List<Employees> EmpDes = empDao.selectAllDes();
-                        attribute.put("Emplists", EmpDes);
-
+                    }else if(req.queryParams("join_date") == "desOrder"){
+                            List<Employees> EmpDes = empDao.selectAllDes();
+                            attribute.put("Emplists", EmpDes);
                         //誕生月検索
                     }else if(searchBirthDay != null){
                         //searchBirthDayがnullではない時、
