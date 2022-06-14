@@ -17,5 +17,4 @@ public interface Dev_period_phasesDao {
     @Select
     List<Dev_period_phases> selectAll();
 
-
 }
