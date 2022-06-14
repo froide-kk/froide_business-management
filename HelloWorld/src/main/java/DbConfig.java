@@ -7,11 +7,12 @@ import org.seasar.doma.jdbc.tx.TransactionManager;
 
 import javax.sql.DataSource;
 
+import static java.lang.Class.forName;
 public class DbConfig implements Config {
-
-    public static final DbConfig CONFIG = new DbConfig();
+    private static final DbConfig CONFIG = new DbConfig();
     private final Dialect dialect;
     private final LocalTransactionDataSource dataSource;
+
     private final TransactionManager transactionManager;
 
     private DbConfig() {
@@ -21,7 +22,7 @@ public class DbConfig implements Config {
             e.printStackTrace();
         }
         dialect = new MysqlDialect();
-        dataSource = new LocalTransactionDataSource("jdbc:mysql://localhost:13306/career", "root", "secret");
+        dataSource = new LocalTransactionDataSource("jdbc:mysql://localhost:13306/Business", "root", "secret");
         transactionManager = new LocalTransactionManager(dataSource.getLocalTransaction(getJdbcLogger()));
     }
 
