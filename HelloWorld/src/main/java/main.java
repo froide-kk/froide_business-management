@@ -65,27 +65,35 @@ public class main {
                 String searchDepartment = req.queryParams("searchDepartment");
                 String searchBirthDay = req.queryParams("searchBirthDay");
                 String join_date = req.queryParams("join_date");
-                System.out.println(searchName + searchDepartment + searchBirthDay);
-                    //もし、searchNameの値がnullじゃないなら、名前で検索
-                    if (searchName != null) {
-                        List<Employees> EmpNames = empDao.selectByName(searchName);
-                        attribute.put("Emplists", EmpNames);
-                        //もし、searchDepartmentの値がnullでないなら、所属部署で検索
+                System.out.println(join_date + join_date);
+                System.out.println(searchName + searchDepartment + " " + join_date + " " + searchBirthDay);
+                //もし、searchNameの値がnullじゃないなら、名前で検索
+                if (searchName != null) {
+                    List<Employees> EmpNames = empDao.selectByName(searchName);
+                    attribute.put("Emplists", EmpNames);
+                    //もし、searchDepartmentの値がnullでないなら、所属部署で検索
                     //部署検索
-                    }else if(searchDepartment != null){
-                        System.out.print(searchDepartment);
-                        List<Employees> EmpDepartments = empDao.selectByDepartment(Integer.valueOf(searchDepartment));
-                        attribute.put("Emplists", EmpDepartments);
-                    }else if( join_date != null){
-                            List<Employees> EmpDes = empDao.selectAllDes();
-                            attribute.put("Emplists", EmpDes);
-                            //誕生月検索
-                    }else if(searchBirthDay != null){
+                } else if (searchDepartment != null) {
+                    System.out.print(searchDepartment);
+                    List<Employees> EmpDepartments = empDao.selectByDepartment(Integer.valueOf(searchDepartment));
+                    attribute.put("Emplists", EmpDepartments);
+                    //誕生月検索
+                }else if(searchBirthDay != null){
                         //searchBirthDayがnullではない時、
-                            List<Employees> EmpBir = empDao.selectByBirthDay(searchBirthDay);
-                            attribute.put("Emplists",EmpBir);
+                        List<Employees> EmpBir = empDao.selectByBirthDay(searchBirthDay);
+                        attribute.put("Emplists",EmpBir);
+                    //入社年月
+                } else if(join_date == null){
 
-                    }
+                }else if(join_date.equals("0")){
+                        System.out.println(join_date);
+                        List<Employees> EmpAsc = empDao.selectAllAsc();
+                        attribute.put("Emplists", EmpAsc);
+                }else if(join_date.equals("1")){
+                        System.out.println(join_date);
+                        List<Employees> EmpDes = empDao.selectAllDes();
+                        attribute.put("Emplists", EmpDes);
+                }
             });
 
             //プルダウンメニューの表示
