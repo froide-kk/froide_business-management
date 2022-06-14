@@ -64,6 +64,7 @@ public class main {
                 String searchName = req.queryParams("searchName");
                 String searchDepartment = req.queryParams("searchDepartment");
                 String searchBirthDay = req.queryParams("searchBirthDay");
+                String join_date = req.queryParams("join_date");
                 System.out.println(searchName + searchDepartment + searchBirthDay);
                     //もし、searchNameの値がnullじゃないなら、名前で検索
                     if (searchName != null) {
@@ -75,10 +76,10 @@ public class main {
                         System.out.print(searchDepartment);
                         List<Employees> EmpDepartments = empDao.selectByDepartment(Integer.valueOf(searchDepartment));
                         attribute.put("Emplists", EmpDepartments);
-                    }else if(req.queryParams("join_date") == "desOrder"){
+                    }else if( join_date != null){
                             List<Employees> EmpDes = empDao.selectAllDes();
                             attribute.put("Emplists", EmpDes);
-                        //誕生月検索
+                            //誕生月検索
                     }else if(searchBirthDay != null){
                         //searchBirthDayがnullではない時、
                             List<Employees> EmpBir = empDao.selectByBirthDay(searchBirthDay);
@@ -135,10 +136,10 @@ public class main {
             });
 
             //開発担当フェーズのチェックボックス。
-            /*tm.required(() -> {
+            tm.required(() -> {
                 List<Dev_period_phases> dev_period_phases = dev_period_phasesDao.selectAll();
                 attribute.put("dev_period_phasesLists",dev_period_phases);
-            });*/
+            });
 
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "career_update.ftl"));
         });
