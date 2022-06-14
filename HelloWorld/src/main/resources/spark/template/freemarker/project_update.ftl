@@ -1,6 +1,8 @@
-<html xmlns="http://www.w3.org/1999/html">
+<html lang="ja" xmlns="http://www.w3.org/1999/html">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <title>プロジェクト編集画面</title>
 </head>
