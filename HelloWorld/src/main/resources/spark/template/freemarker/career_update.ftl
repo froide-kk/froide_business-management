@@ -152,7 +152,7 @@
             <td>業種表示</td>
             <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
             <td><input type="text" size="10" value="2022-04-01">〜<input type="text" size="10"　 value="2022-04-21"></td>
-
+            <td colspan="1">${work_start} 〜 ${work_end}</td>
             <td>
                 <script>
                     var startday = new Date("2022-04-01");

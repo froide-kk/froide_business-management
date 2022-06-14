@@ -123,25 +123,10 @@
         <tr class="tr-bottom">
             <td>業種表示</td>
             <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
-            <td colspan="1">${work_start} 〜 ${work_end}</td>
+            <td colspan="1">${work_start!""} 〜 ${work_end!""}</td>
             <td colspan="1">
                 <script>
 
-                    var startday = new Date("2022-04-01");
-                    var endday = new Date("2022-4-21");
-                    //差日を求める（86,400,000ミリ秒＝１日）
-                    var termDay = (endday - startday) / 86400000;
-                    if(termDay>365){
-                    termMouths=termDay%365
-                    termMouth=termMouths/30
-                    termYear=termDay/365
-                    document.write(Math.floor(termYear)+"年"+Math.floor(termMouth)+"ヶ月");
-                    }else if(termDay>30){
-                    termMouth=termDay/30
-                     document.write(Math.floor(termMouth)+"ヶ月");
-                    }else{
-                     document.write(Math.floor(termDay)+"日");
-                    }
 
                 </script>
             </td>

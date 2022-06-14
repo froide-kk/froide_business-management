@@ -19,6 +19,8 @@ public interface EmployeesDao {
 
     @Select
     List<Employees> selectAllDes();
+    @Select
+    List<Employees> selectAllAsc();
 
     @Select
     List<Employees> selectByName(String name);

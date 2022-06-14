@@ -10,4 +10,4 @@ FROM
   ON
     `Employees`.department_id = `Departments`.id
 order by
-    `Employees`.join_date
+    `Employees`.join_date desc
