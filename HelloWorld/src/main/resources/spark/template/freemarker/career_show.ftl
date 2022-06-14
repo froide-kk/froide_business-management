@@ -121,8 +121,8 @@
         </tr>
 
         <tr class="tr-bottom">
-            <td>業種表示</td>
-            <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
+            <td>${industry!""}</td>
+            <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">${projects_name!""}</a></td>
             <td>${work_start!""} 〜 ${work_end!""}</td>
                 <script>
 
@@ -139,9 +139,9 @@
             <th>役割</th>
         </tr>
         <tr>
-            <td colspan="2">社内業務管理システム</td>
-            <td>開発規模表示</td>
-            <td>役割表示</td>
+            <td colspan="2">${system_sum!""}</td>
+            <td>${dev_scale!""}</td>
+            <td>${role!""}</td>
 
         </tr>
         <tr>
@@ -150,95 +150,18 @@
         </tr>
         <tr>
             <td colspan="2">要件分析、DB設計</td>
-            <td colspan="2">Java,HTML/CSS,JavaScript</td>
+            <td colspan="2">${dev_environment!""}</td>
         </tr>
 
         <tr>
             <th colspan="4">システムの詳細</th>
         </tr>
         <tr>
-            <td colspan="4">詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
-                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
-                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
-                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
-                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
-                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
+            <td colspan="4">
+                ${system_details!""}
             </td>
         </tr>
     </table>
-
-    <br>
-
-    <table border=1 style="border-collapse: collapse">
-        <tr>
-            <th>業種</th>
-            <th class="disp">プロジェクト</th>
-            <th colspan="2">期間</th>
-        </tr>
-
-        <tr>
-            <td>業種表示</td>
-            <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
-            <td>2022-04-01 〜 2022-04-21</td>
-            <td>
-                <script>
-
-                    var startday = new Date("2022-04-01");
-                    var endday = new Date("2022-4-21");
-                    //差日を求める（86,400,000ミリ秒＝１日）
-                    var termDay = (endday - startday) / 86400000;
-                    if(termDay>365){
-                    termMouths=termDay%365
-                    termMouth=termMouths/30
-                    termYear=termDay/365
-                    document.write(Math.floor(termYear)+"年"+Math.floor(termMouth)+"ヶ月");
-                    }else if(termDay>30){
-                    termMouth=termDay/30
-                     document.write(Math.floor(termMouth)+"ヶ月");
-                    }else{
-                     document.write(Math.floor(termDay)+"日");
-                    }
-
-                </script>
-            </td>
-        </tr>
-
-        <tr>
-            <th colspan="2">システムの概要</th>
-            <th>開発規模</th>
-            <th>役割</th>
-        </tr>
-        <tr>
-            <td colspan="2">社内業務管理システム</td>
-            <td>開発規模表示</td>
-            <td>役割表示</td>
-
-        </tr>
-        <tr>
-            <th colspan="2">開発担当フェーズ</th>
-            <th colspan="2">使用言語</th>
-        </tr>
-        <tr>
-            <td colspan="2">要件分析、DB設計</td>
-            <td colspan="2">Java,HTML/CSS,JavaScript</td>
-        </tr>
-
-        <tr>
-            <th colspan="4">システムの詳細</th>
-        </tr>
-        <tr>
-            <td colspan="4">詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
-                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
-                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
-                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
-                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
-                詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示詳細表示
-            </td>
-        </tr>
-    </table>
-
-    <br>
-
 
 </div>
 <script>
