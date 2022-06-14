@@ -40,7 +40,13 @@ public class Employees {
         this.birthday = birthday;
     }
 
+    public String getBirthday() {
+        return birthday;
+    }
+
     String birthday;
+
+
 
 
     java.sql.Date join_date;

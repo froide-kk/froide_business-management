@@ -83,21 +83,8 @@ public class main {
                         //誕生月検索
                     }else if(searchBirthDay != null){
                         //searchBirthDayがnullではない時、
-                        try {
-                            System.out.println("String" + searchBirthDay);
-                            //フォーマットする。
-                            SimpleDateFormat format = new SimpleDateFormat("MM");
-                            //月だけフォーマット化したので、誕生月を検索すると、dateに入る。
-                            java.util.Date date = format.parse(searchBirthDay);
-                            System.out.println("format:"+date);
-
-                            List<Employees> EmpBir = empDao.selectByBirthDay(date);
+                            List<Employees> EmpBir = empDao.selectByBirthDay(searchBirthDay);
                             attribute.put("Emplists",EmpBir);
-
-
-                        } catch (ParseException e) {
-                            throw new RuntimeException(e);
-                        }
 
                     }
             });

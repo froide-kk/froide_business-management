@@ -11,5 +11,3 @@ FROM
     `Employees`.department_id = `Departments`.id
 where
     MONTH(`Employees`.birthday) = /* birthday */0
-LIKE
- /*  birthday  */''

@@ -24,7 +24,7 @@ public interface EmployeesDao {
     List<Employees> selectByName(String name);
 
     @Select
-    List<Employees> selectByBirthDay(java.util.Date birthday);
+    List<Employees> selectByBirthDay(String birthday);
     @Select
     Employees selectById(Integer id);
 
