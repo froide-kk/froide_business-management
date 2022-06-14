@@ -83,7 +83,7 @@
                         <!--                    生年月日の検索-->
                 <form method="get" action="/career">
                     <div class="list_header_items">
-                        <input type="text" placeholder="生年月日で検索" class="birthday_search" name="searchBirthDay">
+                        <input type="text" placeholder="月で検索" class="birthday_search" name="searchBirthDay">
                         <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </form>

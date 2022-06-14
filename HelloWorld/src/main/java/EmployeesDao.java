@@ -1,6 +1,5 @@
 import org.seasar.doma.*;
 
-import java.sql.Date;
 import java.util.List;
 
 @Dao
@@ -23,6 +22,9 @@ public interface EmployeesDao {
 
     @Select
     List<Employees> selectByName(String name);
+
+    @Select
+    List<Employees> selectByBirthDay(String birthday);
 
     @Select
     Employees selectById(Integer id);
