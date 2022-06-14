@@ -151,16 +151,38 @@
         </tr>
 
         <tr>
-            <td>表示</td>
-            <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
-            <td><input type="text" size="10" value="2022-04-01">〜<input type="text" size="10"　 value="2022-04-21"></td>
-            <td colspan="1">${work_start!""} 〜 ${work_end!""}</td>
+            <td><input type="text" value="${industry}"</td>
+            <td>
+                <select>
+                    <option>${projects_name!""}</option>
+                    <#list ProLists as proList>
+                    <option value="${proList.id}">${proList.name}</option>
+                    </#list>
+                </select>
+            </td>
+            <td><input type="text" size="10" value="${work_start!""}">〜<input type="text" size="10"　 value="${work_end!""}"></td>
             <td>
                 <script>
-                    var startday = new Date("2022-04-01");
-                    var endday = new Date("2022-4-21");
+                    let sday = "${work_start!""}";
+                    let eday = "${work_end!""}";
+                    console.log(sday);
+                    console.log(eday);
+                    if(sday === "null" || eday === "null"){
+                    document.write("NULL表示成功");
+                    };
+                    let sdayAry = sday.split('/');
+                    let edayAry = eday.split('/');
+                    const Syear = sdayAry[0];
+                    const Smonth = sdayAry[1];
+                    const Sday = sdayAry[2];
+                    const Eyear = edayAry[0];
+                    const Emonth = edayAry[1];
+                    const Eday = edayAry[2];
+                    var startday = new Date(Syear,Smonth,Sday);
+                    var endday = new Date(Eyear,Emonth,Eday);
                     //差日を求める（86,400,000ミリ秒＝１日）
-                    var termDay = (endday - startday) / 86400000;
+                    let termDay = (endday - startday) / 86400000;
+                    console.log(termDay)
                     if(termDay>365){
                     termMouths=termDay%365
                     termMouth=termMouths/30
@@ -171,8 +193,8 @@
                      document.write(Math.floor(termMouth)+"ヶ月");
                     }else{
                      document.write(Math.floor(termDay)+"日");
-                    }
-                 </script>
+                    };
+                </script>
             </td>
         </tr>
 
@@ -182,10 +204,10 @@
             <th>役割</th>
         </tr>
         <tr>
-            <td colspan="2"><input type="text"></td>
+            <td colspan="2"><input type="text" value="${system_sum}"></td>
             <td>
                 <select>
-                    <option>-</option>
+                    <option>${dev_scale}</option>
                     <option value="5人以下">5人以下</option>
                     <option value="10人以下">10人以下</option>
                     <option value="15人以下">15人以下</option>
@@ -196,7 +218,7 @@
                     <option value="50人以上">50以上</option>
                 </select>
             </td>
-            <td><input type="text" size="20"></td>
+            <td><input type="text" size="20" value="${role}"></td>
 
         </tr>
         <tr>
@@ -211,14 +233,14 @@
                     </#list>
                 </ui>
             </td>
-            <td colspan="2"><input type="text" size="80" value="Java,HTML/CSS,JavaScript"></td>
+            <td colspan="2"><input type="text" size="80" value="${dev_environment}"></td>
         </tr>
 
         <tr>
             <th colspan="4">システムの詳細</th>
         </tr>
         <tr>
-            <td colspan="4"><textarea type="text" cols="120" value="詳細をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす"></textarea></td>
+            <td colspan="4"><input type="textarea" cols="120" value="${system_details}"></td>
         </tr>
     </table>
 
@@ -228,6 +250,9 @@
             <th class="disp">プロジェクト</th>
             <th colspan="2">期間</th>
         </tr>
+
+        <br>
+        <br>
 
         <tr>
             <td>業種表示</td>
