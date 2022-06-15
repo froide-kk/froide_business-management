@@ -21,7 +21,7 @@ import java.util.List;
         @Select
         List<Companies> selectAll();
 
-        @Update(include= {"name"})
+        @Update(include= {"name","id"})
         int updateCompany(Companies companies);
     }
 

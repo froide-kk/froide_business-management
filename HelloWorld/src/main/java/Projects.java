@@ -54,14 +54,6 @@ public class Projects {
         this.projectName = projectName;
     }
 
-    public String getInputProject(){
-        return inputProject;
-    }
-
-    public void setInputProject(String inputProject){
-        this.inputProject = inputProject;
-    }
-
     public Integer getDelete_flag() {
         return delete_flag;
     }

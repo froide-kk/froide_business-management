@@ -485,13 +485,23 @@ public class main {
 
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
 
-
+            if(inputCompany.length() <= 256) {
+                if (!Objects.equals(inputCompany, "")) {
+                    tm.required(() -> {
+                        Companies companies = new Companies();
+                        companies.setName(inputCompany);
+                        companies.setId(Integer.valueOf(req.queryParams("input_com_id")));
+                        companyDao.updateCompany(companies);
+                    });
+                }
+            }
 
             if(inputProject.length() <= 256) {
                 if (!Objects.equals(inputProject, "")) {
                     tm.required(() -> {
                         Projects projects = new Projects();
                         projects.setName(inputProject);
+                        projects.setId(Integer.valueOf(req.queryParams("id")));
                         projectDao.updateProject(projects);
                     });
                 }

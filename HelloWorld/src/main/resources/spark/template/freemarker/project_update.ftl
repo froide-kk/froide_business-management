@@ -48,6 +48,7 @@
                 </td>
 
                 <input type="hidden" value="${pj.id}" name="id">
+                <input type="hidden" value="${pj.company_id}" name="input_com_id">
                 <td class="company_project_edit_delete">
                     <button type="submit" class="company_project_edit_button">編集</button>
                 </td>
