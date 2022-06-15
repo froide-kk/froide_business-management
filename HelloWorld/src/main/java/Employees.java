@@ -10,7 +10,6 @@ public class Employees {
 
     String name;
 
-
     String emp_name;
     public String getEmp_name() {
         return emp_name;
@@ -28,8 +27,6 @@ public class Employees {
     public void setDep_name(String dep_name) {
         this.dep_name = dep_name;
     }
-
-
 
     String first_name;
     String last_name;

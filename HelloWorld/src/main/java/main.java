@@ -446,6 +446,17 @@ public class main {
             return res;
         });
 
+        //従業員テーブルの変更を保存する
+        post("/career/empUpdate/keep",(req,res) -> {
+            EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+            String joinDate = req.queryParams("join_date");
+            String Email = req.queryParams("email");
+
+            res.redirect("/career/empUpdate");
+            return res;
+        });
+
 //        従業員削除のデータが送られてくるところ
         post("/career/empUpdate/delete",(req,res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
