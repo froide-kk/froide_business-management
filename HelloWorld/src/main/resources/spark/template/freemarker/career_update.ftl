@@ -175,25 +175,27 @@
             <td><input type="text" size="10" value="${empWorklist.work_start!""}">〜<input type="text" size="10"　 value="${empWorklist.work_end!""}"></td>
             <td>
                 <script>
-                    let sday = "${empWorklist.work_start!""}";
-                    let eday = "${empWorklist.work_end!""}";
+                    var sday = "${empWorkList.work_start!"noStartDate"}";
+                    var eday = "${empWorkList.work_end!"noEndDate"}";
                     console.log(sday);
                     console.log(eday);
-                    if(sday === "null" || eday === "null"){
-                    document.write("NULL表示成功");
-                    };
-                    let sdayAry = sday.split('/');
-                    let edayAry = eday.split('/');
-                    const Syear = sdayAry[0];
-                    const Smonth = sdayAry[1];
-                    const Sday = sdayAry[2];
-                    const Eyear = edayAry[0];
-                    const Emonth = edayAry[1];
-                    const Eday = edayAry[2];
+                    if(sday === "noStartDate"){
+                    console.log("NULLIF通過");
+                    document.write("");
+                    }else if(eday === "noEndDate"){
+                    console.log("NULLELSEIF通過");
+                    var today = new Date();
+                    var Eyear = today.getFullYear();
+                    var Emonth = today.getMonth()+1;
+                    var Eday = today.getDate();
+                    var sdayAry = sday.split('/');
+                    var Syear = sdayAry[0];
+                    var Smonth = sdayAry[1];
+                    var Sday = sdayAry[2];
                     var startday = new Date(Syear,Smonth,Sday);
                     var endday = new Date(Eyear,Emonth,Eday);
                     //差日を求める（86,400,000ミリ秒＝１日）
-                    let termDay = (endday - startday) / 86400000;
+                    var termDay = (endday - startday) / 86400000;
                     console.log(termDay)
                     if(termDay>365){
                     termMouths=termDay%365
@@ -206,7 +208,34 @@
                     }else{
                      document.write(Math.floor(termDay)+"日");
                     };
-                      </script>
+                    }else{
+                    console.log("ELSE通過");
+                    var edayAry = eday.split('/');
+                    var Eyear = edayAry[0];
+                    var Emonth = edayAry[1];
+                    var Eday = edayAry[2];
+                    var sdayAry = sday.split('/');
+                    var Syear = sdayAry[0];
+                    var Smonth = sdayAry[1];
+                    var Sday = sdayAry[2];
+                    var startday = new Date(Syear,Smonth,Sday);
+                    var endday = new Date(Eyear,Emonth,Eday);
+                    //差日を求める（86,400,000ミリ秒＝１日）
+                    var termDay = (endday - startday) / 86400000;
+                    console.log(termDay)
+                    if(termDay>365){
+                    termMouths=termDay%365
+                    termMouth=termMouths/30
+                    termYear=termDay/365
+                    document.write(Math.floor(termYear)+"年"+Math.floor(termMouth)+"ヶ月");
+                    }else if(termDay>30){
+                    termMouth=termDay/30
+                     document.write(Math.floor(termMouth)+"ヶ月");
+                    }else{
+                     document.write(Math.floor(termDay)+"日");
+                    };
+                    };
+                </script>
             </td>
             </tr>
         <tr>
