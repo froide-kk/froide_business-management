@@ -560,12 +560,12 @@ width:1%;
 }
 /* tdのテキストボックス */
 .td_company{
-width:190px;
+width:233px;
 padding:5px;
 text-size:1.4rem;
 }
 .td_project{
-width:200px;
+width:233px;
 padding:5px;
 
 }
@@ -625,9 +625,9 @@ background-color:#99ffdd;
 width: 100px;
 padding: 6px;
 }
-/* 企業追加の注意書き */
+/* 注意書き */
 .statement{
-font-size: 1rem;
+font-size: 50%;
 text-align:center;
 }
 /* ここまでプロジェクト編集画面 */

@@ -483,10 +483,6 @@ public class main {
             tm.required(() -> {
                 List<Projects> PJlists = projectDao.selectProjectAll();
                 attribute.put("pj_lists",PJlists);
-                attribute.put("company_name","");
-                attribute.put("project_name","");
-                attribute.put("company_id","");
-                attribute.put("id","");
             });
 
             //プルダウンメニューの表示
@@ -497,7 +493,33 @@ public class main {
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "project_update.ftl"));
         });
 
-        post("/career/projectsKeep",(req,res) -> {
+        //プロジェクト名の変更を保存
+        post("/career/projectsEdit",(req,res) -> {
+            String inputCompany = req.queryParams("input_company");
+            String inputProject = req.queryParams("input_project");
+
+            Map<String, Object> attribute = new HashMap<>();
+
+            attribute.put("input_company",inputCompany);
+            attribute.put("input_project",inputProject);
+
+            CompaniesDao companyDao = new CompaniesDaoImpl(DbConfig.singleton());
+            ProjectsDao projectDao = new ProjectsDaoImpl(DbConfig.singleton());
+
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+
+
+
+            if(inputProject.length() <= 256) {
+                if (!Objects.equals(inputProject, "")) {
+                    tm.required(() -> {
+                        Projects projects = new Projects();
+                        projects.setName(inputProject);
+                        projectDao.updateProject(projects);
+                    });
+                }
+            }
+
             res.redirect("/career/projectsUpdate");
             return res;
         });

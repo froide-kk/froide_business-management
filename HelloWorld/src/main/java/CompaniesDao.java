@@ -20,6 +20,9 @@ import java.util.List;
 
         @Select
         List<Companies> selectAll();
+
+        @Update(include= {"name"})
+        int updateCompany(Companies companies);
     }
 
 
