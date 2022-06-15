@@ -150,35 +150,33 @@
         <input type="button" value="追加" id="add" class="add_work">
 
         <br>
-
+        
         <table id="clone" border="1"></table>
         <div id="work_table">
-            <table border=1 style="border-collapse: collapse" id="work">
-                <tr>
-                    <th>業種</th>
-                    <th class="disp">プロジェクト</th>
-                    <th class="period_change" colspan="2">期間</th>
-                </tr>
 
-                <tr>
-                    <td>
-                        <input type="text" value="${industry!""}">
-                    </td>
-                    <td>
-                        <select>
-                            <option>${projects_name!""}</option>
-                            <#list ProLists as proList>
-                            <option value="${proList.id!""}">${proList.name!""}</option>
-                            </#list>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="text" size="10" value="${work_start!""}">〜<input type="text" size="10" value="${work_end!""}">
-                    </td>
-                    <td>
-                        <script>
-                    let sday = "${work_start!""}";
-                    let eday = "${work_end!""}";
+
+<#list EmpWorkLists as empWorklist>
+    <table border=1 style="border-collapse: collapse" id="work">
+        <tr>
+            <th>業種</th>
+            <th class="disp">プロジェクト</th>
+            <th class="period_change" colspan="2">期間</th>
+        </tr>
+
+        <tr>
+            <td><input type="text" value="${empWorklist.industry!""}"</td>
+            <td>
+                <select>
+                    <option>${empWorklist.projects_name!""}</option>
+
+<!--                    List削除-->
+                </select>
+            </td>
+            <td><input type="text" size="10" value="${empWorklist.work_start!""}">〜<input type="text" size="10"　 value="${empWorklist.work_end!""}"></td>
+            <td>
+                <script>
+                    let sday = "${empWorklist.work_start!""}";
+                    let eday = "${empWorklist.work_end!""}";
                     console.log(sday);
                     console.log(eday);
                     if(sday === "null" || eday === "null"){
@@ -208,69 +206,57 @@
                     }else{
                      document.write(Math.floor(termDay)+"日");
                     };
+                      </script>
+            </td>
+            </tr>
+        <tr>
+            <th colspan="2">システムの概要</th>
+            <th>開発規模</th>
+            <th>役割</th>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text" value="${empWorklist.system_sum!""}"></td>
+            <td>
+                <select>
+                    <option>${empWorklist.dev_scale!""}</option>
+                    <option value="5人以下">5人以下</option>
+                    <option value="10人以下">10人以下</option>
+                    <option value="15人以下">15人以下</option>
+                    <option value="20人以下">20人以下</option>
+                    <option value="30人以下">30人以下</option>
+                    <option value="40人以下">40人以下</option>
+                    <option value="50人以下">50人以下</option>
+                    <option value="50人以上">50以上</option>
+                </select>
+            </td>
+            <td><input type="text" size="20" value="${empWorklist.role!""}"></td>
+
+        </tr>
+        <tr>
+            <th colspan="2">開発担当フェーズ</th>
+            <th colspan="2">使用言語</th>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <ui id="phase"  multiple size="3">
+                    <!--                    List削除-->
+                </ui>
+            </td>
+            <td colspan="2"><input type="text" size="80" value="${empWorklist.dev_environment!""}"></td>
+        </tr>
+
+        <tr>
+            <th colspan="4">システムの詳細</th>
+        </tr>
+        <tr>
+            <td colspan="4"><input type="textarea" cols="120" value="${empWorklist.system_details!""}"></td>
+        </tr>
+    </table>
 
 
-                        </script>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th colspan="2">システムの概要</th>
-                    <th>開発規模</th>
-                    <th>役割</th>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="text" value="${system_sum!""}">
-                    </td>
-                    <td>
-                        <select>
-                            <option>${dev_scale!""}</option>
-                            <option value="5人以下">5人以下</option>
-                            <option value="10人以下">10人以下</option>
-                            <option value="15人以下">15人以下</option>
-                            <option value="20人以下">20人以下</option>
-                            <option value="30人以下">30人以下</option>
-                            <option value="40人以下">40人以下</option>
-                            <option value="50人以下">50人以下</option>
-                            <option value="50人以上">50以上</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="text" size="20" value="${role!""}">
-                    </td>
-
-                </tr>
-                <tr>
-                    <th colspan="2">開発担当フェーズ</th>
-                    <th colspan="2">使用言語</th>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <ul id="phase" multiple size="3">
-                            <#list dev_period_phasesLists as dppList>
-                            <li>
-                                <input type="checkbox" value="${dppList.id!""}">${dppList.name!""}
-                            </li>
-                        </#list>
-                        </ul>
-                    </td>
-                    <td colspan="2">
-                        <input type="text" size="80" value="${dev_environment!""}">
-                    </td>
-                </tr>
-
-                <tr>
-                    <th colspan="4">システムの詳細</th>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <input type="textarea" cols="120" value="${system_details!""}">
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
+</#list>
+</div>
+</div>
 </form>
 
 <script>
