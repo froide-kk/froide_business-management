@@ -25,7 +25,7 @@ on
 left outer join
     `Work_details`
 on
-     `Work_details`.work_history_id = `Work_histories`.id
+     `Work_details`.work_history_id = `Work_histories`.project_id
 left outer join
      `Projects`
 on
