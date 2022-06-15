@@ -317,7 +317,10 @@ justify-content: center;
 }
 
 .zeroWidth{
- width:92%;
+ width:800px;
+}
+.centertext{
+    text-align: center;
 }
 
 /* ここまで業務経歴書閲覧画面ページ */

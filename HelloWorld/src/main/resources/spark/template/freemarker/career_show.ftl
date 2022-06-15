@@ -108,7 +108,7 @@
                 <#list EachSkillsOS as eachskillOS>
                 <tr>
                     <td class="zeroWidth">${eachskillOS.skill_name!""}</td>
-                    <td>${eachskillOS.skill_level!""}</td>
+                    <td class="centertext">${eachskillOS.skill_level!""}</td>
                 </tr>
             </#list>
             </table>
@@ -120,7 +120,7 @@
             <#list EachSkillsScript as eachskillScript>
             <tr>
                 <td class="zeroWidth">${eachskillScript.skill_name!""}</td>
-                <td>${eachskillScript.skill_level!""}</td>
+                <td class="centertext">${eachskillScript.skill_level!""}</td>
             </tr>
             </#list>
         </table>
@@ -132,7 +132,7 @@
             <#list EachSkillsDB as eachskillDB>
             <tr>
                 <td class="zeroWidth">${eachskillDB.skill_name!""}</td>
-                <td>${eachskillDB.skill_level!""}</td>
+                <td class="centertext">${eachskillDB.skill_level!""}</td>
             </tr>
         </#list>
         </table>
