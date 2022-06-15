@@ -141,7 +141,7 @@
 <!--    ここまで！-->
 
     <br>
-
+<#list EmpWorkLists as empWorkList>
     <table  border=1 style="border-collapse: collapse">
         <tr>
             <th>業種</th>
@@ -150,12 +150,12 @@
         </tr>
 
         <tr class="tr-bottom">
-            <td>${industry!""}</td>
+            <td>${empWorkList.industry!""}</td>
             <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">${projects_name!""}</a></td>
-            <td>${work_start!""} 〜 ${work_end!""}
+            <td>${empWorkList.work_start!""} 〜 ${empWorkList.work_end!""}
                 <script>
-                    let sday = "${work_start!""}";
-                    let eday = "${work_end!""}";
+                    let sday = "${empWorkList.work_start!""}";
+                    let eday = "${empWorkList.work_end!""}";
                     console.log(sday);
                     console.log(eday);
                     if(sday === "null" || eday === "null"){
@@ -198,9 +198,9 @@
             <th>役割</th>
         </tr>
         <tr>
-            <td colspan="2">${system_sum!""}</td>
-            <td>${dev_scale!""}</td>
-            <td>${role!""}</td>
+            <td colspan="2">${empWorkList.system_sum!""}</td>
+            <td>${empWorkList.dev_scale!""}</td>
+            <td>${empWorkList.role!""}</td>
 
         </tr>
         <tr>
@@ -209,7 +209,7 @@
         </tr>
         <tr>
             <td colspan="2"></td>
-            <td colspan="2">${dev_environment!""}</td>
+            <td colspan="2">${empWorkList.dev_environment!""}</td>
         </tr>
 
         <tr>
@@ -217,33 +217,33 @@
         </tr>
         <tr>
             <td colspan="4">
-                ${system_details!""}
+                ${empWorkList.system_details!""}
             </td>
         </tr>
     </table>
+</#list>
+        <script>
+            const display = (flag) => {
+            const target =  document.querySelectorAll(".disp,.career,.back")
+            if(flag === true){
+             target.forEach((element) =>{
+            element.style.display = "block"
+            document.location.reload()
+            })
+            }else{
+             target.forEach((element) =>{
+            element.style.display = "none"
+            })
+            }
+          }
+            document.querySelector(".pdf").addEventListener("click",() => {
+            display(false)
+            window.print();
+            display(true)
+            })
 
-</div>
-<script>
-    const display = (flag) => {
-    const target =  document.querySelectorAll(".disp,.career,.back")
-    if(flag === true){
-     target.forEach((element) =>{
-    element.style.display = "block"
-    document.location.reload()
-    })
-    }else{
-     target.forEach((element) =>{
-    element.style.display = "none"
-    })
-    }
-  }
-    document.querySelector(".pdf").addEventListener("click",() => {
-    display(false)
-    window.print();
-    display(true)
-    })
+        </script>
 
-</script>
 
 </body>
 </html>
