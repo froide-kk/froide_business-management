@@ -99,19 +99,45 @@
         <p>○　業務で使用経験あり △　個人レベルで対応可能</p>
     </div>
 
-    <table border=1 style="border-collapse: collapse">
 <!--        テーブルを入れていく。-->
-        <tr>
-            <th>OS</th>
-            <th>対応可能スクリプト・ツール</th>
-            <th>DB</th>
-        </tr>
-        <tr>
-            <td>あ</td>
-            <td>あ</td>
-            <td>あ</td>
-        </tr>
-    </table>
+    <div class="career_show_table">
+            <table border=1 style="border-collapse: collapse" >
+                <tr>
+                    <th colspan="2">OS</th>
+                </tr>
+                <#list EachSkillsOS as eachskillOS>
+                <tr>
+                    <td class="zeroWidth">${eachskillOS.skill_name!""}</td>
+                    <td>${eachskillOS.skill_level!""}</td>
+                </tr>
+            </#list>
+            </table>
+
+        <table border=1 style="border-collapse: collapse">
+            <tr>
+                <th colspan="2">対応可能スクリプト・ツール</th>
+            </tr>
+            <#list EachSkillsScript as eachskillScript>
+            <tr>
+                <td class="zeroWidth">${eachskillScript.skill_name!""}</td>
+                <td>${eachskillScript.skill_level!""}</td>
+            </tr>
+            </#list>
+        </table>
+
+        <table border=1 style="border-collapse: collapse">
+            <tr>
+                <th colspan="2">DB</th>
+            </tr>
+            <#list EachSkillsDB as eachskillDB>
+            <tr>
+                <td class="zeroWidth">${eachskillDB.skill_name!""}</td>
+                <td>${eachskillDB.skill_level!""}</td>
+            </tr>
+        </#list>
+        </table>
+    </div>
+
 <!--    ここまで！-->
 
     <br>
@@ -182,7 +208,7 @@
             <th colspan="2">使用言語</th>
         </tr>
         <tr>
-            <td colspan="2">要件分析、DB設計</td>
+            <td colspan="2"></td>
             <td colspan="2">${dev_environment!""}</td>
         </tr>
 
