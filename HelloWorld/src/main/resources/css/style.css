@@ -543,12 +543,22 @@ width:11%;
 }
 /* <td>タグ */
 .company_and_project_name{
-text-align:center;
 border: solid 1px;
 }
 .company_project_edit_delete{
 text-align:center;
 width:1%;
+}
+/* tdのテキストボックス */
+.td_company{
+width:190px;
+padding:5px;
+text-size:1.4rem;
+}
+.td_project{
+width:200px;
+padding:5px;
+
 }
 /* 編集ボタン */
 .company_project_edit_button{

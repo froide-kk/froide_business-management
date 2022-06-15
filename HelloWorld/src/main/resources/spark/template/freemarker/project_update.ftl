@@ -38,11 +38,16 @@
         </tr>
         <#list pj_lists as pj>
         <tr>
-            <td class="company_and_project_name">${pj.companyName}</td>
-            <td class="company_and_project_name">${pj.projectName}</td>
-            <td class="company_project_edit_delete">
-                <button class="company_project_edit_button">編集</button>
-            </td>
+            <td class="company_and_project_name"><input type="text" class="td_company" value="${pj.companyName}"></td>
+            <td class="company_and_project_name"><input type="text" class="td_project" value="${pj.projectName}"></td>
+
+            <form method="post" action="/career/projectsKeep" onSubmit="return confirmKeep()">
+                <input type="hidden" value="${pj.id}" name="id">
+                <td class="company_project_edit_delete">
+                    <button type="submit" class="company_project_edit_button">編集</button>
+                </td>
+            </form>
+
             <form method="post" action="/career/projectsDelete" onSubmit="return confirmDelete()">
                 <input type="hidden" value="${pj.id}" name="id">
                 <td class="company_project_edit_delete">
