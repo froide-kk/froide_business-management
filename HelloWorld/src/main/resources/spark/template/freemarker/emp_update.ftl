@@ -105,7 +105,7 @@
             <td class="emp_delete_col">${EmpList.dep_name}</td>
             <td class="emp_delete_col">${EmpList.join_date}</td>
             <td class="emp_delete_col">${EmpList.email}</td>
-            <form method="post" action="/career/empUpdate/delete" class="emp_delete">
+            <form method="post" action="/career/empUpdate/delete" class="emp_delete"　onSubmit="return confirmDelete()">
                 <td class="emp_delete_col2">
                     <input type="hidden" value="${EmpList.id}" name="id">
                     <input type="submit" class="emp_delete_button" value="削除">
@@ -116,13 +116,13 @@
     </table>
 
     <script>
-        function emp_Delete() {
-            let result = confirm("削除しますか？")
+        function confirmDelete() {
+            let result = confirm("削除しますか？");
             if(result){
-                alert("削除しました")
-                return true
+                alert("削除しました");
+                return true;
             }else{
-                return false
+                return false;
             }
         }
     </script>

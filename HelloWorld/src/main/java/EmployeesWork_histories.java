@@ -1,4 +1,5 @@
 import org.seasar.doma.*;
+import org.seasar.doma.jdbc.criteria.context.Criterion;
 
 import java.sql.Date;
 
@@ -55,6 +56,8 @@ public class EmployeesWork_histories {
     String final_education;
     String license;
     String address;
+
+//    経歴詳細テーブル
     String industry;
     String system_sum;
     String projects_name;
@@ -65,17 +68,29 @@ public class EmployeesWork_histories {
     String system_details;
 
     String dev_environment;
-
-
     String role;
+
     //Work_historiesテーブル
     java.sql.Date work_start;
     java.sql.Date work_end;
-
+    Integer project_id;
     Integer employee_id;
 
+    public String getProjects_id() {
+        return projects_id;
+    }
 
+    public void setProjects_id(String projects_id) {
+        this.projects_id = projects_id;
+    }
 
+    public Integer getProject_id() {
+        return project_id;
+    }
+
+    public void setProject_id(Integer project_id) {
+        this.project_id = project_id;
+    }
     public String getSystem_details() {
         return system_details;
     }
@@ -163,7 +178,5 @@ public class EmployeesWork_histories {
     public void setWork_end(Date work_end) {
         this.work_end = work_end;
     }
-
-
 
 }
