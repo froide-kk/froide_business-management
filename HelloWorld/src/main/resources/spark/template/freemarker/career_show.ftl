@@ -103,33 +103,36 @@
     <div class="career_show_table">
             <table border=1 style="border-collapse: collapse" >
                 <tr>
-                    <th>OS</th>
+                    <th colspan="2">OS</th>
                 </tr>
                 <#list EachSkillsOS as eachskillOS>
                 <tr>
-                    <td>${eachskillOS.skill_name!""}</td>
+                    <td class="zeroWidth">${eachskillOS.skill_name!""}</td>
+                    <td>${eachskillOS.skill_level!""}</td>
                 </tr>
             </#list>
             </table>
 
         <table border=1 style="border-collapse: collapse">
             <tr>
-                <th>対応可能スクリプト・ツール</th>
+                <th colspan="2">対応可能スクリプト・ツール</th>
             </tr>
             <#list EachSkillsScript as eachskillScript>
             <tr>
-                <td>${eachskillScript.skill_name!""}</td>
+                <td class="zeroWidth">${eachskillScript.skill_name!""}</td>
+                <td>${eachskillScript.skill_level!""}</td>
             </tr>
             </#list>
         </table>
 
         <table border=1 style="border-collapse: collapse">
             <tr>
-                <th>DB</th>
+                <th colspan="2">DB</th>
             </tr>
             <#list EachSkillsDB as eachskillDB>
             <tr>
-                <td>${eachskillDB.skill_name!""}</td>
+                <td class="zeroWidth">${eachskillDB.skill_name!""}</td>
+                <td>${eachskillDB.skill_level!""}</td>
             </tr>
         </#list>
         </table>

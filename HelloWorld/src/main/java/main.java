@@ -50,8 +50,7 @@ public class main {
                 attribute.put("system_details",employeesWork_histories.system_details);
                 attribute.put("dev_environment",employeesWork_histories.dev_environment);
 
-                //IDを受け取る必要があるので、EmployeesEachSkillsのSelectByIdをかく。
-//                EmployeesEachSkills employeesEachSkills = empEachSkills.selectById(Integer.valueOf(id));
+                //閲覧画面の使用言語リスト
                 List<EmployeesEachSkills> EachSkillsDB = empEachSkills.select_db_All(Integer.valueOf(id));
                 attribute.put("EachSkillsDB",EachSkillsDB);
                 List<EmployeesEachSkills> EachSkillsOS = empEachSkills.select_os_All(Integer.valueOf(id));
