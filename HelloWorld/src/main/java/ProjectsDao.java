@@ -24,7 +24,7 @@ public interface ProjectsDao {
     @Insert(include = {"name","company_id"})
     int insertProject(Projects projects);
 
-    @Update(include= {"name"})
+    @Update(include= {"name","id"})
     int updateProject(Projects projects);
 }
 
