@@ -101,7 +101,7 @@
     <form method="post" action="/career/skillCheck/add">
         <div class="skill_add">
             <div class="skill_add_item">
-                <input type="text" id="name" class="skill_add_name" name="name"/>
+                <input type="text" id="name" class="skill_add_name" name="name" placeholder="企業名を入力"/>
             </div>
 
             <div class="skill_add_item">

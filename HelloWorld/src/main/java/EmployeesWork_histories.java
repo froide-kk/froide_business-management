@@ -58,6 +58,8 @@ public class EmployeesWork_histories {
     String industry;
     String system_sum;
     String projects_name;
+
+    String projects_id;
     String dev_scale;
 
     String system_details;

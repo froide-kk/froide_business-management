@@ -125,7 +125,9 @@ public class main {
 
         //業務経歴編集画面
         get("/career/update", (req, res) -> {
+            EmployeesWork_historiesDao empWork_histories = new EmployeesWork_historiesDaoImpl(DbConfig.singleton());
             EmployeesDao empDao = new EmployeesDaoImpl(DbConfig.singleton());
+            ProjectsDao projectsDao = new ProjectsDaoImpl(DbConfig.singleton());
             Dev_period_phasesDao dev_period_phasesDao = new Dev_period_phasesDaoImpl(DbConfig.singleton());
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
@@ -145,7 +147,19 @@ public class main {
                 attribute.put("final_education",empUp.final_education);
 
                 //経歴詳細の表示
+                EmployeesWork_histories employeesWork_histories = empWork_histories.selectById(Integer.valueOf(id));
+                attribute.put("work_start",employeesWork_histories.work_start);
+                attribute.put("work_end",employeesWork_histories.work_end);
+                attribute.put("industry",employeesWork_histories.industry);
+                attribute.put("system_sum",employeesWork_histories.system_sum);
+                attribute.put("projects_name",employeesWork_histories.projects_name);
+                attribute.put("role",employeesWork_histories.role);
+                attribute.put("dev_scale",employeesWork_histories.dev_scale);
+                attribute.put("system_details",employeesWork_histories.system_details);
+                attribute.put("dev_environment",employeesWork_histories.dev_environment);
 
+                List<Projects> projects = projectsDao.selectAll();
+                attribute.put("ProLists",projects);
             });
 
 
@@ -482,6 +496,11 @@ public class main {
                 attribute.put("companiesList",companiesList);
             });
             return new FreeMarkerEngine().render(new ModelAndView(attribute, "project_update.ftl"));
+        });
+
+        post("/career/projectsKeep",(req,res) -> {
+            res.redirect("/career/projectsUpdate");
+            return res;
         });
 
         //企業名を追加

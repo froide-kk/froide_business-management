@@ -1,5 +1,6 @@
 select
-    /*%expand*/*
+    id,
+    name
 from
     `Projects`
 order by
