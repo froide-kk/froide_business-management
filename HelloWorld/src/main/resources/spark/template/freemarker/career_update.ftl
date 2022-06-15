@@ -12,47 +12,49 @@
 
 <!---------- ヘッダー部分　---------->
 <header class="career">
-    <h2><a class ="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
+    <h2><a class="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
     <nav>
         <ul class="header_right">
-<!--            <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>-->
+            <!--            <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>-->
             <li><a href="http://localhost:4567/career/management">管理者</a></li>
-<!--            <li><input type="button" class="logout" onclick="location.href='/career/login'" value="ログアウト"></li>-->
+            <!--            <li><input type="button" class="logout" onclick="location.href='/career/login'" value="ログアウト"></li>-->
         </ul>
     </nav>
 </header>
 <!---------- 戻るボタン ---------->
 <nav>
     <ul class="back">
-        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
+        <button class="browseBack" onclick="history.back(-1);return false;"><a href="#">戻る</a></button>
     </ul>
 </nav>
 <!---------- 保存ボタン ---------->
 <form method="post" action="/career/update">
-    <button type="submit" value="${id}" name="id" class="keep" onclick="location.href='http://localhost:4567/career/show'">保存</button>
+    <button type="submit" value="${id}" name="id" class="keep"
+            onclick="location.href='http://localhost:4567/career/show'">保存
+    </button>
 
-<!---------- 業務経歴書の部分 ---------->
-<div class="careerSheet">
-    <h1 class="sheetHead">業務経歴書 編集画面</h1>
+    <!---------- 業務経歴書の部分 ---------->
+    <div class="careerSheet">
+        <h1 class="sheetHead">業務経歴書 編集画面</h1>
 
-    <table border="1" style="border-collapse: collapse">
-        <tr>
-            <th>氏名</th>
-            <th>生年月日</th>
-            <th>年齢</th>
-            <th>住所</th>
-            <th>最終学歴</th>
-        </tr>
+        <table border="1" style="border-collapse: collapse">
+            <tr>
+                <th>氏名</th>
+                <th>生年月日</th>
+                <th>年齢</th>
+                <th>住所</th>
+                <th>最終学歴</th>
+            </tr>
 
-        <tr>
-            <td>
-                <input type="text" size="42"  value="${name!""}" name="name">
-            </td>
-            <td>
-                <input type="text" value="${birthday!""}" name="birthday">
-
-            </td>
-            <td> <script>
+            <tr>
+                <td>
+                    <input type="text" size="42" value="${name!""}" name="name">
+                </td>
+                <td>
+                    <input type="text" value="${birthday!""}" name="birthday">
+                </td>
+                <td>
+                    <script>
                     //inputされた値をリアルタイムbirthdayに代入したい
                     let Birtday = "${birthday!""}"
                     let birtdayAry = Birtday.split('-')
@@ -72,79 +74,89 @@
                             }
 
                         document.write(getAge(birthday));
-                     </script></td>
-            <td><input type="text" value="${address!""}" name="address"></td>
-            <td><input type="text" value="${final_education!""}" name="final_education"></td>
-        </tr>
+                    </script>
+                </td>
+                <td><input type="text" value="${address!""}" name="address"></td>
+                <td><input type="text" value="${final_education!""}" name="final_education"></td>
+            </tr>
 
-        <tr>
-            <th colspan="5">資格</th>
-        </tr>
-        <tr>
-            <td colspan="5"><input type="text" size="120" value="${license!""}" name="license"></td>
-        </tr>
-    </table>
-</form>
-    <br>
+            <tr>
+                <th colspan="5">資格</th>
+            </tr>
+            <tr>
+                <td colspan="5"><input type="text" size="120" value="${license!""}" name="license"></td>
+            </tr>
+        </table>
 
+        <br>
 
-    <div class ="Level">
-        <p>○　業務で使用経験あり  △　個人レベルで対応可能</p>
-    </div>
+        <div class="Level">
+            <p>○　業務で使用経験あり △　個人レベルで対応可能</p>
+        </div>
 
-    <table border=1 style="border-collapse: collapse">
-        <tr>
-            <th>OS</th>
-            <th>対応可能スクリプト・ツール</th>
-            <th>DB</th>
-        </tr>
+        <table border=1 style="border-collapse: collapse" id="skill">
+            <tr>
+                <th>OS</th>
+                <th>対応可能スクリプト・ツール</th>
+                <th>DB</th>
+            </tr>
 
-        <tr>
-            <td>
-                <ul>
-                    <#list OSLists as osList>
-                    <li>${osList.name!""}
-                        <select>
-                            <option>-</option>
-                            <option value="${osList.id!""}">◯</option>
-                            <option value="${osList.id!""}">△</option>
-                        </select>
-                    </li>
-                    </#list>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <#list ScriptLists as sList>
-                      <li>${sList.name!""}
-                          <select>
-                              <option>-</option>
-                              <option value="${sList.id!""}">◯</option>
-                              <option value="${sList.id!""}">△</option>
-                          </select></li>
-                    </#list>
-                </ul>
+            <tr>
+                <td>
+                    <ul>
+                        <#list OSLists as osList>
+                            <li>${osList.name!""}
+                                <select>
+                                    <option>-</option>
+                                    <option value="${osList.id!""}">◯</option>
+                                    <option value="${osList.id!""}">△</option>
+                                </select>
+                            </li>
+                        </#list>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <#list ScriptLists as sList>
+                            <li>${sList.name!""}
+                                <select>
+                                     <option>-</option>
+                                     <option value="${sList.id!""}">◯</option>
+                                     <option value="${sList.id!""}">△</option>
+                                </select>
+                            </li>
+                        </#list>
+                    </ul>
 
-            </td>
-            <td>
-                <ul>
-                    <#list DBLists as dbList>
-                      <li>${dbList.name!""}
-                          <select>
-                              <option>-</option>
-                              <option value="${dbList.id!""}">◯</option>
-                              <option value="${dbList.id!""}">△</option>
-                          </select></li>
-                    </#list>
-                </ul>
-            </td>
-        </tr>
-    </table>
+                </td>
+                <td>
+                    <ul>
+                        <#list DBLists as dbList>
+                            <li>${dbList.name!""}
+                                <select>
+                                    <option>-</option>
+                                    <option value="${dbList.id!""}">◯</option>
+                                    <option value="${dbList.id!""}">△</option>
+                                </select>
+                             </li>
+                        </#list>
+                    </ul>
+                </td>
+            </tr>
+        </table>
 
-    <br>
+        <br>
+
+        <input type="button" value="追加" id="add" class="add_work">
+
+        <br>
+        
+        <table id="clone" border="1"></table>
+        <div id="work_table">
+
 
 <#list EmpWorkLists as empWorklist>
-    <table border=1 style="border-collapse: collapse">
+    <table border=1 style="border-collapse: collapse" id="work">
         <tr>
             <th>業種</th>
             <th class="disp">プロジェクト</th>
@@ -194,10 +206,9 @@
                     }else{
                      document.write(Math.floor(termDay)+"日");
                     };
-                </script>
+                      </script>
             </td>
-        </tr>
-
+            </tr>
         <tr>
             <th colspan="2">システムの概要</th>
             <th>開発規模</th>
@@ -245,5 +256,18 @@
 
 </#list>
 </div>
+</div>
+</form>
+
+<script>
+    let add = document.getElementById("add")
+    add.addEventListener("click", function(){
+        var table = document.getElementById("work");
+        let clone_table = table.firstElementChild.cloneNode(true);
+        var parent = document.querySelector("#clone");
+        parent.appendChild(clone_table);
+    });
+
+</script>
 </body>
 </html>

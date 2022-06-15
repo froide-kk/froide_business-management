@@ -139,10 +139,14 @@ public class main {
                 attribute.put("final_education",empUp.final_education);
 
                 //経歴詳細の表示
+
                 //プロジェクトのリスト
                 List<EmployeesWork_histories> employeesWork_histories = empWork_histories.selectByAll(Integer.valueOf(id));
                 attribute.put("EmpWorkLists",employeesWork_histories);
-
+              
+//                プロジェクトのプルダウンメニュー
+                List<Projects> projects = projectsDao.selectAll();
+                attribute.put("ProLists",projects);
             });
 
 
@@ -168,10 +172,12 @@ public class main {
         });
 
         post("/career/update",(req,res) -> {
+            EmployeesWork_historiesDao empWork_histories = new EmployeesWork_historiesDaoImpl(DbConfig.singleton());
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            Work_historiesDao historiesDao = new Work_historiesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-//            画面から受け取る
+//          従業員情報の登録
             //career/updateからidを受け取って、ftlに渡す
             String id = req.queryParams("id");
             String name = req.queryParams("name");
@@ -187,6 +193,18 @@ public class main {
             attribute.put("final_education",final_education);
             attribute.put("license",license);
 
+//          経歴書詳細の登録
+            String work_history_id = req.queryParams("work_history_id");
+            String project_id = req.queryParams("project_id");
+            String work_start = req.queryParams("work_start");
+            String work_end = req.queryParams("work_end");
+
+            attribute.put("work_history_id",work_history_id);
+            attribute.put("project_id",project_id);
+            attribute.put("work_start",work_start);
+            attribute.put("work_end",work_end);
+
+
             //データベースに登録する
             tm.required(() -> {
                 Employees employee = empDao.selectById(Integer.valueOf(req.queryParams("id")));
@@ -196,6 +214,14 @@ public class main {
                 employee.setFinal_education(final_education);
                 employee.setLicense(license);
                 empDao.update_workHistry(employee);
+
+                EmployeesWork_histories employeesWork_histories = empWork_histories.selectById(Integer.valueOf(id));
+                employeesWork_histories.setProject_id(Integer.valueOf(project_id));
+                employeesWork_histories.setWork_start(Date.valueOf(work_start));
+                employeesWork_histories.setWork_end(Date.valueOf(work_end));
+
+
+
             });
 
             res.redirect("/career");

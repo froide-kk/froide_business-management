@@ -317,7 +317,10 @@ justify-content: center;
 }
 
 .zeroWidth{
- width:92%;
+ width:800px;
+}
+.centertext{
+    text-align: center;
 }
 
 /* ここまで業務経歴書閲覧画面ページ */
@@ -334,7 +337,7 @@ justify-content: center;
 .careerSheet {
     margin : 30px;
     padding : 30px;
-    background-color: #ffffff;
+    background-color: #fff;
 }
 .sheetHead {
     font-size: 2rem;
@@ -345,6 +348,11 @@ justify-content: center;
 .system {
     width:1285px;
     overflow-wrap: anywhere
+}
+
+#add {
+background-color: #33FFCC;
+margin: 0 50%;
 }
 /* ここまで業務経歴書編集画面ページ */
 
