@@ -6,7 +6,7 @@ public interface Work_detailsDao {
     @Insert
     int insert(Work_details work_details);
 
-    @Update
+    @Update(include = {"industry","system_sum","system_details","role","dev_scale","dev_environment"})
     int update(Work_details work_details);
 
     @Delete
@@ -15,5 +15,5 @@ public interface Work_detailsDao {
     @Select
     List<Work_details> selectAll();
     @Select
-    Employees selectById(Integer id);
+    Work_details selectById(Integer id);
 }

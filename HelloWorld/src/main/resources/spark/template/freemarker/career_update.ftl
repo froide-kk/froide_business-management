@@ -29,8 +29,7 @@
 </nav>
 <!---------- 保存ボタン ---------->
 <form method="post" action="/career/update">
-    <button type="submit" value="${id}" name="id" class="keep"
-            onclick="location.href='http://localhost:4567/career/show'">保存
+    <button type="submit" value="${id}" name="id" class="keep" onclick="location.href='http://localhost:4567/career/show'">保存
     </button>
 
     <!---------- 業務経歴書の部分 ---------->
@@ -87,6 +86,7 @@
                 <td colspan="5"><input type="text" size="120" value="${license!""}" name="license"></td>
             </tr>
         </table>
+</form>
 
         <br>
 
@@ -146,8 +146,9 @@
         </table>
 
         <br>
-
-        <input type="button" value="追加" id="add" class="add_work">
+        <form method="post" action="/career/update/workAdd">
+            <button type="submit" id="add" class="add_work">追加</button>
+        </form>
 
         <br>
         
@@ -164,15 +165,15 @@
         </tr>
 
         <tr>
-            <td><input type="text" value="${empWorklist.industry!""}"</td>
+            <td><input type="text" name="industry" value="${empWorklist.industry!""}"></td>
             <td>
-                <select>
+                <select name="project_id">
                     <option>${empWorklist.projects_name!""}</option>
 
 <!--                    List削除-->
                 </select>
             </td>
-            <td><input type="text" size="10" value="${empWorklist.work_start!""}">〜<input type="text" size="10"　 value="${empWorklist.work_end!""}"></td>
+            <td><input type="text" size="10" name="work_start" value="${empWorklist.work_start!""}">〜<input type="text" size="10" name="work_end" value="${empWorklist.work_end!""}"></td>
             <td>
                 <script>
                     let sday = "${empWorklist.work_start!""}";
@@ -215,9 +216,9 @@
             <th>役割</th>
         </tr>
         <tr>
-            <td colspan="2"><input type="text" value="${empWorklist.system_sum!""}"></td>
+            <td colspan="2"><input type="text" name="system_sum" value="${empWorklist.system_sum!""}"></td>
             <td>
-                <select>
+                <select name="dev_scale">
                     <option>${empWorklist.dev_scale!""}</option>
                     <option value="5人以下">5人以下</option>
                     <option value="10人以下">10人以下</option>
@@ -229,7 +230,7 @@
                     <option value="50人以上">50以上</option>
                 </select>
             </td>
-            <td><input type="text" size="20" value="${empWorklist.role!""}"></td>
+            <td><input type="text" size="20" name="role" value="${empWorklist.role!""}"></td>
 
         </tr>
         <tr>
@@ -242,14 +243,14 @@
                     <!--                    List削除-->
                 </ui>
             </td>
-            <td colspan="2"><input type="text" size="80" value="${empWorklist.dev_environment!""}"></td>
+            <td colspan="2"><input type="text" size="80" name="dev_environment" value="${empWorklist.dev_environment!""}"></td>
         </tr>
 
         <tr>
             <th colspan="4">システムの詳細</th>
         </tr>
         <tr>
-            <td colspan="4"><input type="textarea" cols="120" value="${empWorklist.system_details!""}"></td>
+            <td colspan="4"><input type="textarea" cols="120" name="system_details" value="${empWorklist.system_details!""}"></td>
         </tr>
     </table>
 
@@ -257,17 +258,7 @@
 </#list>
 </div>
 </div>
-</form>
 
-<script>
-    let add = document.getElementById("add")
-    add.addEventListener("click", function(){
-        var table = document.getElementById("work");
-        let clone_table = table.firstElementChild.cloneNode(true);
-        var parent = document.querySelector("#clone");
-        parent.appendChild(clone_table);
-    });
 
-</script>
 </body>
 </html>
