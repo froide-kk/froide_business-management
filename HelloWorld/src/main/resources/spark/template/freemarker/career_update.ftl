@@ -143,6 +143,7 @@
 
     <br>
 
+<#list EmpWorkLists as empWorklist>
     <table border=1 style="border-collapse: collapse">
         <tr>
             <th>業種</th>
@@ -151,20 +152,19 @@
         </tr>
 
         <tr>
-            <td><input type="text" value="${industry}"</td>
+            <td><input type="text" value="${empWorklist.industry!""}"</td>
             <td>
                 <select>
-                    <option>${projects_name!""}</option>
-                    <#list ProLists as proList>
-                    <option value="${proList.id}">${proList.name}</option>
-                    </#list>
+                    <option>${empWorklist.projects_name!""}</option>
+
+<!--                    List削除-->
                 </select>
             </td>
-            <td><input type="text" size="10" value="${work_start!""}">〜<input type="text" size="10"　 value="${work_end!""}"></td>
+            <td><input type="text" size="10" value="${empWorklist.work_start!""}">〜<input type="text" size="10"　 value="${empWorklist.work_end!""}"></td>
             <td>
                 <script>
-                    let sday = "${work_start!""}";
-                    let eday = "${work_end!""}";
+                    let sday = "${empWorklist.work_start!""}";
+                    let eday = "${empWorklist.work_end!""}";
                     console.log(sday);
                     console.log(eday);
                     if(sday === "null" || eday === "null"){
@@ -204,10 +204,10 @@
             <th>役割</th>
         </tr>
         <tr>
-            <td colspan="2"><input type="text" value="${system_sum}"></td>
+            <td colspan="2"><input type="text" value="${empWorklist.system_sum!""}"></td>
             <td>
                 <select>
-                    <option>${dev_scale}</option>
+                    <option>${empWorklist.dev_scale!""}</option>
                     <option value="5人以下">5人以下</option>
                     <option value="10人以下">10人以下</option>
                     <option value="15人以下">15人以下</option>
@@ -218,7 +218,7 @@
                     <option value="50人以上">50以上</option>
                 </select>
             </td>
-            <td><input type="text" size="20" value="${role}"></td>
+            <td><input type="text" size="20" value="${empWorklist.role!""}"></td>
 
         </tr>
         <tr>
@@ -228,86 +228,22 @@
         <tr>
             <td colspan="2">
                 <ui id="phase"  multiple size="3">
-                    <#list dev_period_phasesLists as dppList>
-                    <li><input type="checkbox" value="${dppList.id}">${dppList.name!""}</li>
-                    </#list>
+                    <!--                    List削除-->
                 </ui>
             </td>
-            <td colspan="2"><input type="text" size="80" value="${dev_environment}"></td>
+            <td colspan="2"><input type="text" size="80" value="${empWorklist.dev_environment!""}"></td>
         </tr>
 
         <tr>
             <th colspan="4">システムの詳細</th>
         </tr>
         <tr>
-            <td colspan="4"><input type="textarea" cols="120" value="${system_details}"></td>
+            <td colspan="4"><input type="textarea" cols="120" value="${empWorklist.system_details!""}"></td>
         </tr>
     </table>
 
-    <table border=1 style="border-collapse: collapse">
-        <tr>
-            <th>業種</th>
-            <th class="disp">プロジェクト</th>
-            <th colspan="2">期間</th>
-        </tr>
 
-        <br>
-        <br>
-
-        <tr>
-            <td>業種表示</td>
-            <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
-            <td><input type="text" size="60" value="2022-04-01 〜 2022-04-21"></td>
-            <td>
-                <script>
-
-                    var startday = new Date("2022-04-01");
-                    var endday = new Date("2022-4-21");
-                    //差日を求める（86,400,000ミリ秒＝１日）
-                    var termDay = (endday - startday) / 86400000;
-                    if(termDay>365){
-                    termMouths=termDay%365
-                    termMouth=termMouths/30
-                    termYear=termDay/365
-                    document.write(Math.floor(termYear)+"年"+Math.floor(termMouth)+"ヶ月");
-                    }else if(termDay>30){
-                    termMouth=termDay/30
-                     document.write(Math.floor(termMouth)+"ヶ月");
-                    }else{
-                     document.write(Math.floor(termDay)+"日");
-                    }
-                 </script>
-            </td>
-        </tr>
-
-        <tr>
-            <th colspan="2">システムの概要</th>
-            <th>開発規模</th>
-            <th>役割</th>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="text"></td>
-            <td></td>
-            <td><input type="text" size="20"></td>
-
-        </tr>
-        <tr>
-            <th colspan="2">開発担当フェーズ</th>
-            <th colspan="2">使用言語</th>
-        </tr>
-        <tr>
-            <td colspan="2">要件分析、DB設計</td>
-            <td colspan="2"><input type="text" size="80" value="Java,HTML/CSS,JavaScript"></td>
-        </tr>
-
-        <tr>
-            <th colspan="4">システムの詳細</th>
-        </tr>
-        <tr>
-            <td colspan="4"><textarea type="text" cols="120" value="詳細をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす"></textarea></td>
-        </tr>
-        </tr>
-    </table>
+</#list>
 </div>
 </body>
 </html>

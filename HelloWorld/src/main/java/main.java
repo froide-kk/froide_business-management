@@ -139,19 +139,10 @@ public class main {
                 attribute.put("final_education",empUp.final_education);
 
                 //経歴詳細の表示
-                EmployeesWork_histories employeesWork_histories = empWork_histories.selectById(Integer.valueOf(id));
-                attribute.put("work_start",employeesWork_histories.work_start);
-                attribute.put("work_end",employeesWork_histories.work_end);
-                attribute.put("industry",employeesWork_histories.industry);
-                attribute.put("system_sum",employeesWork_histories.system_sum);
-                attribute.put("projects_name",employeesWork_histories.projects_name);
-                attribute.put("role",employeesWork_histories.role);
-                attribute.put("dev_scale",employeesWork_histories.dev_scale);
-                attribute.put("system_details",employeesWork_histories.system_details);
-                attribute.put("dev_environment",employeesWork_histories.dev_environment);
+                //プロジェクトのリスト
+                List<EmployeesWork_histories> employeesWork_histories = empWork_histories.selectByAll(Integer.valueOf(id));
+                attribute.put("EmpWorkLists",employeesWork_histories);
 
-                List<Projects> projects = projectsDao.selectAll();
-                attribute.put("ProLists",projects);
             });
 
 
