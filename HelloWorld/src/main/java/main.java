@@ -23,6 +23,7 @@ public class main {
         get("/career/show", (req, res) -> {
             EmployeesWork_historiesDao empWork_histories = new EmployeesWork_historiesDaoImpl(DbConfig.singleton());
             EmployeesDao empDao = new EmployeesDaoImpl(DbConfig.singleton());
+            EmployeesEachSkillsDao empEachSkills = new EmployeesEachSkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
@@ -48,6 +49,15 @@ public class main {
                 attribute.put("dev_scale",employeesWork_histories.dev_scale);
                 attribute.put("system_details",employeesWork_histories.system_details);
                 attribute.put("dev_environment",employeesWork_histories.dev_environment);
+
+                //IDを受け取る必要があるので、EmployeesEachSkillsのSelectByIdをかく。
+//                EmployeesEachSkills employeesEachSkills = empEachSkills.selectById(Integer.valueOf(id));
+                List<EmployeesEachSkills> EachSkillsDB = empEachSkills.select_db_All(Integer.valueOf(id));
+                attribute.put("EachSkillsDB",EachSkillsDB);
+                List<EmployeesEachSkills> EachSkillsOS = empEachSkills.select_os_All(Integer.valueOf(id));
+                attribute.put("EachSkillsOS",EachSkillsOS);
+                List<EmployeesEachSkills> EachSkillsScript = empEachSkills.select_script_All(Integer.valueOf(id));
+                attribute.put("EachSkillsScript",EachSkillsScript);
 
             });
 

@@ -310,6 +310,11 @@ justify-content: center;
     border-bottom: none;
 }
 
+.career_show_table{
+    display:flex;
+    width:80%;
+    margin: 0 auto;
+}
 
 /* ここまで業務経歴書閲覧画面ページ */
 
