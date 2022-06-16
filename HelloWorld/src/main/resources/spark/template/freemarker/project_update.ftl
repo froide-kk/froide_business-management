@@ -49,8 +49,9 @@
 
                 <input type="hidden" value="${pj.id}" name="id">
                 <input type="hidden" value="${pj.company_id}" name="input_com_id">
+
                 <td class="company_project_edit_delete">
-                    <button type="submit" class="company_project_edit_button">編集</button>
+                    <button type="submit" class="company_project_edit_button">保存</button>
                 </td>
             </form>
 
@@ -63,7 +64,8 @@
         </tr>
     </#list>
     </table>
-    <p class="statement">※企業名、またはプロジェクト名の修正・変更をしたい場合は対象の名称をクリックして入力した後に編集ボタンを押すと、変更が反映されます</p>
+
+    <p class="statement">※企業名、またはプロジェクト名の修正・変更をしたい場合は対象の名称をクリックして入力した後に保存ボタンを押すと、変更を保存できます</p>
     <p class="statement">※削除ボタンを押すと、対象のプロジェクトを削除することができます(企業名の削除はできません)</p>
 
     <form method="post" id ="addPro" action="/career/projectAdd" onSubmit="return projectAdd()">
@@ -73,7 +75,7 @@
                 <select name="company_id" class="selectCompanyName">
                     <option value="0">企業選択</option>
                     <#list companiesList as comList>
-                    <option  value="${comList.id}">${comList.name}</option>
+                    <option value="${comList.id}">${comList.name}</option>
                     </#list>
                 </select>
             </div>
