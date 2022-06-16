@@ -57,7 +57,9 @@ public class EmployeesWork_histories {
     String license;
     String address;
 
-//    経歴詳細テーブル
+
+    //    経歴詳細テーブル
+    Integer history_id;
     String industry;
     String system_sum;
     String projects_name;
@@ -177,6 +179,14 @@ public class EmployeesWork_histories {
 
     public void setWork_end(Date work_end) {
         this.work_end = work_end;
+    }
+
+    public Integer getHistory_id() {
+        return history_id;
+    }
+
+    public void setHistory_id(Integer history_id) {
+        this.history_id = history_id;
     }
 
 }

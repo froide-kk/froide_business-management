@@ -138,8 +138,6 @@ public class main {
                 attribute.put("address",empUp.address);
                 attribute.put("final_education",empUp.final_education);
 
-                //経歴詳細の表示
-
                 //プロジェクトのリスト
                 List<EmployeesWork_histories> employeesWork_histories = empWork_histories.selectByAll(Integer.valueOf(id));
                 attribute.put("EmpWorkLists",employeesWork_histories);
@@ -194,7 +192,7 @@ public class main {
             attribute.put("license",license);
 
 //          経歴書詳細の登録
-            String work_history_id = req.queryParams("work_history_id");
+            String work_history_id = req.queryParams("history_id");
             String project_id = req.queryParams("project_id");
             String work_start = req.queryParams("work_start");
             String work_end = req.queryParams("work_end");
@@ -205,7 +203,7 @@ public class main {
             String dev_scale = req.queryParams("dev_scale");
             String dev_environment = req.queryParams("dev_environment");
 
-            attribute.put("work_history_id",work_history_id);
+            attribute.put("history_id",work_history_id);
             attribute.put("project_id",project_id);
             attribute.put("work_start",work_start);
             attribute.put("work_end",work_end);
@@ -227,20 +225,22 @@ public class main {
                 employee.setFinal_education(final_education);
                 employee.setLicense(license);
                 empDao.update_workHistry(employee);
+
 //                work_historiesの登録
                 Work_histories work_histories = historiesDao.selectById(Integer.valueOf(req.queryParams("id")));
-//                work_histories.setProject_id(Integer.valueOf(project_id));
-//                work_histories.setWork_start(Date.valueOf(work_start));
-//                work_histories.setWork_end(Date.valueOf(work_end));
+                work_histories.setProject_id(Integer.valueOf(project_id));
+                work_histories.setWork_start(Date.valueOf(work_start));
+                work_histories.setWork_end(Date.valueOf(work_end));
                 historiesDao.update(work_histories);
+
 //                work_detailsの登録
-                Work_details work_details = detailsDao.selectById(Integer.valueOf(req.queryParams("id")));
-                work_details.setIndustry(industry);
-                work_details.setSystem_sum(system_sum);
-                work_details.setSystem_details(system_details);
-                work_details.setRole(role);
-                work_details.setDev_scale(dev_scale);
-                work_details.setDev_environment(dev_environment);
+//                Work_details work_details = detailsDao.selectById(Integer.valueOf(req.queryParams(work_history_id)));
+//                work_details.setIndustry(industry);
+//                work_details.setSystem_sum(system_sum);
+//                work_details.setSystem_details(system_details);
+//                work_details.setRole(role);
+//                work_details.setDev_scale(dev_scale);
+//                work_details.setDev_environment(dev_environment);
 //                detailsDao.update(work_details);
             });
 

@@ -5,6 +5,7 @@ select
    Employees.birthday,
    Employees.address,
    Employees.final_education,
+   Work_histories.id AS history_id,
    Work_histories.work_start,
    Work_histories.work_end,
    Work_histories.project_id,
@@ -26,7 +27,7 @@ on
 left outer join
     `Work_details`
 on
-     `Work_details`.work_history_id = `Work_histories`.id
+     `Work_details`.work_history_id = `Work_histories`.project_id
 left outer join
      `Projects`
 on

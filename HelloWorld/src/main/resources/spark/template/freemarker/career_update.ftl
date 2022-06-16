@@ -27,6 +27,10 @@
         <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
     </ul>
 </nav>
+<!---------- 追加ボタン ---------->
+<form method="post" action="/career/updateWorkAdd">
+    <button type="submit" value="${id}" name="employee_id" id="add" class="add_work">追加</button>
+</form>
 <!---------- 保存ボタン ---------->
 <form method="post" action="/career/update">
     <button type="submit" value="${id}" name="id" class="keep" onclick="location.href='http://localhost:4567/career/show'">保存</button>
@@ -85,7 +89,6 @@
             <td colspan="5"><input type="text" size="120" value="${license!""}" name="license"></td>
         </tr>
     </table>
-</form>
 
     <br>
 
@@ -143,9 +146,7 @@
 
     <br>
 
-    <form method="post" action="/career/updateWorkAdd">
-        <button type="submit" value="${id}" name="employee_id" id="add" class="add_work">追加</button>
-    </form>
+
 
 <#list EmpWorkLists as empWorklist>
     <table border=1 style="border-collapse: collapse">
@@ -279,6 +280,7 @@
     </table>
 </#list>
 </div>
+</form>
 
 
 <script>
