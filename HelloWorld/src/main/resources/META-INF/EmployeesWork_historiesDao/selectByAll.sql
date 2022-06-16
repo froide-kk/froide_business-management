@@ -33,4 +33,4 @@ on
 where
     `Employees`.id = /* id */0
 order by
-    `Work_histories`.work_end desc
+    `Work_histories`.work_end  IS NULL DESC, work_end DESC;

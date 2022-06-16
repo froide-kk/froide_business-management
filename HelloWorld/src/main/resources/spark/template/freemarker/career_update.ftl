@@ -72,10 +72,27 @@
                             }
 
                         document.write(getAge(birthday));
-                     </script></td>
-            <td><input type="text" value="${address!""}" name="address"></td>
-            <td><input type="text" value="${final_education!""}" name="final_education"></td>
-        </tr>
+
+                    </script>
+                </td>
+                <td><input type="text" value="${address!""}" name="address"></td>
+                <td><input type="text" value="${final_education!""}" name="final_education"></td>
+            </tr>
+
+            <tr>
+                <th colspan="5">資格</th>
+            </tr>
+            <tr>
+                <td colspan="5"><input type="text" size="120" value="${license!""}" name="license"></td>
+            </tr>
+        </table>
+</form>
+
+        <br>
+
+        <div class="Level">
+            <p>○　業務で使用経験あり △　個人レベルで対応可能</p>
+        </div>
 
         <tr>
             <th colspan="5">資格</th>
@@ -91,6 +108,12 @@
     <div class ="Level">
         <p>○　業務で使用経験あり  △　個人レベルで対応可能</p>
     </div>
+
+
+        <br>
+        <form method="post" action="/career/update/workAdd">
+            <button type="submit" id="add" class="add_work">追加</button>
+        </form>
 
     <table border=1 style="border-collapse: collapse">
         <tr>
@@ -124,7 +147,6 @@
                           </select></li>
                     </#list>
                 </ul>
-
             </td>
             <td>
                 <ul>
@@ -152,16 +174,16 @@
         </tr>
 
         <tr>
-            <td><input type="text" value="${empWorklist.industry!""}"</td>
+            <td><input type="text" name="industry" value="${empWorklist.industry!""}"></td>
             <td>
-                <select>
+                <select name="project_id">
                     <option>${empWorklist.projects_name!""}</option>
                     <#list ProLists as proList>
                     <option value="${proList.id!""}">${proList.name!""}</option>
                     </#list>
                 </select>
             </td>
-            <td><input type="text" size="10" value="${empWorklist.work_start!""}">〜<input type="text" size="10"　 value="${empWorklist.work_end!""}"></td>
+            <td><input type="text" size="10" name="work_start" value="${empWorklist.work_start!""}">〜<input type="text" size="10" name="work_end" value="${empWorklist.work_end!""}"></td>
             <td>
                 <script>
                     var sday = "${empWorklist.work_start!"noStartDate"}";
@@ -234,9 +256,9 @@
             <th>役割</th>
         </tr>
         <tr>
-            <td colspan="2"><input type="text" value="${empWorklist.system_sum!""}"></td>
+            <td colspan="2"><input type="text" name="system_sum" value="${empWorklist.system_sum!""}"></td>
             <td>
-                <select>
+                <select name="dev_scale">
                     <option>${empWorklist.dev_scale!""}</option>
                     <option value="5人以下">5人以下</option>
                     <option value="10人以下">10人以下</option>
@@ -248,7 +270,7 @@
                     <option value="50人以上">50以上</option>
                 </select>
             </td>
-            <td><input type="text" size="20" value="${empWorklist.role!""}"></td>
+            <td><input type="text" size="20" name="role" value="${empWorklist.role!""}"></td>
 
         </tr>
         <tr>
@@ -263,19 +285,18 @@
                     </#list>
                 </ul>
             </td>
-            <td colspan="2"><input type="text" size="80" value="${empWorklist.dev_environment!""}"></td>
+            <td colspan="2"><input type="text" size="80" name="dev_environment" value="${empWorklist.dev_environment!""}"></td>
         </tr>
 
         <tr>
             <th colspan="4">システムの詳細</th>
         </tr>
         <tr>
-            <td colspan="4"><input type="textarea" cols="120" value="${empWorklist.system_details!""}"></td>
+            <td colspan="4"><input type="textarea" cols="120" name="system_details" value="${empWorklist.system_details!""}"></td>
         </tr>
     </table>
-
-
 </#list>
+</div>
 </div>
 </body>
 </html>
