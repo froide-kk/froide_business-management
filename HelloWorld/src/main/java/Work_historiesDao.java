@@ -12,6 +12,6 @@ public interface Work_historiesDao {
     @Delete
     int delete(Work_histories work_histories);
 
-    @Select
-    Work_histories selectById(Integer id);
+//    @Select
+//    Work_histories selectById(Integer id);
 }
