@@ -228,11 +228,11 @@ public class main {
                 employee.setLicense(license);
                 empDao.update_workHistry(employee);
 //                work_historiesの登録
-                Work_histories work_histories = historiesDao.selectById(Integer.valueOf(req.queryParams("id")));
-                work_histories.setProject_id(Integer.valueOf(project_id));
-                work_histories.setWork_start(Date.valueOf(work_start));
-                work_histories.setWork_end(Date.valueOf(work_end));
-                historiesDao.update(work_histories);
+//                Work_histories work_histories = historiesDao.selectById(Integer.valueOf(req.queryParams("id")));
+//                work_histories.setProject_id(Integer.valueOf(project_id));
+//                work_histories.setWork_start(Date.valueOf(work_start));
+//                work_histories.setWork_end(Date.valueOf(work_end));
+//                historiesDao.update(work_histories);
 //                work_detailsの登録
                 Work_details work_details = detailsDao.selectById(Integer.valueOf(req.queryParams("id")));
                 work_details.setIndustry(industry);

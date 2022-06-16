@@ -18,5 +18,4 @@ public interface EmployeesWork_historiesDao {
     EmployeesWork_histories selectById(Integer id);
     @Select
     List<EmployeesWork_histories> selectByAll(Integer id);
-
 }

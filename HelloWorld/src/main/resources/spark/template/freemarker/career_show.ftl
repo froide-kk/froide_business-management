@@ -151,7 +151,7 @@
 
         <tr class="tr-bottom">
             <td>${empWorkList.industry!""}</td>
-            <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">${projects_name!""}</a></td>
+            <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">${empWorkList.projects_name!""}</a></td>
             <td>${empWorkList.work_start!"未設定"} 〜 ${empWorkList.work_end!"継続中"}
                 <script>
                     var sday = "${empWorkList.work_start!"noStartDate"}";
@@ -236,7 +236,9 @@
             <th colspan="2">使用言語</th>
         </tr>
         <tr>
-            <td colspan="2"></td>
+            <td colspan="2">
+                <span>${empWorkList.dpp_name!""}</span>
+            </td>
             <td colspan="2">${empWorkList.dev_environment!""}</td>
         </tr>
 
