@@ -27,6 +27,10 @@
         <button class="browseBack" onclick="history.back(-1);return false;"><a href="#" >戻る</a></button>
     </ul>
 </nav>
+<!---------- 追加ボタン ---------->
+<form method="post" action="/career/updateWorkAdd">
+    <button type="submit" value="${id}" name="employee_id" id="add" class="add_work">追加</button>
+</form>
 <!---------- 保存ボタン ---------->
 <form method="post" action="/career/update">
     <button type="submit" value="${id}" name="id" class="keep" onclick="location.href='http://localhost:4567/career/show'">保存</button>
@@ -78,22 +82,6 @@
                 <td><input type="text" value="${address!""}" name="address"></td>
                 <td><input type="text" value="${final_education!""}" name="final_education"></td>
             </tr>
-
-            <tr>
-                <th colspan="5">資格</th>
-            </tr>
-            <tr>
-                <td colspan="5"><input type="text" size="120" value="${license!""}" name="license"></td>
-            </tr>
-        </table>
-</form>
-
-        <br>
-
-        <div class="Level">
-            <p>○　業務で使用経験あり △　個人レベルで対応可能</p>
-        </div>
-
         <tr>
             <th colspan="5">資格</th>
         </tr>
@@ -101,19 +89,12 @@
             <td colspan="5"><input type="text" size="120" value="${license!""}" name="license"></td>
         </tr>
     </table>
-</form>
-    <br>
 
+    <br>
 
     <div class ="Level">
         <p>○　業務で使用経験あり  △　個人レベルで対応可能</p>
     </div>
-
-
-        <br>
-        <form method="post" action="/career/update/workAdd">
-            <button type="submit" id="add" class="add_work">追加</button>
-        </form>
 
     <table border=1 style="border-collapse: collapse">
         <tr>
@@ -165,6 +146,8 @@
 
     <br>
 
+
+
 <#list EmpWorkLists as empWorklist>
     <table border=1 style="border-collapse: collapse">
         <tr>
@@ -177,9 +160,9 @@
             <td><input type="text" name="industry" value="${empWorklist.industry!""}"></td>
             <td>
                 <select name="project_id">
-                    <option>${empWorklist.projects_name!""}</option>
+                    <option value="${empWorklist.project_id!""}">${empWorklist.projects_name!""}</option>
                     <#list ProLists as proList>
-                    <option value="${proList.id!""}">${proList.name!""}</option>
+                    <option value="${proList.id}">${proList.name!""}</option>
                     </#list>
                 </select>
             </td>
@@ -297,6 +280,14 @@
     </table>
 </#list>
 </div>
-</div>
+</form>
+
+
+<script>
+    let add = document.getElementById("add");
+    add.addEventListener("submit",function(){
+        window.location.reload(false);
+    })
+</script>
 </body>
 </html>

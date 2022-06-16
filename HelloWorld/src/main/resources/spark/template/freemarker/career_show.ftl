@@ -33,7 +33,7 @@
     <ul class="option">
         <li>
             <form method="get" action="/career/update">
-            <button type="submit" value="${id}" name="id" class="edit" onclick="location.href='http://localhost:4567/career/update'"><a>編集</a></button>
+            <button type="submit" value="${id}" name="id" class="edit" ><a>編集</a></button>
             </form>
         </li>
         <li>
