@@ -179,15 +179,15 @@
                 <select name="project_id">
                     <option>${empWorklist.projects_name!""}</option>
                     <#list ProLists as proList>
-                    <option value="${proList.id}">${proList.name!""}</option>
+                    <option value="${proList.id!""}">${proList.name!""}</option>
                     </#list>
                 </select>
             </td>
             <td><input type="text" size="10" name="work_start" value="${empWorklist.work_start!""}">〜<input type="text" size="10" name="work_end" value="${empWorklist.work_end!""}"></td>
             <td>
                 <script>
-                    var sday = "${empWorkList.work_start!"noStartDate"}";
-                    var eday = "${empWorkList.work_end!"noEndDate"}";
+                    var sday = "${empWorklist.work_start!"noStartDate"}";
+                    var eday = "${empWorklist.work_end!"noEndDate"}";
                     console.log(sday);
                     console.log(eday);
                     if(sday === "noStartDate"){
