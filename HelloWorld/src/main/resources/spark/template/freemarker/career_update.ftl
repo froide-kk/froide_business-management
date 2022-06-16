@@ -157,15 +157,15 @@
                 <select>
                     <option>${empWorklist.projects_name!""}</option>
                     <#list ProLists as proList>
-                    <option value="${proList.id}">${proList.name!""}</option>
+                    <option value="${proList.id!""}">${proList.name!""}</option>
                     </#list>
                 </select>
             </td>
             <td><input type="text" size="10" value="${empWorklist.work_start!""}">〜<input type="text" size="10"　 value="${empWorklist.work_end!""}"></td>
             <td>
                 <script>
-                    var sday = "${empWorkList.work_start!"noStartDate"}";
-                    var eday = "${empWorkList.work_end!"noEndDate"}";
+                    var sday = "${empWorklist.work_start!"noStartDate"}";
+                    var eday = "${empWorklist.work_end!"noEndDate"}";
                     console.log(sday);
                     console.log(eday);
                     if(sday === "noStartDate"){
@@ -274,70 +274,7 @@
         </tr>
     </table>
 
-    <table border=1 style="border-collapse: collapse">
-        <tr>
-            <th>業種</th>
-            <th class="disp">プロジェクト</th>
-            <th colspan="2">期間</th>
-        </tr>
 
-        <br>
-        <br>
-
-        <tr>
-            <td>業種表示</td>
-            <td><a href="http://localhost:4567/career/projectEmp/(id)">${empWorklist.projects_name!""}</a></td>
-            <td><input type="text" size="60" value="2022-04-01 〜 2022-04-21"></td>
-            <td>
-                <script>
-
-                    var startday = new Date("2022-04-01");
-                    var endday = new Date("2022-4-21");
-                    //差日を求める（86,400,000ミリ秒＝１日）
-                    var termDay = (endday - startday) / 86400000;
-                    if(termDay>365){
-                    termMouths=termDay%365
-                    termMouth=termMouths/30
-                    termYear=termDay/365
-                    document.write(Math.floor(termYear)+"年"+Math.floor(termMouth)+"ヶ月");
-                    }else if(termDay>30){
-                    termMouth=termDay/30
-                     document.write(Math.floor(termMouth)+"ヶ月");
-                    }else{
-                     document.write(Math.floor(termDay)+"日");
-                    }
-                 </script>
-            </td>
-        </tr>
-
-        <tr>
-            <th colspan="2">システムの概要</th>
-            <th>開発規模</th>
-            <th>役割</th>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="text"></td>
-            <td></td>
-            <td><input type="text" size="20"></td>
-
-        </tr>
-        <tr>
-            <th colspan="2">開発担当フェーズ</th>
-            <th colspan="2">使用言語</th>
-        </tr>
-        <tr>
-            <td colspan="2">要件分析、DB設計</td>
-            <td colspan="2"><input type="text" size="80" value="Java,HTML/CSS,JavaScript"></td>
-        </tr>
-
-        <tr>
-            <th colspan="4">システムの詳細</th>
-        </tr>
-        <tr>
-            <td colspan="4"><textarea type="text" cols="120" value="詳細をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす"></textarea></td>
-        </tr>
-        </tr>
-    </table>
 </#list>
 </div>
 </body>
