@@ -450,8 +450,27 @@ public class main {
         post("/career/empUpdate/keep",(req,res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
-            String joinDate = req.queryParams("join_date");
-            String Email = req.queryParams("email");
+            String departmentID = req.queryParams("input_dep_id");
+            String joinDate = req.queryParams("input_joinDate");
+            String Email = req.queryParams("input_email");
+
+            Map<String, Object> attribute = new HashMap<>();
+
+            attribute.put("input_dep_id",departmentID);
+            attribute.put("input_joinDate",joinDate);
+            attribute.put("input_email",Email);
+
+            if(joinDate.length() <= 256 && Email.length() <= 256){
+                if (!Objects.equals(joinDate, "") && !Objects.equals(Email, "")) {
+                    tm.required(() -> {
+                        Employees employees = new Employees();
+                        employees.setId(Integer.valueOf(req.queryParams("input_com_id")));
+                        employees.setName(joinDate);
+                        employees.setName(Email);
+                        empDao.updateEmp(employees);
+                    });
+                }
+            }
 
             res.redirect("/career/empUpdate");
             return res;

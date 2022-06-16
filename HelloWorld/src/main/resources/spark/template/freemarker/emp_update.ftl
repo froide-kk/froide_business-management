@@ -112,10 +112,10 @@
 
             <form method="post" action="/career/empUpdate/keep" onSubmit="return confirmKeep()">
                 <td class="emp_delete_col">
-                    <select name="input_depName" class="depName">
+                    <select name="input_dep_id" class="depName">
                         <option value="${EmpList.id}">${EmpList.dep_name}</option>
                         <#list departmentLists as depList>
-                        <option value="${EmpList.id}">${depList.name}</option>
+                        <option value="${depList.id}">${depList.name}</option>
                     </#list>
                     </select>
                 </td>
@@ -133,16 +133,19 @@
                     <button type="submit" class="emp_keep_button">保存</button>
                 </td>
 
-            <form method="post" action="/career/empUpdate/delete" class="emp_delete" onsubmit="return confirmDelete()">
-                <input type="hidden" value="${EmpList.id}" name="id">
-                <td class="emp_delete_col2">
-                    <button type="submit" class="emp_delete_button">削除</button>
-                </td>
+                <form method="post" action="/career/empUpdate/delete" class="emp_delete" onsubmit="return confirmDelete()">
+                    <input type="hidden" value="${EmpList.id}" name="id">
+                    <td class="emp_delete_col2">
+                        <button type="submit" class="emp_delete_button">削除</button>
+                    </td>
+                </form>
             </form>
-
         </tr>
         </#list>
     </table>
+    <p class="statement">※情報の修正・変更をしたい場合は対象の名称をクリックしてテキストボックスに入力して保存ボタンを押すと、変更を保存できます</p>
+    <p class="statement">※IDと名前の変更はできません</p>
+    <p class="statement">※削除ボタンを押すと、対象のプロジェクトを削除することができます(企業名の削除はできません)</p>
 
     <script>
     function confirmKeep() {
