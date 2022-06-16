@@ -7,6 +7,7 @@ select
    Employees.final_education,
    Work_histories.work_start,
    Work_histories.work_end,
+   Work_histories.project_id,
    Work_details.industry,
    Work_details.system_sum,
    Projects.name AS projects_name,

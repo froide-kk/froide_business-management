@@ -229,9 +229,9 @@ public class main {
                 empDao.update_workHistry(employee);
 //                work_historiesの登録
                 Work_histories work_histories = historiesDao.selectById(Integer.valueOf(req.queryParams("id")));
-                work_histories.setProject_id(Integer.valueOf(project_id));
-                work_histories.setWork_start(Date.valueOf(work_start));
-                work_histories.setWork_end(Date.valueOf(work_end));
+//                work_histories.setProject_id(Integer.valueOf(project_id));
+//                work_histories.setWork_start(Date.valueOf(work_start));
+//                work_histories.setWork_end(Date.valueOf(work_end));
                 historiesDao.update(work_histories);
 //                work_detailsの登録
                 Work_details work_details = detailsDao.selectById(Integer.valueOf(req.queryParams("id")));
@@ -241,7 +241,7 @@ public class main {
                 work_details.setRole(role);
                 work_details.setDev_scale(dev_scale);
                 work_details.setDev_environment(dev_environment);
-                detailsDao.update(work_details);
+//                detailsDao.update(work_details);
             });
 
             res.redirect("/career");
@@ -249,11 +249,11 @@ public class main {
 
         });
 
-        post("/career/update/workAdd",(req,res) -> {
+        post("/career/updateWorkAdd",(req,res) -> {
             Work_historiesDao historiesDao = new Work_historiesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-            String employee_id = req.queryParams("id");
+            String employee_id = req.queryParams("employee_id");
             String work_histories_id = req.queryParams("work_histories_id");
 
             attribute.put("employee_id",employee_id);
