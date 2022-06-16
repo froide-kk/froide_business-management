@@ -39,16 +39,9 @@ public class main {
                 attribute.put("address",emp.address);
                 attribute.put("final_education",emp.final_education);
 
-                EmployeesWork_histories employeesWork_histories = empWork_histories.selectById(Integer.valueOf(id));
-                attribute.put("work_start",employeesWork_histories.work_start);
-                attribute.put("work_end",employeesWork_histories.work_end);
-                attribute.put("industry",employeesWork_histories.industry);
-                attribute.put("system_sum",employeesWork_histories.system_sum);
-                attribute.put("projects_name",employeesWork_histories.projects_name);
-                attribute.put("role",employeesWork_histories.role);
-                attribute.put("dev_scale",employeesWork_histories.dev_scale);
-                attribute.put("system_details",employeesWork_histories.system_details);
-                attribute.put("dev_environment",employeesWork_histories.dev_environment);
+                //プロジェクトのリスト
+                List<EmployeesWork_histories> employeesWork_histories = empWork_histories.selectByAll(Integer.valueOf(id));
+                attribute.put("EmpWorkLists",employeesWork_histories);
 
                 //閲覧画面の使用言語リスト
                 List<EmployeesEachSkills> EachSkillsDB = empEachSkills.select_db_All(Integer.valueOf(id));
@@ -146,17 +139,12 @@ public class main {
                 attribute.put("final_education",empUp.final_education);
 
                 //経歴詳細の表示
-                EmployeesWork_histories employeesWork_histories = empWork_histories.selectById(Integer.valueOf(id));
-                attribute.put("work_start",employeesWork_histories.work_start);
-                attribute.put("work_end",employeesWork_histories.work_end);
-                attribute.put("industry",employeesWork_histories.industry);
-                attribute.put("system_sum",employeesWork_histories.system_sum);
-                attribute.put("projects_name",employeesWork_histories.projects_name);
-                attribute.put("role",employeesWork_histories.role);
-                attribute.put("dev_scale",employeesWork_histories.dev_scale);
-                attribute.put("system_details",employeesWork_histories.system_details);
-                attribute.put("dev_environment",employeesWork_histories.dev_environment);
 
+                //プロジェクトのリスト
+                List<EmployeesWork_histories> employeesWork_histories = empWork_histories.selectByAll(Integer.valueOf(id));
+                attribute.put("EmpWorkLists",employeesWork_histories);
+              
+//                プロジェクトのプルダウンメニュー
                 List<Projects> projects = projectsDao.selectAll();
                 attribute.put("ProLists",projects);
             });
@@ -185,9 +173,11 @@ public class main {
 
         post("/career/update",(req,res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            Work_historiesDao historiesDao = new Work_historiesDaoImpl(DbConfig.singleton());
+            Work_detailsDao detailsDao = new Work_detailsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-//            画面から受け取る
+//          従業員情報の登録
             //career/updateからidを受け取って、ftlに渡す
             String id = req.queryParams("id");
             String name = req.queryParams("name");
@@ -203,8 +193,33 @@ public class main {
             attribute.put("final_education",final_education);
             attribute.put("license",license);
 
+//          経歴書詳細の登録
+            String work_history_id = req.queryParams("work_history_id");
+            String project_id = req.queryParams("project_id");
+            String work_start = req.queryParams("work_start");
+            String work_end = req.queryParams("work_end");
+            String industry = req.queryParams("industry");
+            String system_sum = req.queryParams("system_sum");
+            String system_details = req.queryParams("system_details");
+            String role = req.queryParams("role");
+            String dev_scale = req.queryParams("dev_scale");
+            String dev_environment = req.queryParams("dev_environment");
+
+            attribute.put("work_history_id",work_history_id);
+            attribute.put("project_id",project_id);
+            attribute.put("work_start",work_start);
+            attribute.put("work_end",work_end);
+            attribute.put("industry",industry);
+            attribute.put("system_sum",system_sum);
+            attribute.put("system_details",system_details);
+            attribute.put("role",role);
+            attribute.put("dev_scale",dev_scale);
+            attribute.put("dev_environment",dev_environment);
+
+
             //データベースに登録する
             tm.required(() -> {
+//                従業員情報の登録
                 Employees employee = empDao.selectById(Integer.valueOf(req.queryParams("id")));
                 employee.setName(name);
                 employee.setBirthday(birthday);
@@ -212,11 +227,46 @@ public class main {
                 employee.setFinal_education(final_education);
                 employee.setLicense(license);
                 empDao.update_workHistry(employee);
+//                work_historiesの登録
+//                Work_histories work_histories = historiesDao.selectById(Integer.valueOf(req.queryParams("id")));
+//                work_histories.setProject_id(Integer.valueOf(project_id));
+//                work_histories.setWork_start(Date.valueOf(work_start));
+//                work_histories.setWork_end(Date.valueOf(work_end));
+//                historiesDao.update(work_histories);
+//                work_detailsの登録
+                Work_details work_details = detailsDao.selectById(Integer.valueOf(req.queryParams("id")));
+                work_details.setIndustry(industry);
+                work_details.setSystem_sum(system_sum);
+                work_details.setSystem_details(system_details);
+                work_details.setRole(role);
+                work_details.setDev_scale(dev_scale);
+                work_details.setDev_environment(dev_environment);
+                detailsDao.update(work_details);
             });
 
             res.redirect("/career");
             return res;
 
+        });
+
+        post("/career/update/workAdd",(req,res) -> {
+            Work_historiesDao historiesDao = new Work_historiesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+            Map<String, Object> attribute = new HashMap<>();
+            String employee_id = req.queryParams("id");
+            String work_histories_id = req.queryParams("work_histories_id");
+
+            attribute.put("employee_id",employee_id);
+            attribute.put("work_histories_id",work_histories_id);
+
+            tm.required(() -> {
+                Work_histories work_histories = new Work_histories();
+                work_histories.setEmployee_id(Integer.valueOf(employee_id));
+                historiesDao.insert(work_histories);
+            });
+
+            res.redirect("/career");
+            return res;
         });
 
         //ログイン画面

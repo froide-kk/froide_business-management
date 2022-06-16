@@ -72,10 +72,27 @@
                             }
 
                         document.write(getAge(birthday));
-                     </script></td>
-            <td><input type="text" value="${address!""}" name="address"></td>
-            <td><input type="text" value="${final_education!""}" name="final_education"></td>
-        </tr>
+
+                    </script>
+                </td>
+                <td><input type="text" value="${address!""}" name="address"></td>
+                <td><input type="text" value="${final_education!""}" name="final_education"></td>
+            </tr>
+
+            <tr>
+                <th colspan="5">資格</th>
+            </tr>
+            <tr>
+                <td colspan="5"><input type="text" size="120" value="${license!""}" name="license"></td>
+            </tr>
+        </table>
+</form>
+
+        <br>
+
+        <div class="Level">
+            <p>○　業務で使用経験あり △　個人レベルで対応可能</p>
+        </div>
 
         <tr>
             <th colspan="5">資格</th>
@@ -91,6 +108,12 @@
     <div class ="Level">
         <p>○　業務で使用経験あり  △　個人レベルで対応可能</p>
     </div>
+
+
+        <br>
+        <form method="post" action="/career/update/workAdd">
+            <button type="submit" id="add" class="add_work">追加</button>
+        </form>
 
     <table border=1 style="border-collapse: collapse">
         <tr>
@@ -124,7 +147,6 @@
                           </select></li>
                     </#list>
                 </ul>
-
             </td>
             <td>
                 <ul>
@@ -143,6 +165,7 @@
 
     <br>
 
+<#list EmpWorkLists as empWorklist>
     <table border=1 style="border-collapse: collapse">
         <tr>
             <th>業種</th>
@@ -151,37 +174,39 @@
         </tr>
 
         <tr>
-            <td><input type="text" value="${industry}"</td>
+            <td><input type="text" name="industry" value="${empWorklist.industry!""}"></td>
             <td>
-                <select>
-                    <option>${projects_name!""}</option>
+                <select name="project_id">
+                    <option>${empWorklist.projects_name!""}</option>
                     <#list ProLists as proList>
-                    <option value="${proList.id}">${proList.name}</option>
+                    <option value="${proList.id!""}">${proList.name!""}</option>
                     </#list>
                 </select>
             </td>
-            <td><input type="text" size="10" value="${work_start!""}">〜<input type="text" size="10"　 value="${work_end!""}"></td>
+            <td><input type="text" size="10" name="work_start" value="${empWorklist.work_start!""}">〜<input type="text" size="10" name="work_end" value="${empWorklist.work_end!""}"></td>
             <td>
                 <script>
-                    let sday = "${work_start!""}";
-                    let eday = "${work_end!""}";
+                    var sday = "${empWorklist.work_start!"noStartDate"}";
+                    var eday = "${empWorklist.work_end!"noEndDate"}";
                     console.log(sday);
                     console.log(eday);
-                    if(sday === "null" || eday === "null"){
-                    document.write("NULL表示成功");
-                    };
-                    let sdayAry = sday.split('/');
-                    let edayAry = eday.split('/');
-                    const Syear = sdayAry[0];
-                    const Smonth = sdayAry[1];
-                    const Sday = sdayAry[2];
-                    const Eyear = edayAry[0];
-                    const Emonth = edayAry[1];
-                    const Eday = edayAry[2];
+                    if(sday === "noStartDate"){
+                    console.log("NULLIF通過");
+                    document.write("");
+                    }else if(eday === "noEndDate"){
+                    console.log("NULLELSEIF通過");
+                    var today = new Date();
+                    var Eyear = today.getFullYear();
+                    var Emonth = today.getMonth()+1;
+                    var Eday = today.getDate();
+                    var sdayAry = sday.split('/');
+                    var Syear = sdayAry[0];
+                    var Smonth = sdayAry[1];
+                    var Sday = sdayAry[2];
                     var startday = new Date(Syear,Smonth,Sday);
                     var endday = new Date(Eyear,Emonth,Eday);
                     //差日を求める（86,400,000ミリ秒＝１日）
-                    let termDay = (endday - startday) / 86400000;
+                    var termDay = (endday - startday) / 86400000;
                     console.log(termDay)
                     if(termDay>365){
                     termMouths=termDay%365
@@ -194,77 +219,21 @@
                     }else{
                      document.write(Math.floor(termDay)+"日");
                     };
-                </script>
-            </td>
-        </tr>
-
-        <tr>
-            <th colspan="2">システムの概要</th>
-            <th>開発規模</th>
-            <th>役割</th>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="text" value="${system_sum}"></td>
-            <td>
-                <select>
-                    <option>${dev_scale}</option>
-                    <option value="5人以下">5人以下</option>
-                    <option value="10人以下">10人以下</option>
-                    <option value="15人以下">15人以下</option>
-                    <option value="20人以下">20人以下</option>
-                    <option value="30人以下">30人以下</option>
-                    <option value="40人以下">40人以下</option>
-                    <option value="50人以下">50人以下</option>
-                    <option value="50人以上">50以上</option>
-                </select>
-            </td>
-            <td><input type="text" size="20" value="${role}"></td>
-
-        </tr>
-        <tr>
-            <th colspan="2">開発担当フェーズ</th>
-            <th colspan="2">使用言語</th>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <ui id="phase"  multiple size="3">
-                    <#list dev_period_phasesLists as dppList>
-                    <li><input type="checkbox" value="${dppList.id}">${dppList.name!""}</li>
-                    </#list>
-                </ui>
-            </td>
-            <td colspan="2"><input type="text" size="80" value="${dev_environment}"></td>
-        </tr>
-
-        <tr>
-            <th colspan="4">システムの詳細</th>
-        </tr>
-        <tr>
-            <td colspan="4"><input type="textarea" cols="120" value="${system_details}"></td>
-        </tr>
-    </table>
-
-    <table border=1 style="border-collapse: collapse">
-        <tr>
-            <th>業種</th>
-            <th class="disp">プロジェクト</th>
-            <th colspan="2">期間</th>
-        </tr>
-
-        <br>
-        <br>
-
-        <tr>
-            <td>業種表示</td>
-            <td><a href="http://localhost:4567/career/projectEmp/(id)">プロジェクト表示</a></td>
-            <td><input type="text" size="60" value="2022-04-01 〜 2022-04-21"></td>
-            <td>
-                <script>
-
-                    var startday = new Date("2022-04-01");
-                    var endday = new Date("2022-4-21");
+                    }else{
+                    console.log("ELSE通過");
+                    var edayAry = eday.split('/');
+                    var Eyear = edayAry[0];
+                    var Emonth = edayAry[1];
+                    var Eday = edayAry[2];
+                    var sdayAry = sday.split('/');
+                    var Syear = sdayAry[0];
+                    var Smonth = sdayAry[1];
+                    var Sday = sdayAry[2];
+                    var startday = new Date(Syear,Smonth,Sday);
+                    var endday = new Date(Eyear,Emonth,Eday);
                     //差日を求める（86,400,000ミリ秒＝１日）
                     var termDay = (endday - startday) / 86400000;
+                    console.log(termDay)
                     if(termDay>365){
                     termMouths=termDay%365
                     termMouth=termMouths/30
@@ -275,8 +244,9 @@
                      document.write(Math.floor(termMouth)+"ヶ月");
                     }else{
                      document.write(Math.floor(termDay)+"日");
-                    }
-                 </script>
+                    };
+                   };
+                </script>
             </td>
         </tr>
 
@@ -286,9 +256,21 @@
             <th>役割</th>
         </tr>
         <tr>
-            <td colspan="2"><input type="text"></td>
-            <td></td>
-            <td><input type="text" size="20"></td>
+            <td colspan="2"><input type="text" name="system_sum" value="${empWorklist.system_sum!""}"></td>
+            <td>
+                <select name="dev_scale">
+                    <option>${empWorklist.dev_scale!""}</option>
+                    <option value="5人以下">5人以下</option>
+                    <option value="10人以下">10人以下</option>
+                    <option value="15人以下">15人以下</option>
+                    <option value="20人以下">20人以下</option>
+                    <option value="30人以下">30人以下</option>
+                    <option value="40人以下">40人以下</option>
+                    <option value="50人以下">50人以下</option>
+                    <option value="50人以上">50以上</option>
+                </select>
+            </td>
+            <td><input type="text" size="20" name="role" value="${empWorklist.role!""}"></td>
 
         </tr>
         <tr>
@@ -296,18 +278,25 @@
             <th colspan="2">使用言語</th>
         </tr>
         <tr>
-            <td colspan="2">要件分析、DB設計</td>
-            <td colspan="2"><input type="text" size="80" value="Java,HTML/CSS,JavaScript"></td>
+            <td colspan="2">
+                <ul id="phase"  multiple size="3">
+                    <#list dev_period_phasesLists as dppList>
+                    <li><input type="checkbox" value="${dppList.id!""}">${dppList.name!""}</li>
+                    </#list>
+                </ul>
+            </td>
+            <td colspan="2"><input type="text" size="80" name="dev_environment" value="${empWorklist.dev_environment!""}"></td>
         </tr>
 
         <tr>
             <th colspan="4">システムの詳細</th>
         </tr>
         <tr>
-            <td colspan="4"><textarea type="text" cols="120" value="詳細をここにいーーーーーっぱい書きます、書きまくります、かきかきかきかきかきかきそれが概要でーーーーす"></textarea></td>
-        </tr>
+            <td colspan="4"><input type="textarea" cols="120" name="system_details" value="${empWorklist.system_details!""}"></td>
         </tr>
     </table>
+</#list>
+</div>
 </div>
 </body>
 </html>

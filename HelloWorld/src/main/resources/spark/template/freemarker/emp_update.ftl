@@ -163,9 +163,9 @@
 
     <script>
         function confirmDelete() {
-            let result = confirm('このプロジェクトを削除します。よろしいですか?');
+            let result = confirm("削除しますか？");
             if(result){
-                alert('削除しました');
+                alert("削除しました");
                 return true;
             }else{
                 return false;
