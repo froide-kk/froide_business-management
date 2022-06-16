@@ -460,18 +460,31 @@ public class main {
             attribute.put("input_joinDate",joinDate);
             attribute.put("input_email",Email);
 
-            if(joinDate.length() <= 256 && Email.length() <= 256){
-                if (!Objects.equals(joinDate, "") && !Objects.equals(Email, "")) {
+            //employees.setDepartment_id(Integer.valueOf(req.queryParams("input_dep_id")));
+
+            //SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
+            //Date Join = (Date) sdFormat.parse(joinDate);
+            //employees.setJoin_date(Join);
+
+            if(!Objects.equals(departmentID, "0")){
+                tm.required(() -> {
+                    Employees employees = new Employees();
+                    employees.setDepartment_id(Integer.valueOf(req.queryParams("input_dep_id")));
+                    employees.setId(Integer.valueOf(req.queryParams("id")));
+                    empDao.updateDepID(employees);
+                });
+            }
+
+            if(Email.length() <= 256){
+                if (!Email.equals("")) {
                     tm.required(() -> {
                         Employees employees = new Employees();
-                        employees.setId(Integer.valueOf(req.queryParams("input_com_id")));
-                        employees.setName(joinDate);
-                        employees.setName(Email);
-                        empDao.updateEmp(employees);
+                        employees.setEmail(Email);
+                        employees.setId(Integer.valueOf(req.queryParams("id")));
+                        empDao.updateEmail(employees);
                     });
                 }
             }
-
             res.redirect("/career/empUpdate");
             return res;
         });

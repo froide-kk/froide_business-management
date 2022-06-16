@@ -113,7 +113,8 @@
             <form method="post" action="/career/empUpdate/keep" onSubmit="return confirmKeep()">
                 <td class="emp_delete_col">
                     <select name="input_dep_id" class="depName">
-                        <option value="${EmpList.id}">${EmpList.dep_name}</option>
+                        <option value="0">${EmpList.dep_name}</option>
+                        <option value="0">部署を変更する場合は下記から選択してください</option>
                         <#list departmentLists as depList>
                         <option value="${depList.id}">${depList.name}</option>
                     </#list>
@@ -132,13 +133,13 @@
                 <td class="emp_keep_col2">
                     <button type="submit" class="emp_keep_button">保存</button>
                 </td>
+            </form>
 
-                <form method="post" action="/career/empUpdate/delete" class="emp_delete" onsubmit="return confirmDelete()">
-                    <input type="hidden" value="${EmpList.id}" name="id">
-                    <td class="emp_delete_col2">
-                        <button type="submit" class="emp_delete_button">削除</button>
-                    </td>
-                </form>
+            <form method="post" action="/career/empUpdate/delete" class="emp_delete" onsubmit="return confirmDelete()">
+                <input type="hidden" value="${EmpList.id}" name="id">
+                <td class="emp_delete_col2">
+                    <button type="submit" class="emp_delete_button">削除</button>
+                </td>
             </form>
         </tr>
         </#list>

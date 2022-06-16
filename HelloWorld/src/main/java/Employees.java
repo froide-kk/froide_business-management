@@ -11,6 +11,25 @@ public class Employees {
     String name;
 
     String emp_name;
+
+    String first_name;
+    String last_name;
+    String email;
+    Integer password_hash;
+
+    String dep_name;
+
+    String birthday;
+
+    java.sql.Date join_date;
+
+    Integer department_id;
+
+    String license;
+
+    String address;
+
+    String final_education;
     public String getEmp_name() {
         return emp_name;
     }
@@ -19,7 +38,6 @@ public class Employees {
         this.emp_name = emp_name;
     }
 
-    String dep_name;
     public String getDep_name() {
         return dep_name;
     }
@@ -27,11 +45,6 @@ public class Employees {
     public void setDep_name(String dep_name) {
         this.dep_name = dep_name;
     }
-
-    String first_name;
-    String last_name;
-    String email;
-    Integer password_hash;
 
     public void setBirthday(String birthday) {
         this.birthday = birthday;
@@ -41,23 +54,7 @@ public class Employees {
         return birthday;
     }
 
-    String birthday;
-
-
-
-
-    java.sql.Date join_date;
     byte management_flag;
-
-    Integer department_id;
-
-    String license;
-
-    String address;
-
-
-
-    String final_education;
 
     public String getLicense() {
         return license;
