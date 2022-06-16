@@ -70,5 +70,14 @@ public interface EmployeesDao {
 
     @Update(include = {"name","birthday","address","final_education","license"})
     int update_workHistry(Employees employees);
+
+    @Update(include= {"email","id"})
+    int updateEmail(Employees employees);
+
+    @Update(include= {"department_id","id"})
+    int updateDepID(Employees employees);
+
+    //@Update(include= {"department_id","email"})
+    //int updateEmp(Employees employees);
 }
 

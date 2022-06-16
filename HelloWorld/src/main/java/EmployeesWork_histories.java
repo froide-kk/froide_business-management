@@ -78,6 +78,26 @@ public class EmployeesWork_histories {
     Integer project_id;
     Integer employee_id;
 
+    String dpp_name;
+
+    public String getDpp_name() {
+        return dpp_name;
+    }
+
+    public void setDpf_name(String dpp_name) {
+        this.dpp_name = dpp_name;
+    }
+
+    public Integer getWork_detail_id() {
+        return work_detail_id;
+    }
+
+    public void setWork_detail_id(Integer work_detail_id) {
+        this.work_detail_id = work_detail_id;
+    }
+
+    Integer work_detail_id;
+
     public String getProjects_id() {
         return projects_id;
     }

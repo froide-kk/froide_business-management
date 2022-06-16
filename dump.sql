@@ -1,8 +1,9 @@
--- MySQL dump 10.13  Distrib 8.0.29, for Linux (x86_64)
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+-- MySQL dump 10.13  Distrib 8.0.28, for Linux (x86_64)
 --
--- Host: localhost    Database: Business-management
+-- Host: localhost    Database: Business
 -- ------------------------------------------------------
--- Server version	8.0.29
+-- Server version	8.0.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,7 +28,7 @@ CREATE TABLE `Companies` (
   `name` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `delete_flag` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +37,7 @@ CREATE TABLE `Companies` (
 
 LOCK TABLES `Companies` WRITE;
 /*!40000 ALTER TABLE `Companies` DISABLE KEYS */;
-INSERT INTO `Companies` VALUES (1,'Wi2',0),(2,'アクセルラボ',0),(3,'FitureOne',0),(4,'結びや',0);
+INSERT INTO `Companies` VALUES (1,'Wi2',0),(2,'アクセルラボ',0),(3,'FitureOne',0),(4,'結びや',0),(5,'dsfds',0),(6,'セブンイレブン',0);
 /*!40000 ALTER TABLE `Companies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,6 +103,7 @@ CREATE TABLE `Dev_periods` (
   `dev_period_phases_id` int DEFAULT NULL,
   `delete_flag` tinyint(1) DEFAULT '0',
   `id` int NOT NULL AUTO_INCREMENT,
+  `employee_id` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -112,7 +114,7 @@ CREATE TABLE `Dev_periods` (
 
 LOCK TABLES `Dev_periods` WRITE;
 /*!40000 ALTER TABLE `Dev_periods` DISABLE KEYS */;
-INSERT INTO `Dev_periods` VALUES (1,1,0,1),(1,2,0,2),(1,3,0,3),(1,4,0,4),(1,5,0,5),(2,1,0,6),(2,2,0,7),(2,4,0,8),(2,7,0,9),(2,6,0,10);
+INSERT INTO `Dev_periods` VALUES (1,1,0,1,1),(1,2,0,2,1),(1,3,0,3,2),(1,4,0,4,3),(1,5,0,5,4),(2,1,0,6,3),(2,2,0,7,2),(2,4,0,8,2),(2,7,0,9,5),(2,6,0,10,6);
 /*!40000 ALTER TABLE `Dev_periods` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,7 +132,7 @@ CREATE TABLE `Employee_skills` (
   `skill_level` varchar(3) DEFAULT NULL,
   `id` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -139,7 +141,7 @@ CREATE TABLE `Employee_skills` (
 
 LOCK TABLES `Employee_skills` WRITE;
 /*!40000 ALTER TABLE `Employee_skills` DISABLE KEYS */;
-INSERT INTO `Employee_skills` VALUES (1,1,0,'○',1),(1,3,0,'○',2),(1,4,0,'△',3),(2,1,0,'○',4),(2,3,0,'△',5),(3,1,0,'○',6),(3,3,0,'○',7),(3,8,0,'○',8),(4,1,0,'△',9),(4,8,0,'○',10);
+INSERT INTO `Employee_skills` VALUES (1,1,0,'○',1),(1,3,0,'○',2),(1,4,0,'△',3),(2,1,0,'○',4),(2,3,0,'△',5),(3,1,0,'○',6),(3,3,0,'○',7),(3,8,0,'○',8),(4,1,0,'△',9),(4,8,0,'○',10),(1,2,0,'○',11);
 /*!40000 ALTER TABLE `Employee_skills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +171,7 @@ CREATE TABLE `Employees` (
   `final_education` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +180,7 @@ CREATE TABLE `Employees` (
 
 LOCK TABLES `Employees` WRITE;
 /*!40000 ALTER TABLE `Employees` DISABLE KEYS */;
-INSERT INTO `Employees` VALUES (1,'Adachi.K','アダチ','カズキ','kazuki-adachi@froide.co.jp',NULL,'1999-11-06','2022-04-01',1,4,0,'2022-05-31 00:00:00',NULL,'基本情報技術者','専門学校','福岡県'),(2,'Izumi.M','イズミ','モトヤ','motoya-izumi@froide.co.jp',NULL,'1999-10-14','2022-04-01',0,1,0,'2022-05-31 00:00:00',NULL,'ITパスポート','専門学校','福岡県'),(3,'Nakashima.T','タケル','ナカシマ','takeru-nakashima@froide.co.jp',NULL,'1999-12-03','2022-04-01',1,2,0,'2022-05-31 00:00:00',NULL,'基本情報技術者','大学','福岡県'),(4,'Yamaue.T','ヤマウエ','タマミ','tamami-yamaue@froide.co.jp',NULL,'1999-05-25','2022-04-01',0,3,0,'2022-05-31 00:00:00',NULL,'ITパスポート','大学','福岡県'),(5,'Itadori.Y','イタドリ','ユウジ','yuji-itadori@froide.co.jp',NULL,'2003-03-20','2020-04-01',0,5,0,'2022-06-06 00:00:00',NULL,'宿儺','高等専門学校','東京都'),(6,'Fushiguro.M','フシグロ','メグミ','megumi-fushiguro@froide.co.jp',NULL,'2002-12-22','2020-04-01',0,5,0,'2022-06-06 00:00:00',NULL,'玉犬','高等専門学校','東京都'),(7,'Kugisaki.N','クギサキ','ノバラ','nobara-kugisaki@froide.co.jp',NULL,'2002-08-07','2020-04-01',0,5,0,'2022-06-06 00:00:00',NULL,'ピコピコハンマー','高等専門学校','東京都'),(8,'Gojo.S','ゴジョウ','サトル','satoru-gojo@froide.co.jp',NULL,'1989-12-07','2015-04-01',0,4,0,'2022-06-06 00:00:00',NULL,'無量空処','高等専門学校','東京都'),(9,'Ookotu.Y','オッコツ','ユウタ','yuta-ookotu@froide.co.jp',NULL,'2001-03-07','2019-04-01',0,1,0,'2022-06-06 00:00:00',NULL,'','高等専門学校','東京都'),(10,'Hanagaki.T','ハナガキ','タケミチ','takemichi^hanagaki@froide.co.jp',NULL,'1991-06-25','2019-04-01',0,2,0,'2022-06-06 00:00:00',NULL,'タイムリープ','高等専門学校','東京都'),(11,'Sano.M','サノ','マンジロウ','mannjiro-sano@froide.co.jp',NULL,'1990-08-20','2018-04-01',0,2,0,'2022-06-06 00:00:00',NULL,'東京卍','高等専門学校','東京都'),(12,'Ryuguji.K','リュウグウジ','ケン','ken-ryuguji@froide.co.jp',NULL,'1990-05-10','2018-04-01',0,2,0,'2022-06-06 00:00:00',NULL,'ドラケン','高等専門学校','東京都'),(13,'Baji.K','バジ','ケイスケ','keisuke-baji@froide.co.jp',NULL,'1990-11-03','2018-04-01',0,3,0,'2022-06-06 00:00:00',NULL,'ゴキ','高等専門学校','東京都'),(14,'Matsuno.T','マツノ','チフユ','chifuyu-matsuno@froide.co.jp',NULL,'1991-12-19','2019-04-01',0,3,0,'2022-06-06 00:00:00',NULL,'ゴキ','高等専門学校','東京都'),(15,'Mirsuya.T','ミツヤ','タカシ','takashi-mitsuya@froide.co.jp',NULL,'1990-06-12','2018-04-01',0,3,0,'2022-06-06 00:00:00',NULL,'インパルス','高等専門学校','東京都'),(16,'Tenma.T','テンマ','ツカサ','tsukasa-tenma@froide.co.jp',NULL,'2005-05-17','2022-04-01',0,2,0,'2022-06-06 00:00:00',NULL,'基本情報技術者','高等専門学校','東京都'),(17,'Otori.E','オオトリ','エム','emu-otori@froide.co.jp',NULL,'2006-09-09','2022-04-01',0,2,0,'2022-06-06 00:00:00',NULL,'ITパスポート','高等専門学校','東京都'),(18,'Kusanagi.N','クサナギ','ネネ','nene-kusanagi@froide.co.jp',NULL,'2006-07-20','2022-04-01',0,1,0,'2022-06-06 00:00:00',NULL,'ITパスポート','高等専門学校','東京都'),(19,'Kamishiro.R','カミシロ','ルイ','rui-kamishiro@froide.co.jp',NULL,'2005-06-24','2022-04-01',0,1,0,'2022-06-06 00:00:00',NULL,'応用情報技術者','高等専門学校','東京都'),(20,'Yoisaki.K','ヨイサキ','カナデ','kanade-yoisaki@froide.co.jp',NULL,'2005-02-10','2022-04-01',0,3,0,'2022-06-06 00:00:00',NULL,'ITパスポート','高等専門学校','東京都'),(21,'Asahina.M','アサヒナ','マフユ','mafuyu-asahina@froide.co.jp',NULL,'2005-01-27','2022-04-01',0,2,0,'2022-06-06 00:00:00',NULL,'基本情報技術者','高等専門学校','東京都'),(22,'Shinonome.E','シノノメ','エナ','ena-shinonome@froide.co.jp',NULL,'2005-04-30','2022-04-01',0,2,0,'2022-06-06 00:00:00',NULL,'応用情報技術者','高等専門学校','東京都'),(23,'Akiyama.M','アキヤマ','ミズキ','mizuki-akiyama@froide.co.jp',NULL,'2006-08-27','2022-04-01',0,3,0,'2022-06-06 00:00:00',NULL,'ITパスポート','高等専門学校','東京都');
+INSERT INTO `Employees` VALUES (1,'Adachi.K','アダチ','カズキ','kazuki-adachi@froide.co.jp',NULL,'1999-11-06','2022-04-01',1,4,0,'2022-05-31 00:00:00',NULL,'基本情報技術者','専門学校','福岡県'),(2,'Izumi.M','イズミ','モトヤ','motoya-izumi@froide.co.jp',NULL,'1999-06-14','2022-04-01',1,1,0,'2022-05-31 00:00:00',NULL,'ITパスポート','専門学校','福岡県'),(3,'Nakashima.T','タケル','ナカシマ','takeru-nakashima@froide.co.jp',NULL,'1999-12-03','2022-04-01',1,2,0,'2022-05-31 00:00:00',NULL,'基本情報技術者','大学','福岡県'),(4,'Yamaue.T','ヤマウエ','タマミ','tamami-yamaue@froide.co.jp',NULL,'1999-05-25','2022-04-01',1,3,0,'2022-05-31 00:00:00',NULL,'ITパスポート','大学','福岡県'),(5,'Itadori.Y','イタドリ','ユウジ','yuji-itadori@froide.co.jp',NULL,'2003-03-20','2020-04-01',1,5,0,'2022-06-06 00:00:00',NULL,'宿儺','高等専門学校','東京都'),(6,'Fushiguro.M','フシグロ','メグミ','megumi-fushiguro@froide.co.jp',NULL,'2002-12-22','2020-04-01',0,5,0,'2022-06-06 00:00:00',NULL,'玉犬','高等専門学校','東京都'),(7,'Kugisaki.N','クギサキ','ノバラ','nobara-kugisaki@froide.co.jp',NULL,'2002-08-07','2020-04-01',0,5,0,'2022-06-06 00:00:00',NULL,'ピコピコハンマー','高等専門学校','東京都'),(8,'Gojo.S','ゴジョウ','サトル','satoru-gojo@froide.co.jp',NULL,'1989-12-07','2015-04-01',1,4,0,'2022-06-06 00:00:00',NULL,'無量空処','高等専門学校','東京都'),(9,'Ookotu.Y','オッコツ','ユウタ','yuta-ookotu@froide.co.jp',NULL,'2001-03-07','2019-04-01',0,1,0,'2022-06-06 00:00:00',NULL,'','高等専門学校','東京都'),(10,'Hanagaki.T','ハナガキ','タケミチ','takemichi^hanagaki@froide.co.jp',NULL,'1991-06-25','2019-04-01',1,2,0,'2022-06-06 00:00:00',NULL,'タイムリープ','高等専門学校','東京都'),(11,'Sano.M','サノ','マンジロウ','mannjiro-sano@froide.co.jp',NULL,'1990-08-20','2018-04-01',0,2,0,'2022-06-06 00:00:00',NULL,'東京卍','高等専門学校','東京都'),(12,'Ryuguji.K','リュウグウジ','ケン','ken-ryuguji@froide.co.jp',NULL,'1990-05-10','2018-04-01',1,2,0,'2022-06-06 00:00:00',NULL,'ドラケン','高等専門学校','東京都'),(13,'Baji.K','バジ','ケイスケ','keisuke-baji@froide.co.jp',NULL,'1990-11-03','2018-04-01',0,3,0,'2022-06-06 00:00:00',NULL,'ゴキ','高等専門学校','東京都'),(14,'Matsuno.T','マツノ','チフユ','chifuyu-matsuno@froide.co.jp',NULL,'1991-12-19','2019-04-01',0,3,0,'2022-06-06 00:00:00',NULL,'ゴキ','高等専門学校','東京都'),(15,'Mirsuya.T','ミツヤ','タカシ','takashi-mitsuya@froide.co.jp',NULL,'1990-06-12','2018-04-01',1,3,0,'2022-06-06 00:00:00',NULL,'インパルス','高等専門学校','東京都'),(16,'Tenma.T','テンマ','ツカサ','tsukasa-tenma@froide.co.jp',NULL,'2005-05-17','2022-04-01',0,2,0,'2022-06-06 00:00:00',NULL,'基本情報技術者','高等専門学校','東京都'),(17,'Otori.E','オオトリ','エム','emu-otori@froide.co.jp',NULL,'2006-09-09','2022-04-01',0,2,0,'2022-06-06 00:00:00',NULL,'ITパスポート','高等専門学校','東京都'),(18,'Kusanagi.N','クサナギ','ネネ','nene-kusanagi@froide.co.jp',NULL,'2006-07-20','2022-04-01',0,1,0,'2022-06-06 00:00:00',NULL,'ITパスポート','高等専門学校','東京都'),(19,'Kamishiro.R','カミシロ','ルイ','rui-kamishiro@froide.co.jp',NULL,'2005-06-24','2022-04-01',0,1,0,'2022-06-06 00:00:00',NULL,'応用情報技術者','高等専門学校','東京都'),(20,'Yoisaki.K','ヨイサキ','カナデ','kanade-yoisaki@froide.co.jp',NULL,'2005-02-10','2022-04-01',0,3,0,'2022-06-06 00:00:00',NULL,'ITパスポート','高等専門学校','東京都'),(21,'Asahina.M','アサヒナ','マフユ','mafuyu-asahina@froide.co.jp',NULL,'2005-01-27','2022-04-01',0,2,0,'2022-06-06 00:00:00',NULL,'基本情報技術者','高等専門学校','東京都'),(22,'Shinonome.E','シノノメ','エナ','ena-shinonome@froide.co.jp',NULL,'2005-04-30','2022-04-01',0,2,0,'2022-06-06 00:00:00',NULL,'応用情報技術者','高等専門学校','東京都'),(23,'Akiyama.M','アキヤマ','ミズキ','mizuki-akiyama@froide.co.jp',NULL,'2006-08-27','2022-04-01',0,3,0,'2022-06-06 00:00:00',NULL,'ITパスポート','高等専門学校','東京都'),(24,'Takahashi.Y',NULL,NULL,'takahashi@froide.co.jp',NULL,'1999-06-14','2022-04-01',0,5,0,NULL,NULL,'英検','東京都','大学'),(25,'Satou.T',NULL,NULL,'satou@froide.co.jp',NULL,NULL,'2022-04-01',0,2,0,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `Employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +197,7 @@ CREATE TABLE `Projects` (
   `company_id` int DEFAULT NULL,
   `delete_flag` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +206,7 @@ CREATE TABLE `Projects` (
 
 LOCK TABLES `Projects` WRITE;
 /*!40000 ALTER TABLE `Projects` DISABLE KEYS */;
-INSERT INTO `Projects` VALUES (1,'ギガゾウ',1,0),(2,'Wi2 300',1,0),(3,'SpaceCore',2,0),(4,'InfiniOne Core',3,0),(5,'AI恋愛相性診断',4,0);
+INSERT INTO `Projects` VALUES (1,'ギガゾウ',1,0),(2,'Wi2 300',1,1),(3,'SpaceCore',2,0),(4,'InfiniOne Core',3,0),(5,'AI恋愛相性診断',4,0),(6,'fdsf',1,0),(7,'売上管理',6,0);
 /*!40000 ALTER TABLE `Projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,7 +248,7 @@ CREATE TABLE `Skills` (
   `skill_attribute_id` int DEFAULT NULL,
   `delete_flag` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,7 +257,7 @@ CREATE TABLE `Skills` (
 
 LOCK TABLES `Skills` WRITE;
 /*!40000 ALTER TABLE `Skills` DISABLE KEYS */;
-INSERT INTO `Skills` VALUES (1,'macOS',1,0),(2,'Windows7',1,0),(3,'JAVA',2,0),(4,'JavaScript',2,0),(5,'PHP',2,0),(6,'C++',2,0),(7,'Oracle',3,0),(8,'MySQL',3,0);
+INSERT INTO `Skills` VALUES (1,'macOS',1,1),(2,'Windows7',1,0),(3,'JAVA',2,1),(4,'JavaScript',2,1),(5,'PHP',2,1),(6,'C++',2,0),(7,'Oracle',3,1),(8,'MySQL',3,0),(9,'',1,1),(10,'Windows10',1,0);
 /*!40000 ALTER TABLE `Skills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,7 +288,7 @@ CREATE TABLE `Work_details` (
 
 LOCK TABLES `Work_details` WRITE;
 /*!40000 ALTER TABLE `Work_details` DISABLE KEYS */;
-INSERT INTO `Work_details` VALUES (1,1,'IT企業','WIFI開発','ギガゾウシステムの開発','PG','10人以下','Java　MySQL HTML',0),(2,2,'ITコンサルタント','SpaceCore','デバイスとの接続','PM','10人以下','Swift Nuxt.js React.js Ruby',0);
+INSERT INTO `Work_details` VALUES (1,1,'IT企業','WIFI開発','ギガゾウシステムの開発','PG','10人以下','Java　MySQL HTML',0),(2,2,'','','','','','',0);
 /*!40000 ALTER TABLE `Work_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -305,7 +307,7 @@ CREATE TABLE `Work_histories` (
   `employee_id` int DEFAULT NULL,
   `delete_flag` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -314,7 +316,7 @@ CREATE TABLE `Work_histories` (
 
 LOCK TABLES `Work_histories` WRITE;
 /*!40000 ALTER TABLE `Work_histories` DISABLE KEYS */;
-INSERT INTO `Work_histories` VALUES (1,3,'2021-06-01','2022-06-06',2,0),(2,1,'2020-05-06','2022-06-06',1,0);
+INSERT INTO `Work_histories` VALUES (1,3,'2021-06-01','2022-06-06',2,0),(2,1,'2020-05-06','2022-06-06',1,0),(3,2,'2022-01-08','2022-03-09',3,0),(4,2,'2022-03-03','2022-03-05',1,0);
 /*!40000 ALTER TABLE `Work_histories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -327,4 +329,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-08 23:59:29
+-- Dump completed on 2022-06-16 14:38:37

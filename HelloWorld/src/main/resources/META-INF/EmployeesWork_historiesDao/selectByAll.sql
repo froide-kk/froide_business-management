@@ -11,11 +11,14 @@ select
    Work_histories.project_id,
    Work_details.industry,
    Work_details.system_sum,
-   Projects.name AS projects_name,
    Work_details.role,
    Work_details.dev_scale,
    Work_details.system_details,
-   Work_details.dev_environment
+   Work_details.dev_environment,
+   Projects.name AS projects_name,
+   GROUP_CONCAT(Dev_period_phases.name) AS dpp_name
+
+
 
 
 from
@@ -32,7 +35,23 @@ left outer join
      `Projects`
 on
      `Projects`.id = `Work_histories`.project_id
-where
-    `Employees`.id = /* id */0
-order by
-    `Work_histories`.work_end  IS NULL DESC, work_end DESC;
+left outer join
+     `Dev_periods`
+on
+     `Dev_periods`.employee_id = `Work_details`.id
+left outer join
+     `Dev_period_phases`
+on
+	`Dev_periods`.dev_period_phases_id = `Dev_period_phases`.id
+WHERE
+	`Employees`.id = /* id */0
+
+GROUP by `Projects`.id,
+         	 `Work_histories`.work_start,
+         	 `Work_histories`.work_end,
+         	 `Work_details`.industry,
+              `Work_details`.system_sum,
+              `Work_details`.role,
+                 `Work_details`.dev_scale,
+                 `Work_details`.system_details,
+                 `Work_details`.dev_environment
