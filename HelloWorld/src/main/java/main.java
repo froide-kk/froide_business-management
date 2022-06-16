@@ -499,7 +499,9 @@ public class main {
         //従業員テーブルの変更を保存する
         post("/career/empUpdate/keep",(req,res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
+            
             String departmentID = req.queryParams("input_dep_id");
             String joinDate = req.queryParams("input_joinDate");
             String Email = req.queryParams("input_email");
@@ -510,18 +512,21 @@ public class main {
             attribute.put("input_joinDate",joinDate);
             attribute.put("input_email",Email);
 
-            //employees.setDepartment_id(Integer.valueOf(req.queryParams("input_dep_id")));
-
-            //SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
-            //Date Join = (Date) sdFormat.parse(joinDate);
-            //employees.setJoin_date(Join);
-
             if(!Objects.equals(departmentID, "0")){
                 tm.required(() -> {
                     Employees employees = new Employees();
                     employees.setDepartment_id(Integer.valueOf(req.queryParams("input_dep_id")));
                     employees.setId(Integer.valueOf(req.queryParams("id")));
                     empDao.updateDepID(employees);
+                });
+            }
+
+            if(!Objects.equals(joinDate, "")){
+                tm.required(() -> {
+                    Employees employees = new Employees();
+                    employees.setJoin_date(Date.valueOf(joinDate));
+                    employees.setId(Integer.valueOf(req.queryParams("id")));
+                    empDao.updateJoinDate(employees);
                 });
             }
 
