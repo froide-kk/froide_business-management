@@ -108,7 +108,7 @@
                 <#list EachSkillsOS as eachskillOS>
                 <tr>
                     <td class="zeroWidth">${eachskillOS.skill_name!""}</td>
-                    <td>${eachskillOS.skill_level!""}</td>
+                    <td class="centertext">${eachskillOS.skill_level!""}</td>
                 </tr>
             </#list>
             </table>
@@ -120,7 +120,7 @@
             <#list EachSkillsScript as eachskillScript>
             <tr>
                 <td class="zeroWidth">${eachskillScript.skill_name!""}</td>
-                <td>${eachskillScript.skill_level!""}</td>
+                <td class="centertext">${eachskillScript.skill_level!""}</td>
             </tr>
             </#list>
         </table>
@@ -132,7 +132,7 @@
             <#list EachSkillsDB as eachskillDB>
             <tr>
                 <td class="zeroWidth">${eachskillDB.skill_name!""}</td>
-                <td>${eachskillDB.skill_level!""}</td>
+                <td class="centertext">${eachskillDB.skill_level!""}</td>
             </tr>
         </#list>
         </table>
@@ -141,7 +141,7 @@
 <!--    ここまで！-->
 
     <br>
-
+<#list EmpWorkLists as empWorkList>
     <table  border=1 style="border-collapse: collapse">
         <tr>
             <th>業種</th>
@@ -150,29 +150,31 @@
         </tr>
 
         <tr class="tr-bottom">
-            <td>${industry!""}</td>
-            <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">${projects_name!""}</a></td>
-            <td>${work_start!""} 〜 ${work_end!""}
+            <td>${empWorkList.industry!""}</td>
+            <td class="disp"><a href="http://localhost:4567/career/projectEmp/(id)">${empWorkList.projects_name!""}</a></td>
+            <td>${empWorkList.work_start!"未設定"} 〜 ${empWorkList.work_end!"継続中"}
                 <script>
-                    let sday = "${work_start!""}";
-                    let eday = "${work_end!""}";
+                    var sday = "${empWorkList.work_start!"noStartDate"}";
+                    var eday = "${empWorkList.work_end!"noEndDate"}";
                     console.log(sday);
                     console.log(eday);
-                    if(sday === "null" || eday === "null"){
-                    document.write("NULL表示成功");
-                    };
-                    let sdayAry = sday.split('/');
-                    let edayAry = eday.split('/');
-                    const Syear = sdayAry[0];
-                    const Smonth = sdayAry[1];
-                    const Sday = sdayAry[2];
-                    const Eyear = edayAry[0];
-                    const Emonth = edayAry[1];
-                    const Eday = edayAry[2];
+                    if(sday === "noStartDate"){
+                    console.log("NULLIF通過");
+                    document.write("");
+                    }else if(eday === "noEndDate"){
+                    console.log("NULLELSEIF通過");
+                    var today = new Date();
+                    var Eyear = today.getFullYear();
+                    var Emonth = today.getMonth()+1;
+                    var Eday = today.getDate();
+                    var sdayAry = sday.split('/');
+                    var Syear = sdayAry[0];
+                    var Smonth = sdayAry[1];
+                    var Sday = sdayAry[2];
                     var startday = new Date(Syear,Smonth,Sday);
                     var endday = new Date(Eyear,Emonth,Eday);
                     //差日を求める（86,400,000ミリ秒＝１日）
-                    let termDay = (endday - startday) / 86400000;
+                    var termDay = (endday - startday) / 86400000;
                     console.log(termDay)
                     if(termDay>365){
                     termMouths=termDay%365
@@ -185,7 +187,33 @@
                     }else{
                      document.write(Math.floor(termDay)+"日");
                     };
-
+                    }else{
+                    console.log("ELSE通過");
+                    var edayAry = eday.split('/');
+                    var Eyear = edayAry[0];
+                    var Emonth = edayAry[1];
+                    var Eday = edayAry[2];
+                    var sdayAry = sday.split('/');
+                    var Syear = sdayAry[0];
+                    var Smonth = sdayAry[1];
+                    var Sday = sdayAry[2];
+                    var startday = new Date(Syear,Smonth,Sday);
+                    var endday = new Date(Eyear,Emonth,Eday);
+                    //差日を求める（86,400,000ミリ秒＝１日）
+                    var termDay = (endday - startday) / 86400000;
+                    console.log(termDay)
+                    if(termDay>365){
+                    termMouths=termDay%365
+                    termMouth=termMouths/30
+                    termYear=termDay/365
+                    document.write(Math.floor(termYear)+"年"+Math.floor(termMouth)+"ヶ月");
+                    }else if(termDay>30){
+                    termMouth=termDay/30
+                     document.write(Math.floor(termMouth)+"ヶ月");
+                    }else{
+                     document.write(Math.floor(termDay)+"日");
+                    };
+                    };
                 </script>
             </td>
         </tr>
@@ -198,9 +226,9 @@
             <th>役割</th>
         </tr>
         <tr>
-            <td colspan="2">${system_sum!""}</td>
-            <td>${dev_scale!""}</td>
-            <td>${role!""}</td>
+            <td colspan="2">${empWorkList.system_sum!""}</td>
+            <td>${empWorkList.dev_scale!""}</td>
+            <td>${empWorkList.role!""}</td>
 
         </tr>
         <tr>
@@ -208,8 +236,10 @@
             <th colspan="2">使用言語</th>
         </tr>
         <tr>
-            <td colspan="2"></td>
-            <td colspan="2">${dev_environment!""}</td>
+            <td colspan="2">
+                <span>${empWorkList.dpp_name!""}</span>
+            </td>
+            <td colspan="2">${empWorkList.dev_environment!""}</td>
         </tr>
 
         <tr>
@@ -217,33 +247,33 @@
         </tr>
         <tr>
             <td colspan="4">
-                ${system_details!""}
+                ${empWorkList.system_details!""}
             </td>
         </tr>
     </table>
+</#list>
+        <script>
+            const display = (flag) => {
+            const target =  document.querySelectorAll(".disp,.career,.back")
+            if(flag === true){
+             target.forEach((element) =>{
+            element.style.display = "block"
+            document.location.reload()
+            })
+            }else{
+             target.forEach((element) =>{
+            element.style.display = "none"
+            })
+            }
+          }
+            document.querySelector(".pdf").addEventListener("click",() => {
+            display(false)
+            window.print();
+            display(true)
+            })
 
-</div>
-<script>
-    const display = (flag) => {
-    const target =  document.querySelectorAll(".disp,.career,.back")
-    if(flag === true){
-     target.forEach((element) =>{
-    element.style.display = "block"
-    document.location.reload()
-    })
-    }else{
-     target.forEach((element) =>{
-    element.style.display = "none"
-    })
-    }
-  }
-    document.querySelector(".pdf").addEventListener("click",() => {
-    display(false)
-    window.print();
-    display(true)
-    })
+        </script>
 
-</script>
 
 </body>
 </html>

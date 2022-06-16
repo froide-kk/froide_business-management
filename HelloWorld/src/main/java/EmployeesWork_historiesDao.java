@@ -1,5 +1,7 @@
 import org.seasar.doma.*;
 
+import java.util.List;
+
 @Dao
 
 public interface EmployeesWork_historiesDao {
@@ -14,5 +16,6 @@ public interface EmployeesWork_historiesDao {
     int delete(Employees employees);
     @Select
     EmployeesWork_histories selectById(Integer id);
-
+    @Select
+    List<EmployeesWork_histories> selectByAll(Integer id);
 }
