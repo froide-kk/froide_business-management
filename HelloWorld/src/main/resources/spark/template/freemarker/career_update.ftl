@@ -260,12 +260,26 @@
             <th colspan="2">開発担当フェーズ</th>
             <th colspan="2">使用言語</th>
         </tr>
+
+
+
+
         <tr>
             <td colspan="2">
                 <ul id="phase"  multiple size="3">
+
                     <#list dev_period_phasesLists as dppList>
-                    <li><input type="checkbox" value="${dppList.id!""}">${dppList.name!""}</li>
+
+                             <#assign x = "${dppList.name}">
+                                <#assign y = "${empWorklist.dpp_name}">
+                            <#if  y ?contains (x) >
+                                 <input type="checkbox"　value="${dppList.id}" checked >${dppList.name}
+                            <#else>
+                                <input type="checkbox"　value="${dppList.id}"  >${dppList.name}
+                            </#if>
                     </#list>
+
+
                 </ul>
             </td>
             <td colspan="2"><input type="text" size="80" name="dev_environment" value="${empWorklist.dev_environment!""}"></td>
