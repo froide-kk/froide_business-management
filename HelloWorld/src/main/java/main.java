@@ -171,6 +171,7 @@ public class main {
         post("/career/update",(req,res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             Work_historiesDao historiesDao = new Work_historiesDaoImpl(DbConfig.singleton());
+            EmployeesEachSkillsDao empEachSkills = new EmployeesEachSkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 //          従業員情報の登録
@@ -212,6 +213,10 @@ public class main {
             attribute.put("dev_scale",dev_scale);
             attribute.put("dev_environment",dev_environment);
 
+//技術リスト
+            String osList = req.queryParams("osList");
+            System.out.println(osList);
+            attribute.put("osList",osList);
 
             //データベースに登録する
             tm.required(() -> {
@@ -241,6 +246,11 @@ public class main {
 //                work_details.setDev_scale(dev_scale);
 //                work_details.setDev_environment(dev_environment);
 //                detailsDao.update(work_details);
+
+                //技術リストの登録
+                EmployeesEachSkills employeesEachSkills = new EmployeesEachSkills();
+                employeesEachSkills.setSkill_level(osList);
+                empEachSkills.updateOS(employeesEachSkills);
             });
 
             res.redirect("/career/show?id=" + id);
