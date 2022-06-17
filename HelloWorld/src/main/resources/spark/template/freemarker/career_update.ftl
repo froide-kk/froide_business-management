@@ -82,6 +82,7 @@
                 <td><input type="text" value="${address!""}" name="address"></td>
                 <td><input type="text" value="${final_education!""}" name="final_education"></td>
             </tr>
+
         <tr>
             <th colspan="5">資格</th>
         </tr>
@@ -89,6 +90,7 @@
             <td colspan="5"><input type="text" size="120" value="${license!""}" name="license"></td>
         </tr>
     </table>
+
 
     <br>
 
@@ -106,12 +108,13 @@
         <tr>
             <td>
                 <ul>
-                    <#list OSLists as osList>
-                    <li>${osList.name!""}
-                        <select>
-                            <option>-</option>
-                            <option value="${osList.id!""}">◯</option>
-                            <option value="${osList.id!""}">△</option>
+                    <#list EachSkillsOS as osList>
+                    <li>${osList.skill_name!""}
+                        <select name="osList">
+                            <option selected>${osList.skill_level!"-"}</option>
+                            <option value="-">-</option>
+                            <option value="○">○</option>
+                            <option value="△">△</option>
                         </select>
                     </li>
                     </#list>
@@ -119,24 +122,27 @@
             </td>
             <td>
                 <ul>
-                    <#list ScriptLists as sList>
-                      <li>${sList.name!""}
-                          <select>
-                              <option>-</option>
-                              <option value="${sList.id!""}">◯</option>
-                              <option value="${sList.id!""}">△</option>
-                          </select></li>
+                    <#list EachSkillsScript as sList>
+                      <li>${sList.skill_name!""}
+                          <select name="sList">
+                              <option selected>${sList.skill_level!"-"}</option>
+                              <option value="-">-</option>
+                              <option value="○">○</option>
+                              <option value="△">△</option>　
+                          </select>
+                      </li>
                     </#list>
                 </ul>
             </td>
             <td>
                 <ul>
-                    <#list DBLists as dbList>
-                      <li>${dbList.name!""}
-                          <select>
-                              <option>-</option>
-                              <option value="${dbList.id!""}">◯</option>
-                              <option value="${dbList.id!""}">△</option>
+                    <#list EachSkillsDB as dbList>
+                      <li>${dbList.skill_name!""}
+                          <select name="dbList">
+                              <option selected>${dbList.skill_level!"-"}</option>
+                              <option value="-">-</option>
+                              <option value="○">○</option>
+                              <option value="△">△</option>
                           </select></li>
                     </#list>
                 </ul>
