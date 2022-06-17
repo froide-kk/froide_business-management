@@ -33,7 +33,7 @@
 </form>
 <!---------- 保存ボタン ---------->
 <form method="post" action="/career/update">
-    <button type="submit" value="${id}" name="id" class="keep" onclick="location.href='http://localhost:4567/career/show'">保存</button>
+    <button type="submit" value="${id}" name="id" class="keep">保存</button>
 
 <!---------- 業務経歴書の部分 ---------->
 <div class="careerSheet">
