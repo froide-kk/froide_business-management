@@ -122,6 +122,7 @@ public class main {
             ProjectsDao projectsDao = new ProjectsDaoImpl(DbConfig.singleton());
             Dev_period_phasesDao dev_period_phasesDao = new Dev_period_phasesDaoImpl(DbConfig.singleton());
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
+            EmployeesEachSkillsDao empEachSkills = new EmployeesEachSkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
@@ -150,14 +151,12 @@ public class main {
 
             //スキルチェックの○・△を選ぶところ
             tm.required(() -> {
-            List<Skills> OSList = skillDao.select_os_All();
-            attribute.put("OSLists",OSList);
-
-            List<Skills> scriptList = skillDao.select_script_All();
-            attribute.put("ScriptLists",scriptList);
-
-            List<Skills> DBList = skillDao.select_db_All();
-            attribute.put("DBLists",DBList);
+                List<EmployeesEachSkills> EachSkillsDB = empEachSkills.select_db_All(Integer.valueOf(id));
+                attribute.put("EachSkillsDB",EachSkillsDB);
+                List<EmployeesEachSkills> EachSkillsOS = empEachSkills.select_os_All(Integer.valueOf(id));
+                attribute.put("EachSkillsOS",EachSkillsOS);
+                List<EmployeesEachSkills> EachSkillsScript = empEachSkills.select_script_All(Integer.valueOf(id));
+                attribute.put("EachSkillsScript",EachSkillsScript);
             });
 
             //開発担当フェーズのチェックボックス。
@@ -226,11 +225,12 @@ public class main {
                 empDao.update_workHistry(employee);
 
 //                work_historiesの登録
-//                Work_histories work_histories = historiesDao.selectById(Integer.valueOf(req.queryParams("id")));
-//                work_histories.setProject_id(Integer.valueOf(project_id));
-//                work_histories.setWork_start(Date.valueOf(work_start));
-//                work_histories.setWork_end(Date.valueOf(work_end));
-//                historiesDao.update(work_histories);
+
+    //            Work_histories work_histories = historiesDao.selectById(Integer.valueOf(req.queryParams("id")));
+    //            work_histories.setProject_id(Integer.valueOf(project_id));
+    //            work_histories.setWork_start(Date.valueOf(work_start));
+    //            work_histories.setWork_end(Date.valueOf(work_end));
+    //            historiesDao.update(work_histories);
 
 //                work_detailsの登録
 //                Work_details work_details = detailsDao.selectById(Integer.valueOf(req.queryParams(work_history_id)));
@@ -243,7 +243,8 @@ public class main {
 //                detailsDao.update(work_details);
             });
 
-            res.redirect("/career");
+            res.redirect("/career/show?id=" + id);
+
             return res;
 
         });
