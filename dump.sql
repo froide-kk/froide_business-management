@@ -1,9 +1,8 @@
-mysqldump: [Warning] Using a password on the command line interface can be insecure.
--- MySQL dump 10.13  Distrib 8.0.28, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.29, for Linux (x86_64)
 --
--- Host: localhost    Database: Business
+-- Host: localhost    Database: Business-management
 -- ------------------------------------------------------
--- Server version	8.0.28
+-- Server version	8.0.29
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -99,7 +98,7 @@ DROP TABLE IF EXISTS `Dev_periods`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Dev_periods` (
-  `work_detail_id` int DEFAULT NULL,
+  `work_history_id` int DEFAULT NULL,
   `dev_period_phases_id` int DEFAULT NULL,
   `delete_flag` tinyint(1) DEFAULT '0',
   `id` int NOT NULL AUTO_INCREMENT,
@@ -132,7 +131,7 @@ CREATE TABLE `Employee_skills` (
   `skill_level` varchar(3) DEFAULT NULL,
   `id` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +140,7 @@ CREATE TABLE `Employee_skills` (
 
 LOCK TABLES `Employee_skills` WRITE;
 /*!40000 ALTER TABLE `Employee_skills` DISABLE KEYS */;
-INSERT INTO `Employee_skills` VALUES (1,1,0,'○',1),(1,3,0,'○',2),(1,4,0,'△',3),(2,1,0,'○',4),(2,3,0,'△',5),(3,1,0,'○',6),(3,3,0,'○',7),(3,8,0,'○',8),(4,1,0,'△',9),(4,8,0,'○',10),(1,2,0,'○',11);
+INSERT INTO `Employee_skills` VALUES (1,1,0,'○',1),(1,3,0,'○',2),(1,4,0,'△',3),(2,1,0,'○',4),(2,3,0,'△',5),(3,1,0,'○',6),(3,3,0,'○',7),(3,8,0,'○',8),(4,1,0,'△',9),(4,8,0,'○',10),(1,2,0,'○',11),(1,2,0,NULL,14);
 /*!40000 ALTER TABLE `Employee_skills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -262,37 +261,6 @@ INSERT INTO `Skills` VALUES (1,'macOS',1,1),(2,'Windows7',1,0),(3,'JAVA',2,1),(4
 UNLOCK TABLES;
 
 --
--- Table structure for table `Work_details`
---
-
-DROP TABLE IF EXISTS `Work_details`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Work_details` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `work_history_id` int DEFAULT NULL,
-  `industry` varchar(256) DEFAULT NULL,
-  `system_sum` varchar(256) DEFAULT NULL,
-  `system_details` varchar(256) DEFAULT NULL,
-  `role` varchar(256) DEFAULT NULL,
-  `dev_scale` varchar(256) DEFAULT NULL,
-  `dev_environment` varchar(256) DEFAULT NULL,
-  `delete_flag` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Work_details`
---
-
-LOCK TABLES `Work_details` WRITE;
-/*!40000 ALTER TABLE `Work_details` DISABLE KEYS */;
-INSERT INTO `Work_details` VALUES (1,1,'IT企業','WIFI開発','ギガゾウシステムの開発','PG','10人以下','Java　MySQL HTML',0),(2,2,'','','','','','',0);
-/*!40000 ALTER TABLE `Work_details` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `Work_histories`
 --
 
@@ -301,13 +269,19 @@ DROP TABLE IF EXISTS `Work_histories`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Work_histories` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `employee_id` int DEFAULT NULL,
   `project_id` int DEFAULT NULL,
   `work_start` date DEFAULT NULL,
   `work_end` date DEFAULT NULL,
-  `employee_id` int DEFAULT NULL,
+  `industry` varchar(256) DEFAULT NULL,
+  `system_sum` varchar(256) DEFAULT NULL,
+  `system_details` varchar(256) DEFAULT NULL,
+  `role` varchar(256) DEFAULT NULL,
+  `dev_scale` varchar(256) DEFAULT NULL,
+  `dev_environment` varchar(256) DEFAULT NULL,
   `delete_flag` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -316,7 +290,7 @@ CREATE TABLE `Work_histories` (
 
 LOCK TABLES `Work_histories` WRITE;
 /*!40000 ALTER TABLE `Work_histories` DISABLE KEYS */;
-INSERT INTO `Work_histories` VALUES (1,3,'2021-06-01','2022-06-06',2,0),(2,1,'2020-05-06','2022-06-06',1,0),(3,2,'2022-01-08','2022-03-09',3,0),(4,2,'2022-03-03','2022-03-05',1,0);
+INSERT INTO `Work_histories` VALUES (1,1,1,'2020-05-06','2022-06-07','IT企業','WIFI開発','ギガぞうシステム開発','PG','10人以下','JAVA,Swift,HTML,JS',0),(2,1,5,'2020-04-06','2022-08-17','IT企業','診断開発','システム開発','PG','5人以下','Swift,HTML,JS,PHP',0),(3,2,3,'2020-05-09','2022-09-07','IT企業','WIFI開発','Wi2300システム開発','PG','15人以下','JAVA,Swift,HTML,JS',0),(4,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0),(5,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0),(6,6,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0),(7,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0);
 /*!40000 ALTER TABLE `Work_histories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -329,4 +303,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-16 14:38:37
+-- Dump completed on 2022-06-17  2:27:58

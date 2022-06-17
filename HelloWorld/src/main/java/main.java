@@ -171,7 +171,6 @@ public class main {
         post("/career/update",(req,res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             Work_historiesDao historiesDao = new Work_historiesDaoImpl(DbConfig.singleton());
-            Work_detailsDao detailsDao = new Work_detailsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 //          従業員情報の登録
@@ -226,6 +225,7 @@ public class main {
                 empDao.update_workHistry(employee);
 
 //                work_historiesの登録
+
     //            Work_histories work_histories = historiesDao.selectById(Integer.valueOf(req.queryParams("id")));
     //            work_histories.setProject_id(Integer.valueOf(project_id));
     //            work_histories.setWork_start(Date.valueOf(work_start));
@@ -259,10 +259,12 @@ public class main {
             attribute.put("employee_id",employee_id);
             attribute.put("work_histories_id",work_histories_id);
 
+//            追加ボタンで経歴書が増える処理
             tm.required(() -> {
                 Work_histories work_histories = new Work_histories();
                 work_histories.setEmployee_id(Integer.valueOf(employee_id));
                 historiesDao.insert(work_histories);
+
             });
 
             res.redirect("/career");

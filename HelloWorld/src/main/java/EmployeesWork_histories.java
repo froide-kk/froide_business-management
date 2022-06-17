@@ -88,15 +88,6 @@ public class EmployeesWork_histories {
         this.dpp_name = dpp_name;
     }
 
-    public Integer getWork_detail_id() {
-        return work_detail_id;
-    }
-
-    public void setWork_detail_id(Integer work_detail_id) {
-        this.work_detail_id = work_detail_id;
-    }
-
-    Integer work_detail_id;
 
     public String getProjects_id() {
         return projects_id;
@@ -201,12 +192,5 @@ public class EmployeesWork_histories {
         this.work_end = work_end;
     }
 
-    public Integer getHistory_id() {
-        return history_id;
-    }
-
-    public void setHistory_id(Integer history_id) {
-        this.history_id = history_id;
-    }
 
 }
