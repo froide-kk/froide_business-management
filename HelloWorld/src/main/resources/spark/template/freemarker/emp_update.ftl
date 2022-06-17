@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>業務経歴書</title>
+    <title>従業員編集画面</title>
 </head>
 <body>
 <!---------- ヘッダー部分　---------->
