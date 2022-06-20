@@ -277,7 +277,7 @@ public class main {
 
             });
 
-            res.redirect("/career");
+            res.redirect("/career/update?id=" + employee_id);
             return res;
         });
 
