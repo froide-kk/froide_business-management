@@ -172,8 +172,11 @@ public class main {
         post("/career/update",(req,res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             Work_historiesDao historiesDao = new Work_historiesDaoImpl(DbConfig.singleton());
+
             Employee_skillsDao e_skillsDao = new Employee_skillsDaoImpl(DbConfig.singleton());
             EmployeesWork_historiesDao e_w_historiesDao = new EmployeesWork_historiesDaoImpl(DbConfig.singleton());
+          
+            EmployeesEachSkillsDao empEachSkills = new EmployeesEachSkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
