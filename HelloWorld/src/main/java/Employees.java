@@ -7,28 +7,18 @@ public class Employees {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-
     String name;
-
     String emp_name;
-
     String first_name;
     String last_name;
     String email;
     Integer password_hash;
-
     String dep_name;
-
     String birthday;
-
     java.sql.Date join_date;
-
     Integer department_id;
-
     String license;
-
     String address;
-
     String final_education;
     public String getEmp_name() {
         return emp_name;

@@ -123,6 +123,7 @@ public class main {
             Dev_period_phasesDao dev_period_phasesDao = new Dev_period_phasesDaoImpl(DbConfig.singleton());
             SkillsDao skillDao = new SkillsDaoImpl(DbConfig.singleton());
             EmployeesEachSkillsDao empEachSkills = new EmployeesEachSkillsDaoImpl(DbConfig.singleton());
+
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
 
@@ -171,9 +172,12 @@ public class main {
         post("/career/update",(req,res) -> {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
             Work_historiesDao historiesDao = new Work_historiesDaoImpl(DbConfig.singleton());
+            Employee_skillsDao e_skillsDao = new Employee_skillsDaoImpl(DbConfig.singleton());
+            EmployeesWork_historiesDao e_w_historiesDao = new EmployeesWork_historiesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
-//          従業員情報の登録
+
+//          Employees関連
             //career/updateからidを受け取って、ftlに渡す
             String id = req.queryParams("id");
             String name = req.queryParams("name");
@@ -181,16 +185,17 @@ public class main {
             String address = req.queryParams("address");
             String final_education = req.queryParams("final_education");
             String license = req.queryParams("license");
-//          画面に表示する
-            attribute.put("id",id);
-            attribute.put("name",name);
-            attribute.put("birthday",birthday);
-            attribute.put("address",address);
-            attribute.put("final_education",final_education);
-            attribute.put("license",license);
 
-//          経歴書詳細の登録
-            String work_history_id = req.queryParams("history_id");
+            //Employee_skills関連
+            String osID = req.queryParams("os_id");
+            String osLevel = req.queryParams("osList");
+            String sID = req.queryParams("s_id");
+            String scriptLevel = req.queryParams("sList");
+            String dbID = req.queryParams("db_id");
+            String dbLevel = req.queryParams("dbList");
+
+            //work_history関連
+            String work_history_id = req.queryParams("histories_id");
             String project_id = req.queryParams("project_id");
             String work_start = req.queryParams("work_start");
             String work_end = req.queryParams("work_end");
@@ -201,7 +206,21 @@ public class main {
             String dev_scale = req.queryParams("dev_scale");
             String dev_environment = req.queryParams("dev_environment");
 
-            attribute.put("history_id",work_history_id);
+            attribute.put("id",id);
+            attribute.put("name",name);
+            attribute.put("birthday",birthday);
+            attribute.put("address",address);
+            attribute.put("final_education",final_education);
+            attribute.put("license",license);
+
+            attribute.put("osList",osLevel);
+            attribute.put("os_id",osID);
+            attribute.put("sList",scriptLevel);
+            attribute.put("s_id",sID);
+            attribute.put("dbList",dbLevel);
+            attribute.put("db_id",dbID);
+
+            attribute.put("histories_id",work_history_id);
             attribute.put("project_id",project_id);
             attribute.put("work_start",work_start);
             attribute.put("work_end",work_end);
@@ -212,36 +231,86 @@ public class main {
             attribute.put("dev_scale",dev_scale);
             attribute.put("dev_environment",dev_environment);
 
-
-            //データベースに登録する
-            tm.required(() -> {
+            if(!Objects.equals(name, "") && name.length() <= 256) {
+                //データベースに登録する
+                tm.required(() -> {
 //                従業員情報の登録
-                Employees employee = empDao.selectById(Integer.valueOf(req.queryParams("id")));
-                employee.setName(name);
-                employee.setBirthday(birthday);
-                employee.setAddress(address);
-                employee.setFinal_education(final_education);
-                employee.setLicense(license);
-                empDao.update_workHistry(employee);
+                    Employees employees = empDao.selectById(Integer.valueOf(req.queryParams("id")));
+                    employees.setName(name);
+                    employees.setBirthday(birthday);
+                    employees.setAddress(address);
+                    employees.setFinal_education(final_education);
+                    employees.setLicense(license);
+                    empDao.update_workHistry(employees);
+                });
+            }
 
-//                work_historiesの登録
+//            //employees_skills関連
+            if(!Objects.equals(osLevel, "-")){
+                tm.required(() -> {
+                    Employee_skills employee_skills = new Employee_skills();
+                    employee_skills.setId(Integer.valueOf(osID));
+                    employee_skills.setSkill_level(osLevel);
+                    e_skillsDao.updateSkillLevel(employee_skills);
+                });
+            }
 
-    //            Work_histories work_histories = historiesDao.selectById(Integer.valueOf(req.queryParams("id")));
-    //            work_histories.setProject_id(Integer.valueOf(project_id));
-    //            work_histories.setWork_start(Date.valueOf(work_start));
-    //            work_histories.setWork_end(Date.valueOf(work_end));
-    //            historiesDao.update(work_histories);
+            if(!Objects.equals(scriptLevel, "-") ){
+                tm.required(() -> {
+                    Employee_skills employee_skills = new Employee_skills();
+                    employee_skills.setId(Integer.valueOf(sID));
+                    employee_skills.setSkill_level(scriptLevel);
+                    e_skillsDao.updateSkillLevel(employee_skills);
+                });
+            }
 
-//                work_detailsの登録
-//                Work_details work_details = detailsDao.selectById(Integer.valueOf(req.queryParams(work_history_id)));
-//                work_details.setIndustry(industry);
-//                work_details.setSystem_sum(system_sum);
-//                work_details.setSystem_details(system_details);
-//                work_details.setRole(role);
-//                work_details.setDev_scale(dev_scale);
-//                work_details.setDev_environment(dev_environment);
-//                detailsDao.update(work_details);
+            if(!Objects.equals(dbLevel, "-") && dbID != null){
+                tm.required(() -> {
+                    Employee_skills employee_skills = new Employee_skills();
+                    employee_skills.setId(Integer.valueOf(dbID));
+                    employee_skills.setSkill_level(dbLevel);
+                    e_skillsDao.updateSkillLevel(employee_skills);
+                });
+            }
+
+//          work_histories関連
+            //industry,system_sum,system_details,role,dev_environmentの更新
+            tm.required(() -> {
+                Work_histories histories = new Work_histories();
+                histories.setId(Integer.valueOf(req.queryParams("histories_id")));
+                histories.setIndustry(industry);
+                histories.setSystem_sum(system_sum);
+                histories.setSystem_details(system_details);
+                histories.setRole(role);
+                histories.setDev_environment(dev_environment);
+                historiesDao.updateWorkHistory(histories);
             });
+
+            //project_idの更新
+            if(!Objects.equals(project_id, "0")) {
+                tm.required(() -> {
+                    Work_histories histories = new Work_histories();
+                    histories.setId(Integer.valueOf(req.queryParams("histories_id")));
+                    histories.setProject_id(Integer.valueOf(req.queryParams("project_id")));
+                    historiesDao.updateProjectID(histories);
+                });
+            }
+            //dev_scaleの更新
+            if(!Objects.equals(dev_scale, "0")) {
+                tm.required(() -> {
+                    Work_histories histories = new Work_histories();
+                    histories.setId(Integer.valueOf(req.queryParams("histories_id")));
+                    histories.setDev_scale(dev_scale);
+                    historiesDao.updateDevScale(histories);
+                });
+            }
+                tm.required(() -> {
+                    Work_histories histories = new Work_histories();
+                    histories.setId(Integer.valueOf(req.queryParams("histories_id")));
+                    histories.setWork_start(Date.valueOf(work_start));
+                    histories.setWork_end(Date.valueOf(work_end));
+                    historiesDao.updateWorkStartEnd(histories);
+                });
 
             res.redirect("/career/show?id=" + id);
 
@@ -253,11 +322,15 @@ public class main {
             Work_historiesDao historiesDao = new Work_historiesDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
+
+
             String employee_id = req.queryParams("employee_id");
             String work_histories_id = req.queryParams("work_histories_id");
+            String id = req.queryParams("employee_id");
 
             attribute.put("employee_id",employee_id);
             attribute.put("work_histories_id",work_histories_id);
+            attribute.put("employee_id",id);
 
 //            追加ボタンで経歴書が増える処理
             tm.required(() -> {
@@ -267,7 +340,7 @@ public class main {
 
             });
 
-            res.redirect("/career");
+            res.redirect("/career/update?id=" + id);
             return res;
         });
 
@@ -522,7 +595,7 @@ public class main {
                     empDao.updateDepID(employees);
                 });
             }
-
+//
             if(!Objects.equals(joinDate, "")){
                 tm.required(() -> {
                     Employees employees = new Employees();
@@ -531,9 +604,8 @@ public class main {
                     empDao.updateJoinDate(employees);
                 });
             }
-
-            if(Email.length() <= 256){
-                if (!Email.equals("")) {
+//
+            if(Email.length() <= 256 && !Objects.equals(Email,"")) {
                     tm.required(() -> {
                         Employees employees = new Employees();
                         employees.setEmail(Email);
@@ -541,7 +613,7 @@ public class main {
                         empDao.updateEmail(employees);
                     });
                 }
-            }
+
             res.redirect("/career/empUpdate");
             return res;
         });

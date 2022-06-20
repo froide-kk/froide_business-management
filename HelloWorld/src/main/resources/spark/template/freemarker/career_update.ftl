@@ -34,7 +34,6 @@
 <!---------- 保存ボタン ---------->
 <form method="post" action="/career/update">
     <button type="submit" value="${id}" name="id" class="keep">保存</button>
-
 <!---------- 業務経歴書の部分 ---------->
 <div class="careerSheet">
     <h1 class="sheetHead">業務経歴書 編集画面</h1>
@@ -50,10 +49,10 @@
 
         <tr>
             <td>
-                <input type="text" size="42"  value="${name!""}" name="name">
+                <input type="text" size="42" value="${name!""}" name="name" class="input_update">
             </td>
             <td>
-                <input type="text" value="${birthday!""}" name="birthday">
+                <input type="text" value="${birthday!""}" name="birthday" class="input_update">
 
             </td>
             <td> <script>
@@ -79,15 +78,15 @@
 
                     </script>
                 </td>
-                <td><input type="text" value="${address!""}" name="address"></td>
-                <td><input type="text" value="${final_education!""}" name="final_education"></td>
+                <td><input type="text" value="${address!""}" name="address" class="input_update"></td>
+                <td><input type="text" value="${final_education!""}" name="final_education" class="input_update"></td>
             </tr>
 
         <tr>
             <th colspan="5">資格</th>
         </tr>
         <tr>
-            <td colspan="5"><input type="text" size="120" value="${license!""}" name="license"></td>
+            <td colspan="5"><input type="text" size="120" value="${license!""}" name="license" class="input_update"></td>
         </tr>
     </table>
 
@@ -109,9 +108,10 @@
             <td>
                 <ul>
                     <#list EachSkillsOS as osList>
+                    <input type="hidden" value="${osList.id}" name="os_id">
                     <li>${osList.skill_name!""}
                         <select name="osList">
-                            <option selected>${osList.skill_level!"-"}</option>
+                            <option value="-">${osList.skill_level!"-"}</option>
                             <option value="-">-</option>
                             <option value="○">○</option>
                             <option value="△">△</option>
@@ -123,9 +123,10 @@
             <td>
                 <ul>
                     <#list EachSkillsScript as sList>
+                    <input type="hidden" value="${sList.id}" name="s_id">
                       <li>${sList.skill_name!""}
                           <select name="sList">
-                              <option selected>${sList.skill_level!"-"}</option>
+                              <option value="-">${sList.skill_level!"-"}</option>
                               <option value="-">-</option>
                               <option value="○">○</option>
                               <option value="△">△</option>　
@@ -137,9 +138,10 @@
             <td>
                 <ul>
                     <#list EachSkillsDB as dbList>
+                    <input type="hidden" value="${dbList.id}" name="db_id">
                       <li>${dbList.skill_name!""}
                           <select name="dbList">
-                              <option selected>${dbList.skill_level!"-"}</option>
+                              <option value="-">${dbList.skill_level!"-"}</option>
                               <option value="-">-</option>
                               <option value="○">○</option>
                               <option value="△">△</option>
@@ -156,6 +158,7 @@
 
 <#list EmpWorkLists as empWorklist>
     <table border=1 style="border-collapse: collapse">
+        <input type="hidden" value="${empWorklist.history_id}" name="histories_id">
         <tr>
             <th>業種</th>
             <th class="disp">プロジェクト</th>
@@ -163,16 +166,18 @@
         </tr>
 
         <tr>
-            <td><input type="text" name="industry" value="${empWorklist.industry!""}"></td>
+            <td><input type="text" name="industry" value="${empWorklist.industry!""}" class="input_update"></td>
             <td>
                 <select name="project_id">
-                    <option value="${empWorklist.project_id!""}">${empWorklist.projects_name!""}</option>
+                    <option value="0">${empWorklist.projects_name!""}</option>
                     <#list ProLists as proList>
                     <option value="${proList.id}">${proList.name!""}</option>
                     </#list>
                 </select>
             </td>
-            <td><input type="text" size="10" name="work_start" value="${empWorklist.work_start!""}">〜<input type="text" size="10" name="work_end" value="${empWorklist.work_end!""}"></td>
+            <td><input type="text" size="10" name="work_start" value="${empWorklist.work_start!""}" class="input_update">
+                〜
+                <input type="text" size="10" name="work_end" value="${empWorklist.work_end!""}" class="input_update"></td>
             <td>
                 <script>
                     var sday = "${empWorklist.work_start!"noStartDate"}";
@@ -245,10 +250,10 @@
             <th>役割</th>
         </tr>
         <tr>
-            <td colspan="2"><input type="text" name="system_sum" value="${empWorklist.system_sum!""}"></td>
+            <td colspan="2"><input type="text" name="system_sum" value="${empWorklist.system_sum!""}" class="input_update"></td>
             <td>
                 <select name="dev_scale">
-                    <option>${empWorklist.dev_scale!""}</option>
+                    <option value="0">${empWorklist.dev_scale!""}</option>
                     <option value="5人以下">5人以下</option>
                     <option value="10人以下">10人以下</option>
                     <option value="15人以下">15人以下</option>
@@ -259,7 +264,7 @@
                     <option value="50人以上">50以上</option>
                 </select>
             </td>
-            <td><input type="text" size="20" name="role" value="${empWorklist.role!""}"></td>
+            <td><input type="text" size="20" name="role" value="${empWorklist.role!""}" class="input_update"></td>
 
         </tr>
         <tr>
@@ -274,16 +279,17 @@
                     </#list>
                 </ul>
             </td>
-            <td colspan="2"><input type="text" size="80" name="dev_environment" value="${empWorklist.dev_environment!""}"></td>
+            <td colspan="2"><input type="text" size="80" name="dev_environment" value="${empWorklist.dev_environment!""}" class="input_update"></td>
         </tr>
 
         <tr>
             <th colspan="4">システムの詳細</th>
         </tr>
         <tr>
-            <td colspan="4"><input type="textarea" cols="120" name="system_details" value="${empWorklist.system_details!""}"></td>
+            <td colspan="4"><input type="textarea" cols="120" name="system_details" value="${empWorklist.system_details!""}" class="input_update"></td>
         </tr>
     </table>
+
 </#list>
 </div>
 </form>
