@@ -36,7 +36,6 @@
             <#list os_lists as os>
             <tr>
                 <td class="skill_data">${os.name}</td>
-                <td class="skill_edit_delete"><button class="skill_edit_button">編集</button></td>
                 <form method="post" action="/career/skillCheck/delete" onSubmit="return confirmDelete()">
                     <input type="hidden" value="${os.id}" name="id">
                     <td class="skill_edit_delete">
@@ -55,7 +54,6 @@
             <#list script_lists as script>
             <tr>
                 <td class="skill_data">${script.name}</td>
-                <td class="skill_edit_delete"><button class="skill_edit_button">編集</button></td>
                 <form method="post" action="/career/skillCheck/delete" onSubmit="return confirmDelete()">
                     <input type="hidden" value="${script.id}" name="id">
                     <td class="skill_edit_delete">
@@ -73,7 +71,6 @@
             <#list db_lists as db>
             <tr>
                 <td class="skill_data">${db.name}</td>
-                <td class="skill_edit_delete"><button class="skill_edit_button">編集</button></td>
                 <form method="post" action="/career/skillCheck/delete" onSubmit="return confirmDelete()">
                     <input type="hidden" value="${db.id}" name="id">
                     <td class="skill_edit_delete">
