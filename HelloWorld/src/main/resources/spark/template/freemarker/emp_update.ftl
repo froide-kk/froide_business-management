@@ -143,10 +143,38 @@
             </form>
         </tr>
         </#list>
+
+    <!--従業員再追加のテーブル-->
+    <table class="emp_delete_table">
+        <tr class="emp_delete_list">
+            <th class="emp_delete_row">ID</th>
+            <th class="emp_delete_row">名前</th>
+            <th class="emp_delete_row">所属部署</th>
+            <th class="emp_delete_row">入社年月</th>
+            <th class="emp_delete_row">メールアドレス</th>
+        </tr>
+
+        <tr class="emp_delete_item">
+            <#list DeleteEmpLists as DeleteList>
+            <td class="emp_delete_col">${DeleteList.id}</td>
+            <td class="emp_delete_col">${DeleteList.emp_name}</td>
+            <td class="emp_delete_col">${DeleteList.dep_name}</td>
+            <td class="emp_delete_col">${DeleteList.join_date}</td>
+            <td class="emp_delete_col">${DeleteList.email}</td>
+            <form method="post" action="/career/empUpdate/reAdd">
+                <td class="emp_delete_col2">
+                    <input type="hidden" value="${DeleteList.id}" name="id">
+                    <input type="submit" class="emp_delete_button" value="再追加" onClick="confirmationReAdd()">
+                </td>
+            </form>
+        </tr>
+    </#list>
+    </table>
+
     </table>
     <p class="statement">※情報の修正・変更をしたい場合は対象の名称をクリックしてテキストボックスに入力して保存ボタンを押すと、変更を保存できます</p>
     <p class="statement">※IDと名前の変更はできません</p>
-    <p class="statement">※削除ボタンを押すと、対象のプロジェクトを削除することができます(企業名の削除はできません)</p>
+    <p class="statement">※削除ボタンを押すと、従業員を削除することができます</p>
 
     <script>
     function confirmKeep() {
