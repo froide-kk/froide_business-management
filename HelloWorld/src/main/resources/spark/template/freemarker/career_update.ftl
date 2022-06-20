@@ -111,7 +111,7 @@
                     <#list EachSkillsOS as osList>
                     <li>${osList.skill_name!""}
                         <select name="osList">
-                            <option selected>${osList.skill_level!"-"}</option>
+                            <option selected value=${osList.skill_level!"-"}">${osList.skill_level!"-"}</option>
                             <option value="-">-</option>
                             <option value="○">○</option>
                             <option value="△">△</option>

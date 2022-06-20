@@ -18,4 +18,7 @@ public interface EmployeesEachSkillsDao {
 
     @Delete
     int delete(EmployeesEachSkills employeesEachSkills);
+
+    @Update(include= {"skill_level"})
+    int updateOS(EmployeesEachSkills empEachSkills);
 }
