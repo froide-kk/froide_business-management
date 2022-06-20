@@ -4,6 +4,7 @@ import org.seasar.doma.Metamodel;
 @Entity(metamodel = @Metamodel)
 public class EmployeesEachSkills {
     Integer id;
+    Integer employee_id;
     String attribute_name;
     String skill_name;
     String skill_level;
@@ -15,6 +16,14 @@ public class EmployeesEachSkills {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getEmployee_id() {
+        return employee_id;
+    }
+
+    public void setEmployee_id(Integer employee_id) {
+        this.employee_id = employee_id;
     }
 
     public String getAttribute_name() {

@@ -1,5 +1,6 @@
 select
-   Employees.id,
+   Employee_skills.id,
+   Employees.id as employee_id,
    Skill_attributes.name AS attribute_name,
    Skills.name AS skill_name,
    Employee_skills.skill_level
@@ -15,8 +16,8 @@ left outer join
 on
       `Employee_skills`.skill_id = `Skills`.id
 left outer join
-	  `Skill_attributes`
+     `Skill_attributes`
 on
-	  `Skills`.skill_attribute_id = `Skill_attributes`.id
+     `Skills`.skill_attribute_id = `Skill_attributes`.id
 
 where `Employees`.id = /* id */0 and `Skills`.skill_attribute_id = 2
