@@ -5,6 +5,7 @@ select
    Employees.birthday,
    Employees.address,
    Employees.final_education,
+   Work_histories.id AS histories_id,
    Work_histories.work_start,
    Work_histories.work_end,
    Work_histories.industry,
@@ -14,7 +15,6 @@ select
    Work_histories.dev_scale,
    Work_histories.system_details,
    Work_histories.dev_environment
-
 
 from
     `Employees`

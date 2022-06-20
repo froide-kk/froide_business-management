@@ -342,7 +342,9 @@ justify-content: center;
     font-size: 2rem;
     text-align:center;
 }
-
+.input_update{
+width:100%;
+}
 /* システム詳細入力フォームの横幅設定 */
 .system {
     width:1285px;

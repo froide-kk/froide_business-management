@@ -14,5 +14,6 @@ public interface Employee_skillsDao {
     @Delete
     int delete(Employee_skills employee_skills);
 
-
+    @Update(include = {"id","skill_level"})
+    int updateSkillLevel(Employee_skills employee_skills);
 }

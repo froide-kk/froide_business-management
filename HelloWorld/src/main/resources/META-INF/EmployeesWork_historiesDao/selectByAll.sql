@@ -5,6 +5,7 @@ select
    Employees.birthday,
    Employees.address,
    Employees.final_education,
+   Work_histories.id as history_id,
    Work_histories.work_start,
    Work_histories.work_end,
    Work_histories.industry,
@@ -38,12 +39,16 @@ on
 WHERE
    `Employees`.id = /* id */0
 
-GROUP by `Projects`.id,
-            `Work_histories`.work_start,
-            `Work_histories`.work_end,
-            `Work_histories`.industry,
-              `Work_histories`.system_sum,
-              `Work_histories`.role,
-                 `Work_histories`.dev_scale,
-                 `Work_histories`.system_details,
-                 `Work_histories`.dev_environment
+GROUP by
+    `Projects`.id,
+    `Work_histories`.id,
+    `Work_histories`.work_start,
+    `Work_histories`.work_end,
+    `Work_histories`.industry,
+    `Work_histories`.system_sum,
+    `Work_histories`.role,
+    `Work_histories`.dev_scale,
+    `Work_histories`.system_details,
+    `Work_histories`.dev_environment
+ORDER BY
+    `Work_histories`.id

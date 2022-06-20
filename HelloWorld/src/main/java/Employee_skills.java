@@ -6,9 +6,19 @@ public class Employee_skills {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
     Integer employee_id;
     Integer skill_id;
     Integer delete_flag;
+    String skill_level;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getEmployee_id() {
         return employee_id;
@@ -34,5 +44,9 @@ public class Employee_skills {
         this.delete_flag = delete_flag;
     }
 
+    public String getSkill_level(){return skill_level;}
+    public void setSkill_level(String skill_level){
+        this.skill_level = skill_level;
+    }
 
 }

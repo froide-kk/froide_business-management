@@ -5,6 +5,38 @@ import java.sql.Date;
 
 @Entity(metamodel = @Metamodel)
 public class EmployeesWork_histories {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //Employeesテーブル
+    Integer id;
+    String name;
+    String birthday;
+    String final_education;
+    String license;
+    String address;
+
+    //経歴詳細テーブル
+    @Column(name = "history_id")
+    Integer history_id;
+    String industry;
+    String system_sum;
+    String projects_name;
+
+    String projects_id;
+    String dev_scale;
+
+    String system_details;
+
+    String dev_environment;
+    String role;
+
+    //Work_historiesテーブル
+    java.sql.Date work_start;
+    java.sql.Date work_end;
+    Integer project_id;
+    Integer employee_id;
+
+    String dpp_name;
 
     public String getName() {
         return name;
@@ -46,40 +78,6 @@ public class EmployeesWork_histories {
         this.address = address;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //Employeesテーブル
-    Integer id;
-
-    String name;
-    String birthday;
-    String final_education;
-    String license;
-    String address;
-
-
-    //    経歴詳細テーブル
-    Integer history_id;
-    String industry;
-    String system_sum;
-    String projects_name;
-
-    String projects_id;
-    String dev_scale;
-
-    String system_details;
-
-    String dev_environment;
-    String role;
-
-    //Work_historiesテーブル
-    java.sql.Date work_start;
-    java.sql.Date work_end;
-    Integer project_id;
-    Integer employee_id;
-
-    String dpp_name;
-
     public String getDpp_name() {
         return dpp_name;
     }
@@ -87,7 +85,6 @@ public class EmployeesWork_histories {
     public void setDpf_name(String dpp_name) {
         this.dpp_name = dpp_name;
     }
-
 
     public String getProjects_id() {
         return projects_id;
@@ -100,62 +97,48 @@ public class EmployeesWork_histories {
     public Integer getProject_id() {
         return project_id;
     }
-
     public void setProject_id(Integer project_id) {
         this.project_id = project_id;
     }
     public String getSystem_details() {
         return system_details;
     }
-
     public void setSystem_details(String system_details) {
         this.system_details = system_details;
     }
-
     public String getDev_environment() {
         return dev_environment;
     }
-
     public void setDev_environment(String dev_environment) {
         this.dev_environment = dev_environment;
     }
-
     public String getDev_scale() {
         return dev_scale;
     }
-
     public void setDev_scale(String dev_scale) {
         this.dev_scale = dev_scale;
     }
-
-
     public String getRole() {
         return role;
     }
-
     public void setRole(String role) {
         this.role = role;
     }
     public String getIndustry() {
         return industry;
     }
-
     public void setIndustry(String industry) {
         this.industry = industry;
     }
-
     public String getSystem_sum() {
         return system_sum;
     }
-
     public void setSystem_sum(String system_sum) {
         this.system_sum = system_sum;
     }
-
     public String getProjects_name() {
         return projects_name;
     }
-
     public void setProjects_name(String projects_name) {
         this.projects_name = projects_name;
     }
@@ -175,6 +158,11 @@ public class EmployeesWork_histories {
         this.id = id;
     }
 
+    public void setHistory_id(Integer history_id){this.history_id = history_id;}
+
+    public Integer getHistory_id(){
+        return history_id;
+    }
 
     public Date getWork_start() {
         return work_start;
