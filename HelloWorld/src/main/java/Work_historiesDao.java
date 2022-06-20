@@ -27,5 +27,5 @@ public interface Work_historiesDao {
     @Update(include = {"id","work_start","work_end"})
     int updateWorkStartEnd(Work_histories work_histories);
 
-
 }
+

@@ -15,9 +15,9 @@
     <h2><a class ="header_title" href="http://localhost:4567/career">業務経歴管理サイト</a></h2>
     <nav>
         <ul class="header_right">
-<!--            <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>-->
+            <!--            <li><a href="http://localhost:4567/career/show(id)">My Page</a></li>-->
             <li><a href="http://localhost:4567/career/management">管理者</a></li>
-<!--            <li><input type="button" class="logout" onclick="location.href='/career/login'" value="ログアウト"></li>-->
+            <!--            <li><input type="button" class="logout" onclick="location.href='/career/login'" value="ログアウト"></li>-->
         </ul>
     </nav>
 </header>
@@ -34,28 +34,28 @@
 <!---------- 保存ボタン ---------->
 <form method="post" action="/career/update">
     <button type="submit" value="${id}" name="id" class="keep">保存</button>
-<!---------- 業務経歴書の部分 ---------->
-<div class="careerSheet">
-    <h1 class="sheetHead">業務経歴書 編集画面</h1>
+    <!---------- 業務経歴書の部分 ---------->
+    <div class="careerSheet">
+        <h1 class="sheetHead">業務経歴書 編集画面</h1>
 
-    <table border="1" style="border-collapse: collapse">
-        <tr>
-            <th>氏名</th>
-            <th>生年月日</th>
-            <th>年齢</th>
-            <th>住所</th>
-            <th>最終学歴</th>
-        </tr>
+        <table border="1" style="border-collapse: collapse">
+            <tr>
+                <th>氏名</th>
+                <th>生年月日</th>
+                <th>年齢</th>
+                <th>住所</th>
+                <th>最終学歴</th>
+            </tr>
 
-        <tr>
-            <td>
-                <input type="text" size="42" value="${name!""}" name="name" class="input_update">
-            </td>
-            <td>
-                <input type="text" value="${birthday!""}" name="birthday" class="input_update">
+            <tr>
+                <td>
+                    <input type="text" size="42" value="${name!""}" name="name" class="input_update">
+                </td>
+                <td>
+                    <input type="text" value="${birthday!""}" name="birthday" class="input_update">
 
-            </td>
-            <td> <script>
+                </td>
+                <td> <script>
                     //inputされた値をリアルタイムbirthdayに代入したい
                     let Birtday = "${birthday!""}"
                     let birtdayAry = Birtday.split('-')
@@ -82,104 +82,104 @@
                 <td><input type="text" value="${final_education!""}" name="final_education" class="input_update"></td>
             </tr>
 
-        <tr>
-            <th colspan="5">資格</th>
-        </tr>
-        <tr>
-            <td colspan="5"><input type="text" size="120" value="${license!""}" name="license" class="input_update"></td>
-        </tr>
-    </table>
+            <tr>
+                <th colspan="5">資格</th>
+            </tr>
+            <tr>
+                <td colspan="5"><input type="text" size="120" value="${license!""}" name="license" class="input_update"></td>
+            </tr>
+        </table>
 
 
-    <br>
+        <br>
 
-    <div class ="Level">
-        <p>○　業務で使用経験あり  △　個人レベルで対応可能</p>
-    </div>
+        <div class ="Level">
+            <p>○　業務で使用経験あり  △　個人レベルで対応可能</p>
+        </div>
 
-    <table border=1 style="border-collapse: collapse">
-        <tr>
-            <th>OS</th>
-            <th>対応可能スクリプト・ツール</th>
-            <th>DB</th>
-        </tr>
+        <table border=1 style="border-collapse: collapse">
+            <tr>
+                <th>OS</th>
+                <th>対応可能スクリプト・ツール</th>
+                <th>DB</th>
+            </tr>
 
-        <tr>
-            <td>
-                <ul>
-                    <#list EachSkillsOS as osList>
-                    <input type="hidden" value="${osList.id}" name="os_id">
-                    <li>${osList.skill_name!""}
-                        <select name="osList">
-                            <option value="-">${osList.skill_level!"-"}</option>
-                            <option value="-">-</option>
-                            <option value="○">○</option>
-                            <option value="△">△</option>
-                        </select>
-                    </li>
+            <tr>
+                <td>
+                    <ul>
+                        <#list EachSkillsOS as osList>
+                        <input type="hidden" value="${osList.id}" name="os_id">
+                        <li>${osList.skill_name!""}
+                            <select name="osList">
+                                <option value="-">${osList.skill_level!"-"}</option>
+                                <option value="-">-</option>
+                                <option value="○">○</option>
+                                <option value="△">△</option>
+                            </select>
+                        </li>
                     </#list>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <#list EachSkillsScript as sList>
-                    <input type="hidden" value="${sList.id}" name="s_id">
-                      <li>${sList.skill_name!""}
-                          <select name="sList">
-                              <option value="-">${sList.skill_level!"-"}</option>
-                              <option value="-">-</option>
-                              <option value="○">○</option>
-                              <option value="△">△</option>　
-                          </select>
-                      </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <#list EachSkillsScript as sList>
+                        <input type="hidden" value="${sList.id}" name="s_id">
+                        <li>${sList.skill_name!""}
+                            <select name="sList">
+                                <option value="-">${sList.skill_level!"-"}</option>
+                                <option value="-">-</option>
+                                <option value="○">○</option>
+                                <option value="△">△</option>
+                            </select>
+                        </li>
                     </#list>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <#list EachSkillsDB as dbList>
-                    <input type="hidden" value="${dbList.id}" name="db_id">
-                      <li>${dbList.skill_name!""}
-                          <select name="dbList">
-                              <option value="-">${dbList.skill_level!"-"}</option>
-                              <option value="-">-</option>
-                              <option value="○">○</option>
-                              <option value="△">△</option>
-                          </select></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <#list EachSkillsDB as dbList>
+                        <input type="hidden" value="${dbList.id}" name="db_id">
+                        <li>${dbList.skill_name!""}
+                            <select name="dbList">
+                                <option value="-">${dbList.skill_level!"-"}</option>
+                                <option value="-">-</option>
+                                <option value="○">○</option>
+                                <option value="△">△</option>
+                            </select></li>
                     </#list>
-                </ul>
-            </td>
-        </tr>
-    </table>
+                    </ul>
+                </td>
+            </tr>
+        </table>
 
-    <br>
+        <br>
 
 
 
-<#list EmpWorkLists as empWorklist>
-    <table border=1 style="border-collapse: collapse">
-        <input type="hidden" value="${empWorklist.history_id}" name="histories_id">
-        <tr>
-            <th>業種</th>
-            <th class="disp">プロジェクト</th>
-            <th class="period_change" colspan="2">期間</th>
-        </tr>
+        <#list EmpWorkLists as empWorklist>
+        <table border=1 style="border-collapse: collapse">
+            <input type="hidden" value="${empWorklist.history_id}" name="histories_id">
+            <tr>
+                <th>業種</th>
+                <th class="disp">プロジェクト</th>
+                <th class="period_change" colspan="2">期間</th>
+            </tr>
 
-        <tr>
-            <td><input type="text" name="industry" value="${empWorklist.industry!""}" class="input_update"></td>
-            <td>
-                <select name="project_id">
-                    <option value="0">${empWorklist.projects_name!""}</option>
-                    <#list ProLists as proList>
-                    <option value="${proList.id}">${proList.name!""}</option>
+            <tr>
+                <td><input type="text" name="industry" value="${empWorklist.industry!""}" class="input_update"></td>
+                <td>
+                    <select name="project_id">
+                        <option value="0">${empWorklist.projects_name!""}</option>
+                        <#list ProLists as proList>
+                        <option value="${proList.id}">${proList.name!""}</option>
                     </#list>
-                </select>
-            </td>
-            <td><input type="text" size="10" name="work_start" value="${empWorklist.work_start!""}" class="input_update">
-                〜
-                <input type="text" size="10" name="work_end" value="${empWorklist.work_end!""}" class="input_update"></td>
-            <td>
-                <script>
+                    </select>
+                </td>
+                <td><input type="text" size="10" name="work_start" value="${empWorklist.work_start!""}" class="input_update">
+                    〜
+                    <input type="text" size="10" name="work_end" value="${empWorklist.work_end!""}" class="input_update"></td>
+                <td>
+                    <script>
                     var sday = "${empWorklist.work_start!"noStartDate"}";
                     var eday = "${empWorklist.work_end!"noEndDate"}";
                     console.log(sday);
@@ -241,71 +241,64 @@
                     };
                    };
                 </script>
-            </td>
-        </tr>
+                </td>
+            </tr>
 
-        <tr>
-            <th colspan="2">システムの概要</th>
-            <th>開発規模</th>
-            <th>役割</th>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="text" name="system_sum" value="${empWorklist.system_sum!""}" class="input_update"></td>
-            <td>
-                <select name="dev_scale">
-                    <option value="0">${empWorklist.dev_scale!""}</option>
-                    <option value="5人以下">5人以下</option>
-                    <option value="10人以下">10人以下</option>
-                    <option value="15人以下">15人以下</option>
-                    <option value="20人以下">20人以下</option>
-                    <option value="30人以下">30人以下</option>
-                    <option value="40人以下">40人以下</option>
-                    <option value="50人以下">50人以下</option>
-                    <option value="50人以上">50以上</option>
-                </select>
-            </td>
-            <td><input type="text" size="20" name="role" value="${empWorklist.role!""}" class="input_update"></td>
+            <tr>
+                <th colspan="2">システムの概要</th>
+                <th>開発規模</th>
+                <th>役割</th>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" name="system_sum" value="${empWorklist.system_sum!""}" class="input_update"></td>
+                <td>
+                    <select name="dev_scale">
+                        <option value="0">${empWorklist.dev_scale!""}</option>
+                        <option value="5人以下">5人以下</option>
+                        <option value="10人以下">10人以下</option>
+                        <option value="15人以下">15人以下</option>
+                        <option value="20人以下">20人以下</option>
+                        <option value="30人以下">30人以下</option>
+                        <option value="40人以下">40人以下</option>
+                        <option value="50人以下">50人以下</option>
+                        <option value="50人以上">50以上</option>
+                    </select>
+                </td>
+                <td><input type="text" size="20" name="role" value="${empWorklist.role!""}" class="input_update"></td>
 
-        </tr>
-        <tr>
-            <th colspan="2">開発担当フェーズ</th>
-            <th colspan="2">使用言語</th>
-        </tr>
+            </tr>
+            <tr>
+                <th colspan="2">開発担当フェーズ</th>
+                <th colspan="2">使用言語</th>
+            </tr>
 
-
-
-
-        <tr>
-            <td colspan="2">
-                <ul id="phase"  multiple size="3">
-
-                    <#list dev_period_phasesLists as dppList>
-
-                             <#assign x = "${dppList.name}">
-                                <#assign y = "${empWorklist.dpp_name}">
-                            <#if  y ?contains (x) >
-                                 <input type="checkbox"　value="${dppList.id}" checked >${dppList.name}
-                            <#else>
-                                <input type="checkbox"　value="${dppList.id}"  >${dppList.name}
-                            </#if>
-                    </#list>
-
-
+            <tr>
+                <td colspan="2">
+                    <ul id="phase"  multiple size="3">
+                        <#list dev_period_phasesLists as dppList>
+                        <#assign x = "${dppList.name}">
+                        <#assign y = "${empWorklist.dpp_name}">
+                        <#if  y ?contains (x) >
+                        <input type="checkbox"　value="${dppList.id}" checked >${dppList.name}
+                        <#else>
+                        <input type="checkbox"　value="${dppList.id}"  >${dppList.name}
+                    </#if>
+                </#list>
                 </ul>
-            </td>
-            <td colspan="2"><input type="text" size="80" name="dev_environment" value="${empWorklist.dev_environment!""}" class="input_update"></td>
-        </tr>
+                </td>
+                <td colspan="2"><input type="text" size="80" name="dev_environment" value="${empWorklist.dev_environment!""}" class="input_update"></td>
+            </tr>
 
-        <tr>
-            <th colspan="4">システムの詳細</th>
-        </tr>
-        <tr>
-            <td colspan="4"><input type="textarea" cols="120" name="system_details" value="${empWorklist.system_details!""}" class="input_update"></td>
-        </tr>
-    </table>
+            <tr>
+                <th colspan="4">システムの詳細</th>
+            </tr>
+            <tr>
+                <td colspan="4"><input type="textarea" cols="120" name="system_details" value="${empWorklist.system_details!""}" class="input_update"></td>
+            </tr>
+        </table>
 
-</#list>
-</div>
+    </#list>
+    </div>
 </form>
 
 

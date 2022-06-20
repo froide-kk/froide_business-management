@@ -89,20 +89,20 @@ public class main {
                     attribute.put("Emplists", EmpDepartments);
                     //誕生月検索
                 }else if(searchBirthDay != null){
-                        //searchBirthDayがnullではない時、
-                        List<Employees> EmpBir = empDao.selectByBirthDay(searchBirthDay);
-                        attribute.put("Emplists",EmpBir);
+                    //searchBirthDayがnullではない時、
+                    List<Employees> EmpBir = empDao.selectByBirthDay(searchBirthDay);
+                    attribute.put("Emplists",EmpBir);
                     //入社年月
                 } else if(join_date == null){
 
                 }else if(join_date.equals("0")){
-                        System.out.println(join_date);
-                        List<Employees> EmpAsc = empDao.selectAllAsc();
-                        attribute.put("Emplists", EmpAsc);
+                    System.out.println(join_date);
+                    List<Employees> EmpAsc = empDao.selectAllAsc();
+                    attribute.put("Emplists", EmpAsc);
                 }else if(join_date.equals("1")){
-                        System.out.println(join_date);
-                        List<Employees> EmpDes = empDao.selectAllDes();
-                        attribute.put("Emplists", EmpDes);
+                    System.out.println(join_date);
+                    List<Employees> EmpDes = empDao.selectAllDes();
+                    attribute.put("Emplists", EmpDes);
                 }
             });
 
@@ -143,7 +143,7 @@ public class main {
                 //プロジェクトのリスト
                 List<EmployeesWork_histories> employeesWork_histories = empWork_histories.selectByAll(Integer.valueOf(id));
                 attribute.put("EmpWorkLists",employeesWork_histories);
-              
+
 //                プロジェクトのプルダウンメニュー
                 List<Projects> projects = projectsDao.selectAll();
                 attribute.put("ProLists",projects);
@@ -175,7 +175,7 @@ public class main {
 
             Employee_skillsDao e_skillsDao = new Employee_skillsDaoImpl(DbConfig.singleton());
             EmployeesWork_historiesDao e_w_historiesDao = new EmployeesWork_historiesDaoImpl(DbConfig.singleton());
-          
+
             EmployeesEachSkillsDao empEachSkills = new EmployeesEachSkillsDaoImpl(DbConfig.singleton());
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
             Map<String, Object> attribute = new HashMap<>();
@@ -249,7 +249,7 @@ public class main {
             }
 
 //            //employees_skills関連
-            if(!Objects.equals(osLevel, "-")){
+            if(!Objects.equals(osLevel, "-") && osID != null){
                 tm.required(() -> {
                     Employee_skills employee_skills = new Employee_skills();
                     employee_skills.setId(Integer.valueOf(osID));
@@ -258,7 +258,7 @@ public class main {
                 });
             }
 
-            if(!Objects.equals(scriptLevel, "-") ){
+            if(!Objects.equals(scriptLevel, "-") && sID != null ){
                 tm.required(() -> {
                     Employee_skills employee_skills = new Employee_skills();
                     employee_skills.setId(Integer.valueOf(sID));
@@ -307,13 +307,18 @@ public class main {
                     historiesDao.updateDevScale(histories);
                 });
             }
-                tm.required(() -> {
-                    Work_histories histories = new Work_histories();
-                    histories.setId(Integer.valueOf(req.queryParams("histories_id")));
-                    histories.setWork_start(Date.valueOf(work_start));
-                    histories.setWork_end(Date.valueOf(work_end));
-                    historiesDao.updateWorkStartEnd(histories);
-                });
+
+//            tm.required(() -> {
+//                Work_histories histories = new Work_histories();
+//                histories.setId(Integer.valueOf(req.queryParams("histories_id")));
+//                histories.setWork_start(Date.valueOf(work_start));
+//                histories.setWork_end(Date.valueOf(work_end));
+//                historiesDao.updateWorkStartEnd(histories);
+//            });
+
+            tm.required(() -> {
+                Dev_periods dev_periods = new Dev_periods();
+            });
 
             res.redirect("/career/show?id=" + id);
 
@@ -470,7 +475,7 @@ public class main {
                     attribute.put("OrdinaryLists", OrdSearchLists);
                 }
             });
-                return new FreeMarkerEngine().render(new ModelAndView(attribute, "admin_authorize.ftl"));
+            return new FreeMarkerEngine().render(new ModelAndView(attribute, "admin_authorize.ftl"));
         });
 
 //        権限管理者の権限を削除するところ
@@ -551,17 +556,17 @@ public class main {
             String join_date = req.queryParams("join_date");
             String email = req.queryParams("email");
 
-                //データベースに登録する
-                EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
-                TransactionManager tm = DbConfig.singleton().getTransactionManager();
-                tm.required(() -> {
-                    Employees employee = new Employees();
-                    employee.setName(name);
-                    employee.setDepartment_id(Integer.valueOf(department_id));
-                    employee.setJoin_date(Date.valueOf(join_date));
-                    employee.setEmail(email);
-                    empDao.insertEmp(employee);
-                });
+            //データベースに登録する
+            EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
+            TransactionManager tm = DbConfig.singleton().getTransactionManager();
+            tm.required(() -> {
+                Employees employee = new Employees();
+                employee.setName(name);
+                employee.setDepartment_id(Integer.valueOf(department_id));
+                employee.setJoin_date(Date.valueOf(join_date));
+                employee.setEmail(email);
+                empDao.insertEmp(employee);
+            });
 
             //画面に表示する
             attribute.put("name",name);
@@ -579,7 +584,7 @@ public class main {
             EmployeesDao empDao= new EmployeesDaoImpl(DbConfig.singleton());
 
             TransactionManager tm = DbConfig.singleton().getTransactionManager();
-            
+
             String departmentID = req.queryParams("input_dep_id");
             String joinDate = req.queryParams("input_joinDate");
             String Email = req.queryParams("input_email");
@@ -609,13 +614,13 @@ public class main {
             }
 //
             if(Email.length() <= 256 && !Objects.equals(Email,"")) {
-                    tm.required(() -> {
-                        Employees employees = new Employees();
-                        employees.setEmail(Email);
-                        employees.setId(Integer.valueOf(req.queryParams("id")));
-                        empDao.updateEmail(employees);
-                    });
-                }
+                tm.required(() -> {
+                    Employees employees = new Employees();
+                    employees.setEmail(Email);
+                    employees.setId(Integer.valueOf(req.queryParams("id")));
+                    empDao.updateEmail(employees);
+                });
+            }
 
             res.redirect("/career/empUpdate");
             return res;
